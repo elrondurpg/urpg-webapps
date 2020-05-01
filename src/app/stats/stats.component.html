@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 d-none d-md-flex">
+            <urpg-stats-menu-bar (tabChange)="showTab($event)"></urpg-stats-menu-bar>
+        </div>
+        <div class="col col-md-8">
+            <urpg-pokemon-pane [hidden]="tab != 'pokemon'"></urpg-pokemon-pane>
+            <urpg-inventory-pane [hidden]="tab != 'inventory'"></urpg-inventory-pane>
+            <urpg-match-history-pane [hidden]="tab != 'match'"></urpg-match-history-pane>
+            <urpg-gyms-pane [hidden]="tab != 'gyms'"></urpg-gyms-pane>
+            <urpg-creations-pane [hidden]="tab != 'creations'"></urpg-creations-pane>
+            <urpg-characters-pane [hidden]="tab != 'characters'"></urpg-characters-pane>
+            <urpg-achievements-pane [hidden]="tab != 'achievements'"></urpg-achievements-pane>
+            <urpg-wishlist-pane [hidden]="tab != 'wishlist'"></urpg-wishlist-pane>
+            <urpg-change-log-pane [hidden]="tab != 'changelog'"></urpg-change-log-pane>
+        </div>
+    </div>
+</div>
+<div class="fixed-bottom d-md-none">
+    <urpg-stats-menu-tab></urpg-stats-menu-tab>
+</div>
