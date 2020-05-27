@@ -1,10 +1,13 @@
-<div class="container">
-    <div class="row">
+<div class="container-fluid" *ngIf="trainer !== undefined">
+    <div class="row header">
+        <urpg-stats-header [trainer]="trainer"></urpg-stats-header>
+    </div>
+    <div class="row content">
         <div class="col-md-4 d-none d-md-flex">
             <urpg-stats-menu-bar (tabChange)="showTab($event)"></urpg-stats-menu-bar>
         </div>
         <div class="col col-md-8">
-            <urpg-pokemon-pane [hidden]="tab != 'pokemon'"></urpg-pokemon-pane>
+            <urpg-pokemon-pane [hidden]="tab != 'pokemon'" [pokemon]="trainer.pokemon"></urpg-pokemon-pane>
             <urpg-inventory-pane [hidden]="tab != 'inventory'"></urpg-inventory-pane>
             <urpg-match-history-pane [hidden]="tab != 'match'"></urpg-match-history-pane>
             <urpg-gyms-pane [hidden]="tab != 'gyms'"></urpg-gyms-pane>

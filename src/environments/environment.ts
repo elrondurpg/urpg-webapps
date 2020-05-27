@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  api:"https://pokemonurpg.com:8443",
+  spriteBase: "https://pokemonurpg.com/img/sprites/",
+  iconBase: "https://pokemonurpg.com/img/icons/",
+  modelBase: "https://pokemonurpg.com/img/models/"
 };
 
 /*

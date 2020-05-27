@@ -1,0 +1,14 @@
+urpg-stats-header, urpg-stats-menu-bar {
+    width:100%;
+}
+
+.header
+{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    display: block;   
+    z-index:3;
+    max-height: 175px;
+    overflow:hidden;
+}

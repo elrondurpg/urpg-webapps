@@ -16,10 +16,11 @@ import { CharactersPaneComponent } from './characters-pane/characters-pane.compo
 import { AchievementsPaneComponent } from './achievements-pane/achievements-pane.component';
 import { WishlistPaneComponent } from './wishlist-pane/wishlist-pane.component';
 import { ChangeLogPaneComponent } from './change-log-pane/change-log-pane.component';
+import { StatsHeaderComponent } from './stats-header/stats-header.component';
 
 
 @NgModule({
-  declarations: [StatsComponent, StatsMenuBarComponent, StatsMenuTabComponent, ProfileInfoWidgetComponent, ProfileInfoPaneComponent, PokemonPaneComponent, InventoryPaneComponent, MatchHistoryPaneComponent, GymsPaneComponent, CreationsPaneComponent, CharactersPaneComponent, AchievementsPaneComponent, WishlistPaneComponent, ChangeLogPaneComponent],
+  declarations: [StatsComponent, StatsMenuBarComponent, StatsMenuTabComponent, ProfileInfoWidgetComponent, ProfileInfoPaneComponent, PokemonPaneComponent, InventoryPaneComponent, MatchHistoryPaneComponent, GymsPaneComponent, CreationsPaneComponent, CharactersPaneComponent, AchievementsPaneComponent, WishlistPaneComponent, ChangeLogPaneComponent, StatsHeaderComponent],
   imports: [
     CommonModule,
     StatsRoutingModule

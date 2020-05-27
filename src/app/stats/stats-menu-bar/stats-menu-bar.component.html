@@ -1,29 +1,17 @@
-<ul>
-    <li>
-        <button class="btn btn-primary" (click)="showTab('pokemon')">Pokemon</button>
-    </li>
-    <li>
-        <button class="btn btn-primary" (click)="showTab('inventory')">Inventory</button>
-    </li>
-    <li>
-        <button class="btn btn-primary" (click)="showTab('match')">Match History</button>
-    </li>
-    <li>
-        <button class="btn btn-primary" (click)="showTab('gyms')">Gyms</button>
-    </li>
-    <li>
-        <button class="btn btn-primary" (click)="showTab('creations')">Creations</button>
-    </li>
-    <li>
-        <button class="btn btn-primary" (click)="showTab('characters')">Characters</button>
-    </li>
-    <li>
-        <button class="btn btn-primary" (click)="showTab('achievements')">Achievements</button>
-    </li>
-    <li>
-        <button class="btn btn-primary" (click)="showTab('wishlist')">Wishlist</button>
-    </li>
-    <li>
-        <button class="btn btn-primary" (click)="showTab('changelog')">Change Log</button>
-    </li>
-</ul>
+<div class="container-fluid">
+    <div class="row justify-content-end">
+        <div class="col-6 overflow-hidden">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item" (click)="showTab('pokemon')">Pokemon</li>
+                <li class="list-group-item" (click)="showTab('inventory')">Inventory</li>
+                <li class="list-group-item" (click)="showTab('match')">Match History</li>
+                <li class="list-group-item" (click)="showTab('gyms')">Gyms</li>
+                <li class="list-group-item" (click)="showTab('creations')">Creations</li>
+                <li class="list-group-item" (click)="showTab('characters')">Characters</li>
+                <li class="list-group-item" (click)="showTab('pokemon')">Achievements</li>
+                <li class="list-group-item" (click)="showTab('pokemon')">Wishlist</li>
+                <li class="list-group-item" (click)="showTab('pokemon')">Change Log</li>
+            </ul>
+        </div>
+    </div>
+</div>
