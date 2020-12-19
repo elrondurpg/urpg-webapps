@@ -1,0 +1,98 @@
+<div class="container-fluid">
+    <div class="row pt-2 filters" *ngIf="pokemon.length > 0">
+        <div class="col-12 col-lg-6 col-xl-4 p-2">
+            <input class="form-control" type="text" placeholder="Filter by name or nickname" [(ngModel)]="nameFilter">
+        </div>
+        <div class="col-12 col-lg-6 col-xl-4 p-2">
+            <select class="form-control" [(ngModel)]="typeFilter">
+                <option selected value="undefined"> -- Filter by type -- </option>
+                <option *ngFor="let type of types" [value]="type">{{ type }}</option>
+            </select>
+        </div>
+        <div class="col-6 col-xl-2 p-2">
+            <div class="dropdown">
+                <button class="btn btn-secondary form-control dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Other Filters
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <div class="px-4 py-3">
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="feCheck" [(ngModel)]="onlyShowFePokemon">
+                                <label class="form-check-label" for="feCheck">
+                                    Only show fully evolved Pokemon
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="nfeCheck" [(ngModel)]="onlyShowNfePokemon">
+                                <label class="form-check-label" for="nfeCheck">
+                                    Only show NFE Pokemon
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="boxCheck" [(ngModel)]="onlyShowBoxPokemon">
+                                <label class="form-check-label" for="boxCheck">
+                                    Only show Pokemon in my battle box
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="jobCheck" [(ngModel)]="showJobPokemon">
+                                <label class="form-check-label" for="jobCheck">
+                                    Show Pokemon in jobs
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="uftCheck" [(ngModel)]="onlyShowUftPokemon">
+                                <label class="form-check-label" for="uftCheck">
+                                    Only show Pokemon up for trade
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-xl-2 p-2">
+            <div class="btn btn-primary form-control" (click)="clearFilters()">
+                Clear Filters
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="pokemon.length > 0">
+        <div class="my-2 d-flex col-12 col-lg-6 col-xl-4 py-2 px-xl-2 tag" *ngFor="let ownedPokemon of (pokemon | pokemonFilter: this); let i = index">
+            <div class="row mx-1 p-2 d-flex align-items-center border">
+                <div class="col d-flex align-items-center justify-content-center sprite">
+                    <img height="96px" src="{{ getSpritePath(ownedPokemon) }}" alt="">
+                </div>
+                <div class="col py-2">
+                    <div class="row">
+                        <div class="col d-flex align-items-center">
+                            {{ i + 1 }}. {{ ownedPokemon.nickname != "" ? ownedPokemon.nickname + " the " : "" }}{{ ownedPokemon.species.displayName }}&nbsp;
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col d-flex align-items-center">
+                            <span *ngIf="ownedPokemon.gender == 'M'" class="gender male text-center">M</span>
+                            <span *ngIf="ownedPokemon.gender == 'F'" class="gender female text-center">F</span>
+                            <span *ngIf="ownedPokemon.gender == 'G'" class="gender genderless text-center">G</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <span class="type" [ngClass]="ownedPokemon.species.type1.name | lowercase"> {{ ownedPokemon.species.type1.name }} </span>
+                            <span class="type" [ngClass]="ownedPokemon.species.type2.name | lowercase" *ngIf="ownedPokemon.species.type2.name !== 'NONE'"> {{ ownedPokemon.species.type2.name }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

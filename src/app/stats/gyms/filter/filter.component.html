@@ -1,0 +1,15 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 col-sm-6 p-2 pt-3 filters">
+            <input class="form-control" type="text" placeholder="Filter by gym name" [(ngModel)]="nameFilter" (input)="updateNameFilter()">
+        </div>
+        <div class="col-12 col-sm-6 p-2 pt-3 d-flex align-items-center justify-content-center filters">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="activeFilter" [(ngModel)]="activeFilter" (change)="updateActiveFilter()">
+                <label class="form-check-label" for="activeFilter">
+                    Show inactive gyms
+                </label>
+            </div>
+        </div>
+    </div>
+</div>

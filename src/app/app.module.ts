@@ -5,6 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { APP_BASE_HREF } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -13,9 +15,11 @@ import { APP_BASE_HREF } from '@angular/common';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    FormsModule,
+    HttpClientModule,
+    SharedModule
   ],
-  providers: [ {provide: APP_BASE_HREF, useValue: '/urpg-webapps'} ],
+  providers: [ {provide: APP_BASE_HREF, useValue: '/urpg-webapps/'} ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

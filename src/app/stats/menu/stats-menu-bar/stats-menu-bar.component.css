@@ -1,0 +1,15 @@
+.container {
+    height:100%;
+    box-shadow: 4px 0px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+li {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space:nowrap;
+}
+
+.list-group-item {
+    cursor: pointer;
+    padding-right: 0;
+}

@@ -1,0 +1,15 @@
+.progress {
+    height: 20px;
+}
+
+.progress-bar.bg-warning {
+    background-color: #EB9532!important;
+}
+
+.progress-bar {
+    font-size: 14px;
+}
+
+.embellished {
+    text-decoration:underline;
+}

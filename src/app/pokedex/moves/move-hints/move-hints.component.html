@@ -1,0 +1,15 @@
+<div class="container mt-2 pt-3 border rounded move-hints-inactive text-center" *ngIf="displayMove === undefined">
+    <p>Hover over a move to see more info</p>
+</div>
+<div class="container mt-2 py-2 border-top border-left border-right text-center move-hints-title" *ngIf="displayMove !== undefined">
+    <select class="form-control" [(ngModel)]="moveHintsType">
+        <option value="battle">Battle</option>
+        <option value="rse-contest">RSE Contest</option>
+        <option value="dpp-contest">DPP Contest</option>
+        <option value="oras-contest">ORAS Contest</option>
+    </select>
+</div>
+<pokedex-move-hints-battle [displayMove]="displayMove" *ngIf="moveHintsType == 'battle' && displayMove !== undefined"></pokedex-move-hints-battle>
+<pokedex-move-hints-contest-rse [displayMove]="displayMove" *ngIf="moveHintsType == 'rse-contest' && displayMove !== undefined"></pokedex-move-hints-contest-rse>
+<pokedex-move-hints-contest-dpp [displayMove]="displayMove" *ngIf="moveHintsType == 'dpp-contest' && displayMove !== undefined"></pokedex-move-hints-contest-dpp>
+<pokedex-move-hints-contest-oras [displayMove]="displayMove" *ngIf="moveHintsType == 'oras-contest' && displayMove !== undefined"></pokedex-move-hints-contest-oras>

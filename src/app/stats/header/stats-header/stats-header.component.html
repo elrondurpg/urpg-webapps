@@ -1,0 +1,15 @@
+<div class="container-fluid p-3">
+    <div class="row pl-4 pl-xl-0 justify-content-center">
+        <div class="col col-xl-8">
+            <h2>{{trainer.username}}</h2>
+        </div>
+    </div>
+    <div class="row pl-4 pl-xl-0 justify-content-center">
+        <div class="col col-md-6 col-xl-4">            
+            <h6 class="roles" data-toggle="tooltip" data-placement="Bottom" title="{{ getRoles() }}"><small><strong>Roles</strong>: {{ getRoles() }}</small></h6>
+        </div>
+        <div class="col-md-6 col-xl-4 d-none d-md-flex">
+            <h6><small><strong>Member Since</strong>: {{ getJoinDate() }}</small></h6>
+        </div>
+    </div>
+</div>

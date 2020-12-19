@@ -1,0 +1,48 @@
+<div class="container-fluid">
+	<nav class="navbar navbar-expand-sm fixed-top navbar-dark bg-dark">
+		<button class="navbar-toggler d-block" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<a class="navbar-brand pl-3" href="/info" target="_self">Pokemon URPG</a>
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item d-none d-sm-block">
+				<a class="nav-link" href="https://forum.pokemonurpg.com">Forum</a>
+			</li>
+			<li class="nav-item d-none d-sm-block">
+				<a class="nav-link" href="https://discord.gg/9HWgp95">Discord</a>
+			</li>
+			<li class="nav-item d-block d-sm-none text-secondary" *ngIf="username !== null">
+				{{ username }}
+			</li>
+			<li class="nav-item dropdown d-none d-sm-block" *ngIf="username !== null">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					{{ username }}
+				</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+					<a class="dropdown-item" href="/stats/{{ username }}">My Stats</a>
+					<a class="dropdown-item" href="/dashboard" target="_self">My Dashboard</a>
+					<a class="dropdown-item" href="/wp/wp-login.php" target="_self">Wordpress Login</a>
+					<div class="dropdown-divider"></div>
+					<button class="dropdown-item" (click)="logout()">Log out</button>
+				</div>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal" *ngIf="username === null">Admin Login</a>
+			</li>
+		</ul>
+		<form class="form-inline my-2 my-lg-0 d-none d-lg-block">
+			<input class="form-control mr-sm-2" type="search"  aria-label="Search" name="searchText"
+				    [(ngModel)]="searchText" 
+		 			placeholder="Enter search term">
+			
+			<select class="form-control mr-sm-2" [(ngModel)]="searchType" name="searchType">
+				<option value="pokemon">Pokemon</option>
+				<option value="stats">Trainer</option>
+			</select>		 
+
+			<button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="search()">Search</button>
+		</form>
+	</nav>
+
+	<urpg-login-modal></urpg-login-modal>
+</div>

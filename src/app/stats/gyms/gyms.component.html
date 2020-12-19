@@ -1,0 +1,99 @@
+<stats-gyms-filter (changeNameFilter)="updateNameFilter($event)" (changeActiveFilter)="updateActiveFilter($event)"></stats-gyms-filter>
+<div class="container-fluid">
+    <div class="row mt-2" *ngFor="let gym of getFilteredGyms()">
+        <div class="col pt-0 raised">
+            <div class="row">
+                <div class="col py-2 header">
+                    <div class="row">
+                        <div class="col">
+                            <strong>{{ gym.name }}</strong>
+                        </div>
+                        <div class="col d-flex justify-content-end">
+                            {{ getFormattedGymOpenDate(gym) }} {{ gym.active ? '' : '(Inactive)'}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row py-2">
+                <div class="col">
+                    <strong>{{ gym.league.name }}</strong>
+                </div>
+            </div>
+
+            <div class="row pb-2">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <strong>Prizes</strong>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            {{ gym.badge.name }}
+                        </div>
+                    </div>
+                    <div class="row pb-2">
+                        <div class="col">
+                            {{ gym.tm.name }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <strong>Record</strong>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row">
+                        <div>
+                            Wins: {{ gym.wins }}
+                        </div>
+                        <div class="pl-2">
+                            Losses: {{ gym.losses }}
+                        </div>
+                        <div class="pl-2">
+                            Draws: {{ gym.draws }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row pb-2">
+                <div class="col">
+                    <div class="row">
+                        <div class="col">
+                            <strong>Rules</strong> 
+                        </div>
+                        <div class="col">
+                            <strong>Winners</strong>: <span *ngFor="let winner of gym.winners; let last = last">{{ winner.member.username }}{{ !last ? ', ' : '' }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <strong>Pokemon</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 col-lg-4 col-xl-2" *ngFor="let pokemon of gym.pokemon">
+                    <div class="row h-100">
+                        <a class="col m-2 py-2 pokemon" href="/stats/pokemon/{{ pokemon.dbid }}">
+                            <div class="row">
+                                <div class="col text-center">
+                                    <img height="96px" width="96px" src="{{ getSpritePath(pokemon) }}" alt="">
+                                </div>
+                            </div>
+                            <div class="row d-flex justify-content-center align-items-center text-center">
+                                <div class="col">
+                                    {{ pokemon.nickname !== "" ? pokemon.nickname + " the " : "" }}{{ pokemon.species.name }}{{ pokemon.rental ? " (Rental)" : ""}}
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

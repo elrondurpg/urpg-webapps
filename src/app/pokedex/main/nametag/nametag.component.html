@@ -1,0 +1,15 @@
+<div class="container mt-4 p-0">
+    <div class="row d-flex align-items-center">
+        <div class="col-6 col-sm-5 text-center">
+            <pokedex-nametag-sprite [page]="page"></pokedex-nametag-sprite>
+        </div>
+        <div class="col-6 col-sm-7 d-flex align-items-center">
+            <pokedex-nametag-info [page]="page" #info></pokedex-nametag-info>
+        </div>
+    </div>
+    <div class="row d-flex align-items-center">
+        <div class="col">
+            <pokedex-nametag-forms [page]="page" (changeDisplayedForm)="changeDisplayedForm($event)"></pokedex-nametag-forms>
+        </div>
+    </div>
+</div>

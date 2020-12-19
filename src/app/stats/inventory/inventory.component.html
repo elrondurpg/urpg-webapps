@@ -1,0 +1,32 @@
+<stats-inventory-filter [types]="itemTypes" (changeNameFilter)="updateNameFilter($event)" (changeTypeFilter)="updateTypeFilter($event)"></stats-inventory-filter>
+<div class="container-fluid">
+    <div class="row mt-2">
+        <div class="col col-xl-6 py-0 raised">
+            <div class="row">
+                <div class="col py-2">
+                    <strong>Money</strong>
+                </div>
+                <div class="col d-flex align-items-center justify-content-end">
+                    {{ member.money | currency : 'USD' : '$' : '1.0-0' }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row my-2" *ngFor="let type of getFilteredItemTypes()">
+        <div class="col col-xl-6 py-0 raised">
+            <div class="row">
+                <div class="col py-2 header"> 
+                    <strong>{{ type }}</strong>
+                </div>
+            </div>
+            <div class="row py-2 item-row" *ngFor="let item of getFilteredItemsByType(type); let i = index" [ngClass]="i % 2 == 1 ? 'dark' : ''">
+                <div class="col">
+                    <span>{{ item.item.name }}</span>
+                </div>
+                <div class="col d-flex justify-content-end">
+                    <span>{{ item.quantity }}</span>
+                </div>
+            </div>
+        </div> 
+    </div>
+</div>

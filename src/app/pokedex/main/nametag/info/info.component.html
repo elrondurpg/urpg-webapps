@@ -1,0 +1,46 @@
+<div class="container nametag-container">
+    <div class="row">
+        <div class="col">
+            <h6 class="my-0 nametag-dexno"><strong>#{{ species.threeDigitDexno() }}</strong></h6>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h4 class="my-0 nametag-name"> {{ species.displayName }} </h4>
+        </div>
+    </div>
+    <div class="row" *ngIf="(alteredForms !== undefined && alteredForms.length > 0) || (species.cosmeticForms !== undefined && species.cosmeticForms.length > 0)">
+        <div class="col">
+            <h6 class="my-0"><small>{{ formName != null ? formName : 'Base Form' }}</small></h6>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <h6 class="my-0 font-italic"><small>The {{ species.classification }} Pokemon</small></h6>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <span class="type" [ngClass]="species.type1.name | lowercase"> {{ species.type1.name }} </span>
+            <span class="type" [ngClass]="species.type2.name | lowercase" *ngIf="species.type2.name !== 'NONE'"> {{ species.type2.name }}</span>
+        </div>
+    </div>
+    <div class="row mt-1 ml-1 d-flex align-items-center border rounded clickable nametag-mega" *ngFor="let mega of page.megaEvolutions"
+         (click)="anchorScroll(mega.species.name)">
+        <div class="col-2 mr-2 px-0 py-1">
+            <img src="{{ iconBase }}{{ mega.species.dexno }}{{ mega.species.getSuffix() }}.png" />
+        </div>
+        <div class="col-9 px-0 py-1">
+            <div class="row">
+                <div class="col">
+                    <u>{{ getMegaText() | uppercase }}</u>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    {{ getMegaRingText() }}{{ mega.species.megaStone }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

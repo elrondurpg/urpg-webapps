@@ -1,0 +1,113 @@
+<div class="container table-responsive mt-2 px-10 text-center">
+    <table class="table" id="forme-change" align="center">
+
+        <tbody>
+        <tr>
+            <th class="align-middle">Variants</th>
+            <th *ngFor="let form of forms">
+                <button
+                    class="btn form-link"
+                    (click)="clickFormTab(form, forms.indexOf(form))"
+                    [title]="form.getFormName()">
+                    <img [src]="getImagePath(form)" />
+                    <br />
+                    <strong>{{ form.getDisplayName() }}</strong>
+                    <br />
+                    {{ form.getFormName() != null ? form.getFormName() : 'Base Form' }}
+                </button>     
+            </th>
+        </tr>
+        <tr>
+            <th>Method</th>
+            <td [attr.colspan]="forms.length">
+                {{ species.alteredFormMethod }}
+            </td>
+        </tr>
+
+        <tr>
+        <th>Type</th>
+        <td *ngFor="let form of forms">
+            <span class="type" [ngClass]="form.getSpecies().type1.name | lowercase"> {{ form.getSpecies().type1.name }} </span>
+            <span class="type" [ngClass]="form.getSpecies().type2.name | lowercase" *ngIf="form.getSpecies().type2.name !== 'NONE'"> {{ form.getSpecies().type2.name }} </span>
+        </td>
+        </tr>
+
+        <tr>
+            <th class="align-middle">Abilities</th>
+            <td *ngFor="let form of forms" class="align-middle">
+                <p *ngFor="let ability of form.getSpecies().abilities">
+                    {{ ability.ability.name }} {{ ability.hidden == true ? "(Hidden)" : "" }}
+                </p>
+            </td>
+        </tr>
+
+        <tr>
+            <th [attr.colspan]="forms.length + 1">Stats</th>
+        </tr>
+
+        <tr>
+            <th>HP</th>
+            <td *ngFor="let form of forms">
+                {{ form.getSpecies().hp }}
+            </td>
+        </tr>
+
+        <tr>
+            <th>Attack</th>
+            <td *ngFor="let form of forms">
+                {{ form.getSpecies().attack }}
+            </td>
+        </tr>
+
+        <tr>
+            <th>Defense</th>
+            <td *ngFor="let form of forms">
+                {{ form.getSpecies().defense }}
+            </td>
+        </tr>
+
+        <tr>
+            <th>Sp. Attack</th>
+            <td *ngFor="let form of forms">
+                {{ form.getSpecies().specialAttack }}
+            </td>
+        </tr>
+
+        <tr>
+            <th>Sp. Defense</th>
+            <td *ngFor="let form of forms">
+                {{ form.getSpecies().specialDefense }}
+            </td>
+        </tr>
+
+        <tr>
+            <th>Speed</th>
+            <td *ngFor="let form of forms">
+                {{ form.getSpecies().speed }}
+            </td>
+        </tr>
+        <ng-container *ngIf="page.attacksThatDifferByForm !== undefined && page.attacksThatDifferByForm.length > 0">
+            <tr>
+                <th [attr.colspan]="forms.length + 1">Move Differences</th>
+            </tr>
+
+            <ng-container *ngIf="page.attacksThatDifferByForm.length <= 15"> 
+                <tr *ngFor="let attack of page.attacksThatDifferByForm">
+                    <th>
+                        {{ attack }}
+                    </th>
+                    <td *ngFor="let form of forms">
+                        {{ form.getAttacksThatDifferByForm().get(attack) != null ? form.getAttacksThatDifferByForm().get(attack) : 'Unavailable' }}
+                    </td>
+                </tr>
+            </ng-container>
+
+            <tr *ngIf="page.attacksThatDifferByForm.length > 15">
+                <th [attr.colspan]="forms.length + 1">See each Pokémon's page for learnset differences.</th>
+            </tr>
+        </ng-container>
+
+        </tbody>
+
+    </table>
+</div>

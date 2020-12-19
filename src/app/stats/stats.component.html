@@ -1,16 +1,17 @@
-<div class="container-fluid" *ngIf="trainer !== undefined">
-    <div class="row header">
-        <urpg-stats-header [trainer]="trainer"></urpg-stats-header>
+<div class="container-fluid" *ngIf="member !== undefined">
+    <div class="row header" #header>
+        <urpg-stats-header [trainer]="member"></urpg-stats-header>
     </div>
-    <div class="row content">
-        <div class="col-md-4 d-none d-md-flex">
+    <div class="row content" #content>
+        <div class="col-md-4 col-xl-2 d-none d-md-flex fixed-top menubar" #menuBar>
             <urpg-stats-menu-bar (tabChange)="showTab($event)"></urpg-stats-menu-bar>
         </div>
-        <div class="col col-md-8">
-            <urpg-pokemon-pane [hidden]="tab != 'pokemon'" [pokemon]="trainer.pokemon"></urpg-pokemon-pane>
-            <urpg-inventory-pane [hidden]="tab != 'inventory'"></urpg-inventory-pane>
-            <urpg-match-history-pane [hidden]="tab != 'match'"></urpg-match-history-pane>
-            <urpg-gyms-pane [hidden]="tab != 'gyms'"></urpg-gyms-pane>
+        <div class="col-md-4 col-xl-2 d-none d-md-flex" invisible>        </div>
+        <div class="col col-md-8 col-xl-10 background">
+            <urpg-pokemon-pane [hidden]="tab != 'pokemon'" [pokemon]="member.pokemon"></urpg-pokemon-pane>
+            <stats-inventory [member]="member" [hidden]="tab != 'inventory'"></stats-inventory>
+            <urpg-match-history-pane [member]="member" [hidden]="tab != 'match'"></urpg-match-history-pane>
+            <stats-gyms [gyms]="member.gyms" [hidden]="tab != 'gyms'"></stats-gyms>
             <urpg-creations-pane [hidden]="tab != 'creations'"></urpg-creations-pane>
             <urpg-characters-pane [hidden]="tab != 'characters'"></urpg-characters-pane>
             <urpg-achievements-pane [hidden]="tab != 'achievements'"></urpg-achievements-pane>

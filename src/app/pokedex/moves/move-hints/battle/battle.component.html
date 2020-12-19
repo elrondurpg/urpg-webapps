@@ -1,0 +1,65 @@
+<div class="container border text-center">
+    <div class="row pt-2 move-hints-title">
+        <div class="col">
+            <h2>{{ displayMove.attack.name }}</h2>
+        </div>
+    </div>
+    <div class="row pt-2">
+        <div class="col">
+            <h3 class="my-0">{{ displayMove.attack.power != null && displayMove.attack.power != 0 ? displayMove.attack.power : '-' }}</h3>
+            <h6><small>BP</small></h6>
+        </div>
+        <div class="col">
+            <h3 class="my-0">{{ displayMove.attack.accuracy != null && displayMove.attack.accuracy != 0 ? displayMove.attack.accuracy : '-' }}{{ displayMove.attack.accuracy != null && displayMove.attack.accuracy != 0 ? '%' : '' }}</h3>
+            <h6><small>ACC</small></h6>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <span class="type" [ngClass]="displayMove.attack.type.name | lowercase">{{ displayMove.attack.type.name }}</span>
+            <h6><small>TYPE</small></h6>
+        </div>
+        <div class="col">
+            <h3 class="my-0">{{ displayMove.attack.pp }}</h3>
+            <h6><small>PP</small></h6>
+        </div>
+    </div>
+    <div class="row d-flex align-items-center move-description">
+        <div class="col-9">
+            {{ displayMove.attack.description }}
+        </div>
+        <div class="col-3">
+            <img src="{{ iconBase }}{{ displayMove.attack.category.name | lowercase }}.png" />
+        </div>
+    </div>
+    <div class="row move-attribute">
+        <div class="col">
+            {{ displayMove.attack.target.description }}
+        </div>
+    </div>
+    <div class="row move-attribute" *ngIf="displayMove.attack.contact == '1'">
+        <div class="col">
+            Makes contact.
+        </div>
+    </div>
+    <div class="row move-attribute" *ngIf="displayMove.attack.sheerForce == '1'">
+        <div class="col">
+            Affected by Sheer Force.
+        </div>
+    </div>
+    <div class="row move-attribute" *ngIf="displayMove.attack.substitute == '1'">
+        <div class="col">
+            Negated by Substitute.
+        </div>
+    </div>
+    <div class="row move-attribute" *ngIf="displayMove.attack.snatch == '1'">
+        <div class="col">
+            Can be stolen by Snatch.
+        </div>
+    </div>
+    <div class="row move-attribute" *ngIf="displayMove.attack.magicCoat == '1'">
+        <div class="col">
+            Can be reflected by Magic Coat.
+        </div>
+    </div>
+</div>

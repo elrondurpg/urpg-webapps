@@ -1,0 +1,19 @@
+.dex-evolution-chain-pokemon {
+    display: block;
+    font-size:11px;
+    border:1px solid #CBCBCB;
+    vertical-align:middle;
+    background-color:#F4F4F4;
+    text-align:left;
+    text-decoration: none;
+}
+
+.dex-evolution-chain-pokemon:hover {
+    text-decoration: none;
+}
+
+.dex-evolution-chain-method {
+    font-size:10px;
+    color: #191919;
+    text-decoration: none;
+}

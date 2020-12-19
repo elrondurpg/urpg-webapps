@@ -1,0 +1,8 @@
+<div class="container mt-4 border-right border-left">
+    <div class="row" *ngFor="let ability of species.abilities">
+        <div class="col">
+            <h6 class="my-0"><small><strong>{{ ability.hidden ? '(HA)' : '' }} {{ ability.ability.name }}</strong></small></h6>
+            <h6><small>{{ ability.ability.description }}</small></h6>
+        </div>
+    </div>
+</div>

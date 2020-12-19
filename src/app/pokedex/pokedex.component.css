@@ -1,0 +1,28 @@
+
+.gender {
+    font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+    display:inline-block;
+    width:16px;
+    -webkit-border-radius:3px;
+    -moz-border-radius:3px;
+    border-radius:3px;
+    font-size:10px;
+    text-transform:uppercase;
+    color:#FFF;
+    line-height:13px;
+}
+
+.gender.male {
+    border:1px solid #1D6386;
+    background-color:#1C7FB1;
+}
+
+.gender.female {
+    border:1px solid #974288;
+    background-color:#BF51AA;
+}
+
+.gender.genderless {
+    border:1px solid #34495e;
+    background-color:#34495e;
+}

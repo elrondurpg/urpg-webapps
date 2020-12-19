@@ -1,0 +1,13 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 col-sm-6 col-xl-3 p-2 pt-3 filters">
+            <input class="form-control" type="text" placeholder="Filter by item name" [(ngModel)]="nameFilter" (input)="updateNameFilter()">
+        </div>
+        <div class="col-12 col-sm-6 col-xl-3 p-2 pt-3 filters">
+            <select class="form-control" [(ngModel)]="typeFilter" (change)="updateTypeFilter()">
+                <option selected value=""> -- Filter by type -- </option>
+                <option *ngFor="let type of types" [value]="type">{{ type }}</option>
+            </select>
+        </div>
+    </div>
+</div>

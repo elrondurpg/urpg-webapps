@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col">
+        <section class="section">
+            <div class="container">
+                <div class="row d-flex align-items-center">
+                    <div class="col-2">
+                        <h6 class="my-0" [ngClass]="embellished ? 'embellished' : ''">{{ label }}</h6>
+                    </div>
+                    <div class="col-10">
+                        <div class="progress my-1">
+                        <div class="progress-bar text-left bg-{{ getStatBarClass() }}" role="progressbar" [style.width]="width"><strong>&nbsp;{{ value }}</strong></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

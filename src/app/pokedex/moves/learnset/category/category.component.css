@@ -1,0 +1,12 @@
+.hover {
+    background-color: #538cc6;
+    color: white;
+    border: solid 1px;
+    border-color: #204060;
+    border-radius: 3px;
+    padding-left: 1px;
+}
+
+h6 {
+    font-size: 12px;
+}

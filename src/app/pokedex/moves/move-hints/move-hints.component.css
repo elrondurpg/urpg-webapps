@@ -1,0 +1,8 @@
+.move-hints-inactive {
+    font-size: 12px;
+}
+
+.move-hints-inactive, .move-hints-title, .move-attribute {
+    background-color: #538cc6;
+    color: white;
+}

@@ -1,0 +1,30 @@
+<div class="container border text-center">
+    <div class="row pt-2 move-hints-title">
+        <div class="col">
+            <h2>{{ displayMove.attack.name }}</h2>
+        </div>
+    </div>
+    <div class="row pt-2" *ngIf="displayMove.attack.dppContestMoveType != null">
+        <div class="col">
+            <h3 class="my-0" *ngIf="getScore() <= 0">{{ displayMove.attack.dppContestMoveType.score == -1 ? 'Varies' : '-'  }}</h3>
+            <img src="https://pokemonurpg.com/img/heart.png" *ngFor="let number of getNumberArray(getScore())" />
+            <h6><small>SCORE</small></h6>
+        </div>
+        <div class="col">
+            <h3 class="my-0" *ngIf="getJam() <= 0">{{ displayMove.attack.dppContestMoveType.jam == -1 ? 'Varies' : '-'  }}</h3>
+            <img src="https://pokemonurpg.com/img/nheart.png" *ngFor="let number of getNumberArray(getJam())" />
+            <h6><small>JAM</small></h6>
+        </div>
+    </div>
+    <div class="row" *ngIf="displayMove.attack.dppContestMoveType != null">
+        <div class="col">
+            <span class="type" [ngClass]="displayMove.attack.dppContestAttribute.name | lowercase">{{ displayMove.attack.dppContestAttribute.name }}</span>
+            <h6><small>ATTRIBUTE</small></h6>
+        </div>
+    </div>
+    <div class="row d-flex align-items-center move-description">
+        <div class="col">
+            {{ displayMove.attack.dppContestMoveType != null ? displayMove.attack.dppContestMoveType.description : "Cannot be used in contests." }}
+        </div>
+    </div>
+</div>

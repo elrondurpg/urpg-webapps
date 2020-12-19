@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h6>Damage Taken</h6>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <span class="type-block type" [ngClass]="type.type.name | lowercase" *ngFor="let type of page.typeMatchups">
+                {{ type.type.name.substring(0, 3).toUpperCase() }}
+            </span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <span class="type-block type border" *ngFor="let type of page.typeMatchups" [ngClass]="matchupClass(type.multiplier)">
+                {{ fraction(type.multiplier) }}
+            </span>
+        </div>
+    </div>
+</div>

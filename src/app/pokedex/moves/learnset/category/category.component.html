@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row pt-2">
+        <div class="col">
+            <h6 class="my-1"><strong>{{ label }}</strong></h6>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col" *ngIf="attacks.length > 0">
+            <span *ngFor="let attack of attacks; let last = last" (mouseover)="hoverMove(attack)" [class]="displayMove == attack ? 'hover' : ''">
+                {{ attack.attack.name }}{{ last  ? '' : ',' }}
+            </span>
+        </div>
+        <div class="col" *ngIf="attacks.length == 0">
+            <span>
+                None
+            </span>
+        </div>
+
+    </div>
+</div>

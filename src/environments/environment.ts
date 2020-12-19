@@ -4,17 +4,17 @@
 
 export const environment = {
   production: false,
-  api:"https://pokemonurpg.com:8443",
+  name: "DEV",
+  host: "http://pokemonurpg.com",
+  api:"http://localhost:8080",
+  sessionApi: "http://localhost",
   spriteBase: "https://pokemonurpg.com/img/sprites/",
   iconBase: "https://pokemonurpg.com/img/icons/",
-  modelBase: "https://pokemonurpg.com/img/models/"
+  modelBase: "https://pokemonurpg.com/img/models/",
+  oauth2ClientID: "610294152034385922",
+  oauth2Url: "https://discordapp.com/api/oauth2/authorize",
+  oauth2ResponseType: "code",
+  oauth2Scope: "identify",
+  oauth2RedirectUrl: "http://localhost/api/loginRedirect.php",
+  prefix: "staging-"
 };
-
-/*
- * For easier debugging in development mode, you can import the following file
- * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
- *
- * This import should be commented out in production mode because it will have a negative impact
- * on performance if an error is thrown.
- */
-// import 'zone.js/dist/zone-error';  // Included with Angular CLI.

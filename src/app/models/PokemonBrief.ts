@@ -5,12 +5,27 @@ export class PokemonBrief {
     name:string;
     nickname:string;
     displayName:string;
+    gender:string;
+    type1:string;
+    type2:string;
+    box:boolean;
+    uft:boolean;
+    job:boolean;
+    fullyEvolved:boolean;
+
     constructor(prototype:PokemonBrief) {
         this.dbid = prototype.dbid;
         this.dexno = prototype.dexno;
         this.name = prototype.name;
         this.nickname = prototype.nickname;
         this.displayName = prototype.displayName;
+        this.gender = prototype.gender;
+        this.type1 = prototype.type1;
+        this.type2 = prototype.type2;
+        this.box = prototype.box;
+        this.uft = prototype.uft;
+        this.job = prototype.job;
+        this.fullyEvolved = prototype.fullyEvolved;
     }
     suffix() {
         if (this.name !== undefined) {

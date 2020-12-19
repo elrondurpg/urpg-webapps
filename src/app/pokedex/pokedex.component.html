@@ -1,0 +1,13 @@
+<pokedex-header *ngIf="page != undefined" [prev]="page.prevDex" [next]="page.nextDex"></pokedex-header>
+<pokedex-main *ngIf="page != undefined" [page]="page"></pokedex-main>
+<pokedex-misc *ngIf="page != undefined" [page]="page"></pokedex-misc> 
+<pokedex-evolution *ngIf="page != undefined" [page]="page"></pokedex-evolution>
+<pokedex-capture *ngIf="page != undefined" [page]="page"></pokedex-capture>
+<pokedex-moves *ngIf="page != undefined" [page]="page"></pokedex-moves>
+<pokedex-forms *ngIf="page !== undefined && page.allForms !== undefined && page.allForms.length > 0" [page]="page"></pokedex-forms>
+<ng-container *ngIf="page != undefined">
+    <div *ngFor="let mega of page.megaEvolutions" id="{{ mega.species.name }}">
+        <pokedex-main [page]="mega"></pokedex-main>
+        <pokedex-misc  [page]="mega"></pokedex-misc>
+    </div>
+</ng-container>

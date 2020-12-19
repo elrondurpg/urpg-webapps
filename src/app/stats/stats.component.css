@@ -2,13 +2,24 @@ urpg-stats-header, urpg-stats-menu-bar {
     width:100%;
 }
 
+.container-fluid {
+    height: 100%;
+}
+
 .header
 {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    display: block;   
+    position: fixed;
+    top: 56px;
+    width: 100%; 
     z-index:3;
-    max-height: 175px;
-    overflow:hidden;
+}
+
+.content, .menubar {
+    height:100%;
+    margin-top:100px;
+    padding-right:0;
+}
+
+.background {
+    background-color:#eee;
 }
