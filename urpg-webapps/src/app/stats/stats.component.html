@@ -12,9 +12,9 @@
             <stats-inventory [member]="member" [hidden]="tab != 'inventory'"></stats-inventory>
             <urpg-match-history-pane [member]="member" [hidden]="tab != 'match'"></urpg-match-history-pane>
             <stats-gyms [gyms]="member.gyms" [hidden]="tab != 'gyms'"></stats-gyms>
-            <urpg-creations-pane [hidden]="tab != 'creations'"></urpg-creations-pane>
-            <urpg-characters-pane [hidden]="tab != 'characters'"></urpg-characters-pane>
-            <urpg-achievements-pane [hidden]="tab != 'achievements'"></urpg-achievements-pane>
+            <!--urpg-creations-pane [hidden]="tab != 'creations'"></urpg-creations-pane-->
+            <!--urpg-characters-pane [hidden]="tab != 'characters'"></urpg-characters-pane-->
+            <stats-achievements [member]="member" [sections]="sections" [hidden]="tab != 'achievements'"></stats-achievements>
             <urpg-wishlist-pane [hidden]="tab != 'wishlist'"></urpg-wishlist-pane>
             <urpg-change-log-pane [hidden]="tab != 'changelog'"></urpg-change-log-pane>
         </div>

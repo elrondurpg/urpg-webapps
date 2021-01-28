@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AchievementsPaneComponent } from './achievements-pane.component';
+import { AchievementsComponent } from './achievements.component';
 
-describe('AchievementsPaneComponent', () => {
-  let component: AchievementsPaneComponent;
-  let fixture: ComponentFixture<AchievementsPaneComponent>;
+describe('AchievementsComponent', () => {
+  let component: AchievementsComponent;
+  let fixture: ComponentFixture<AchievementsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AchievementsPaneComponent ]
+      declarations: [ AchievementsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AchievementsPaneComponent);
+    fixture = TestBed.createComponent(AchievementsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

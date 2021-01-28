@@ -12,7 +12,6 @@ import { PokemonPaneComponent } from './pokemon/pokemon-pane/pokemon-pane.compon
 import { MatchHistoryPaneComponent } from './match-history/match-history-pane/match-history-pane.component';
 import { CreationsPaneComponent } from './creations/creations-pane/creations-pane.component';
 import { CharactersPaneComponent } from './characters/characters-pane/characters-pane.component';
-import { AchievementsPaneComponent } from './achievements/achievements-pane/achievements-pane.component';
 import { WishlistPaneComponent } from './wishlist/wishlist-pane/wishlist-pane.component';
 import { ChangeLogPaneComponent } from './change-log/change-log-pane/change-log-pane.component';
 import { StatsHeaderComponent } from './header/stats-header/stats-header.component';
@@ -22,14 +21,19 @@ import { InventoryFilterComponent } from './inventory/filter/filter.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { GymsComponent } from './gyms/gyms.component';
 import { GymsFilterComponent } from './gyms/filter/filter.component';
+import { AchievementsComponent } from './achievements/achievements.component';
+import { StatsBadgesComponent } from './achievements/badges/badges.component';
+import { StatsLegendariesComponent } from './achievements/legendaries/legendaries.component';
+import {CurrencyPipe} from '@angular/common'
 
 
 @NgModule({
-  declarations: [StatsComponent, StatsMenuBarComponent, StatsMenuTabComponent, ProfileInfoWidgetComponent, ProfileInfoPaneComponent, PokemonPaneComponent, InventoryComponent, MatchHistoryPaneComponent, CreationsPaneComponent, CharactersPaneComponent, AchievementsPaneComponent, WishlistPaneComponent, ChangeLogPaneComponent, StatsHeaderComponent, PokemonSearchBarComponent, PokemonFilterPipe, InventoryFilterComponent, InventoryComponent, GymsComponent, GymsFilterComponent],
+  declarations: [StatsComponent, StatsMenuBarComponent, StatsMenuTabComponent, ProfileInfoWidgetComponent, ProfileInfoPaneComponent, PokemonPaneComponent, InventoryComponent, MatchHistoryPaneComponent, CreationsPaneComponent, CharactersPaneComponent, WishlistPaneComponent, ChangeLogPaneComponent, StatsHeaderComponent, PokemonSearchBarComponent, PokemonFilterPipe, InventoryFilterComponent, InventoryComponent, GymsComponent, GymsFilterComponent, AchievementsComponent, StatsBadgesComponent, StatsLegendariesComponent],
   imports: [
     CommonModule,
     FormsModule,
     StatsRoutingModule
-  ]
+  ],
+  providers: [CurrencyPipe]
 })
 export class StatsModule { }

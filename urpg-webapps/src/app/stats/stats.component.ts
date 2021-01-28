@@ -3,6 +3,8 @@ import { Member } from '../models/member/Member';
 import { MemberService } from '../services/member.service';
 import { TrainerService } from '../services/trainer.service';
 import { plainToClass } from 'class-transformer';
+import { SectionService } from '../services/section.service';
+import { Section } from '../models/general/Section';
 
 @Component({
   selector: 'urpg-stats',
@@ -13,6 +15,7 @@ export class StatsComponent implements AfterViewChecked, OnInit {
 
   public tab:string;
   public member:Member;
+  public sections:Section[];
 
   public resizeTimeout;
 
@@ -27,14 +30,18 @@ export class StatsComponent implements AfterViewChecked, OnInit {
 
   constructor(private trainerService : TrainerService,
     private memberService:MemberService,
+    private sectionService:SectionService,
     private renderer: Renderer2) { }
 
   ngOnInit() {
-    this.tab = "gyms";
+    this.tab = "achievements";
     this.memberService.findByName("Elrond").subscribe(member => {
       this.member = plainToClass(Member, member);
       console.log("Printed from stats/stats.component.ts:");
       console.log(this.member);
+    });
+    this.sectionService.findAll().subscribe(sections => {
+      this.sections = plainToClass(Section, sections);
     });
   }
 

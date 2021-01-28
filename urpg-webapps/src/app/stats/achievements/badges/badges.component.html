@@ -1,0 +1,19 @@
+<div class="container-fluid">
+    <div class="row mt-2" *ngFor="let league of leagues">
+        <div class="col col-xl-6 py-0 raised">
+            <div class="row">
+                <div class="col py-2 header">
+                    <strong>Badges - {{ league }}</strong>
+                </div>
+            </div>
+            <div class="row badge-row" *ngFor="let badge of getFilteredBadges(league); let i = index" [ngClass]="i % 2 == 1 ? 'dark' : ''">
+                <div class="col-2 d-flex align-items-center justify-content-center">
+                    <img class="badge-icon" src="{{ getBadgeImageUrl(badge) }}" />
+                </div>
+                <div class="col-10">
+                    {{ getBadgeText(badge) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

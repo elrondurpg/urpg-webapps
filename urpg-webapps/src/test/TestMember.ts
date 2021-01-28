@@ -389,15 +389,16 @@ export class TestMember {
                         "dbid": 3,
                         "name": "FIRE"
                     },
-                    "type2": {
-                        "dbid": -1,
-                        "name": "NONE"
-                    },
+                    "type2": null,
                     "displayName": "Typhlosion",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 6,
+                    "name": "Story"
+                },
                 "nickname": "Nero",
                 "job": false,
                 "box": true,
@@ -417,10 +418,14 @@ export class TestMember {
                         "name": "FIGHTING"
                     },
                     "displayName": "Blaziken",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "F",
+                "obtained": {
+                    "dbid": 2,
+                    "name": "Trade"
+                },
                 "nickname": "",
                 "job": false,
                 "box": true,
@@ -435,15 +440,16 @@ export class TestMember {
                         "dbid": 10,
                         "name": "FAIRY"
                     },
-                    "type2": {
-                        "dbid": -1,
-                        "name": "NONE"
-                    },
+                    "type2": null,
                     "displayName": "Clefable",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "F",
+                "obtained": {
+                    "dbid": 3,
+                    "name": "Pokemart"
+                },
                 "nickname": "",
                 "job": false,
                 "box": true,
@@ -463,10 +469,14 @@ export class TestMember {
                         "name": "DARK"
                     },
                     "displayName": "Drapion",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 3,
+                    "name": "Pokemart"
+                },
                 "nickname": "",
                 "job": false,
                 "box": true,
@@ -486,10 +496,14 @@ export class TestMember {
                         "name": "DRAGON"
                     },
                     "displayName": "Flygon",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 2,
+                    "name": "Trade"
+                },
                 "nickname": "",
                 "job": false,
                 "box": true,
@@ -509,10 +523,14 @@ export class TestMember {
                         "name": "FIGHTING"
                     },
                     "displayName": "Heracross",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 3,
+                    "name": "Pokemart"
+                },
                 "nickname": "",
                 "job": false,
                 "box": true,
@@ -532,10 +550,14 @@ export class TestMember {
                         "name": "FLYING"
                     },
                     "displayName": "Dragonite",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "F",
+                "obtained": {
+                    "dbid": 3,
+                    "name": "Pokemart"
+                },
                 "nickname": "",
                 "job": false,
                 "box": true,
@@ -555,10 +577,14 @@ export class TestMember {
                         "name": "GROUND"
                     },
                     "displayName": "Swampert",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 3,
+                    "name": "Pokemart"
+                },
                 "nickname": "",
                 "job": false,
                 "box": true,
@@ -573,15 +599,16 @@ export class TestMember {
                         "dbid": 12,
                         "name": "PSYCHIC"
                     },
-                    "type2": {
-                        "dbid": -1,
-                        "name": "NONE"
-                    },
+                    "type2": null,
                     "displayName": "Espeon",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 2,
+                    "name": "Trade"
+                },
                 "nickname": "",
                 "job": false,
                 "box": true,
@@ -601,10 +628,14 @@ export class TestMember {
                         "name": "PSYCHIC"
                     },
                     "displayName": "Metagross",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "G",
+                "obtained": {
+                    "dbid": 3,
+                    "name": "Pokemart"
+                },
                 "nickname": "",
                 "job": false,
                 "box": true,
@@ -619,15 +650,16 @@ export class TestMember {
                         "dbid": 16,
                         "name": "GHOST"
                     },
-                    "type2": {
-                        "dbid": -1,
-                        "name": "NONE"
-                    },
+                    "type2": null,
                     "displayName": "Dusknoir",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 2,
+                    "name": "Trade"
+                },
                 "nickname": "",
                 "job": false,
                 "box": true,
@@ -647,10 +679,14 @@ export class TestMember {
                         "name": "FIGHTING"
                     },
                     "displayName": "Infernape",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 2,
+                    "name": "Trade"
+                },
                 "nickname": "",
                 "job": false,
                 "box": true,
@@ -670,10 +706,14 @@ export class TestMember {
                         "name": "FLYING"
                     },
                     "displayName": "Togekiss",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "F",
+                "obtained": {
+                    "dbid": 3,
+                    "name": "Pokemart"
+                },
                 "nickname": "",
                 "job": false,
                 "box": true,
@@ -693,10 +733,14 @@ export class TestMember {
                         "name": "DARK"
                     },
                     "displayName": "Tyranitar",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 3,
+                    "name": "Pokemart"
+                },
                 "nickname": "",
                 "job": false,
                 "box": true,
@@ -720,6 +764,10 @@ export class TestMember {
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 3,
+                    "name": "Pokemart"
+                },
                 "nickname": "",
                 "job": false,
                 "box": true,
@@ -734,15 +782,16 @@ export class TestMember {
                         "dbid": 8,
                         "name": "ELECTRIC"
                     },
-                    "type2": {
-                        "dbid": -1,
-                        "name": "NONE"
-                    },
+                    "type2": null,
                     "displayName": "Ampharos",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 3,
+                    "name": "Pokemart"
+                },
                 "nickname": "",
                 "job": false,
                 "box": true,
@@ -762,10 +811,14 @@ export class TestMember {
                         "name": "POISON"
                     },
                     "displayName": "Gengar",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 7,
+                    "name": "Art"
+                },
                 "nickname": "",
                 "job": false,
                 "box": true,
@@ -785,10 +838,14 @@ export class TestMember {
                         "name": "FLYING"
                     },
                     "displayName": "Charizard",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "F",
+                "obtained": {
+                    "dbid": 6,
+                    "name": "Story"
+                },
                 "nickname": "",
                 "job": false,
                 "box": true,
@@ -808,10 +865,14 @@ export class TestMember {
                         "name": "FLYING"
                     },
                     "displayName": "Salamence",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "F",
+                "obtained": {
+                    "dbid": 3,
+                    "name": "Pokemart"
+                },
                 "nickname": "",
                 "job": false,
                 "box": true,
@@ -835,8 +896,12 @@ export class TestMember {
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 3,
+                    "name": "Pokemart"
+                },
                 "nickname": "Neville",
-                "job": true,
+                "job": false,
                 "box": false,
                 "uft": false
             },
@@ -854,10 +919,14 @@ export class TestMember {
                         "name": "STEEL"
                     },
                     "displayName": "Empoleon",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 3,
+                    "name": "Pokemart"
+                },
                 "nickname": "Mumble",
                 "job": false,
                 "box": true,
@@ -872,15 +941,16 @@ export class TestMember {
                         "dbid": 8,
                         "name": "ELECTRIC"
                     },
-                    "type2": {
-                        "dbid": -1,
-                        "name": "NONE"
-                    },
+                    "type2": null,
                     "displayName": "Raichu",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 7,
+                    "name": "Art"
+                },
                 "nickname": "Scotty",
                 "job": false,
                 "box": true,
@@ -900,10 +970,14 @@ export class TestMember {
                         "name": "FLYING"
                     },
                     "displayName": "Swoobat",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "F",
+                "obtained": {
+                    "dbid": 7,
+                    "name": "Art"
+                },
                 "nickname": "Ebony D. D. R. Way",
                 "job": false,
                 "box": true,
@@ -923,10 +997,14 @@ export class TestMember {
                         "name": "WATER"
                     },
                     "displayName": "Walrein",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 32,
+                    "name": "Event"
+                },
                 "nickname": "Lennon",
                 "job": false,
                 "box": true,
@@ -946,10 +1024,14 @@ export class TestMember {
                         "name": "GROUND"
                     },
                     "displayName": "Garchomp",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 3,
+                    "name": "Pokemart"
+                },
                 "nickname": "Old Gus",
                 "job": false,
                 "box": true,
@@ -964,15 +1046,16 @@ export class TestMember {
                         "dbid": 13,
                         "name": "ROCK"
                     },
-                    "type2": {
-                        "dbid": -1,
-                        "name": "NONE"
-                    },
+                    "type2": null,
                     "displayName": "Bonsly",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "F",
+                "obtained": {
+                    "dbid": 7,
+                    "name": "Art"
+                },
                 "nickname": "Oshiage",
                 "job": false,
                 "box": false,
@@ -992,10 +1075,14 @@ export class TestMember {
                         "name": "FLYING"
                     },
                     "displayName": "Gyarados",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 2,
+                    "name": "Trade"
+                },
                 "nickname": "",
                 "job": false,
                 "box": true,
@@ -1015,10 +1102,14 @@ export class TestMember {
                         "name": "FLYING"
                     },
                     "displayName": "Crobat",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "F",
+                "obtained": {
+                    "dbid": 3,
+                    "name": "Pokemart"
+                },
                 "nickname": "",
                 "job": false,
                 "box": true,
@@ -1033,38 +1124,16 @@ export class TestMember {
                         "dbid": 8,
                         "name": "ELECTRIC"
                     },
-                    "type2": {
-                        "dbid": -1,
-                        "name": "NONE"
-                    },
+                    "type2": null,
                     "displayName": "Electivire",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "M",
-                "nickname": "",
-                "job": false,
-                "box": true,
-                "uft": false
-            },
-            {
-                "dbid": 238,
-                "species": {
-                    "dexno": 475,
-                    "name": "Gallade",
-                    "type1": {
-                        "dbid": 12,
-                        "name": "PSYCHIC"
-                    },
-                    "type2": {
-                        "dbid": 11,
-                        "name": "FIGHTING"
-                    },
-                    "displayName": "Gallade",
-                    "formName": null,
-                    "legendaryTier": 0
+                "obtained": {
+                    "dbid": 3,
+                    "name": "Pokemart"
                 },
-                "gender": "M",
                 "nickname": "",
                 "job": false,
                 "box": true,
@@ -1079,15 +1148,16 @@ export class TestMember {
                         "dbid": 11,
                         "name": "FIGHTING"
                     },
-                    "type2": {
-                        "dbid": -1,
-                        "name": "NONE"
-                    },
+                    "type2": null,
                     "displayName": "Machamp",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 2,
+                    "name": "Trade"
+                },
                 "nickname": "",
                 "job": false,
                 "box": true,
@@ -1107,10 +1177,14 @@ export class TestMember {
                         "name": "GROUND"
                     },
                     "displayName": "Mamoswine",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 6,
+                    "name": "Story"
+                },
                 "nickname": "",
                 "job": false,
                 "box": true,
@@ -1130,10 +1204,14 @@ export class TestMember {
                         "name": "POISON"
                     },
                     "displayName": "Roserade",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "F",
+                "obtained": {
+                    "dbid": 3,
+                    "name": "Pokemart"
+                },
                 "nickname": "",
                 "job": false,
                 "box": true,
@@ -1148,15 +1226,16 @@ export class TestMember {
                         "dbid": 10,
                         "name": "FAIRY"
                     },
-                    "type2": {
-                        "dbid": -1,
-                        "name": "NONE"
-                    },
+                    "type2": null,
                     "displayName": "Aromatisse",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "F",
+                "obtained": {
+                    "dbid": 6,
+                    "name": "Story"
+                },
                 "nickname": "Coco",
                 "job": false,
                 "box": true,
@@ -1176,10 +1255,14 @@ export class TestMember {
                         "name": "FAIRY"
                     },
                     "displayName": "Azumarill",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "F",
+                "obtained": {
+                    "dbid": 7,
+                    "name": "Art"
+                },
                 "nickname": "",
                 "job": false,
                 "box": true,
@@ -1199,10 +1282,14 @@ export class TestMember {
                         "name": "DARK"
                     },
                     "displayName": "Sharpedo",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 7,
+                    "name": "Art"
+                },
                 "nickname": "",
                 "job": false,
                 "box": false,
@@ -1222,10 +1309,14 @@ export class TestMember {
                         "name": "POISON"
                     },
                     "displayName": "Amoonguss",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 7,
+                    "name": "Art"
+                },
                 "nickname": "Fice-T",
                 "job": false,
                 "box": true,
@@ -1245,10 +1336,14 @@ export class TestMember {
                         "name": "FIGHTING"
                     },
                     "displayName": "Scrafty",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "F",
+                "obtained": {
+                    "dbid": 7,
+                    "name": "Art"
+                },
                 "nickname": "Plumeria",
                 "job": false,
                 "box": true,
@@ -1268,10 +1363,14 @@ export class TestMember {
                         "name": "FAIRY"
                     },
                     "displayName": "Ribombee",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 7,
+                    "name": "Art"
+                },
                 "nickname": "Albert",
                 "job": false,
                 "box": true,
@@ -1291,10 +1390,14 @@ export class TestMember {
                         "name": "FLYING"
                     },
                     "displayName": "Yanmega",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 14,
+                    "name": "Prize"
+                },
                 "nickname": "Kobayashi",
                 "job": false,
                 "box": true,
@@ -1309,15 +1412,16 @@ export class TestMember {
                         "dbid": 4,
                         "name": "WATER"
                     },
-                    "type2": {
-                        "dbid": -1,
-                        "name": "NONE"
-                    },
+                    "type2": null,
                     "displayName": "Octillery",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "F",
+                "obtained": {
+                    "dbid": 9,
+                    "name": "Berry Store"
+                },
                 "nickname": "Yoko",
                 "job": false,
                 "box": true,
@@ -1341,6 +1445,10 @@ export class TestMember {
                     "legendaryTier": 0
                 },
                 "gender": "F",
+                "obtained": {
+                    "dbid": 4,
+                    "name": "Gift"
+                },
                 "nickname": "Belle",
                 "job": false,
                 "box": true,
@@ -1355,15 +1463,16 @@ export class TestMember {
                         "dbid": 12,
                         "name": "PSYCHIC"
                     },
-                    "type2": {
-                        "dbid": -1,
-                        "name": "NONE"
-                    },
+                    "type2": null,
                     "displayName": "Reuniclus",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 14,
+                    "name": "Prize"
+                },
                 "nickname": "Ness",
                 "job": false,
                 "box": true,
@@ -1387,6 +1496,10 @@ export class TestMember {
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 9,
+                    "name": "Berry Store"
+                },
                 "nickname": "Casper",
                 "job": false,
                 "box": true,
@@ -1410,8 +1523,12 @@ export class TestMember {
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 7,
+                    "name": "Art"
+                },
                 "nickname": "Horace",
-                "job": true,
+                "job": false,
                 "box": true,
                 "uft": false
             },
@@ -1424,41 +1541,19 @@ export class TestMember {
                         "dbid": 2,
                         "name": "GRASS"
                     },
-                    "type2": {
-                        "dbid": -1,
-                        "name": "NONE"
-                    },
+                    "type2": null,
                     "displayName": "Sunkern",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "F",
+                "obtained": {
+                    "dbid": 7,
+                    "name": "Art"
+                },
                 "nickname": "Rin",
-                "job": true,
-                "box": false,
-                "uft": false
-            },
-            {
-                "dbid": 299,
-                "species": {
-                    "dexno": 282,
-                    "name": "Gardevoir",
-                    "type1": {
-                        "dbid": 12,
-                        "name": "PSYCHIC"
-                    },
-                    "type2": {
-                        "dbid": 10,
-                        "name": "FAIRY"
-                    },
-                    "displayName": "Gardevoir",
-                    "formName": null,
-                    "legendaryTier": 0
-                },
-                "gender": "F",
-                "nickname": "Queenie",
                 "job": false,
-                "box": true,
+                "box": false,
                 "uft": false
             },
             {
@@ -1475,10 +1570,14 @@ export class TestMember {
                         "name": "POISON"
                     },
                     "displayName": "Beedrill",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 4,
+                    "name": "Gift"
+                },
                 "nickname": "Pointy Cuddles",
                 "job": false,
                 "box": true,
@@ -1498,10 +1597,14 @@ export class TestMember {
                         "name": "POISON"
                     },
                     "displayName": "Scolipede",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 7,
+                    "name": "Art"
+                },
                 "nickname": "Pendragon",
                 "job": false,
                 "box": true,
@@ -1521,12 +1624,16 @@ export class TestMember {
                         "name": "GROUND"
                     },
                     "displayName": "Wooper",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 7,
+                    "name": "Art"
+                },
                 "nickname": "Sam",
-                "job": true,
+                "job": false,
                 "box": false,
                 "uft": false
             },
@@ -1544,10 +1651,14 @@ export class TestMember {
                         "name": "FLYING"
                     },
                     "displayName": "Hoothoot",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "F",
+                "obtained": {
+                    "dbid": 7,
+                    "name": "Art"
+                },
                 "nickname": "Tootsie Pop",
                 "job": false,
                 "box": false,
@@ -1556,21 +1667,22 @@ export class TestMember {
             {
                 "dbid": 328,
                 "species": {
-                    "dexno": 605,
-                    "name": "Elgyem",
+                    "dexno": 606,
+                    "name": "Beheeyem",
                     "type1": {
                         "dbid": 12,
                         "name": "PSYCHIC"
                     },
-                    "type2": {
-                        "dbid": -1,
-                        "name": "NONE"
-                    },
-                    "displayName": "Elgyem",
-                    "formName": null,
+                    "type2": null,
+                    "displayName": "Beheeyem",
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 6,
+                    "name": "Story"
+                },
                 "nickname": "Marvin",
                 "job": false,
                 "box": true,
@@ -1585,15 +1697,16 @@ export class TestMember {
                         "dbid": 12,
                         "name": "PSYCHIC"
                     },
-                    "type2": {
-                        "dbid": -1,
-                        "name": "NONE"
-                    },
+                    "type2": null,
                     "displayName": "Elgyem",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "F",
+                "obtained": {
+                    "dbid": 6,
+                    "name": "Story"
+                },
                 "nickname": "Leela",
                 "job": false,
                 "box": false,
@@ -1602,22 +1715,74 @@ export class TestMember {
             {
                 "dbid": 331,
                 "species": {
-                    "dexno": 824,
-                    "name": "Blipbug",
+                    "dexno": 826,
+                    "name": "Orbeetle",
                     "type1": {
                         "dbid": 5,
                         "name": "BUG"
                     },
                     "type2": {
-                        "dbid": -1,
-                        "name": "NONE"
+                        "dbid": 12,
+                        "name": "PSYCHIC"
                     },
-                    "displayName": "Blipbug",
+                    "displayName": "Orbeetle",
                     "formName": null,
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 7,
+                    "name": "Art"
+                },
                 "nickname": "Lrrr",
+                "job": false,
+                "box": false,
+                "uft": false
+            },
+            {
+                "dbid": 336,
+                "species": {
+                    "dexno": 712,
+                    "name": "Bergmite",
+                    "type1": {
+                        "dbid": 15,
+                        "name": "ICE"
+                    },
+                    "type2": null,
+                    "displayName": "Bergmite",
+                    "formName": "-1",
+                    "legendaryTier": 0
+                },
+                "gender": "M",
+                "obtained": {
+                    "dbid": 7,
+                    "name": "Art"
+                },
+                "nickname": "Thardus",
+                "job": false,
+                "box": false,
+                "uft": false
+            },
+            {
+                "dbid": 340,
+                "species": {
+                    "dexno": 401,
+                    "name": "Kricketot",
+                    "type1": {
+                        "dbid": 5,
+                        "name": "BUG"
+                    },
+                    "type2": null,
+                    "displayName": "Kricketot",
+                    "formName": "-1",
+                    "legendaryTier": 0
+                },
+                "gender": "M",
+                "obtained": {
+                    "dbid": 7,
+                    "name": "Art"
+                },
+                "nickname": "Ludwig",
                 "job": false,
                 "box": false,
                 "uft": false
@@ -1636,10 +1801,14 @@ export class TestMember {
                         "name": "PSYCHIC"
                     },
                     "displayName": "Medicham",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 1,
+                    "name": "Starter"
+                },
                 "nickname": "Brock Lee",
                 "job": false,
                 "box": true,
@@ -1659,10 +1828,41 @@ export class TestMember {
                         "name": "FLYING"
                     },
                     "displayName": "Gliscor",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 6,
+                    "name": "Story"
+                },
+                "nickname": "",
+                "job": false,
+                "box": true,
+                "uft": false
+            },
+            {
+                "dbid": 238,
+                "species": {
+                    "dexno": 475,
+                    "name": "Gallade",
+                    "type1": {
+                        "dbid": 12,
+                        "name": "PSYCHIC"
+                    },
+                    "type2": {
+                        "dbid": 11,
+                        "name": "FIGHTING"
+                    },
+                    "displayName": "Gallade",
+                    "formName": "-1",
+                    "legendaryTier": 0
+                },
+                "gender": "M",
+                "obtained": {
+                    "dbid": 6,
+                    "name": "Story"
+                },
                 "nickname": "",
                 "job": false,
                 "box": true,
@@ -1682,10 +1882,14 @@ export class TestMember {
                         "name": "ROCK"
                     },
                     "displayName": "Rhyperior",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 2,
+                    "name": "Trade"
+                },
                 "nickname": "",
                 "job": false,
                 "box": true,
@@ -1700,15 +1904,16 @@ export class TestMember {
                         "dbid": 3,
                         "name": "FIRE"
                     },
-                    "type2": {
-                        "dbid": -1,
-                        "name": "NONE"
-                    },
+                    "type2": null,
                     "displayName": "Arcanine",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 2,
+                    "name": "Trade"
+                },
                 "nickname": "",
                 "job": false,
                 "box": true,
@@ -1728,10 +1933,14 @@ export class TestMember {
                         "name": "FAIRY"
                     },
                     "displayName": "Mawile",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "F",
+                "obtained": {
+                    "dbid": 6,
+                    "name": "Story"
+                },
                 "nickname": "",
                 "job": false,
                 "box": true,
@@ -1751,10 +1960,14 @@ export class TestMember {
                         "name": "FLYING"
                     },
                     "displayName": "Hawlucha",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 2,
+                    "name": "Trade"
+                },
                 "nickname": "Sancho",
                 "job": false,
                 "box": true,
@@ -1774,10 +1987,14 @@ export class TestMember {
                         "name": "FLYING"
                     },
                     "displayName": "Altaria",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "F",
+                "obtained": {
+                    "dbid": 2,
+                    "name": "Trade"
+                },
                 "nickname": "Whitney",
                 "job": false,
                 "box": true,
@@ -1797,10 +2014,14 @@ export class TestMember {
                         "name": "ICE"
                     },
                     "displayName": "Weavile",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 9,
+                    "name": "Berry Store"
+                },
                 "nickname": "Viral",
                 "job": false,
                 "box": true,
@@ -1815,19 +2036,47 @@ export class TestMember {
                         "dbid": 9,
                         "name": "GROUND"
                     },
-                    "type2": {
-                        "dbid": -1,
-                        "name": "NONE"
-                    },
+                    "type2": null,
                     "displayName": "Mudsdale",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 4,
+                    "name": "Gift"
+                },
                 "nickname": "BoJack",
-                "job": true,
+                "job": false,
                 "box": false,
                 "uft": true
+            },
+            {
+                "dbid": 299,
+                "species": {
+                    "dexno": 282,
+                    "name": "Gardevoir",
+                    "type1": {
+                        "dbid": 12,
+                        "name": "PSYCHIC"
+                    },
+                    "type2": {
+                        "dbid": 10,
+                        "name": "FAIRY"
+                    },
+                    "displayName": "Gardevoir",
+                    "formName": "-1",
+                    "legendaryTier": 0
+                },
+                "gender": "F",
+                "obtained": {
+                    "dbid": 7,
+                    "name": "Art"
+                },
+                "nickname": "Queenie",
+                "job": false,
+                "box": true,
+                "uft": false
             },
             {
                 "dbid": 304,
@@ -1843,10 +2092,14 @@ export class TestMember {
                         "name": "ROCK"
                     },
                     "displayName": "Shuckle",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 7,
+                    "name": "Art"
+                },
                 "nickname": "Shuck Finn",
                 "job": false,
                 "box": true,
@@ -1866,10 +2119,14 @@ export class TestMember {
                         "name": "GRASS"
                     },
                     "displayName": "Cradily",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 7,
+                    "name": "Art"
+                },
                 "nickname": "Petey P.",
                 "job": false,
                 "box": true,
@@ -1884,15 +2141,16 @@ export class TestMember {
                         "dbid": 1,
                         "name": "NORMAL"
                     },
-                    "type2": {
-                        "dbid": -1,
-                        "name": "NONE"
-                    },
+                    "type2": null,
                     "displayName": "Lickitung",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 2,
+                    "name": "Trade"
+                },
                 "nickname": "Llanfair Pwllgwyngyll",
                 "job": false,
                 "box": false,
@@ -1912,10 +2170,14 @@ export class TestMember {
                         "name": "DRAGON"
                     },
                     "displayName": "Kingdra",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "F",
+                "obtained": {
+                    "dbid": 2,
+                    "name": "Trade"
+                },
                 "nickname": "Charybdis",
                 "job": false,
                 "box": true,
@@ -1930,15 +2192,16 @@ export class TestMember {
                         "dbid": 11,
                         "name": "FIGHTING"
                     },
-                    "type2": {
-                        "dbid": -1,
-                        "name": "NONE"
-                    },
+                    "type2": null,
                     "displayName": "Clobbopus",
                     "formName": null,
                     "legendaryTier": 0
                 },
                 "gender": "F",
+                "obtained": {
+                    "dbid": 7,
+                    "name": "Art"
+                },
                 "nickname": "Anzu",
                 "job": false,
                 "box": false,
@@ -1947,21 +2210,22 @@ export class TestMember {
             {
                 "dbid": 324,
                 "species": {
-                    "dexno": 554,
-                    "name": "Darumaka-Galar",
+                    "dexno": 555,
+                    "name": "Darmanitan-Galar",
                     "type1": {
                         "dbid": 15,
                         "name": "ICE"
                     },
-                    "type2": {
-                        "dbid": -1,
-                        "name": "NONE"
-                    },
-                    "displayName": "Darumaka",
+                    "type2": null,
+                    "displayName": "Darmanitan",
                     "formName": "Galarian Form",
                     "legendaryTier": 0
                 },
                 "gender": "F",
+                "obtained": {
+                    "dbid": 7,
+                    "name": "Art"
+                },
                 "nickname": "Turk",
                 "job": false,
                 "box": true,
@@ -1976,16 +2240,92 @@ export class TestMember {
                         "dbid": 15,
                         "name": "ICE"
                     },
-                    "type2": {
-                        "dbid": -1,
-                        "name": "NONE"
-                    },
+                    "type2": null,
                     "displayName": "Eiscue",
                     "formName": "Ice Face",
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 6,
+                    "name": "Story"
+                },
                 "nickname": "Alfred",
+                "job": false,
+                "box": true,
+                "uft": false
+            },
+            {
+                "dbid": 333,
+                "species": {
+                    "dexno": 140,
+                    "name": "Kabuto",
+                    "type1": {
+                        "dbid": 13,
+                        "name": "ROCK"
+                    },
+                    "type2": {
+                        "dbid": 4,
+                        "name": "WATER"
+                    },
+                    "displayName": "Kabuto",
+                    "formName": "-1",
+                    "legendaryTier": 0
+                },
+                "gender": "M",
+                "obtained": {
+                    "dbid": 4,
+                    "name": "Gift"
+                },
+                "nickname": "Darth Krab",
+                "job": false,
+                "box": false,
+                "uft": false
+            },
+            {
+                "dbid": 335,
+                "species": {
+                    "dexno": 864,
+                    "name": "Cursola",
+                    "type1": {
+                        "dbid": 16,
+                        "name": "GHOST"
+                    },
+                    "type2": null,
+                    "displayName": "Cursola",
+                    "formName": null,
+                    "legendaryTier": 0
+                },
+                "gender": "F",
+                "obtained": {
+                    "dbid": 7,
+                    "name": "Art"
+                },
+                "nickname": "Greta",
+                "job": false,
+                "box": true,
+                "uft": false
+            },
+            {
+                "dbid": 337,
+                "species": {
+                    "dexno": 32,
+                    "name": "Nidoran-M",
+                    "type1": {
+                        "dbid": 6,
+                        "name": "POISON"
+                    },
+                    "type2": null,
+                    "displayName": "Nidoran-M",
+                    "formName": "-1",
+                    "legendaryTier": 0
+                },
+                "gender": "M",
+                "obtained": {
+                    "dbid": 4,
+                    "name": "Gift"
+                },
+                "nickname": "Basil",
                 "job": false,
                 "box": true,
                 "uft": false
@@ -2004,10 +2344,14 @@ export class TestMember {
                         "name": "ICE"
                     },
                     "displayName": "Lapras",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "F",
+                "obtained": {
+                    "dbid": 2,
+                    "name": "Trade"
+                },
                 "nickname": "",
                 "job": false,
                 "box": true,
@@ -2022,15 +2366,16 @@ export class TestMember {
                         "dbid": 1,
                         "name": "NORMAL"
                     },
-                    "type2": {
-                        "dbid": -1,
-                        "name": "NONE"
-                    },
+                    "type2": null,
                     "displayName": "Blissey",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "F",
+                "obtained": {
+                    "dbid": 6,
+                    "name": "Story"
+                },
                 "nickname": "",
                 "job": false,
                 "box": true,
@@ -2050,10 +2395,14 @@ export class TestMember {
                         "name": "PSYCHIC"
                     },
                     "displayName": "Slowbro",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 7,
+                    "name": "Art"
+                },
                 "nickname": "",
                 "job": false,
                 "box": true,
@@ -2073,10 +2422,14 @@ export class TestMember {
                         "name": "FIRE"
                     },
                     "displayName": "Volcarona",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 14,
+                    "name": "Prize"
+                },
                 "nickname": "",
                 "job": false,
                 "box": true,
@@ -2091,15 +2444,16 @@ export class TestMember {
                         "dbid": 1,
                         "name": "NORMAL"
                     },
-                    "type2": {
-                        "dbid": -1,
-                        "name": "NONE"
-                    },
+                    "type2": null,
                     "displayName": "Kangaskhan",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "F",
+                "obtained": {
+                    "dbid": 4,
+                    "name": "Gift"
+                },
                 "nickname": "",
                 "job": false,
                 "box": true,
@@ -2123,6 +2477,10 @@ export class TestMember {
                     "legendaryTier": 0
                 },
                 "gender": "G",
+                "obtained": {
+                    "dbid": 6,
+                    "name": "Story"
+                },
                 "nickname": "Sirius",
                 "job": false,
                 "box": true,
@@ -2137,15 +2495,16 @@ export class TestMember {
                         "dbid": 8,
                         "name": "ELECTRIC"
                     },
-                    "type2": {
-                        "dbid": -1,
-                        "name": "NONE"
-                    },
+                    "type2": null,
                     "displayName": "Eelektross",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "F",
+                "obtained": {
+                    "dbid": 14,
+                    "name": "Prize"
+                },
                 "nickname": "Ethel",
                 "job": false,
                 "box": true,
@@ -2169,6 +2528,10 @@ export class TestMember {
                     "legendaryTier": 0
                 },
                 "gender": "M",
+                "obtained": {
+                    "dbid": 7,
+                    "name": "Art"
+                },
                 "nickname": "Damocles",
                 "job": false,
                 "box": true,
@@ -2188,10 +2551,14 @@ export class TestMember {
                         "name": "STEEL"
                     },
                     "displayName": "Scizor",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "F",
+                "obtained": {
+                    "dbid": 33,
+                    "name": "Poke Jobs"
+                },
                 "nickname": "Him",
                 "job": false,
                 "box": true,
@@ -2206,15 +2573,16 @@ export class TestMember {
                         "dbid": 1,
                         "name": "NORMAL"
                     },
-                    "type2": {
-                        "dbid": -1,
-                        "name": "NONE"
-                    },
+                    "type2": null,
                     "displayName": "Ditto",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "G",
+                "obtained": {
+                    "dbid": 2,
+                    "name": "Trade"
+                },
                 "nickname": "Gumby",
                 "job": false,
                 "box": true,
@@ -2234,38 +2602,18 @@ export class TestMember {
                         "name": "FLYING"
                     },
                     "displayName": "Aerodactyl",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 0
                 },
                 "gender": "F",
+                "obtained": {
+                    "dbid": 4,
+                    "name": "Gift"
+                },
                 "nickname": "Ducky",
                 "job": false,
                 "box": true,
                 "uft": false
-            },
-            {
-                "dbid": 454,
-                "species": {
-                    "dexno": 227,
-                    "name": "Skarmory",
-                    "type1": {
-                        "dbid": 13,
-                        "name": "STEEL"
-                    },
-                    "type2": {
-                        "dbid": 7,
-                        "name": "FLYING"
-                    },
-                    "displayName": "Skarmory",
-                    "formName": null,
-                    "legendaryTier": 0
-                },
-                "gender": "F",
-                "nickname": "Sharp",
-                "job": false,
-                "box": true,
-                "uft": false,
-                "rental": true
             },
             {
                 "dbid": 322,
@@ -2285,6 +2633,10 @@ export class TestMember {
                     "legendaryTier": 0
                 },
                 "gender": "F",
+                "obtained": {
+                    "dbid": 33,
+                    "name": "Poke Jobs"
+                },
                 "nickname": "Anohana",
                 "job": false,
                 "box": true,
@@ -2308,7 +2660,89 @@ export class TestMember {
                     "legendaryTier": 0
                 },
                 "gender": "G",
+                "obtained": {
+                    "dbid": 33,
+                    "name": "Poke Jobs"
+                },
                 "nickname": "L.G.",
+                "job": false,
+                "box": true,
+                "uft": false
+            },
+            {
+                "dbid": 334,
+                "species": {
+                    "dexno": 772,
+                    "name": "Type: Null",
+                    "type1": {
+                        "dbid": 1,
+                        "name": "NORMAL"
+                    },
+                    "type2": null,
+                    "displayName": "Type: Null",
+                    "formName": "-1",
+                    "legendaryTier": 0
+                },
+                "gender": "G",
+                "obtained": {
+                    "dbid": 33,
+                    "name": "Poke Jobs"
+                },
+                "nickname": "Frankenstein's Pocket Monster",
+                "job": false,
+                "box": true,
+                "uft": false
+            },
+            {
+                "dbid": 338,
+                "species": {
+                    "dexno": 882,
+                    "name": "Dracovish",
+                    "type1": {
+                        "dbid": 4,
+                        "name": "WATER"
+                    },
+                    "type2": {
+                        "dbid": 17,
+                        "name": "DRAGON"
+                    },
+                    "displayName": "Dracovish",
+                    "formName": null,
+                    "legendaryTier": 0
+                },
+                "gender": "G",
+                "obtained": {
+                    "dbid": 7,
+                    "name": "Art"
+                },
+                "nickname": "Clarence",
+                "job": false,
+                "box": true,
+                "uft": false
+            },
+            {
+                "dbid": 339,
+                "species": {
+                    "dexno": 607,
+                    "name": "Litwick",
+                    "type1": {
+                        "dbid": 16,
+                        "name": "GHOST"
+                    },
+                    "type2": {
+                        "dbid": 3,
+                        "name": "FIRE"
+                    },
+                    "displayName": "Litwick",
+                    "formName": "-1",
+                    "legendaryTier": 0
+                },
+                "gender": "F",
+                "obtained": {
+                    "dbid": 2,
+                    "name": "Trade"
+                },
+                "nickname": "Christine",
                 "job": false,
                 "box": true,
                 "uft": false
@@ -2322,16 +2756,44 @@ export class TestMember {
                         "dbid": 4,
                         "name": "WATER"
                     },
-                    "type2": {
-                        "dbid": -1,
-                        "name": "NONE"
-                    },
+                    "type2": null,
                     "displayName": "Manaphy",
-                    "formName": null,
+                    "formName": "-1",
                     "legendaryTier": 2
                 },
-                "gender": "M",
+                "gender": "G",
+                "obtained": {
+                    "dbid": 24,
+                    "name": "Art Legend"
+                },
                 "nickname": "Sidon's Prince",
+                "job": false,
+                "box": true,
+                "uft": false
+            },
+            {
+                "dbid": 341,
+                "species": {
+                    "dexno": 484,
+                    "name": "Palkia",
+                    "type1": {
+                        "dbid": 4,
+                        "name": "WATER"
+                    },
+                    "type2": {
+                        "dbid": 17,
+                        "name": "DRAGON"
+                    },
+                    "displayName": "Palkia",
+                    "formName": "-1",
+                    "legendaryTier": 1
+                },
+                "gender": "G",
+                "obtained": {
+                    "dbid": 24,
+                    "name": "Art Legend"
+                },
+                "nickname": "",
                 "job": false,
                 "box": true,
                 "uft": false
@@ -3010,9 +3472,205 @@ export class TestMember {
                 },
                 "date": "2020-12-11T05:00:00.000+0000",
                 "logUrl": "http://google.com"
+            },
+            {
+                "gym": {
+                    "dbid": 56,
+                    "name": "Saffron City",
+                    "owner": {
+                        "username": "Elrond"
+                    },
+                    "league": {
+                        "dbid": 3,
+                        "name": "Advanced League"
+                    },
+                    "badge": {
+                        "dbid": 1,
+                        "name": "Marsh Badge"
+                    },
+                    "active": true,
+                    "openDate": "2020-12-10T00:00:00.000+0000",
+                    "wins": 0,
+                    "losses": 0,
+                    "draws": 0,
+                    "tm": {
+                        "dbid": 1234,
+                        "name": "TM29 Psychic",
+                        "price": 3500,
+                        "type": "TM",
+                        "description": null
+                    }
+                },
+                "date": "2020-12-11T05:00:00.000+0000",
+                "logUrl": "http://google.com"
+            },
+            {
+                "gym": {
+                    "dbid": 56,
+                    "name": "Elite Four Husnain",
+                    "owner": {
+                        "username": "Husnain"
+                    },
+                    "league": {
+                        "dbid": 3,
+                        "name": "Advanced League"
+                    },
+                    "badge": {
+                        "dbid": 1,
+                        "name": "Marsh Badge"
+                    },
+                    "active": true,
+                    "openDate": "2020-12-10T00:00:00.000+0000",
+                    "wins": 0,
+                    "losses": 0,
+                    "draws": 0,
+                    "tm": {
+                        "dbid": 1234,
+                        "name": "TM29 Psychic",
+                        "price": 3500,
+                        "type": "TM",
+                        "description": null
+                    }
+                },
+                "date": "2020-12-11T05:00:00.000+0000",
+                "logUrl": "http://google.com"
+            },
+            {
+                "gym": {
+                    "dbid": 56,
+                    "name": "Elite Four Xali",
+                    "owner": {
+                        "username": "Xali"
+                    },
+                    "league": {
+                        "dbid": 3,
+                        "name": "Advanced League"
+                    },
+                    "badge": {
+                        "dbid": 1,
+                        "name": "Marsh Badge"
+                    },
+                    "active": true,
+                    "openDate": "2020-12-10T00:00:00.000+0000",
+                    "wins": 0,
+                    "losses": 0,
+                    "draws": 0,
+                    "tm": {
+                        "dbid": 1234,
+                        "name": "TM29 Psychic",
+                        "price": 3500,
+                        "type": "TM",
+                        "description": null
+                    }
+                },
+                "date": "2020-12-11T05:00:00.000+0000",
+                "logUrl": "http://google.com"
+            },
+            {
+                "gym": {
+                    "dbid": 56,
+                    "name": "Elite Four Mike",
+                    "owner": {
+                        "username": "Mike"
+                    },
+                    "league": {
+                        "dbid": 3,
+                        "name": "Advanced League"
+                    },
+                    "badge": {
+                        "dbid": 1,
+                        "name": "Marsh Badge"
+                    },
+                    "active": true,
+                    "openDate": "2020-12-10T00:00:00.000+0000",
+                    "wins": 0,
+                    "losses": 0,
+                    "draws": 0,
+                    "tm": {
+                        "dbid": 1234,
+                        "name": "TM29 Psychic",
+                        "price": 3500,
+                        "type": "TM",
+                        "description": null
+                    }
+                },
+                "date": "2020-12-11T05:00:00.000+0000",
+                "logUrl": "http://google.com"
+            },
+            {
+                "gym": {
+                    "dbid": 56,
+                    "name": "Elite Four Dash",
+                    "owner": {
+                        "username": "Dash"
+                    },
+                    "league": {
+                        "dbid": 3,
+                        "name": "Advanced League"
+                    },
+                    "badge": {
+                        "dbid": 1,
+                        "name": "Marsh Badge"
+                    },
+                    "active": true,
+                    "openDate": "2020-12-10T00:00:00.000+0000",
+                    "wins": 0,
+                    "losses": 0,
+                    "draws": 0,
+                    "tm": {
+                        "dbid": 1234,
+                        "name": "TM29 Psychic",
+                        "price": 3500,
+                        "type": "TM",
+                        "description": null
+                    }
+                },
+                "date": "2020-12-11T05:00:00.000+0000",
+                "logUrl": "http://google.com"
+            },
+            {
+                "gym": {
+                    "dbid": 56,
+                    "name": "Champion Ash K.",
+                    "owner": {
+                        "username": "Ash K."
+                    },
+                    "league": {
+                        "dbid": 3,
+                        "name": "Advanced League"
+                    },
+                    "badge": {
+                        "dbid": 1,
+                        "name": "Marsh Badge"
+                    },
+                    "active": true,
+                    "openDate": "2020-12-10T00:00:00.000+0000",
+                    "wins": 0,
+                    "losses": 0,
+                    "draws": 0,
+                    "tm": {
+                        "dbid": 1234,
+                        "name": "TM29 Psychic",
+                        "price": 3500,
+                        "type": "TM",
+                        "description": null
+                    }
+                },
+                "date": "2020-12-11T05:00:00.000+0000",
+                "logUrl": "http://google.com"
             }
         ],
         "legendaryProgress": [
+            {
+                "dbid": 1,
+                "section": {
+                    "dbid": 5,
+                    "name": "Writing"
+                },
+                "value": 5000,
+                "date": "2017-12-15T05:00:00.000+0000",
+                "logUrl": "https://pokemonurpg.com/archive/art-gallery.625/artistic-etudes-1-lightning.237726.html"
+            },
             {
                 "dbid": 1,
                 "section": {

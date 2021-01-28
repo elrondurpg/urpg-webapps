@@ -1,0 +1,36 @@
+<div class="container-fluid">
+    <div class="row mt-2" *ngFor="let section of getSectionsWithProgress()">
+        <div class="col col-xl-6 py-0 raised">
+            <div class="row">
+                <div class="col py-2 header">
+                    <strong>Legendary Progress - {{ section.name }}</strong>
+                </div>
+            </div>
+            <div class="row" *ngIf="getEarnedLegendsBySection(section).length > 0">
+                <div class="col p-2">
+                    <strong>Earned Legendaries</strong>
+                </div>
+            </div>
+            <div class="row legend-row" *ngFor="let pokemon of getEarnedLegendsBySection(section); let i = index" [ngClass]="i % 2 == 0 ? 'dark' : ''">
+                <div class="col p-2">
+                    {{ pokemon.species.name }}
+                </div>
+            </div>
+            <div class="row legend-row" [ngClass]="getEarnedLegendsBySection(section).length % 2 == 1 ? 'dark' : ''">
+                <div class="col p-2">
+                    <strong>Current Progress</strong>
+                </div>
+            </div>
+            <div class="row legend-row" [ngClass]="getEarnedLegendsBySection(section).length % 2 == 0 ? 'dark' : ''">
+                <div class="col p-2">
+                    Next Tier Two: {{ getRequirementText(section, 2) }}
+                </div>
+            </div>
+            <div class="row legend-row" [ngClass]="getEarnedLegendsBySection(section).length % 2 == 1 ? 'dark' : ''">
+                <div class="col p-2">
+                    Next Tier One: {{ getRequirementText(section, 1) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
