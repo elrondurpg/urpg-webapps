@@ -25,9 +25,9 @@ export class SessionService {
     return this.username;
   }
 
-  login() {
+  login(returnUrl:string) {
     let state = Math.floor(Math.random() * 1000000000);
-    this.http.post(SessionService.AUTH_STATE_API, new LoginRequest(state, window.location.href), SessionService.WITH_CREDENTIALS_OPTIONS).subscribe(
+    this.http.post(SessionService.AUTH_STATE_API, new LoginRequest(state, returnUrl), SessionService.WITH_CREDENTIALS_OPTIONS).subscribe(
       response => {
         window.location.href = 
           environment.oauth2Url + 

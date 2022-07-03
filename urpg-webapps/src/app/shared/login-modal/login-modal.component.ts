@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { SessionService } from 'src/app/services/security/session.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'urpg-login-modal',
@@ -9,18 +9,15 @@ import { SessionService } from 'src/app/services/security/session.service';
 })
 export class LoginModalComponent implements OnInit {
 
-  constructor(
-    private sessionService:SessionService,
-    private router:Router,
-    private activatedRoute:ActivatedRoute
-  ) { }
+  constructor(private sessionService:SessionService,
+  private route:ActivatedRoute) { }
 
   ngOnInit() {
     
   }
 
   login() {
-    this.sessionService.login();
+    this.sessionService.login("urpg-webapps" + this.route['_routerState'].snapshot.url);
   }
 
 }
