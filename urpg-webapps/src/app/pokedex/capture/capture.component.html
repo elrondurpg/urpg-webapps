@@ -30,7 +30,7 @@
         </div>
         <div class="col-sm-2">
             <strong>MORPHIC</strong><br>
-            {{ getMorphicRequirement() != null ? getMorphicRequirement() + " form posts" : "See basic stage requirements" }}
+            {{ getMorphicRequirement() == -1 ? "Unavailable" : getMorphicRequirement() != null ? getMorphicRequirement() + " form posts" : "See basic stage requirements" }}
         </div>
     </div>
 </div>

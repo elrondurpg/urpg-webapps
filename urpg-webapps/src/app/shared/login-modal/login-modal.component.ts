@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SessionService } from 'src/app/services/session.service';
+import { SessionService } from 'src/app/services/security/session.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -13,6 +13,7 @@ export class LoginModalComponent implements OnInit {
   private route:ActivatedRoute) { }
 
   ngOnInit() {
+    
   }
 
   login() {

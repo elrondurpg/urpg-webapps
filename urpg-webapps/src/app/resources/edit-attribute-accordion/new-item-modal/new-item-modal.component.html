@@ -1,0 +1,53 @@
+<div class="modal fade" [id]="'new' + getTitle() + 'Modal'" tabindex="-1" role="dialog" [attr.aria-labelledby]="'new' + getTitle() + 'Modal'" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add new ({{ title }})</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <ng-container>
+                    <div class="row" *ngFor="let definedKey of mappedItems.keyDefinitions">
+                        <div class="col">
+                            <label class="col-form-label">
+                                <h6>{{ definedKey.label }}</h6>
+                            </label>
+                        </div>
+                        <div class="col">
+                            <select
+                                *ngIf="definedKey.type == 'select'"
+                                class="form-control" 
+                                id="'new' + definedKey.deltaSelector + 'Select'"
+                                [(ngModel)]="delta[definedKey.deltaSelector]">
+                                <option selected value="undefined">- none -</option>
+                                <option *ngFor="let item of definedKey.allowedValues" [value]="item">{{ item }}</option>
+                            </select>
+                            <input
+                                *ngIf="definedKey.type == 'text'"
+                                type="text"
+                                class="form-control"
+                                [(ngModel)]="delta[definedKey.deltaSelector]">
+                            <div 
+                                class="text-danger pt-2" 
+                                *ngIf="definedKey.type == 'text' && delta[definedKey.deltaSelector]
+                                        && (delta[definedKey.deltaSelector].length > definedKey.maxLength
+                                        || delta[definedKey.deltaSelector].length < definedKey.minLength)">
+                                {{ definedKey.label }} must be between {{ definedKey.minLength }} and {{ definedKey.maxLength }} characters long.
+                            </div>
+                                    
+                        </div>
+                    </div>
+                </ng-container>
+                <div class="text-danger pt-2" *ngIf="mappedItems.findMatchingDelta(delta) !== undefined">
+                    The list already contains this item.
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" (click)="onCreate()" [disabled]="mappedItems.findMatchingDelta(delta) !== undefined || !allKeysChosen(delta) || !allKeysValid(delta)" data-dismiss="modal">Add</button>
+                <button type="button" class="btn btn-secondary" (click)="clear()" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

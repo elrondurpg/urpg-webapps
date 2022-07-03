@@ -19,10 +19,12 @@ export class StatsHeaderComponent implements OnInit {
 
   getRoles() {
     let s = "";
-    for (let i = 0; i < this.trainer.roles.length; i++) {
-      s += this.trainer.roles[i].name;
-      if (i != this.trainer.roles.length - 1) {
-        s += ", ";
+    if (this.trainer.roles !== undefined) {
+      for (let i = 0; i < this.trainer.roles.length; i++) {
+        s += this.trainer.roles[i].name;
+        if (i != this.trainer.roles.length - 1) {
+          s += ", ";
+        }
       }
     }
     return s;

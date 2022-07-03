@@ -10,7 +10,16 @@ const routes: Routes = [
   {
     path: 'pokemon/:name',
     loadChildren: () => import('./pokedex/pokedex.module').then(m => m.PokedexModule)
-  }];
+  },
+  {
+    path: 'resources',
+    loadChildren: () => import('./resources/resources.module').then(m => m.ResourcesModule)
+  }/*,
+  {
+    path: '**',
+    loadChildren: () => import('./resources/resources.module').then(m => m.ResourcesModule)
+  }*/
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes), RouterModule.forRoot(routes, { anchorScrolling: 'enabled'})],

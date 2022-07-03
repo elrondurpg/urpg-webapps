@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { TrainerService } from 'src/app/services/trainer.service';
 import { Router } from '@angular/router';
-import { SessionService } from 'src/app/services/session.service';
+import { throwError } from 'rxjs';
+import { timeout } from 'rxjs/operators';
+import { SessionService } from 'src/app/services/security/session.service';
 
 @Component({
   selector: 'urpg-site-header',
@@ -23,7 +24,7 @@ export class SiteHeaderComponent implements OnInit {
         this.username = response['username'];
       },
       error => {
-        // do some error handling
+        console.log(error);
       }
     )
   }

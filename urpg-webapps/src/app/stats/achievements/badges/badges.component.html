@@ -6,12 +6,12 @@
                     <strong>Badges - {{ league }}</strong>
                 </div>
             </div>
-            <div class="row badge-row" *ngFor="let badge of getFilteredBadges(league); let i = index" [ngClass]="i % 2 == 1 ? 'dark' : ''">
+            <div class="row badge-row" *ngFor="let victory of getFilteredVictories(league); let i = index" [ngClass]="i % 2 == 1 ? 'dark' : ''">
                 <div class="col-2 d-flex align-items-center justify-content-center">
-                    <img class="badge-icon" src="{{ getBadgeImageUrl(badge) }}" />
+                    <img class="badge-icon" src="{{ getBadgeImageUrl(victory) }}" />
                 </div>
                 <div class="col-10">
-                    {{ getBadgeText(badge) }}
+                    {{ getBadgeText(victory) }}
                 </div>
             </div>
         </div>

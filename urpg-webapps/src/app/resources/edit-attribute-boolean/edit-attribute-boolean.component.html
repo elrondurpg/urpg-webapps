@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row p-2">
+        <div class="col-sm-2">
+            {{ attribute }}
+        </div>
+    
+        <div class="col-sm-5" *ngIf="editType == 'update'">
+            {{ "" + currentValue | titlecase }}
+        </div>
+    
+        <div class="col-sm-5">
+            <select 
+                class="form-control" 
+                [(ngModel)]="updatedValue" 
+                [required]="required && editType == 'create'"
+                #validator="ngModel"
+                [ngClass]="validator.invalid && (validator.dirty || validator.touched) ? 'is-invalid' : ''">
+                <option selected value="undefined">- unchanged -</option>
+                <option value="true">True</option>
+                <option value="false">False</option>
+            </select>
+            <div class="invalid-feedback" *ngIf="validator.errors && validator.errors.required">
+                Please provide a value for {{ attribute }}.
+            </div>   
+        </div>
+    </div>
+</div>

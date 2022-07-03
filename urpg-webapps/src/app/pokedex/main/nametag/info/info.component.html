@@ -22,7 +22,7 @@
     <div class="row">
         <div class="col">
             <span class="type" [ngClass]="species.type1.name | lowercase"> {{ species.type1.name }} </span>
-            <span class="type" [ngClass]="species.type2.name | lowercase" *ngIf="species.type2 != null && species.type2.name !== 'NONE'"> {{ species.type2.name }}</span>
+            <span class="type" [ngClass]="species.type2.name | lowercase" *ngIf="species.type2"> {{ species.type2.name }}</span>
         </div>
     </div>
     <div class="row mt-1 ml-1 d-flex align-items-center border rounded clickable nametag-mega" *ngFor="let mega of page.megaEvolutions"

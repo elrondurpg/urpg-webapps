@@ -1,5 +1,5 @@
 import { ContestMoveType } from './ContestMoveType';
 
-export class ORASContestMoveType extends ContestMoveType {
+export class OrasContestMoveType extends ContestMoveType {
     
 }

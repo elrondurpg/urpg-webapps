@@ -28,7 +28,7 @@
         <th>Type</th>
         <td *ngFor="let form of forms">
             <span class="type" [ngClass]="form.getSpecies().type1.name | lowercase"> {{ form.getSpecies().type1.name }} </span>
-            <span class="type" [ngClass]="form.getSpecies().type2.name | lowercase" *ngIf="form.getSpecies().type2.name !== 'NONE'"> {{ form.getSpecies().type2.name }} </span>
+            <span class="type" [ngClass]="form.getSpecies().type2.name | lowercase" *ngIf="form.getSpecies().type2"> {{ form.getSpecies().type2.name }} </span>
         </td>
         </tr>
 

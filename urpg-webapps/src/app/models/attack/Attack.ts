@@ -3,12 +3,13 @@ import { AttackCategory } from './AttackCategory';
 import { AttackTargetType } from './AttackTargetType';
 import { Item } from '../item/Item';
 import { Type } from '../species/Type';
-import { RSEContestMoveType } from '../contest/RSEContestMoveType';
+import { RseContestMoveType } from '../contest/RseContestMoveType';
 import { DPPContestMoveType } from '../contest/DPPContestMoveType';
-import { ORASContestMoveType } from '../contest/ORASContestMoveType';
+import { OrasContestMoveType } from '../contest/OrasContestMoveType';
 import { ContestAttribute } from '../contest/ContestAttribute';
 import { SpeciesAttack } from '../species/SpeciesAttack';
 import { Type as Clazz } from 'class-transformer';
+import { ContestCombo } from '../contest/ContestCombo';
 
 export class Attack {
     dbid:number;
@@ -35,8 +36,8 @@ export class Attack {
     @Clazz(() => AttackTargetType)
     target:AttackTargetType;
 
-    @Clazz(() => RSEContestMoveType)
-    rseContestMoveType:RSEContestMoveType;
+    @Clazz(() => RseContestMoveType)
+    rseContestMoveType:RseContestMoveType;
 
     @Clazz(() => ContestAttribute)
     rseContestAttribute:ContestAttribute;
@@ -47,8 +48,8 @@ export class Attack {
     @Clazz(() => ContestAttribute)
     dppContestAttribute:ContestAttribute;
 
-    @Clazz(() => ORASContestMoveType)
-    orasContestMoveType:ORASContestMoveType;
+    @Clazz(() => OrasContestMoveType)
+    orasContestMoveType:OrasContestMoveType;
 
     @Clazz(() => ContestAttribute)
     orasContestAttribute:ContestAttribute;
@@ -61,4 +62,7 @@ export class Attack {
 
     @Clazz(() => SpeciesAttack)
     pokemon:SpeciesAttack[];
+
+    @Clazz(() => ContestCombo)
+    contestCombos:ContestCombo[];
 }

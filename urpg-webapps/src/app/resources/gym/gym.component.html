@@ -1,0 +1,56 @@
+<div class="container pb-40">
+    <nav aria-label="breadcrumb" class="pt-3">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="/resources">Admin</a></li>
+            <li class="breadcrumb-item" aria-current="page">Gyms</li>
+        </ol>
+    </nav>
+    <resources-search [items]="names" [changes]="detectChanges()" (create)="create()" (findByName)="findByName($event)" (save)="save()"></resources-search>
+    <resources-message #messageBox></resources-message>
+</div>
+<div class="container pb-5" *ngIf="editType == 'create' || model !== undefined">
+    <resources-edit-attribute-header [editType]="editType"></resources-edit-attribute-header>
+    <resources-edit-attribute 
+        attribute="Name" 
+        [editType]="editType" 
+        [currentValue]="model !== undefined ? model.name : ''" 
+        [(ngModel)]="delta.name" 
+        minlength="3" 
+        maxlength="20"
+        required="true"></resources-edit-attribute>
+    <resources-edit-attribute-select
+        attribute="Badge"
+        [editType]="editType"
+        [currentValue]="model !== undefined && model.badge !== undefined ? model.badge.name : ''"
+        [items]="badges"
+        [(ngModel)]="delta.badge"
+        required="true"></resources-edit-attribute-select>
+    <resources-edit-attribute-select
+        attribute="Type"
+        [editType]="editType"
+        [currentValue]="model !== undefined && model.type !== undefined ? model.type.name : ''"
+        [items]="types"
+        [(ngModel)]="delta.type"
+        required="true"></resources-edit-attribute-select>
+    <div class="container" *ngIf="editType == 'create' || model !== undefined">
+        <div class="row p-2">
+            <div class="col-sm-2">
+                Owner
+            </div>
+        
+            <div class="col-sm-5" *ngIf="editType == 'update'">
+                {{ model.currentOwnerRecord != null ? model.currentOwnerRecord.owner.name : 'Unowned' }}
+            </div>
+        
+            <div class="col-sm-5" *ngIf="editType == 'create'">
+                You must save this gym record before updating its owner information.
+            </div>
+        
+            <div class="col-sm-5" *ngIf="editType == 'update'">
+                Contents TBD 
+            </div>
+        </div>
+    </div>
+        
+</div>
