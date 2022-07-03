@@ -157,5 +157,8 @@
         }
       }
     }},
-  "defaultProject": "urpg-webapps"
+  "defaultProject": "urpg-webapps",
+  "cli": {
+    "analytics": false
+  }
 }
