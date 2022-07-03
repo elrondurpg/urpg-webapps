@@ -1,0 +1,12 @@
+<select 
+    class="form-control" 
+    [(ngModel)]="updatedValue" 
+    [required]="field.required && isNew"
+    #validator="ngModel"
+    [ngClass]="validator.invalid && (validator.dirty || validator.touched) ? 'is-invalid' : ''">
+    <option selected value="undefined" *ngIf="field.required && isNew">- unchanged -</option>
+    <option *ngFor="let item of items" [value]="item">{{ item }}</option>
+</select>
+<div class="invalid-feedback" *ngIf="validator.errors && validator.errors.required">
+    Please provide a value for {{ field.label }}.
+</div>   

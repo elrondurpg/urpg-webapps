@@ -1,20 +1,25 @@
-import { EarnedBadge } from '../stats/EarnedBadge';
 import { LegendaryProgress } from '../stats/LegendaryProgress';
 import { OwnedItem } from '../stats/OwnedItem';
 import { OwnedPokemon } from '../stats/OwnedPokemon';
 import { Role } from './Role';
 import { Type } from 'class-transformer';
-import { Gym } from '../gym/Gym';
+import { GymOwnershipTerm } from '../gym/GymOwnershipTerm';
+import { EliteFourVictory } from '../stats/EliteFourVictory';
+import { ChampionVictory } from '../stats/ChampionVictory';
+import { GymVictory } from '../stats/GymVictory';
+import { EliteFourOwnershipTerm } from '../gym/EliteFourOwnershipTerm';
+import { ChampionOwnershipTerm } from '../gym/ChampionOwnershipTerm';
 
 export class Member {
     dbid:number;
     discordId:string;
-    username:string;
+    name:string;
     money:number;
     wins:number;
     losses:number;
     draws:number;
     banned:boolean;
+    bot:boolean;
 
     @Type(() => Date)
     joinDate:Date;
@@ -28,15 +33,27 @@ export class Member {
     @Type(() => OwnedItem)
     items:OwnedItem[];
 
-    @Type(() => EarnedBadge)
-    badges:EarnedBadge[];
-
     @Type(() => LegendaryProgress)
     legendaryProgress:LegendaryProgress[];
 
     @Type(() => Role)
     roles:Role[];
 
-    @Type(() => Gym) 
-    gyms:Gym[];
+    @Type(() => GymOwnershipTerm) 
+    gyms:GymOwnershipTerm[];
+
+    @Type(() => EliteFourOwnershipTerm)
+    eliteFourTerms:EliteFourOwnershipTerm[];
+
+    @Type(() => ChampionOwnershipTerm)
+    championTerms:ChampionOwnershipTerm[];
+
+    @Type(() => GymVictory)
+    gymVictories:GymVictory[];
+
+    @Type(() => EliteFourVictory)
+    eliteFourVictories:EliteFourVictory[];
+
+    @Type(() => ChampionVictory)
+    championVictories:ChampionVictory[];
 }

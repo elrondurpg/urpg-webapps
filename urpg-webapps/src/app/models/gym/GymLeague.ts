@@ -1,10 +1,11 @@
 import { Gym } from './Gym';
 import { Type } from 'class-transformer';
+import { GymOwnershipTerm } from './GymOwnershipTerm';
 
 export class GymLeague {
     dbid:number;
     name:string;
 
-    @Type(() => Gym)
-    gyms:Gym[];
+    @Type(() => GymOwnershipTerm)
+    gyms:GymOwnershipTerm[];
 }

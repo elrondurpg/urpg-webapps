@@ -4,10 +4,10 @@
 
 export const environment = {
   production: false,
-  name: "DEV",
-  host: "http://pokemonurpg.com",
-  api:"http://ec2-44-232-154-200.us-west-2.compute.amazonaws.com:8080",
-  sessionApi: "http://localhost",
+  name: "PROD",
+  host: "http://staging.pokemonurpg.com",
+  api:"http://localhost:8080",
+  sessionApi: "http://localhost/api",
   imageBase:"https://pokemonurpg.com/img",
   spriteBase: "https://pokemonurpg.com/img/sprites/",
   iconBase: "https://pokemonurpg.com/img/icons/",

@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row p-2">
+        <div class="col-sm-2">
+            {{ attribute }}
+        </div>
+    
+        <div class="col-sm-5" *ngIf="editType == 'update'">
+            {{ currentValue }}
+        </div>
+    
+        <div class="col-sm-5">
+            <textarea 
+                class="form-control" 
+                rows="rows" 
+                [(ngModel)]="updatedValue"
+                [minlength]="minlength" 
+                [maxlength]="maxlength" 
+                [required]="required && editType == 'create'"
+                #validator="ngModel"
+                [ngClass]="validator.invalid && (validator.dirty || validator.touched) ? 'is-invalid' : ''">
+            </textarea>
+    
+            <div class="invalid-feedback" *ngIf="validator.errors && validator.errors.minlength">
+                {{ attribute }} must be at least {{ minlength }} characters long.
+            </div>   
+            <div class="invalid-feedback" *ngIf="validator.errors && validator.errors.maxlength">
+                {{ attribute }} must be no more than {{ maxlength }} characters long.
+            </div>   
+            <div class="invalid-feedback" *ngIf="validator.errors && validator.errors.required">
+                Please provide a value for {{ attribute }}.
+            </div>           
+        </div>
+    </div>
+    
+</div>

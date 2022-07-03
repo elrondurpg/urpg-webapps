@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PokedexEntry } from '../models/pokedex/PokedexEntry';
 import { plainToClass } from 'class-transformer';
-import { PokedexService } from '../services/pokedex.service';
+import { PokedexService } from '../services/pokedex/pokedex.service';
 import { ActivatedRoute } from '@angular/router';
 import { DisplayableForm } from './models/DisplayableForm';
 

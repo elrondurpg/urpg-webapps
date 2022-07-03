@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { SessionService } from 'src/app/services/session.service';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { SessionService } from 'src/app/services/security/session.service';
 
 @Component({
   selector: 'urpg-login-modal',
@@ -8,9 +9,14 @@ import { SessionService } from 'src/app/services/session.service';
 })
 export class LoginModalComponent implements OnInit {
 
-  constructor(private sessionService:SessionService) { }
+  constructor(
+    private sessionService:SessionService,
+    private router:Router,
+    private activatedRoute:ActivatedRoute
+  ) { }
 
   ngOnInit() {
+    
   }
 
   login() {

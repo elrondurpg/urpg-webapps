@@ -1,0 +1,45 @@
+<div class="container pb-40">
+    <nav aria-label="breadcrumb" class="pt-3">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="/resources">Admin</a></li>
+            <li class="breadcrumb-item" aria-current="page">RSE Contest Move Types</li>
+        </ol>
+    </nav>
+    <resources-search [items]="names" [changes]="detectChanges()" (create)="create()" (findByName)="findByName($event)" (save)="save()"></resources-search>
+    <resources-message #messageBox></resources-message>
+</div>
+<div class="container pb-5" *ngIf="editType == 'create' || model !== undefined">
+    <resources-edit-attribute-header [editType]="editType"></resources-edit-attribute-header>
+    <resources-edit-attribute 
+        attribute="Name" 
+        [editType]="editType" 
+        [currentValue]="model !== undefined ? model.name : ''" 
+        [(ngModel)]="delta.name" 
+        minlength="3" 
+        maxlength="20"
+        required="true"></resources-edit-attribute>
+    <resources-edit-long-attribute 
+        attribute="Description" 
+        [editType]="editType" 
+        [currentValue]="model !== undefined ? model.description : ''" 
+        [(ngModel)]="delta.description"
+        minlength="3" 
+        maxlength="100"></resources-edit-long-attribute>
+    <resources-edit-attribute-number
+        attribute="Score"
+        [editType]="editType"
+        [currentValue]="model !== undefined ? model.score : ''"
+        [(ngModel)]="delta.score"
+        minvalue="-1"
+        maxvalue="8"
+        required="true"></resources-edit-attribute-number>
+    <resources-edit-attribute-number
+        attribute="Jam"
+        [editType]="editType"
+        [currentValue]="model !== undefined ? model.jam : ''"
+        [(ngModel)]="delta.jam"
+        minvalue="-1"
+        maxvalue="8"
+        required="true"></resources-edit-attribute-number>
+</div>

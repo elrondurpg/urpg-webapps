@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row p-2">
+        <div class="col-sm-2">
+            {{ attribute }}
+        </div>
+    
+        <div class="col-sm-5" *ngIf="editType == 'update'">
+            {{ currentValue }}
+        </div>
+    
+        <div class="col-sm-5">
+            <input 
+                type="number" 
+                step="step"
+                class="form-control" 
+                [(ngModel)]="updatedValue"
+                [min]="minvalue"
+                [max]="maxvalue"
+                [required]="required && editType == 'create'"
+                #validator="ngModel"
+                [ngClass]="validator.invalid && (validator.dirty || validator.touched) ? 'is-invalid' : ''">               
+            <div class="invalid-feedback" *ngIf="validator.errors && validator.errors.min">
+                {{ attribute }} must be at least {{ min }}.
+            </div>   
+            <div class="invalid-feedback" *ngIf="validator.errors && validator.errors.max">
+                {{ attribute }} must be no more than {{ max }}.
+            </div>   
+            <div class="invalid-feedback" *ngIf="validator.errors && validator.errors.required">
+                Please provide a value for {{ attribute }}.
+            </div>   
+        </div>
+    </div>
+</div>

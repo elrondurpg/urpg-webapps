@@ -1,0 +1,143 @@
+<div class="container">
+    <nav aria-label="breadcrumb" class="pt-3">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="/resources">Admin</a></li>
+            <li class="breadcrumb-item" aria-current="page">Attacks</li>
+        </ol>
+    </nav>
+    <resources-search [items]="attackNames" [changes]="detectChanges()" (create)="create()" (findByName)="findByName($event)" (save)="save()"></resources-search>
+    <resources-message #messageBox></resources-message>
+</div>
+<div class="container pb-5" *ngIf="editType == 'create' || attack !== undefined">
+    <resources-edit-attribute-header
+        [editType]="editType"></resources-edit-attribute-header>
+    <resources-edit-attribute 
+        attribute="Name" 
+        [editType]="editType" 
+        [currentValue]="attack !== undefined ? attack.name : ''" 
+        [(ngModel)]="delta.name" 
+        minlength="3" 
+        maxlength="17"
+        required="true"></resources-edit-attribute>
+    <resources-edit-attribute-select
+        attribute="Type"
+        [editType]="editType"
+        [currentValue]="attack !== undefined && attack.type !== undefined ? attack.type.name : ''"
+        [items]="types"
+        [(ngModel)]="delta.type"
+        required="true"></resources-edit-attribute-select>
+    <resources-edit-long-attribute 
+        attribute="Description" 
+        [editType]="editType" 
+        [currentValue]="attack !== undefined ? attack.description : ''" 
+        [(ngModel)]="delta.description"
+        minlength="3" 
+        maxlength="100"
+        required="true"></resources-edit-long-attribute>
+    <resources-edit-attribute-number
+        attribute="Power"
+        [editType]="editType"
+        [currentValue]="attack !== undefined ? attack.power : undefined"
+        [(ngModel)]="delta.power"
+        min=0
+        max=500
+        required="true"></resources-edit-attribute-number>
+    <resources-edit-attribute-number
+        attribute="Accuracy"
+        [editType]="editType"
+        [currentValue]="attack !== undefined ? attack.accuracy : undefined"
+        [(ngModel)]="delta.accuracy"
+        min=0
+        max=100
+        required="true"></resources-edit-attribute-number>
+    <resources-edit-attribute-number
+        attribute="PP"
+        [editType]="editType"
+        [currentValue]="attack !== undefined ? attack.pp : undefined"
+        [(ngModel)]="delta.pp"
+        min=0
+        max=100
+        required="true"></resources-edit-attribute-number>
+    <resources-edit-attribute-select
+        attribute="Category"
+        [editType]="editType"
+        [currentValue]="attack !== undefined && attack.category !== undefined ? attack.category.name : undefined"
+        [items]="attackCategories"
+        [(ngModel)]="delta.category"
+        required="true"></resources-edit-attribute-select>
+    <resources-edit-attribute-select
+        attribute="Target Type"
+        [editType]="editType"
+        [currentValue]="attack !== undefined && attack.target !== undefined ? attack.target.name : undefined"
+        [items]="attackTargetTypes"
+        [(ngModel)]="delta.target"
+        required="true"></resources-edit-attribute-select>
+    <resources-edit-attribute-boolean
+        attribute="Makes contact?"
+        [editType]="editType"
+        [currentValue]="attack !== undefined ? attack.contact : undefined"
+        [(ngModel)]="delta.contact"
+        required="true"></resources-edit-attribute-boolean>
+    <resources-edit-attribute-boolean
+        attribute="Can be snatched?"
+        [editType]="editType"
+        [currentValue]="attack !== undefined ? attack.snatch : undefined"
+        [(ngModel)]="delta.snatch"
+        required="true"></resources-edit-attribute-boolean>
+    <resources-edit-attribute-boolean
+        attribute="Blocked by Substitute?"
+        [editType]="editType"
+        [currentValue]="attack !== undefined ? attack.substitute : undefined"
+        [(ngModel)]="delta.substitute"
+        required="true"></resources-edit-attribute-boolean>
+    <resources-edit-attribute-boolean
+        attribute="Boosted by Sheer Force?"
+        [editType]="editType"
+        [currentValue]="attack !== undefined ? attack.sheerForce : undefined"
+        [(ngModel)]="delta.sheerForce"
+        required="true"></resources-edit-attribute-boolean>
+    <resources-edit-attribute-boolean
+        attribute="Bounced by Magic Coat?"
+        [editType]="editType"
+        [currentValue]="attack !== undefined ? attack.magicCoat : undefined"
+        [(ngModel)]="delta.magicCoat"
+        required="true"></resources-edit-attribute-boolean>
+    <resources-edit-attribute-select
+        attribute="TM or HM"
+        [editType]="editType"
+        [currentValue]="attack && attack.tm ? attack.tm.name : undefined"
+        [(ngModel)]="delta.tm"
+        [items]="tms"></resources-edit-attribute-select>
+    <resources-edit-attribute-select
+        attribute="RSE Contest Attribute"
+        [editType]="editType"
+        [currentValue]="attack !== undefined && attack.rseContestAttribute !== undefined ? attack.rseContestAttribute.name : undefined"
+        [items]="contestAttributes"
+        [(ngModel)]="delta.rseContestAttribute"></resources-edit-attribute-select> 
+    <resources-edit-attribute-select
+        attribute="RSE Contest Move Type"
+        [editType]="editType"
+        [currentValue]="attack !== undefined && attack.rseContestMoveType !== undefined ? attack.rseContestMoveType.name + ' (' + attack.rseContestMoveType.description + ')' : undefined"
+        [items]="rseContestMoveTypes"
+        [(ngModel)]="delta.rseContestMoveType"></resources-edit-attribute-select>
+    <resources-edit-attribute-select
+        attribute="ORAS Contest Attribute"
+        [editType]="editType"
+        [currentValue]="attack !== undefined && attack.orasContestAttribute !== undefined ? attack.orasContestAttribute.name : undefined"
+        [items]="contestAttributes"
+        [(ngModel)]="delta.orasContestAttribute"></resources-edit-attribute-select>
+    <resources-edit-attribute-select
+        attribute="ORAS Contest Move Type"
+        [editType]="editType"
+        [currentValue]="attack !== undefined && attack.orasContestMoveType !== undefined ? attack.orasContestMoveType.name + ' (' + attack.orasContestMoveType.description + ')' : undefined"
+        [items]="orasContestMoveTypes"
+        [(ngModel)]="delta.orasContestMoveType"></resources-edit-attribute-select>
+    <resources-edit-attribute-accordion
+        title="Contest Combos"
+        [currentValues]="attack.contestCombos"
+        [deltas]="delta.contestCombos"
+        [editType]="editType"
+        [mappedItems]="contestComboPropertyDefinition"
+        ></resources-edit-attribute-accordion>
+</div>

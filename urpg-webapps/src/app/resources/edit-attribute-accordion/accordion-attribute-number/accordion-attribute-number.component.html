@@ -1,0 +1,19 @@
+<input 
+    type="number" 
+    step="step"
+    class="form-control" 
+    [(ngModel)]="updatedValue"
+    [min]="minvalue"
+    [max]="maxvalue"
+    [required]="field.required && isNew"
+    #validator="ngModel"
+    [ngClass]="validator.invalid && (validator.dirty || validator.touched) ? 'is-invalid' : ''">               
+<div class="invalid-feedback" *ngIf="validator.errors && validator.errors.min">
+    {{ attribute }} must be at least {{ min }}.
+</div>   
+<div class="invalid-feedback" *ngIf="validator.errors && validator.errors.max">
+    {{ attribute }} must be no more than {{ max }}.
+</div>   
+<div class="invalid-feedback" *ngIf="validator.errors && validator.errors.required">
+    Please provide a value for {{ attribute }}.
+</div>   

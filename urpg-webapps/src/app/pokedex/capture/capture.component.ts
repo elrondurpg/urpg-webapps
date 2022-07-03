@@ -26,17 +26,19 @@ export class CaptureComponent implements OnInit {
   }
 
   getMorphicRequirement() {
-    if (this.page.evolutionFamily === undefined || this.page.evolutionFamily.length <= 0 || this.page.evolutionFamily[0].length == 0) {
-        return this.morphicRequirements[this.species.storyRank.name];
+    if (this.species.storyRank && this.species.storyRank.name) {
+      if (this.page.evolutionFamily === undefined || this.page.evolutionFamily.length <= 0 || this.page.evolutionFamily[0].length == 0) {
+          return this.morphicRequirements[this.species.storyRank.name];
+      }
+      else {
+          for (var i = 0; i < this.page.evolutionFamily[0].length; i++) {
+              if (this.page.evolutionFamily[0][i].name == this.species.name) {
+                  return this.morphicRequirements[this.species.storyRank.name];
+              }
+          }
+      }
     }
-    else {
-        for (var i = 0; i < this.page.evolutionFamily[0].length; i++) {
-            if (this.page.evolutionFamily[0][i].name == this.species.name) {
-                return this.morphicRequirements[this.species.storyRank.name];
-            }
-        }
-    }
-    return null;
+    else return -1;
 }
 
 }

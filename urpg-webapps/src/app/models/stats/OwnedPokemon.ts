@@ -43,4 +43,8 @@ export class OwnedPokemon {
 
     @Clazz(() => EarnedRibbon)
     earnedRibbons:EarnedRibbon[];
+
+    test() {
+        console.log("This is an owned pokemon test.");
+    }
 }

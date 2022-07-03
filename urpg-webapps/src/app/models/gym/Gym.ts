@@ -1,37 +1,31 @@
-import { Item } from '../item/Item';
-import { Member } from '../member/Member';
-import { EarnedBadge } from '../stats/EarnedBadge';
 import { Badge } from './Badge';
-import { GymLeague } from './GymLeague';
 import { Type } from 'class-transformer';
 import { OwnedPokemon } from '../stats/OwnedPokemon';
+import { Type as PokemonType } from '../species/Type';
+import { GymOwnershipTerm } from './GymOwnershipTerm';
+import { GymVictory } from '../stats/GymVictory';
+
 
 export class Gym {
     dbid:number;
     name:string;
-    wins:number;
-    losses:number;
-    draws:number;
-    active:boolean;
-    
-    @Type(() => Member)
-    owner:Member;
-    
-    @Type(() => GymLeague)
-    league:GymLeague;
     
     @Type(() => Badge)
     badge:Badge;
 
-    @Type(() => Date)
-    openDate:Date;
+    @Type(() => PokemonType)
+    type:PokemonType;
 
-    @Type(() => Item)
-    tm:Item;
-
-    @Type(() => EarnedBadge)
-    winners:EarnedBadge[];
+    @Type(() => GymVictory)
+    victories:GymVictory[];
 
     @Type(() => OwnedPokemon)
     pokemon:OwnedPokemon[];
+
+    @Type(() => GymOwnershipTerm)
+    currentOwnerRecord:GymOwnershipTerm;
+
+    test() {
+        console.log("This is a test.");
+    }
 }

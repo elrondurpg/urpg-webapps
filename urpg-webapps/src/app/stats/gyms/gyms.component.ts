@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Gym } from 'src/app/models/gym/Gym';
+import { PokemonBrief } from 'src/app/models/PokemonBrief';
 import { OwnedPokemon } from 'src/app/models/stats/OwnedPokemon';
 import { environment } from 'src/environments/environment';
 
@@ -23,15 +24,14 @@ export class GymsComponent implements OnInit {
 
   getFilteredGyms() {
     return this.gyms.filter(gym => {
-      if (this.nameFilter != "" && gym.name.toUpperCase().indexOf(this.nameFilter.toUpperCase()) != 0 ) {
-        return false;
-      }
-      return gym.active || this.activeFilter;
+      return this.nameFilter == "" || gym.name.toUpperCase().indexOf(this.nameFilter.toUpperCase()) == 0;
     });
   }
 
   getFormattedGymOpenDate(gym:Gym) {
-    let date = gym.openDate;
+    gym.test();
+    gym.pokemon.forEach(pkmn => pkmn.test());
+    let date = gym.currentOwnerRecord.openDate;
     return `${this.monthNames[date.getUTCMonth()]} ${date.getUTCDate()}${this.getDateOrdinal(date.getUTCDate())}, ${date.getUTCFullYear()}`;
   }
 
@@ -54,6 +54,7 @@ export class GymsComponent implements OnInit {
   }
 
   getSpritePath(pokemon : OwnedPokemon) {
+    console.log(pokemon);
     return `${this.spriteBase}${pokemon.species.dexno}${pokemon.species.getSuffix()}.gif`;
   }
 
