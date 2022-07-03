@@ -6,8 +6,8 @@ export const environment = {
   production: false,
   name: "DEV",
   host: "http://pokemonurpg.com",
-  api:"http://staging.pokemonurpg.com:8080",
-  sessionApi: "http://staging.pokemonurpg.com",
+  api:"http://dev.pokemonurpg.com:8080",
+  sessionApi: "http://dev.pokemonurpg.com",
   imageBase:"https://pokemonurpg.com/img",
   spriteBase: "https://pokemonurpg.com/img/sprites/",
   iconBase: "https://pokemonurpg.com/img/icons/",
@@ -16,6 +16,6 @@ export const environment = {
   oauth2Url: "https://discordapp.com/api/oauth2/authorize",
   oauth2ResponseType: "code",
   oauth2Scope: "identify",
-  oauth2RedirectUrl: "http://staging.pokemonurpg.com/api/loginRedirect.php",
+  oauth2RedirectUrl: "http://dev.pokemonurpg.com/api/loginRedirect.php",
   prefix: "staging-"
 };
