@@ -86,7 +86,7 @@ export class AccordionPropertyMap {
     }
 
     getPrototypeValueForKey(prototype:any, keyDefinition:AccordionPropertyKey) {
-        let tokens:string[] = keyDefinition.prototypeSelector.split(".");
+        let tokens:string[] = keyDefinition.modelSelector.split(".");
         let cursor:any = prototype;
         tokens.forEach(token => {
             cursor = cursor[token];

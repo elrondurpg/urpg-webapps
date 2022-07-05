@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { Injector, NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -22,4 +22,9 @@ import { SharedModule } from './shared/shared.module';
   providers: [ {provide: APP_BASE_HREF, useValue: '/urpg-webapps/'} ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  static injector: Injector;
+    constructor(injector: Injector) {
+        AppModule.injector = injector;
+    }
+ }

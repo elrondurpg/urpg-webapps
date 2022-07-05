@@ -15,7 +15,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 })
 export class EditAttributeComponent implements ControlValueAccessor, OnInit {
 
-  @Input() attribute:string = undefined;
+  @Input() title:string = undefined;
   @Input() currentValue:string = undefined;
   @Input() minlength:number = undefined;
   @Input() maxlength:number = undefined;

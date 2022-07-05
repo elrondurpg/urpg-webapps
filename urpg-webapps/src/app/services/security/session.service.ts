@@ -3,7 +3,6 @@ import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { LoginRequest } from 'src/app/requests/LoginRequest';
-import { timeout } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'

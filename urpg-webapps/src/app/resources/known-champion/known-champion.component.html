@@ -3,7 +3,7 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/dashboard">Dashboard</a></li>
             <li class="breadcrumb-item"><a href="/resources">Admin</a></li>
-            <li class="breadcrumb-item" aria-current="page">Permissions</li>
+            <li class="breadcrumb-item" aria-current="page">Known Champion</li>
         </ol>
     </nav>
     <resources-search [items]="names" [changes]="detectChanges()" (create)="create()" (findByName)="findByName($event)" (save)="save()"></resources-search>
@@ -12,19 +12,11 @@
 <div class="container pb-5" *ngIf="editType == 'create' || model !== undefined">
     <resources-edit-attribute-header [editType]="editType"></resources-edit-attribute-header>
     <resources-edit-attribute 
-        title="Name" 
+        attribute="Name" 
         [editType]="editType" 
         [currentValue]="model !== undefined ? model.name : ''" 
         [(ngModel)]="delta.name" 
         minlength="3" 
-        maxlength="20"
-        required="true"></resources-edit-attribute>
-    <resources-edit-attribute 
-        title="Description" 
-        [editType]="editType" 
-        [currentValue]="model !== undefined ? model.description : ''" 
-        [(ngModel)]="delta.description" 
-        minlength="3" 
-        maxlength="60"
+        maxlength="30"
         required="true"></resources-edit-attribute>
 </div>

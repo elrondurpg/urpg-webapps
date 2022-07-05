@@ -1,5 +1,3 @@
-import { asLiteral } from "@angular/compiler/src/render3/view/util";
-
 export class ObjectDelta {
     ignoreProperties:string[] = [];
 

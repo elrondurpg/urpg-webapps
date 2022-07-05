@@ -38,25 +38,25 @@ export class AttackComponent implements OnInit {
   contestFormats = [ "RSE", "ORAS" ];
   contestComboKeys = [
     new AccordionPropertyKeyBuilder()
-      .withLabel("Second Attack")
+      .withTitle("Second Attack")
       .withType("select")
       .withAllowedValues(this.attackNames)
       .withFilterable(true)
-      .withPrototypeSelector("secondAttack.name")
+      .withModelSelector("secondAttack.name")
       .withDeltaSelector("secondAttack")
       .build(),
     new AccordionPropertyKeyBuilder()
-      .withLabel("Format")
+      .withTitle("Format")
       .withType("select")
       .withAllowedValues(this.contestFormats)
       .withFilterable(true)
-      .withPrototypeSelector("contestType")
+      .withModelSelector("contestType")
       .withDeltaSelector("contestType")
       .build()
   ];
   contestComboFields=[
     new AccordionPropertyFieldBuilder()
-      .withLabel("Overpowered")
+      .withTitle("Overpowered")
       .withName("overpowered")
       .withType("boolean")
       .withDefaultValue(false)

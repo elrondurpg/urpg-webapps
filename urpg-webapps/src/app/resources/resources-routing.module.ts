@@ -9,6 +9,7 @@ import { AttackTargetTypeComponent } from './attack-target-type/attack-target-ty
 import { AttackComponent } from './attack/attack.component';
 import { BadgeComponent } from './badge/badge.component';
 import { BotComponent } from './bot/bot.component';
+import { ChampionComponent } from './champion/champion.component';
 import { ContestAttributeComponent } from './contest-attribute/contest-attribute.component';
 import { ContestRankComponent } from './contest-rank/contest-rank.component';
 import { GymLeagueComponent } from './gym-league/gym-league.component';
@@ -16,6 +17,8 @@ import { GymComponent } from './gym/gym.component';
 import { ImageFolderComponent } from './image-folder/image-folder.component';
 import { ImageComponent } from './image/image.component';
 import { ItemComponent } from './item/item.component';
+import { KnownChampionComponent } from './known-champion/known-champion.component';
+import { KnownEliteFourMemberComponent } from './known-elite-four-member/known-elite-four-member.component';
 import { KnownGymLeaderComponent } from './known-gym-leader/known-gym-leader.component';
 import { MemberComponent } from './member/member.component';
 import { NatureComponent } from './nature/nature.component';
@@ -52,6 +55,8 @@ const routes: Routes = [
   {path: 'bots/:name', component: BotComponent},
   {path: 'capture-methods', redirectTo: 'capture-methods/', pathMatch: 'full'},
   {path: 'capture-methods/:name', component: ObtainedComponent},
+  {path: 'champions', redirectTo: 'champions/', pathMatch: 'full'},
+  {path: 'champions/:name', component: ChampionComponent},
   {path: 'contest-attributes', redirectTo: 'contest-attributes/', pathMatch: 'full'},
   {path: 'contest-attributes/:name', component: ContestAttributeComponent},
   {path: 'contest-ranks', redirectTo: 'contest-ranks/', pathMatch: 'full'},
@@ -68,6 +73,10 @@ const routes: Routes = [
   {path: 'image-folders/:name', component: ImageFolderComponent},
   {path: 'items', redirectTo: 'items/', pathMatch: 'full'},
   {path: 'items/:name', component: ItemComponent},
+  {path: 'knownChampions', redirectTo: 'knownChampions/', pathMatch: 'full'},
+  {path: 'knownChampions/:name', component: KnownChampionComponent },
+  {path: 'knownEliteFourMembers', redirectTo: 'knownEliteFourMembers/', pathMatch: 'full'},
+  {path: 'knownEliteFourMembers/:name', component: KnownEliteFourMemberComponent },
   {path: 'knownGymLeaders', redirectTo: 'knownGymLeaders/', pathMatch: 'full'},
   {path: 'knownGymLeaders/:name', component: KnownGymLeaderComponent },
   {path: 'members', redirectTo: 'members/', pathMatch: 'full'},

@@ -23,11 +23,11 @@ export class RoleComponent implements OnInit {
   permissionNames:string[] = [];
   rolePermissionKeys = [
     new AccordionPropertyKeyBuilder()
-      .withLabel("Permission")
+      .withTitle("Permission")
       .withType("select")
       .withAllowedValues(this.permissionNames)
       .withFilterable(true)
-      .withPrototypeSelector("name")
+      .withModelSelector("name")
       .withDeltaSelector("name")
       .build()
   ];

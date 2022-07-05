@@ -7,7 +7,7 @@ export const environment = {
   name: "DEV",
   host: "http://pokemonurpg.com",
   api:"http://dev.pokemonurpg.com:8080",
-  sessionApi: "http://dev.pokemonurpg.com",
+  sessionApi: "http://dev.pokemonurpg.com/api",
   imageBase:"https://pokemonurpg.com/img",
   spriteBase: "https://pokemonurpg.com/img/sprites/",
   iconBase: "https://pokemonurpg.com/img/icons/",

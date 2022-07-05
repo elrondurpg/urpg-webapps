@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { plainToClass } from 'class-transformer';
-import { OrasContestMoveType } from 'src/app/models/contest/OrasContestMoveType';
+import { OrasContestMoveType } from 'src/app/models/contest/ORASContestMoveType';
 import { ContestMoveTypeDelta } from 'src/app/models/contest/ContestMoveTypeDelta';
 import { OrasContestMoveTypeService } from 'src/app/services/contest/oras-contest-move-type.service';
 import { MessageComponent } from '../message/message.component';

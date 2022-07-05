@@ -1,0 +1,31 @@
+<div class="container pb-5" *ngIf="editType == 'create' || model !== undefined">
+    <resources-edit-attribute-header [editType]="editType"></resources-edit-attribute-header>
+    <ng-container *ngFor="let attribute of dataDefinition.attributes">
+        <resources-edit-attribute 
+            *ngIf="attribute.type.toLowerCase() == 'string'"
+            [title]="attribute.title" 
+            [editType]="editType" 
+            [currentValue]="model !== undefined ? model[attribute.modelSelector] : ''" 
+            [(ngModel)]="delta[attribute.deltaSelector]" 
+            [minlength]="attribute.minlength" 
+            [maxlength]="attribute.maxlength"
+            [required]="attribute.required">
+        </resources-edit-attribute>
+        <div class="container-fluid border border-info">
+            <div class="row py-2">
+                <div class="col"
+                    *ngIf="attribute.instructions != null" 
+                    (click)="toggleInstructions()">
+                        <p class="m-0">Instructions for field <strong>{{ attribute.title }}</strong> {{ showInstructions ? '-' : '+' }}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col"
+                    *ngIf="attribute.instructions != null && showInstructions"
+                    (click)="toggleInstructions()">
+                        <p>{{ attribute.instructions }}</p>
+                </div>
+            </div>
+        </div>
+    </ng-container>  
+</div>

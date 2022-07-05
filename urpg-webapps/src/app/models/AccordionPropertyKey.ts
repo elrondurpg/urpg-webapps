@@ -1,8 +1,8 @@
 export class AccordionPropertyKey {
     allowedValues:string[] = [];
     filterable:boolean = false;
-    label:string;
-    prototypeSelector:string = undefined;
+    title:string;
+    modelSelector:string = undefined;
     deltaSelector:string = undefined;
     type:string;
     minLength:number;
@@ -22,13 +22,13 @@ export class AccordionPropertyKeyBuilder {
         return this;
     }
 
-    withLabel(label:string) {
-        this.key.label = label;
+    withTitle(title:string) {
+        this.key.title = title;
         return this;
     }
 
-    withPrototypeSelector(prototypeSelector:string) {
-        this.key.prototypeSelector = prototypeSelector;
+    withModelSelector(modelSelector:string) {
+        this.key.modelSelector = modelSelector;
         return this;
     }
 

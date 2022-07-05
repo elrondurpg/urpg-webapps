@@ -40,24 +40,24 @@ export class SpeciesComponent implements OnInit {
   abilityNames=[];
   speciesAttackKeys = [
     new AccordionPropertyKeyBuilder()
-      .withLabel("Attack")
+      .withTitle("Attack")
       .withType("select")
       .withAllowedValues(this.attackNames)
       .withFilterable(true)
-      .withPrototypeSelector("attack.name")
+      .withModelSelector("attack.name")
       .withDeltaSelector("name")
       .build()
   ];
   speciesAttackFields=[
     new AccordionPropertyFieldBuilder()
-      .withLabel("Method")
+      .withTitle("Method")
       .withName("method")
       .withType("select")
       .withRequired(true)
       .withSelectList(this.attackMethods)
       .build(),
     new AccordionPropertyFieldBuilder()
-      .withLabel("Generation")
+      .withTitle("Generation")
       .withName("generation")
       .withType("number")
       .withMin(1)
@@ -73,17 +73,17 @@ export class SpeciesComponent implements OnInit {
   
   speciesAbilityKeys = [
     new AccordionPropertyKeyBuilder()
-      .withLabel("Ability")
+      .withTitle("Ability")
       .withType("select")
       .withAllowedValues(this.abilityNames)
       .withFilterable(true)
-      .withPrototypeSelector("ability.name")
+      .withModelSelector("ability.name")
       .withDeltaSelector("name")
       .build()
   ];
   speciesAbilityFields=[
     new AccordionPropertyFieldBuilder()
-      .withLabel("Hidden?")
+      .withTitle("Hidden?")
       .withName("hidden")
       .withType("boolean")
       .withRequired(true)
@@ -97,18 +97,18 @@ export class SpeciesComponent implements OnInit {
       .build();
   cosmeticFormKeys=[
     new AccordionPropertyKeyBuilder()
-      .withLabel("Name")
+      .withTitle("Name")
       .withType("text")
       .withMinLength(3)
       .withMaxLength(20)
       .withFilterable(true)
-      .withPrototypeSelector("name")
+      .withModelSelector("name")
       .withDeltaSelector("name")
       .build()
   ];
   cosmeticFormFields=[
     new AccordionPropertyFieldBuilder()
-      .withLabel("Form Name")
+      .withTitle("Form Name")
       .withName("formName")
       .withType("text")
       .withMinLength(3)

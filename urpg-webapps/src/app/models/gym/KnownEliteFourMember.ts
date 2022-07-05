@@ -1,4 +1,5 @@
-export class KnownEliteFourMember {
-    dbid:number;
+import { ObjectModel } from "../ObjectModel";
+
+export class KnownEliteFourMember extends ObjectModel {
     name:string;
 }

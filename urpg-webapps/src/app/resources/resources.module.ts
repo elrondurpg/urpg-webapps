@@ -49,9 +49,14 @@ import { NewItemModalComponent } from './edit-attribute-accordion/new-item-modal
 import { EditAttributeDateComponent } from './edit-attribute-date/edit-attribute-date.component';
 import { FlagComponent } from './flag/flag.component';
 import { KnownGymLeaderComponent } from './known-gym-leader/known-gym-leader.component';
+import { KnownChampionComponent } from './known-champion/known-champion.component';
+import { KnownEliteFourMemberComponent } from './known-elite-four-member/known-elite-four-member.component';
+import { HeaderComponent } from './header/header.component';
+import { EditPaneComponent } from './edit-pane/edit-pane.component';
+import { ChampionComponent } from './champion/champion.component';
 
 @NgModule({
-  declarations: [ResourcesComponent, AbilityComponent, AttackComponent, AttackCategoryComponent, AttackTargetTypeComponent, AdvContestMoveTypeComponent, ContestAttributeComponent, ContestRankComponent, OrasContestMoveTypeComponent, RseContestMoveTypeComponent, ArtRankComponent, ParkRankComponent, ParkLocationComponent, StoryRankComponent, NatureComponent, ObtainedComponent, SectionComponent, BadgeComponent, GymComponent, GymLeagueComponent, ImageComponent, ImageFolderComponent, ItemComponent, MemberComponent, BotComponent, PermissionComponent, RoleComponent, SpeciesComponent, TypeComponent, SearchComponent, EditAttributeComponent, EditLongAttributeComponent, MessageComponent, EditAttributeHeaderComponent, EditAttributeSelectComponent, EditAttributeNumberComponent, EditAttributeBooleanComponent, EditAttributeAccordionComponent, AccordionAttributeNumberComponent, AccordionAttributeSelectComponent, AccordionAttributeBooleanComponent, AccordionAttributeTextComponent, NewItemModalComponent, EditAttributeDateComponent, FlagComponent, KnownGymLeaderComponent ],
+  declarations: [ResourcesComponent, AbilityComponent, AttackComponent, AttackCategoryComponent, AttackTargetTypeComponent, AdvContestMoveTypeComponent, ContestAttributeComponent, ContestRankComponent, OrasContestMoveTypeComponent, RseContestMoveTypeComponent, ArtRankComponent, ParkRankComponent, ParkLocationComponent, StoryRankComponent, NatureComponent, ObtainedComponent, SectionComponent, BadgeComponent, GymComponent, GymLeagueComponent, ImageComponent, ImageFolderComponent, ItemComponent, MemberComponent, BotComponent, PermissionComponent, RoleComponent, SpeciesComponent, TypeComponent, SearchComponent, EditAttributeComponent, EditLongAttributeComponent, MessageComponent, EditAttributeHeaderComponent, EditAttributeSelectComponent, EditAttributeNumberComponent, EditAttributeBooleanComponent, EditAttributeAccordionComponent, AccordionAttributeNumberComponent, AccordionAttributeSelectComponent, AccordionAttributeBooleanComponent, AccordionAttributeTextComponent, NewItemModalComponent, EditAttributeDateComponent, FlagComponent, KnownGymLeaderComponent, KnownChampionComponent, KnownEliteFourMemberComponent, HeaderComponent, EditPaneComponent, ChampionComponent ],
   imports: [
     CommonModule,
     FormsModule,

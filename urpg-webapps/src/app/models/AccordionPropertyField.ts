@@ -1,7 +1,5 @@
-import { max, min } from "rxjs/operators";
-
 export class AccordionPropertyField {
-    label:string;
+    title:string;
     name:any;
     type:string;
     selectList:string[];
@@ -18,8 +16,8 @@ export class AccordionPropertyField {
 export class AccordionPropertyFieldBuilder {
     field:AccordionPropertyField = new AccordionPropertyField();
 
-    withLabel(label:string) {
-        this.field.label = label;
+    withTitle(title:string) {
+        this.field.title = title;
         return this;
     }
 

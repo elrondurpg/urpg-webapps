@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { plainToClass } from 'class-transformer';
-import { RseContestMoveType } from 'src/app/models/contest/RseContestMoveType';
+import { RseContestMoveType } from 'src/app/models/contest/RSEContestMoveType';
 import { ContestMoveTypeDelta } from 'src/app/models/contest/ContestMoveTypeDelta';
 import { RseContestMoveTypeService } from 'src/app/services/contest/rse-contest-move-type.service';
 import { MessageComponent } from '../message/message.component';
