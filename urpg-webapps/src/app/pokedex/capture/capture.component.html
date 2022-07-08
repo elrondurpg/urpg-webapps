@@ -1,18 +1,18 @@
 <div class="container">
     <div class="row py-1 d-flex align-items-center justify-content-center text-center border capture-info">
-        <div class="col-sm-2" *ngIf="species.pokemart != null && species.pokemart != '' && species.pokemart != '-1'">
+        <div class="col-sm-2" *ngIf="species.pokemart != null && species.pokemart != 0 && species.pokemart != -1">
             <strong>POKEMART</strong><br>
             {{ species.pokemart | currency : 'USD' : '$' : '1.0-0' }}
         </div>
-        <div class="col-sm-2" *ngIf="species.pokemart == null || species.pokemart == '' || species.pokemart == '-1'">
+        <div class="col-sm-2" *ngIf="species.pokemart == null || species.pokemart == 0 || species.pokemart == -1">
             <strong>POKEMART</strong><br>
             -
         </div>
-        <div class="col-sm-2" *ngIf="species.contestCredits != null && species.contestCredits != '' && species.contestCredits != '-1'">
+        <div class="col-sm-2" *ngIf="species.contestCredits != null && species.contestCredits != 0 && species.contestCredits != -1">
             <strong>BERRY STORE</strong><br>
             {{ species.contestCredits | currency : 'USD' : '$' : '1.0-0' }}
         </div>
-        <div class="col-sm-2" *ngIf="species.contestCredits == null || species.contestCredits == '' || species.contestCredits == '-1'">
+        <div class="col-sm-2" *ngIf="species.contestCredits == null || species.contestCredits == 0 || species.contestCredits == -1">
             <strong>BERRY STORE</strong><br>
             -
         </div>

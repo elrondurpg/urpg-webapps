@@ -4,11 +4,10 @@ import { OwnedPokemon } from '../stats/OwnedPokemon';
 import { Type as PokemonType } from '../species/Type';
 import { GymOwnershipTerm } from './GymOwnershipTerm';
 import { GymVictory } from '../stats/GymVictory';
+import { UrpgObjectModel } from '../ObjectModel';
 
 
-export class Gym {
-    dbid:number;
-    name:string;
+export class Gym extends UrpgObjectModel {
     
     @Type(() => Badge)
     badge:Badge;
@@ -24,8 +23,4 @@ export class Gym {
 
     @Type(() => GymOwnershipTerm)
     currentOwnerRecord:GymOwnershipTerm;
-
-    test() {
-        console.log("This is a test.");
-    }
 }

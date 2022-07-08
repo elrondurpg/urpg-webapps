@@ -1,16 +1,22 @@
 export class EditPaneAttribute {
     title:string;
     type:string = "string";
-    modelSelector:string;
-    deltaSelector:string;
+    modelSelector:string = null;
+    deltaSelector:string = null;
     minlength:number = 0;
-    maxlength:number = 0;
+    maxlength:number = 524288;
+    minvalue:number = 0;
+    maxvalue:number = Number.MAX_SAFE_INTEGER;
+    step:number = 1;
     required:boolean = false;
+    immutable:boolean = false;
     instructions:string = null;
+    items:string[];
 }
 
 export class EditPaneAttributeBuilder {
     attribute:EditPaneAttribute = new EditPaneAttribute();
+    deltaOnly:boolean = false;
 
     withTitle(title:string) {
         this.attribute.title = title;
@@ -32,6 +38,11 @@ export class EditPaneAttributeBuilder {
         return this;
     }
 
+    withItems(items:string[]) {
+        this.attribute.items = items;
+        return this;
+    }
+
     withMinLength(minlength:number) {
         this.attribute.minlength = minlength;
         return this;
@@ -42,8 +53,28 @@ export class EditPaneAttributeBuilder {
         return this;
     }
 
+    withMinValue(minvalue:number) {
+        this.attribute.minvalue = minvalue;
+        return this;
+    }
+
+    withMaxValue(maxvalue:number) {
+        this.attribute.maxvalue = maxvalue;
+        return this;
+    }
+
+    withStep(step:number) {
+        this.attribute.step = step;
+        return this;
+    }
+
     withRequired(required:boolean) {
         this.attribute.required = required;
+        return this;
+    }
+
+    withImmutable(immutable:boolean) {
+        this.attribute.immutable = immutable;
         return this;
     }
 
@@ -52,7 +83,21 @@ export class EditPaneAttributeBuilder {
         return this;
     }
 
+    withDeltaOnly() {
+        this.deltaOnly = true;
+        return this;
+    }
+
     build() {
+        if (this.attribute.title != null) {
+            if (this.attribute.modelSelector == null && !this.deltaOnly) {
+                this.attribute.modelSelector = (this.attribute.title[0].toLowerCase() + this.attribute.title.substring(1)).replace(" ", "");
+            }
+            if (this.attribute.deltaSelector == null) {
+                this.attribute.deltaSelector = (this.attribute.title[0].toLowerCase() + this.attribute.title.substring(1)).replace(" ", "");
+            }
+        }
+
         return this.attribute;
     }
 }

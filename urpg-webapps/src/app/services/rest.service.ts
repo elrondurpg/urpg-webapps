@@ -15,12 +15,19 @@ export class RestService {
     private sessionService : SessionService
   ) { }
 
-  get(resource:string):Observable<any> {
-    return this.http.get(environment.api + resource);
+  get(resource:string, queryParams?:{ key:string, value:any }[]):Observable<any> {
+    let queryString = "";
+    if (queryParams != null) {
+      if (queryParams.length > 0) queryString += "?";
+      for (let i = 0; i < queryParams.length; i++) {
+        queryString += queryParams[i].key + "=" + queryParams[i].value;
+      }
+    }
+    return this.http.get(environment.api + resource + queryString);
   }
 
-  getByName(resource:string, name:string):Observable<any> {
-    return this.http.get(environment.api + resource + `/${name}`);
+  getByPathParam(resource:string, param:any):Observable<any> {
+    return this.http.get(environment.api + resource + `/${param}`);
   }
 
   post(resource:string, delta:ObjectDelta):Observable<any> {

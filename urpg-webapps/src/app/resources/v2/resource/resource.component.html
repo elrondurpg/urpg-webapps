@@ -1,0 +1,15 @@
+<zydeco-header #header 
+    [breadcrumbs]="breadcrumbs"
+    [complex]="complex"
+    [changes]="detectChanges()"
+    [items]="items"
+    [title]="title"
+    (create)="create()"
+    (save)="save()"
+    (load)="load($event)"></zydeco-header>
+<zydeco-attributes
+    [editType]="editType"
+    [modelDefinition]="modelDefinition"
+    [model]="model"
+    [delta]="delta"
+></zydeco-attributes>

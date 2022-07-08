@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ApiConstants } from 'src/app/constants/ApiConstants';
 import { GeneralConstants } from 'src/app/constants/GeneralConstants';
 import { EditPaneAttributeBuilder } from 'src/app/models/EditPaneAttribute';
 import { EditPaneDataDefinition } from 'src/app/models/EditPaneDataDefinition';
@@ -11,7 +12,7 @@ import { ResourceComponent } from '../resource/resource.component';
 export class ChampionComponent extends ResourceComponent<Champion, ChampionDelta> implements OnInit {
 
   constructor(protected route:ActivatedRoute) { 
-    super("Champion", "/champion", Champion, ChampionDelta, route);
+    super("Champion", ApiConstants.CHAMPION_SLOT_API, Champion, ChampionDelta, route);
 
     this.dataDefinition = new EditPaneDataDefinition(
       [
@@ -23,6 +24,12 @@ export class ChampionComponent extends ResourceComponent<Champion, ChampionDelta
           .withMaxLength(20)
           .withRequired(true)
           .withInstructions(GeneralConstants.CHAMPION_NAME_INSTRUCTIONS)
+          .build(),
+        new EditPaneAttributeBuilder()
+          .withTitle("Remove the current owner")
+          .withType("boolean")
+          .withDeltaSelector("removeOwner")
+          .withDeltaOnly()
           .build()
       ]
     );

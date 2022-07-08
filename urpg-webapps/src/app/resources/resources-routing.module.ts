@@ -10,6 +10,7 @@ import { AttackComponent } from './attack/attack.component';
 import { BadgeComponent } from './badge/badge.component';
 import { BotComponent } from './bot/bot.component';
 import { ChampionComponent } from './champion/champion.component';
+import { ChampionOwnershipComponent } from './champion-ownership/champion-ownership.component';
 import { ContestAttributeComponent } from './contest-attribute/contest-attribute.component';
 import { ContestRankComponent } from './contest-rank/contest-rank.component';
 import { GymLeagueComponent } from './gym-league/gym-league.component';
@@ -34,6 +35,9 @@ import { SpeciesComponent } from './species/species.component';
 import { StoryRankComponent } from './story-rank/story-rank.component';
 import { TypeComponent } from './type/type.component';
 import { FlagComponent } from './flag/flag.component';
+import { EliteFourSlotsComponent } from './elite-four-slots/elite-four-slots.component';
+import { EliteFourMembershipComponent } from './elite-four-membership/elite-four-membership.component';
+import { GymLeadershipComponent } from './gym-leadership/gym-leadership.component';
 
 
 const routes: Routes = [
@@ -55,16 +59,22 @@ const routes: Routes = [
   {path: 'bots/:name', component: BotComponent},
   {path: 'capture-methods', redirectTo: 'capture-methods/', pathMatch: 'full'},
   {path: 'capture-methods/:name', component: ObtainedComponent},
-  {path: 'champions', redirectTo: 'champions/', pathMatch: 'full'},
-  {path: 'champions/:name', component: ChampionComponent},
+  {path: 'championSlots', redirectTo: 'championSlots/', pathMatch: 'full'},
+  {path: 'championSlots/:name', component: ChampionComponent},
+  {path: 'champions', component: ChampionOwnershipComponent },
   {path: 'contest-attributes', redirectTo: 'contest-attributes/', pathMatch: 'full'},
   {path: 'contest-attributes/:name', component: ContestAttributeComponent},
   {path: 'contest-ranks', redirectTo: 'contest-ranks/', pathMatch: 'full'},
   {path: 'contest-ranks/:name', component: ContestRankComponent},
+  {path: 'eliteFourSlots', redirectTo: 'eliteFourSlots/', pathMatch: 'full'},
+  {path: 'eliteFourSlots/:name', component: EliteFourSlotsComponent},
+  {path: 'eliteFourMembers', component: EliteFourMembershipComponent },
   {path: 'flags', redirectTo: 'flags/', pathMatch: 'full'},
   {path: 'flags/:name', component: FlagComponent},
   {path: 'gyms', redirectTo: 'gyms/', pathMatch: 'full'},
   {path: 'gyms/:name', component: GymComponent},
+  {path: 'gymLeaders', redirectTo: 'gymLeaders/', pathMatch: 'full'},
+  {path: 'gymLeaders/:name', component: GymLeadershipComponent},
   {path: 'gym-leagues', redirectTo: 'gym-leagues/', pathMatch: 'full'},
   {path: 'gym-leagues/:name', component: GymLeagueComponent},
   {path: 'images', redirectTo: 'images/', pathMatch: 'full'},

@@ -1,27 +1,47 @@
 <div class="container pb-5" *ngIf="editType == 'create' || model !== undefined">
     <resources-edit-attribute-header [editType]="editType"></resources-edit-attribute-header>
     <ng-container *ngFor="let attribute of dataDefinition.attributes">
-        <resources-edit-attribute 
-            *ngIf="attribute.type.toLowerCase() == 'string'"
-            [title]="attribute.title" 
-            [editType]="editType" 
-            [currentValue]="model !== undefined ? model[attribute.modelSelector] : ''" 
-            [(ngModel)]="delta[attribute.deltaSelector]" 
-            [minlength]="attribute.minlength" 
-            [maxlength]="attribute.maxlength"
-            [required]="attribute.required">
-        </resources-edit-attribute>
-        <div class="container-fluid border border-info">
+        <ng-container [ngSwitch]="attribute.type.toLowerCase()">
+            <resources-edit-attribute *ngSwitchDefault
+                [attributeDefinition]="attribute"
+                [editType]="editType" 
+                [currentValue]="model !== undefined ? getCurrentModelValue(attribute.modelSelector) : ''" 
+                [(ngModel)]="delta[attribute.deltaSelector]">
+            </resources-edit-attribute>
+    
+            <resources-v2-edit-attribute-date *ngSwitchCase="'date'"
+                [attributeDefinition]="attribute"
+                [editType]="editType"
+                [currentValue]="model !== undefined ? getCurrentModelValue(attribute.modelSelector) : ''"
+                [(ngModel)]="delta[attribute.deltaSelector]">
+            </resources-v2-edit-attribute-date>
+    
+            <resources-v2-edit-attribute-select *ngSwitchCase="'select'"
+                [attributeDefinition]="attribute"
+                [editType]="editType"
+                [currentValue]="model !== undefined ? getCurrentModelValue(attribute.modelSelector) : ''"
+                [(ngModel)]="delta[attribute.deltaSelector]">
+            </resources-v2-edit-attribute-select>
+    
+            <resources-v2-edit-attribute-boolean *ngSwitchCase="'boolean'"
+                [attributeDefinition]="attribute"
+                [editType]="editType"
+                [currentValue]="model !== undefined ? getCurrentModelValue(attribute.modelSelector) : ''"
+                [(ngModel)]="delta[attribute.deltaSelector]">
+            </resources-v2-edit-attribute-boolean>
+        </ng-container>
+
+        <div class="container-fluid border border-info"
+            *ngIf="attribute.instructions != null">
             <div class="row py-2">
-                <div class="col"
-                    *ngIf="attribute.instructions != null" 
+                <div class="col" 
                     (click)="toggleInstructions()">
                         <p class="m-0">Instructions for field <strong>{{ attribute.title }}</strong> {{ showInstructions ? '-' : '+' }}</p>
                 </div>
             </div>
             <div class="row">
                 <div class="col"
-                    *ngIf="attribute.instructions != null && showInstructions"
+                    *ngIf="showInstructions"
                     (click)="toggleInstructions()">
                         <p>{{ attribute.instructions }}</p>
                 </div>

@@ -6,6 +6,12 @@
             <li class="breadcrumb-item" aria-current="page">{{ parent.title }}</li>
         </ol>
     </nav>
-    <resources-search [items]="parent.names" [changes]="parent.detectChanges()" (create)="parent.create()" (findByName)="parent.findByName($event)" (save)="parent.save()"></resources-search>
+    <resources-search 
+        [items]="parent.items" 
+        [complex]="parent.complex" 
+        [changes]="parent.detectChanges()" 
+        (create)="parent.create()" 
+        (load)="parent.load($event)" 
+        (save)="parent.save()"></resources-search>
     <resources-message #messageBox></resources-message>
 </div>

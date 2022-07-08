@@ -1,6 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { ObjectDelta } from 'src/app/models/ObjectDelta';
-import { ObjectModel } from 'src/app/models/ObjectModel';
+import { UrpgObjectModel } from 'src/app/models/ObjectModel';
 import { ActivatedRoute } from '@angular/router';
 import { RestService } from 'src/app/services/rest.service';
 import { plainToClass } from 'class-transformer';
@@ -13,24 +13,25 @@ import { EditPaneDataDefinition } from 'src/app/models/EditPaneDataDefinition';
   templateUrl: './resource.component.html',
   styleUrls: ['./resource.component.css']
 })
-export abstract class ResourceComponent<ModelClass extends ObjectModel, DeltaClass extends ObjectDelta> implements OnInit {
+export abstract class ResourceComponent<ModelClass extends UrpgObjectModel, DeltaClass extends ObjectDelta> implements OnInit {
   
   protected service:RestService;
   protected dataDefinition:EditPaneDataDefinition;
 
-  names = [];
+  items = [];
   model:ModelClass = undefined;
   delta:DeltaClass;
   editType = "update";
+  complex:boolean = false;
 
   @ViewChild('header', {static: false})
   header:HeaderComponent;
 
   constructor(
-    protected title:string,
-    protected api:string,
-    protected modelType: new () => ModelClass,
-    protected deltaType: new () => DeltaClass,
+    @Inject("string") public title:string,
+    @Inject("string") public api:string,
+    @Inject("string") protected modelType: new () => ModelClass,
+    @Inject("string") protected deltaType: new () => DeltaClass,
     protected route:ActivatedRoute
   ) { 
     this.service = AppModule.injector.get(RestService);
@@ -40,16 +41,16 @@ export abstract class ResourceComponent<ModelClass extends ObjectModel, DeltaCla
   }
 
   ngOnInit() {
-    this.loadNames();
+    this.loadItems();
     this.route.params.subscribe(params => {
       if (params['name']) {
-        this.findByName(params['name']);
+        this.load(params['name']);
       }
     });
   }
 
-  loadNames() {
-    this.service.get(this.api).subscribe(names => this.names = names);
+  loadItems() {
+    this.service.get(this.api).subscribe(items => this.items = items);
   }
 
   create() {
@@ -57,10 +58,10 @@ export abstract class ResourceComponent<ModelClass extends ObjectModel, DeltaCla
     this.delta = new this.deltaType();
   }
 
-  findByName(name) {
+  load(param) {
     this.editType = "update";
     this.delta = new this.deltaType();
-    this.service.getByName(this.api, name).subscribe(model => {
+    this.service.getByPathParam(this.api, param).subscribe(model => {
       this.model = plainToClass(this.modelType, model);
       console.log(this.model);
     });
@@ -82,7 +83,7 @@ export abstract class ResourceComponent<ModelClass extends ObjectModel, DeltaCla
   }
 
   showSuccessMessage(model) {
-    this.loadNames();
+    this.loadItems();
     this.header.clearMessage();
     this.header.showSuccessMessage(`${this.modelType.name} ${this.editType}d successfully!`);
     this.editType = "update";

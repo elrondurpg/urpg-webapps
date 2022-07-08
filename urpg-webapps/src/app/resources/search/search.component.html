@@ -3,11 +3,16 @@
         <div class="col-md-6">
             <select *ngIf="filterable == true" class="form-control" [(ngModel)]="filter">
                 <option selected value="undefined" hidden>Select an item to view or edit</option>
-                <option *ngFor="let item of items" [value]="item">{{ item }}</option>
+                <ng-container *ngIf="!complex">
+                    <option *ngFor="let item of getSortedItems()" [value]="item">{{ item }}</option>
+                </ng-container>
+                <ng-container *ngIf="complex">
+                    <option *ngFor="let item of getSortedItems()" [value]="item.dbid">{{ item.getDisplayName() }}</option>
+                </ng-container>
             </select>
         </div>
         <div class="col-md-2">
-            <button *ngIf="filterable == true" type="submit" class="btn btn-primary btn-block" (click)="emitFindByName()">Load</button>
+            <button *ngIf="filterable == true" type="submit" class="btn btn-primary btn-block" (click)="emitLoad()">Load</button>
         </div>
         <div class="col-md-2">
             <button type="button" class="btn btn-primary btn-block" (click)="filter = undefined; emitCreate()">+ New</button>

@@ -29,13 +29,6 @@
 			curl_setopt($curl, CURLOPT_USERPWD, $id . ":" . $access_token);
 		}
 
-		 // error_log("Printed from sendRequest.php");
-		 // error_log("Method: " . $method);
-		 // error_log("URL: " . $url);
-		 // error_log("ID: " . $id);
-		 // error_log("Access token: " . $access_token);
-		 // error_log("Data: " . print_r($data, true));
-
         curl_setopt($curl, CURLOPT_URL, $url);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($curl, CURLINFO_HEADER_OUT, true);

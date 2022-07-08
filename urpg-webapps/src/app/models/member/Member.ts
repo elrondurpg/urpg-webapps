@@ -9,8 +9,9 @@ import { ChampionVictory } from '../stats/ChampionVictory';
 import { GymVictory } from '../stats/GymVictory';
 import { EliteFourOwnershipTerm } from '../gym/EliteFourOwnershipTerm';
 import { ChampionOwnershipTerm } from '../gym/ChampionOwnershipTerm';
+import { UrpgObjectModel } from '../ObjectModel';
 
-export class Member {
+export class Member extends UrpgObjectModel {
     dbid:number;
     discordId:string;
     name:string;

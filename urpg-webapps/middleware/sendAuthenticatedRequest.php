@@ -14,24 +14,21 @@
 	
 	$id = null;
 	$accessToken = null;
+	if ($input != null) {
+		if (isset($_SESSION)) {
+			error_log("Found session");
+			if (array_key_exists('accessToken', $_SESSION)) {
+				error_log("Found access token");
+				$accessToken = $_SESSION['accessToken'];
+			}
 	
-	 // error_log("Printed from sendAuthenticatedRequest.php");
-	 // error_log(print_r($_SESSION, true));
-	 // error_log(print_r($input, true));
+			if (array_key_exists('id', $_SESSION)) {
+				$id = $_SESSION['id'];
+			}
+		}
 	
-	if (isset($_SESSION)) {
-		error_log("Found session");
-		if (array_key_exists('accessToken', $_SESSION)) {
-			error_log("Found access token");
-			$accessToken = $_SESSION['accessToken'];
-		}
-
-		if (array_key_exists('id', $_SESSION)) {
-			$id = $_SESSION['id'];
-		}
+		$response = sendRequest($input['method'], $input['url'], $id, $accessToken, $input['payload']);
+	
+		echo $response;
 	}
-
-    $response = sendRequest($input['method'], $input['url'], $id, $accessToken, $input['payload']);
-
-    echo $response;
 ?>

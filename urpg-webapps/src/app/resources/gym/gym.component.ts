@@ -1,118 +1,64 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { plainToClass } from 'class-transformer';
+import { ApiConstants } from 'src/app/constants/ApiConstants';
+import { EditPaneAttributeBuilder } from 'src/app/models/EditPaneAttribute';
+import { EditPaneDataDefinition } from 'src/app/models/EditPaneDataDefinition';
 import { Gym } from 'src/app/models/gym/Gym';
-import { GymOwnershipTerm } from 'src/app/models/gym/GymOwnershipTerm';
 import { GymDelta } from 'src/app/models/gym/GymDelta';
-import { BadgeService } from 'src/app/services/gym/badge.service';
-import { TypeService } from 'src/app/services/species/type.service';
-import { GymService } from 'src/app/services/gym/gym.service';
-import { MessageComponent } from '../message/message.component';
-import { GymOwnershipTermService } from 'src/app/services/gym/gym-ownership-term.service';
+import { ResourceComponent } from '../resource/resource.component';
 
-@Component({
-  selector: 'resources-gym',
-  templateUrl: './gym.component.html',
-  styleUrls: ['./gym.component.css']
-})
-export class GymComponent implements OnInit {
-  names:string[] = [];
-  model:Gym = undefined;
-  delta:GymDelta = new GymDelta();
-  editType = "update";
-  badges:string[];
-  types:string[];
+@Component({ templateUrl: '../resource/resource.component.html' })
+export class GymComponent extends ResourceComponent<Gym, GymDelta> {
 
-  @ViewChild('messageBox', {static: false})
-  messageBox:MessageComponent;
+  badgeNames  :string[] = [];
+  typeNames   :string[] = [];
 
-  constructor(
-    private route: ActivatedRoute,
-    private service:GymService,
-    private badgeService : BadgeService,
-    private typeService : TypeService,
-  ) { }
+  constructor(protected route:ActivatedRoute) { 
+    super("Gym", ApiConstants.GYM_API, Gym, GymDelta, route);
 
-  ngOnInit() {
-    this.loadNames();
-    this.route.params.subscribe(params => {
-      if (params['name']) {
-        this.findByName(params['name']);
-      }
-    });
-    this.badgeService.findAllNames().subscribe(
-      badges => {
-        console.log(badges);
-        this.badges = badges;
-    });
-    this.typeService.findAllNames().subscribe(
-      types => {
-        console.log(types);
-        this.types = types;
-    });
+    this.dataDefinition = new EditPaneDataDefinition(
+      [
+        new EditPaneAttributeBuilder()
+          .withTitle("Name")
+          .withModelSelector("name")
+          .withDeltaSelector("name")
+          .withMinLength(3)
+          .withMaxLength(20)
+          .withRequired(true)
+          .build(),
+        new EditPaneAttributeBuilder()
+          .withTitle("Badge")
+          .withType("select")
+          .withModelSelector("badge.name")
+          .withDeltaSelector("badge")
+          .withItems(this.badgeNames)
+          .withRequired(true)
+          .build(),
+        new EditPaneAttributeBuilder()
+          .withTitle("Type")
+          .withType("select")
+          .withModelSelector("type.name")
+          .withDeltaSelector("type")
+          .withItems(this.typeNames)
+          .build(),
+        new EditPaneAttributeBuilder()
+          .withTitle("Remove the current owner")
+          .withType("boolean")
+          .withDeltaSelector("removeOwner")
+          .withDeltaOnly()
+          .build()
+      ]
+    );
   }
 
-  loadNames() {
-    this.service.findAll().subscribe(
-      names => {
-        this.names = names
-      });
-  }
+  loadItems() {
+    super.loadItems();
 
-  findByName(name) {
-    this.editType = "update";
-    this.delta = new GymDelta();
-    this.service.findByName(name).subscribe(model => {
-      this.model = plainToClass(Gym, model);
-      console.log("printed from gym.component");
-      console.log(this.model);
-    });
-  }
+    this.badgeNames.length = 0;
+    this.service.get(ApiConstants.BADGE_API).subscribe(items => this.badgeNames.push(...items));
 
-  create() {
-    this.editType = "create";
-    this.delta = new GymDelta();
-  }
-
-  save() {
-    console.log(this.delta);
-    if (this.editType == "update") {
-      this.service.update(this.model.dbid, this.delta).subscribe(
-        model => this.showSuccessMessage(model),
-        error => this.showErrorMessage(error));
-    }
-    else if (this.editType == "create") {
-      this.service.create(this.delta).subscribe(
-        model => this.showSuccessMessage(model),
-        error => this.showErrorMessage(error)
-      );
-    }
-  }
-
-  showSuccessMessage(model) {
-    this.loadNames();
-    this.messageBox.clear();
-    this.messageBox.showSuccess(`Gym ${this.editType}d successfully!`);
-    this.editType = "update";
-    this.delta = new GymDelta();
-    this.model = plainToClass(Gym, model);
-  }
-
-  showErrorMessage(error) {
-    this.messageBox.clear();
-    if (error.error.errors !== undefined) {
-      let messages = error.error.errors.map(message => {
-        return `Field "${message.field}": ${message.defaultMessage}.`;
-      });
-      this.messageBox.showErrorArray(`Gym could not be ${this.editType}d.`, messages);
-    }
-    else {
-      this.messageBox.showError(`Gym could not be ${this.editType}d. Error: ${error.error.message}`);
-    }
-  }
-
-  detectChanges() {
-    return !this.delta.isEmpty();
+    this.typeNames.length = 0;
+    this.service.get(ApiConstants.TYPE_API).subscribe(items => this.typeNames.push(...items));
   }
 
 }

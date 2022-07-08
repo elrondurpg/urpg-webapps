@@ -1,5 +1,3 @@
-import { ObjectModel } from "../ObjectModel";
+import { UrpgObjectModel } from "../ObjectModel";
 
-export class KnownEliteFourMember extends ObjectModel {
-    name:string;
-}
+export class KnownEliteFourMember extends UrpgObjectModel {}

@@ -9,11 +9,11 @@
     #validator="ngModel"
     [ngClass]="validator.invalid && (validator.dirty || validator.touched) ? 'is-invalid' : ''">               
 <div class="invalid-feedback" *ngIf="validator.errors && validator.errors.min">
-    {{ attribute }} must be at least {{ min }}.
+    {{ field.label }} must be at least {{ minvalue }}.
 </div>   
 <div class="invalid-feedback" *ngIf="validator.errors && validator.errors.max">
-    {{ attribute }} must be no more than {{ max }}.
+    {{ field.label }} must be no more than {{ maxvalue }}.
 </div>   
 <div class="invalid-feedback" *ngIf="validator.errors && validator.errors.required">
-    Please provide a value for {{ attribute }}.
+    Please provide a value for {{ field.label }}.
 </div>   

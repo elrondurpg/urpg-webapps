@@ -37,27 +37,27 @@
             {{ displayMove.attack.target.description }}
         </div>
     </div>
-    <div class="row move-attribute" *ngIf="displayMove.attack.contact == '1'">
+    <div class="row move-attribute" *ngIf="displayMove.attack.contact">
         <div class="col">
             Makes contact.
         </div>
     </div>
-    <div class="row move-attribute" *ngIf="displayMove.attack.sheerForce == '1'">
+    <div class="row move-attribute" *ngIf="displayMove.attack.sheerForce">
         <div class="col">
             Affected by Sheer Force.
         </div>
     </div>
-    <div class="row move-attribute" *ngIf="displayMove.attack.substitute == '1'">
+    <div class="row move-attribute" *ngIf="displayMove.attack.substitute">
         <div class="col">
             Negated by Substitute.
         </div>
     </div>
-    <div class="row move-attribute" *ngIf="displayMove.attack.snatch == '1'">
+    <div class="row move-attribute" *ngIf="displayMove.attack.snatch">
         <div class="col">
             Can be stolen by Snatch.
         </div>
     </div>
-    <div class="row move-attribute" *ngIf="displayMove.attack.magicCoat == '1'">
+    <div class="row move-attribute" *ngIf="displayMove.attack.magicCoat">
         <div class="col">
             Can be reflected by Magic Coat.
         </div>

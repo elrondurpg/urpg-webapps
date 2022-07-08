@@ -11,16 +11,15 @@
       "prefix": "urpg",
       "architect": {
         "build": {
-          "showCircularDependencies": false,
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "showCircularDependencies": false,
+            "baseHref": "/",
             "outputPath": "dist/urpg-webapps",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
@@ -105,6 +104,9 @@
             "browserTarget": "urpg-webapps:build"
           },
           "configurations": {
+            "development": {
+              "browserTarget":"urpg-webapps:build:development"
+            },
             "production": {
               "browserTarget": "urpg-webapps:build:production"
             }

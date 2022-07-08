@@ -48,7 +48,7 @@ export class KnownChampionComponent implements OnInit {
   findByName(name) {
     this.editType = "update";
     this.delta = new KnownChampionDelta();
-    this.service.getByName(this.api, name).subscribe(model => {
+    this.service.getByPathParam(this.api, name).subscribe(model => {
       this.model = plainToClass(KnownChampion, model);
       console.log(this.model);
     });

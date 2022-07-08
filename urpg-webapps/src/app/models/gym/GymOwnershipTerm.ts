@@ -1,11 +1,12 @@
+import { formatDate } from "@angular/common";
 import { Type } from "class-transformer";
 import { Item } from "../item/Item";
 import { Member } from "../member/Member";
+import { UrpgObjectModel } from "../ObjectModel";
 import { Gym } from "./Gym";
 import { GymLeague } from "./GymLeague";
 
-export class GymOwnershipTerm {
-    dbid:number;
+export class GymOwnershipTerm extends UrpgObjectModel {
     wins:number;
     losses:number;
     draws:number;
@@ -24,4 +25,13 @@ export class GymOwnershipTerm {
 
     @Type(() => Item) 
     tm:Item;
+
+    getDisplayName() {
+        const format = 'yyyy-MM-dd';
+        const locale = 'en-US';
+        const timezone = 'UTC';
+        const formattedDate = formatDate(this.openDate, format, locale, timezone);
+
+        return this.owner.name + ", " + this.gym.name + ", " + formattedDate;
+    }
 }

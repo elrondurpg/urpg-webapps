@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { EditPaneDataDefinition } from 'src/app/models/EditPaneDataDefinition';
 import { ObjectDelta } from 'src/app/models/ObjectDelta';
-import { ObjectModel } from 'src/app/models/ObjectModel';
+import { UrpgObjectModel } from 'src/app/models/ObjectModel';
 
 @Component({
   selector: 'resources-edit-pane',
@@ -12,7 +12,7 @@ export class EditPaneComponent implements OnInit {
 
   @Input() editType:string;
   @Input() dataDefinition:EditPaneDataDefinition;
-  @Input() model:ObjectModel;
+  @Input() model:UrpgObjectModel;
   @Input() delta:ObjectDelta;
 
   showInstructions = true;
@@ -24,6 +24,21 @@ export class EditPaneComponent implements OnInit {
 
   toggleInstructions() {
     this.showInstructions = !this.showInstructions;
+  }
+
+  getCurrentModelValue(selector) {
+    if (selector == null) {
+      return null;
+    }
+
+    let tokens = selector.split("\.");
+    let curr = this.model;
+    for (let i = 0; i < tokens.length; i++) {
+      if (curr != null) {
+        curr = curr[tokens[i]];
+      }
+    }
+    return curr;
   }
 
 }

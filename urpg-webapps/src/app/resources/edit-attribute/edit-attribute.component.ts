@@ -1,5 +1,6 @@
 import { Component, EventEmitter, forwardRef, Input, OnInit, Output, Provider } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
+import { EditPaneAttribute } from 'src/app/models/EditPaneAttribute';
 
 @Component({
   selector: 'resources-edit-attribute',
@@ -15,11 +16,8 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from "@angular/forms";
 })
 export class EditAttributeComponent implements ControlValueAccessor, OnInit {
 
-  @Input() title:string = undefined;
+  @Input() attributeDefinition:EditPaneAttribute;
   @Input() currentValue:string = undefined;
-  @Input() minlength:number = undefined;
-  @Input() maxlength:number = undefined;
-  @Input() required:boolean = false;
   @Input() editType:string = undefined;
 
   private _updatedValue: any = '';

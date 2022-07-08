@@ -54,14 +54,26 @@ import { KnownEliteFourMemberComponent } from './known-elite-four-member/known-e
 import { HeaderComponent } from './header/header.component';
 import { EditPaneComponent } from './edit-pane/edit-pane.component';
 import { ChampionComponent } from './champion/champion.component';
+import { ChampionOwnershipComponent } from './champion-ownership/champion-ownership.component';
+import { EditAttributeSelectComponent as ResourcesV2EditAttributeSelectComponent } from './v2/partials/edit-attribute-select/edit-attribute-select.component';
+import { EditAttributeNumberComponent as ResourcesV2EditAttributeNumberComponent } from './v2/partials/edit-attribute-number/edit-attribute-number.component';
+import { EditAttributeDateComponent as ResourcesV2EditAttributeDateComponent } from './v2/partials/edit-attribute-date/edit-attribute-date.component';
+import { EditAttributeBooleanComponent as ResourcesV2EditAttributeBooleanComponent } from './v2/partials/edit-attribute-boolean/edit-attribute-boolean.component';
+import { EliteFourSlotsComponent } from './elite-four-slots/elite-four-slots.component';
+import { EliteFourMembershipComponent } from './elite-four-membership/elite-four-membership.component';
+import { GymLeadershipComponent } from './gym-leadership/gym-leadership.component';
+import { ResourceComponent as ResourcesV2ResourceComponent } from './v2/resource/resource.component';
+import { ZydecoTs } from 'zydeco-ts';
 
 @NgModule({
-  declarations: [ResourcesComponent, AbilityComponent, AttackComponent, AttackCategoryComponent, AttackTargetTypeComponent, AdvContestMoveTypeComponent, ContestAttributeComponent, ContestRankComponent, OrasContestMoveTypeComponent, RseContestMoveTypeComponent, ArtRankComponent, ParkRankComponent, ParkLocationComponent, StoryRankComponent, NatureComponent, ObtainedComponent, SectionComponent, BadgeComponent, GymComponent, GymLeagueComponent, ImageComponent, ImageFolderComponent, ItemComponent, MemberComponent, BotComponent, PermissionComponent, RoleComponent, SpeciesComponent, TypeComponent, SearchComponent, EditAttributeComponent, EditLongAttributeComponent, MessageComponent, EditAttributeHeaderComponent, EditAttributeSelectComponent, EditAttributeNumberComponent, EditAttributeBooleanComponent, EditAttributeAccordionComponent, AccordionAttributeNumberComponent, AccordionAttributeSelectComponent, AccordionAttributeBooleanComponent, AccordionAttributeTextComponent, NewItemModalComponent, EditAttributeDateComponent, FlagComponent, KnownGymLeaderComponent, KnownChampionComponent, KnownEliteFourMemberComponent, HeaderComponent, EditPaneComponent, ChampionComponent ],
+  declarations: [ResourcesComponent, AbilityComponent, AttackComponent, AttackCategoryComponent, AttackTargetTypeComponent, AdvContestMoveTypeComponent, ContestAttributeComponent, ContestRankComponent, OrasContestMoveTypeComponent, RseContestMoveTypeComponent, ArtRankComponent, ParkRankComponent, ParkLocationComponent, StoryRankComponent, NatureComponent, ObtainedComponent, SectionComponent, BadgeComponent, GymComponent, GymLeagueComponent, ImageComponent, ImageFolderComponent, ItemComponent, MemberComponent, BotComponent, PermissionComponent, RoleComponent, SpeciesComponent, TypeComponent, SearchComponent, EditAttributeComponent, EditLongAttributeComponent, MessageComponent, EditAttributeHeaderComponent, EditAttributeSelectComponent, EditAttributeNumberComponent, EditAttributeBooleanComponent, EditAttributeAccordionComponent, AccordionAttributeNumberComponent, AccordionAttributeSelectComponent, AccordionAttributeBooleanComponent, AccordionAttributeTextComponent, NewItemModalComponent, EditAttributeDateComponent, FlagComponent, KnownGymLeaderComponent, KnownChampionComponent, KnownEliteFourMemberComponent, HeaderComponent, EditPaneComponent, ChampionComponent, ChampionOwnershipComponent,
+    ResourcesV2EditAttributeSelectComponent, ResourcesV2EditAttributeNumberComponent, ResourcesV2EditAttributeDateComponent, ResourcesV2EditAttributeBooleanComponent, EliteFourSlotsComponent, EliteFourMembershipComponent, GymLeadershipComponent, ResourcesV2ResourceComponent ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    ResourcesRoutingModule
+    ResourcesRoutingModule,
+    ZydecoTs
   ]
 })
 export class ResourcesModule { }

@@ -11,6 +11,7 @@ import { MessageComponent } from '../message/message.component';
   styleUrls: ['./image.component.css']
 })
 export class ImageComponent implements OnInit {
+  model:any;
   names:string[] = [];
   delta:ImageDelta = new ImageDelta();
   editType = "create";

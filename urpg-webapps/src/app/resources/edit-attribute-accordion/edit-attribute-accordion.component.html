@@ -12,7 +12,7 @@
                     type="text" 
                     class="form-control" 
                     [(ngModel)]="filters[mappedItems.getFirstFilterableKey().deltaSelector]" 
-                    [placeholder]="'Filter ' + mappedItems.getFirstFilterableKey().label">
+                    [placeholder]="'Filter ' + mappedItems.getFirstFilterableKey().title">
             </div>
             <div class="col-sm-2">
                 <!--button *ngIf="importable" type="button" class="btn btn-primary btn-block"  data-toggle="modal" [attr.data-target]="'#bulkImport' + getTitle() + 'Modal'">
