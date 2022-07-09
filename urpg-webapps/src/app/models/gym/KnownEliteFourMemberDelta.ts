@@ -1,5 +1,4 @@
-import { ObjectDelta } from "../ObjectDelta";
+import { UrpgObjectModel } from "../ObjectModel";
 
-export class KnownEliteFourMemberDelta extends ObjectDelta {
-    name:string;
+export class KnownEliteFourMemberDelta extends UrpgObjectModel {
 }

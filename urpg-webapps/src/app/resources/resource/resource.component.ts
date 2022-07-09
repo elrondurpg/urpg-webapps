@@ -13,7 +13,7 @@ import { EditPaneDataDefinition } from 'src/app/models/EditPaneDataDefinition';
   templateUrl: './resource.component.html',
   styleUrls: ['./resource.component.css']
 })
-export abstract class ResourceComponent<ModelClass extends UrpgObjectModel, DeltaClass extends ObjectDelta> implements OnInit {
+export abstract class ResourceComponent<ModelClass extends UrpgObjectModel, DeltaClass extends UrpgObjectModel> implements OnInit {
   
   protected service:RestService;
   protected dataDefinition:EditPaneDataDefinition;
@@ -61,7 +61,7 @@ export abstract class ResourceComponent<ModelClass extends UrpgObjectModel, Delt
   load(param) {
     this.editType = "update";
     this.delta = new this.deltaType();
-    this.service.getByPathParam(this.api, param).subscribe(model => {
+    this.service.get(this.api, param).subscribe(model => {
       this.model = plainToClass(this.modelType, model);
       console.log(this.model);
     });
@@ -75,7 +75,7 @@ export abstract class ResourceComponent<ModelClass extends UrpgObjectModel, Delt
         error => this.showErrorMessage(error));
     }
     else if (this.editType == "create") {
-      this.service.post(this.api, this.delta).subscribe(
+      this.service.post(this.api, null, this.delta).subscribe(
         model => this.showSuccessMessage(model),
         error => this.showErrorMessage(error)
       );

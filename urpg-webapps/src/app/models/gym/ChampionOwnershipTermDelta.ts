@@ -1,6 +1,6 @@
-import { ObjectDelta } from "../ObjectDelta";
+import { UrpgObjectModel } from "../ObjectModel";
 
-export class ChampionOwnershipTermDelta extends ObjectDelta {
+export class ChampionOwnershipTermDelta extends UrpgObjectModel {
     openDate:Date;
     wins:number;
     losses:number;

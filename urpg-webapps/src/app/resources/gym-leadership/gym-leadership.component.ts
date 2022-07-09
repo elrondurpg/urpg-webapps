@@ -102,7 +102,7 @@ export class GymLeadershipComponent extends ResourceComponent<GymOwnershipTerm, 
     this.service.get(ApiConstants.GYM_LEAGUE_API).subscribe(items => this.leagueNames.push(...items));
 
     this.tmNames.length = 0;
-    this.service.get(ApiConstants.ITEM_API, [ {key: "type", value: "tm"} ]).subscribe(items => this.tmNames.push(...items));
+    this.service.get(ApiConstants.ITEM_API, null, [ {key: "type", value: "tm"} ]).subscribe(items => this.tmNames.push(...items));
   }
 
 }

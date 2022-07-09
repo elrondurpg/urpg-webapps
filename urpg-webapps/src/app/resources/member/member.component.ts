@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ApiConstants } from 'src/app/constants/ApiConstants';
 import { Member } from 'src/app/models/member/Member';
 import { MemberDelta } from 'src/app/models/member/MemberDelta';
-import { AttributeDefinitionBuilder, ModelDefinition, RestService } from 'zydeco-ts';
+import { AttributeDefinitionBuilder, ModelDefinition } from 'zydeco-ts';
 import { ResourceComponent } from '../v2/resource/resource.component';
 
 @Component({
@@ -14,16 +14,9 @@ import { ResourceComponent } from '../v2/resource/resource.component';
 export class MemberComponent extends ResourceComponent<Member, MemberDelta> {
 
   constructor(
-    protected service:RestService,
     protected route:ActivatedRoute
   ) { 
-    super(Member, MemberDelta, service, route);
-    this.breadcrumbs = [
-      {
-        "url": "test",
-        "title": "Dashboard"
-      }
-    ];
+    super(Member, MemberDelta, route);
     this.title = "Member";
     this.api = ApiConstants.MEMBER_API;
 

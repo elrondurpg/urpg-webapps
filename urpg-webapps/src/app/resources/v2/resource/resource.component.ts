@@ -1,15 +1,19 @@
-import { Component, Inject, ViewChild } from '@angular/core';
+import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { plainToClass } from 'class-transformer';
-import { Breadcrumb, HeaderComponent, ModelDefinition, ObjectModel, RestService } from 'zydeco-ts';
+import { AppModule } from 'src/app/app.module';
+import { UrpgObjectModel } from 'src/app/models/ObjectModel';
+import { RestService } from 'src/app/services/rest.service';
+import { Breadcrumb, HeaderComponent, ModelDefinition } from 'zydeco-ts';
 
 @Component({
   selector: 'urpg-resource',
   templateUrl: './resource.component.html',
   styleUrls: ['./resource.component.css']
 })
-export class ResourceComponent<ModelClass extends ObjectModel, DeltaClass extends ObjectModel> {
+export class ResourceComponent<ModelClass extends UrpgObjectModel, DeltaClass extends UrpgObjectModel> implements OnInit {
 
+  public service!        :RestService;
   public model!          :ModelClass;
   public delta!          :DeltaClass;
 
@@ -27,10 +31,23 @@ export class ResourceComponent<ModelClass extends ObjectModel, DeltaClass extend
   constructor(
     @Inject(null) protected modelType : new () => ModelClass,
     @Inject(null) protected deltaType : new () => DeltaClass,
-    protected service   : RestService,
     protected route     : ActivatedRoute
   ) { 
+    this.service = AppModule.injector.get(RestService);
     this.delta    = new this.deltaType();
+    this.breadcrumbs = [
+      {
+        "url": "test",
+        "title": "Dashboard"
+      },
+      {
+        "url": "test",
+        "title": "Configuration"
+      }
+    ];
+  }
+
+  ngOnInit() {
     this.loadItems();
     this.route.params.subscribe(params => {
       if (params['name']) {
@@ -57,6 +74,7 @@ export class ResourceComponent<ModelClass extends ObjectModel, DeltaClass extend
   }
 
   save() {
+    console.log(this.delta);
     if (this.editType == "update") {
       this.service.put(this.api, this.model.getId(), this.delta).subscribe({
         next: model => this.showSuccessMessage(model),

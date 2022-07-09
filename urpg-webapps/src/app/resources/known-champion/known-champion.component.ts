@@ -48,7 +48,7 @@ export class KnownChampionComponent implements OnInit {
   findByName(name) {
     this.editType = "update";
     this.delta = new KnownChampionDelta();
-    this.service.getByPathParam(this.api, name).subscribe(model => {
+    this.service.get(this.api, name).subscribe(model => {
       this.model = plainToClass(KnownChampion, model);
       console.log(this.model);
     });
@@ -62,7 +62,7 @@ export class KnownChampionComponent implements OnInit {
         error => this.showErrorMessage(error));
     }
     else if (this.editType == "create") {
-      this.service.post(this.api, this.delta).subscribe(
+      this.service.post(this.api, null, this.delta).subscribe(
         model => this.showSuccessMessage(model),
         error => this.showErrorMessage(error)
       );
