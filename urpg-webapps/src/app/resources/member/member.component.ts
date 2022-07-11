@@ -3,8 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 import { ApiConstants } from 'src/app/constants/ApiConstants';
 import { Member } from 'src/app/models/member/Member';
 import { MemberDelta } from 'src/app/models/member/MemberDelta';
-import { AttributeDefinitionBuilder, ModelDefinition } from 'zydeco-ts';
+import { AttributeDefinition, AttributeDefinitionBuilder, ModelDefinition } from 'zydeco-ts';
 import { ResourceComponent } from '../v2/resource/resource.component';
+import { MemberModelDefinitionBuilder } from './MemberModelDefinitionBuilder';
 
 @Component({
   selector: 'urpg-member',
@@ -20,18 +21,7 @@ export class MemberComponent extends ResourceComponent<Member, MemberDelta> {
     this.title = "Member";
     this.api = ApiConstants.MEMBER_API;
 
-    this.modelDefinition = new ModelDefinition(
-      [
-        new AttributeDefinitionBuilder()
-          .withTitle("Name")
-          .withModelSelector("name")
-          .withDeltaSelector("name")
-          .withMinLength(3)
-          .withMaxLength(20)
-          .withRequired(true)
-          .build()
-      ]
-    );
+    this.modelDefinition = MemberModelDefinitionBuilder.build();
   }
 
 }
