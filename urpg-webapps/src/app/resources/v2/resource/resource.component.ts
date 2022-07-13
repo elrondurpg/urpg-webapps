@@ -88,6 +88,7 @@ export class ResourceComponent<ModelClass extends UrpgObjectModel, DeltaClass ex
     this.editType = "update";
     this.delta = new this.deltaType();
     this.model = plainToClass(this.modelType, model);
+    this.modelDefinition.attributes.forEach(attributeDefinition => attributeDefinition.refreshItems());
   }
 
   showErrorMessage(error:any) {

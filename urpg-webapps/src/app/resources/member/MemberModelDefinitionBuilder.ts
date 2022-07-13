@@ -1,9 +1,10 @@
+import { Observable } from "rxjs";
 import { OwnedItem } from "src/app/models/stats/OwnedItem";
 import { OwnedItemDelta } from "src/app/models/stats/OwnedItemDelta";
 import { AttributeDefinitionBuilder, AttributeType, ModelDefinition, NestedAttributeDefinitionBuilder } from "zydeco-ts";
 
 export class MemberModelDefinitionBuilder {
-    static build() {
+    static build(itemObservable:Observable<any>) {
         return new ModelDefinition(
             [
               new AttributeDefinitionBuilder()
@@ -15,15 +16,15 @@ export class MemberModelDefinitionBuilder {
                 .withRequired(true)
                 .build(),
               new AttributeDefinitionBuilder()
-                .withTitle("Discord Id")
-                .withModelSelector("discordId")
-                .withDeltaSelector("discordId")
+                .withTitle("Join Date")
+                .withType(AttributeType.DATE)
                 .withRequired(true)
                 .withImmutable(true)
                 .build(),
               new AttributeDefinitionBuilder()
-                .withTitle("Join Date")
-                .withType(AttributeType.DATE)
+                .withTitle("Discord Id")
+                .withModelSelector("discordId")
+                .withDeltaSelector("discordId")
                 .withRequired(true)
                 .withImmutable(true)
                 .build(),
@@ -71,7 +72,8 @@ export class MemberModelDefinitionBuilder {
                     .withTitle("Name")
                     .withType(AttributeType.SELECT)
                     .withModelSelector("item.name")
-                    .withDeltaSelector("name")
+                    .withDeltaSelector("item")
+                    .withItemsFromObservable(itemObservable)
                     .withFilterable(true)
                     .build()
                 ])
