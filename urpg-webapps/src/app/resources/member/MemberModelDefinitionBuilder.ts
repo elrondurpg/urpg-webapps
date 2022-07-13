@@ -1,6 +1,6 @@
 import { OwnedItem } from "src/app/models/stats/OwnedItem";
 import { OwnedItemDelta } from "src/app/models/stats/OwnedItemDelta";
-import { AttributeDefinitionBuilder, ModelDefinition, NestedAttributeDefinition } from "zydeco-ts";
+import { AttributeDefinitionBuilder, AttributeType, ModelDefinition, NestedAttributeDefinitionBuilder } from "zydeco-ts";
 
 export class MemberModelDefinitionBuilder {
     static build() {
@@ -23,51 +23,65 @@ export class MemberModelDefinitionBuilder {
                 .build(),
               new AttributeDefinitionBuilder()
                 .withTitle("Join Date")
-                .withType("date")
+                .withType(AttributeType.DATE)
                 .withRequired(true)
                 .withImmutable(true)
                 .build(),
               new AttributeDefinitionBuilder()
                 .withTitle("Bot?")
-                .withType("boolean")
+                .withType(AttributeType.BOOLEAN)
+                .withModelSelector("bot")
+                .withDeltaSelector("bot")
                 .withRequired(true)
                 .withImmutable(true)
                 .build(),
               new AttributeDefinitionBuilder()
                 .withTitle("Money")
-                .withType("number")
+                .withType(AttributeType.NUMBER)
                 .withModelSelector("money")
                 .withDeltaSelector("money")
                 .build(),
               new AttributeDefinitionBuilder()
                 .withTitle("Wins")
-                .withType("number")
+                .withType(AttributeType.NUMBER)
                 .withModelSelector("wins")
                 .withDeltaSelector("wins")
                 .withMinValue(0)
                 .build(),
               new AttributeDefinitionBuilder()
                 .withTitle("Losses")
-                .withType("number")
+                .withType(AttributeType.NUMBER)
                 .withModelSelector("losses")
                 .withDeltaSelector("losses")
                 .withMinValue(0)
                 .build(),
               new AttributeDefinitionBuilder()
                 .withTitle("Draws")
-                .withType("number")
+                .withType(AttributeType.NUMBER)
                 .withModelSelector("draws")
                 .withDeltaSelector("draws")
                 .withMinValue(0)
                 .build(),
-              new NestedAttributeDefinition(
-                OwnedItem,
-                OwnedItemDelta,
-                [],
-                [],
-                "items",
-                "items"
-              )
+              new NestedAttributeDefinitionBuilder(OwnedItem, OwnedItemDelta)
+                .withTitle("Owned Items")
+                .withModelSelector("items")
+                .withDeltaSelector("items")
+                .withKeyDefinitions([
+                  new AttributeDefinitionBuilder() 
+                    .withTitle("Name")
+                    .withType(AttributeType.SELECT)
+                    .withModelSelector("item.name")
+                    .withDeltaSelector("name")
+                    .withFilterable(true)
+                    .build()
+                ])
+                .withFieldDefinitions([
+                  new AttributeDefinitionBuilder()
+                    .withTitle("Quantity")
+                    .withType(AttributeType.NUMBER)
+                    .build()
+                ])
+                .build()
             ]
         );
     }

@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { ApiConstants } from 'src/app/constants/ApiConstants';
 import { Member } from 'src/app/models/member/Member';
 import { MemberDelta } from 'src/app/models/member/MemberDelta';
-import { AttributeDefinition, AttributeDefinitionBuilder, ModelDefinition } from 'zydeco-ts';
 import { ResourceComponent } from '../v2/resource/resource.component';
 import { MemberModelDefinitionBuilder } from './MemberModelDefinitionBuilder';
 
@@ -24,4 +23,5 @@ export class MemberComponent extends ResourceComponent<Member, MemberDelta> {
     this.modelDefinition = MemberModelDefinitionBuilder.build();
   }
 
+  
 }

@@ -35,16 +35,7 @@ export class ResourceComponent<ModelClass extends UrpgObjectModel, DeltaClass ex
   ) { 
     this.service = AppModule.injector.get(RestService);
     this.delta    = new this.deltaType();
-    this.breadcrumbs = [
-      {
-        "url": "test",
-        "title": "Dashboard"
-      },
-      {
-        "url": "test",
-        "title": "Configuration"
-      }
-    ];
+    this.breadcrumbs.push(new Breadcrumb("test", "Dashboard"), new Breadcrumb("test", "Configuration"));
   }
 
   ngOnInit() {
@@ -70,6 +61,7 @@ export class ResourceComponent<ModelClass extends UrpgObjectModel, DeltaClass ex
     this.delta    = new this.deltaType();
     this.service.get(this.api, param).subscribe(model => {
       this.model = plainToClass(this.modelType, model);
+      console.log(this.model);
     });
   }
 

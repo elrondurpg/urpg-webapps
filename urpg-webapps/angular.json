@@ -94,7 +94,8 @@
               ]
             },
             "development": {
-              "sourceMap": true
+              "sourceMap": true,
+              "optimization": false
             }
           }
         },
