@@ -1,7 +1,7 @@
 import { UrpgObjectModel } from "../ObjectModel";
 
 export class OwnedItemDelta extends UrpgObjectModel {
-    ignoreProperties: string[] = ["name"];
+    ignoreProperties: string[] = ["item"];
     item:string;
     quantity:number;
     delete:boolean;

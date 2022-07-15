@@ -9,5 +9,6 @@ export class ApiConstants {
     static readonly GYM_LEAGUE_API      = "/gymLeague";
     static readonly ITEM_API            = "/item";
     static readonly MEMBER_API          = "/member";
+    static readonly ROLE_API            = "/role";
     static readonly TYPE_API            = "/type";
 }

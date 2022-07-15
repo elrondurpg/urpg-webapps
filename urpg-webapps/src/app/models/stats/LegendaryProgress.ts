@@ -1,9 +1,9 @@
 import { Section } from '../general/Section';
 import { Member } from '../member/Member';
 import { Type } from 'class-transformer';
+import { UrpgObjectModel } from '../ObjectModel';
 
-export class LegendaryProgress {
-    dbid:number;
+export class LegendaryProgress extends UrpgObjectModel {
     value:number;
     logUrl:string;
 

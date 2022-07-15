@@ -1,10 +1,15 @@
 import { Observable } from "rxjs";
+import { MemberRoleDelta } from "src/app/models/member/MemberRoleDelta";
+import { Role } from "src/app/models/member/Role";
 import { OwnedItem } from "src/app/models/stats/OwnedItem";
 import { OwnedItemDelta } from "src/app/models/stats/OwnedItemDelta";
-import { AttributeDefinitionBuilder, AttributeType, ModelDefinition, NestedAttributeDefinitionBuilder } from "zydeco-ts";
+import { AttributeDefinitionBuilder, AttributeType, ModelDefinition, NestedAttributeDefinition, NestedAttributeDefinitionBuilder } from "zydeco-ts";
 
 export class MemberModelDefinitionBuilder {
-    static build(itemObservable:Observable<any>) {
+    static build(
+      roleObservable:Observable<any>,
+      itemObservable:Observable<any>
+    ) {
         return new ModelDefinition(
             [
               new AttributeDefinitionBuilder()
@@ -37,6 +42,16 @@ export class MemberModelDefinitionBuilder {
                 .withImmutable(true)
                 .build(),
               new AttributeDefinitionBuilder()
+                .withTitle("Banned?")
+                .withType(AttributeType.BOOLEAN)
+                .withModelSelector("banned")
+                .withDeltaSelector("banned")
+                .build(),
+              new AttributeDefinitionBuilder()
+                .withTitle("Ban Expiration Date")
+                .withType(AttributeType.DATE)
+                .build(),
+              new AttributeDefinitionBuilder()
                 .withTitle("Money")
                 .withType(AttributeType.NUMBER)
                 .withModelSelector("money")
@@ -62,6 +77,17 @@ export class MemberModelDefinitionBuilder {
                 .withModelSelector("draws")
                 .withDeltaSelector("draws")
                 .withMinValue(0)
+                .build(),
+              new NestedAttributeDefinitionBuilder(Role, MemberRoleDelta)
+                .withTitle("Roles")
+                .withKeyDefinitions([
+                  new AttributeDefinitionBuilder()
+                    .withTitle("Name")
+                    .withType(AttributeType.SELECT)
+                    .withItemsFromObservable(roleObservable)
+                    .withFilterable(true)
+                    .build()
+                ])
                 .build(),
               new NestedAttributeDefinitionBuilder(OwnedItem, OwnedItemDelta)
                 .withTitle("Owned Items")

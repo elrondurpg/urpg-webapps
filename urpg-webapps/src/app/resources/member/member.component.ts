@@ -20,7 +20,7 @@ export class MemberComponent extends ResourceComponent<Member, MemberDelta> {
     this.title = "Member";
     this.api = ApiConstants.MEMBER_API;
 
-    this.modelDefinition = MemberModelDefinitionBuilder.build(this.service.get(ApiConstants.ITEM_API));
+    this.modelDefinition = MemberModelDefinitionBuilder.build(this.service.get(ApiConstants.ROLE_API), this.service.get(ApiConstants.ITEM_API));
   }
 
   
