@@ -1,6 +1,8 @@
 import { Observable } from "rxjs";
 import { MemberRoleDelta } from "src/app/models/member/MemberRoleDelta";
 import { Role } from "src/app/models/member/Role";
+import { LegendaryProgress } from "src/app/models/stats/LegendaryProgress";
+import { LegendaryProgressDelta } from "src/app/models/stats/LegendaryProgressDelta";
 import { OwnedItem } from "src/app/models/stats/OwnedItem";
 import { OwnedItemDelta } from "src/app/models/stats/OwnedItemDelta";
 import { AttributeDefinitionBuilder, AttributeType, ModelDefinition, NestedAttributeDefinition, NestedAttributeDefinitionBuilder } from "zydeco-ts";
@@ -109,6 +111,8 @@ export class MemberModelDefinitionBuilder {
                     .withType(AttributeType.NUMBER)
                     .build()
                 ])
+                .build(),
+              new NestedAttributeDefinitionBuilder(LegendaryProgress, LegendaryProgressDelta)
                 .build()
             ]
         );
