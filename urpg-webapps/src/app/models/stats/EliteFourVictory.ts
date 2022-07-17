@@ -1,8 +1,9 @@
 import { Type } from "class-transformer";
 import { KnownEliteFourMember } from "../gym/KnownEliteFourMember";
 import { Member } from "../member/Member";
+import { UrpgObjectModel } from "../ObjectModel";
 
-export class EliteFourVictory {
+export class EliteFourVictory extends UrpgObjectModel {
     logUrl:string;
 
     @Type(() => KnownEliteFourMember)

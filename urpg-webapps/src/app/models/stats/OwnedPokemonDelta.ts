@@ -1,9 +1,9 @@
-import { ObjectDelta } from "../ObjectDelta";
+import { UrpgObjectModel } from "../ObjectModel";
 import { EarnedRibbonDelta } from "./EarnedRibbonDelta";
 import { OwnedExtraMoveDelta } from "./OwnedExtraMoveDelta";
 import { OwnedHiddenAbilityDelta } from "./OwnedHiddenAbilityDelta";
 
-export class OwnedPokemonDelta extends ObjectDelta {
+export class OwnedPokemonDelta extends UrpgObjectModel {
     trainer:string;
     species:string;
     gender:string;
@@ -14,9 +14,9 @@ export class OwnedPokemonDelta extends ObjectDelta {
     nickname:string;
     hiddenPowerType:string;
     hiddenPowerLink:string;
-    ownedExtraMoves:OwnedExtraMoveDelta[];
-    ownedHiddenAbilities:OwnedHiddenAbilityDelta[];
-    earnedRibbons:EarnedRibbonDelta[];
+    ownedExtraMoves:OwnedExtraMoveDelta[] = [];
+    ownedHiddenAbilities:OwnedHiddenAbilityDelta[] = [];
+    earnedRibbons:EarnedRibbonDelta[] = [];
     job:boolean;
     box:boolean;
     uft:boolean;

@@ -1,20 +1,28 @@
 import { Observable } from "rxjs";
 import { MemberRoleDelta } from "src/app/models/member/MemberRoleDelta";
 import { Role } from "src/app/models/member/Role";
+import { GymVictory } from "src/app/models/stats/GymVictory";
+import { GymVictoryDelta } from "src/app/models/stats/GymVictoryDelta";
 import { LegendaryProgress } from "src/app/models/stats/LegendaryProgress";
 import { LegendaryProgressDelta } from "src/app/models/stats/LegendaryProgressDelta";
 import { OwnedItem } from "src/app/models/stats/OwnedItem";
 import { OwnedItemDelta } from "src/app/models/stats/OwnedItemDelta";
-import { AttributeDefinitionBuilder, AttributeType, ModelDefinition, NestedAttributeDefinition, NestedAttributeDefinitionBuilder } from "zydeco-ts";
+import { AttributeType, BooleanAttributeDefinitionBuilder, DateAttributeDefinitionBuilder, ModelDefinition, NestedAttributeDefinitionBuilder, NumberAttributeDefinitionBuilder, SelectAttributeDefinitionBuilder, StringAttributeDefinitionBuilder } from "zydeco-ts";
 
 export class MemberModelDefinitionBuilder {
     static build(
+      gymObservable:Observable<any>,
+      gymLeagueObservable:Observable<any>,
+      knownChampionObservable:Observable<any>,
+      knownEliteFourMemberObservable:Observable<any>,
+      knownGymLeaderObservable:Observable<any>,
+      itemObservable:Observable<any>,
       roleObservable:Observable<any>,
-      itemObservable:Observable<any>
+      sectionObservable:Observable<any>
     ) {
         return new ModelDefinition(
             [
-              new AttributeDefinitionBuilder()
+              new StringAttributeDefinitionBuilder()
                 .withTitle("Name")
                 .withModelSelector("name")
                 .withDeltaSelector("name")
@@ -22,60 +30,52 @@ export class MemberModelDefinitionBuilder {
                 .withMaxLength(20)
                 .withRequired(true)
                 .build(),
-              new AttributeDefinitionBuilder()
+              new DateAttributeDefinitionBuilder()
                 .withTitle("Join Date")
-                .withType(AttributeType.DATE)
                 .withRequired(true)
                 .withImmutable(true)
                 .build(),
-              new AttributeDefinitionBuilder()
+              new StringAttributeDefinitionBuilder()
                 .withTitle("Discord Id")
                 .withModelSelector("discordId")
                 .withDeltaSelector("discordId")
                 .withRequired(true)
                 .withImmutable(true)
                 .build(),
-              new AttributeDefinitionBuilder()
+              new BooleanAttributeDefinitionBuilder()
                 .withTitle("Bot?")
-                .withType(AttributeType.BOOLEAN)
                 .withModelSelector("bot")
                 .withDeltaSelector("bot")
                 .withRequired(true)
                 .withImmutable(true)
                 .build(),
-              new AttributeDefinitionBuilder()
+              new BooleanAttributeDefinitionBuilder()
                 .withTitle("Banned?")
-                .withType(AttributeType.BOOLEAN)
                 .withModelSelector("banned")
                 .withDeltaSelector("banned")
                 .build(),
-              new AttributeDefinitionBuilder()
+              new DateAttributeDefinitionBuilder()
                 .withTitle("Ban Expiration Date")
-                .withType(AttributeType.DATE)
                 .build(),
-              new AttributeDefinitionBuilder()
+              new NumberAttributeDefinitionBuilder()
                 .withTitle("Money")
-                .withType(AttributeType.NUMBER)
                 .withModelSelector("money")
                 .withDeltaSelector("money")
                 .build(),
-              new AttributeDefinitionBuilder()
+              new NumberAttributeDefinitionBuilder()
                 .withTitle("Wins")
-                .withType(AttributeType.NUMBER)
                 .withModelSelector("wins")
                 .withDeltaSelector("wins")
                 .withMinValue(0)
                 .build(),
-              new AttributeDefinitionBuilder()
+              new NumberAttributeDefinitionBuilder()
                 .withTitle("Losses")
-                .withType(AttributeType.NUMBER)
                 .withModelSelector("losses")
                 .withDeltaSelector("losses")
                 .withMinValue(0)
                 .build(),
-              new AttributeDefinitionBuilder()
+              new NumberAttributeDefinitionBuilder()
                 .withTitle("Draws")
-                .withType(AttributeType.NUMBER)
                 .withModelSelector("draws")
                 .withDeltaSelector("draws")
                 .withMinValue(0)
@@ -83,9 +83,8 @@ export class MemberModelDefinitionBuilder {
               new NestedAttributeDefinitionBuilder(Role, MemberRoleDelta)
                 .withTitle("Roles")
                 .withKeyDefinitions([
-                  new AttributeDefinitionBuilder()
+                  new SelectAttributeDefinitionBuilder()
                     .withTitle("Name")
-                    .withType(AttributeType.SELECT)
                     .withItemsFromObservable(roleObservable)
                     .withFilterable(true)
                     .build()
@@ -96,9 +95,8 @@ export class MemberModelDefinitionBuilder {
                 .withModelSelector("items")
                 .withDeltaSelector("items")
                 .withKeyDefinitions([
-                  new AttributeDefinitionBuilder() 
+                  new SelectAttributeDefinitionBuilder() 
                     .withTitle("Name")
-                    .withType(AttributeType.SELECT)
                     .withModelSelector("item.name")
                     .withDeltaSelector("item")
                     .withItemsFromObservable(itemObservable)
@@ -106,13 +104,121 @@ export class MemberModelDefinitionBuilder {
                     .build()
                 ])
                 .withFieldDefinitions([
-                  new AttributeDefinitionBuilder()
+                  new NumberAttributeDefinitionBuilder()
                     .withTitle("Quantity")
-                    .withType(AttributeType.NUMBER)
+                    .build()
+                ])
+                .build(),
+              new NestedAttributeDefinitionBuilder(GymVictory, GymVictoryDelta)
+                .withTitle("Gym Victories")
+                .withModelSelector("gymVictories")
+                .withDeltaSelector("gymVictories")
+                .withKeyDefinitions([
+                  new SelectAttributeDefinitionBuilder()
+                    .withTitle("Defender")
+                    .withModelSelector("defender.name")
+                    .withDeltaSelector("defender")
+                    .withItemsFromObservable(knownGymLeaderObservable)
+                    .withFilterable(true)
+                    .build(),
+                  new SelectAttributeDefinitionBuilder()
+                    .withTitle("Gym")
+                    .withModelSelector("gym.name")
+                    .withDeltaSelector("gym")
+                    .withItemsFromObservable(gymObservable)
+                    .withFilterable(true)
+                    .build(),
+                  new SelectAttributeDefinitionBuilder()
+                    .withTitle("League")
+                    .withModelSelector("league.name")
+                    .withDeltaSelector("league")
+                    .withItemsFromObservable(gymLeagueObservable)
+                    .withFilterable(true)
+                    .build()
+                ])
+                .withFieldDefinitions([
+                  new DateAttributeDefinitionBuilder()
+                    .withTitle("Date")
+                    .build(),
+                  new StringAttributeDefinitionBuilder()
+                    .withTitle("Log URL")
+                    .withModelSelector("logUrl")
+                    .withDeltaSelector("logUrl")
+                    .withMaxLength(2083)
+                    .build()
+                ])
+                .build(),
+              new NestedAttributeDefinitionBuilder(GymVictory, GymVictoryDelta)
+                .withTitle("Elite Four Victories")
+                .withKeyDefinitions([
+                  new SelectAttributeDefinitionBuilder()
+                    .withTitle("Defender")
+                    .withModelSelector("defender.name")
+                    .withDeltaSelector("defender")
+                    .withItemsFromObservable(knownEliteFourMemberObservable)
+                    .withFilterable(true)
+                    .build()
+                ])
+                .withFieldDefinitions([
+                  new DateAttributeDefinitionBuilder()
+                    .withTitle("Date")
+                    .build(),
+                  new StringAttributeDefinitionBuilder()
+                    .withTitle("Log URL")
+                    .withModelSelector("logUrl")
+                    .withDeltaSelector("logUrl")
+                    .withMaxLength(2083)
+                    .build()
+                ])
+                .build(),
+              new NestedAttributeDefinitionBuilder(GymVictory, GymVictoryDelta)
+                .withTitle("Champion Victories")
+                .withKeyDefinitions([
+                  new SelectAttributeDefinitionBuilder()
+                    .withTitle("Defender")
+                    .withModelSelector("defender.name")
+                    .withDeltaSelector("defender")
+                    .withItemsFromObservable(knownChampionObservable)
+                    .withFilterable(true)
+                    .build()
+                ])
+                .withFieldDefinitions([
+                  new DateAttributeDefinitionBuilder()
+                    .withTitle("Date")
+                    .build(),
+                  new StringAttributeDefinitionBuilder()
+                    .withTitle("Log URL")
+                    .withModelSelector("logUrl")
+                    .withDeltaSelector("logUrl")
+                    .withMaxLength(2083)
                     .build()
                 ])
                 .build(),
               new NestedAttributeDefinitionBuilder(LegendaryProgress, LegendaryProgressDelta)
+                .withTitle("Legendary Progress")
+                .withKeyDefinitions([
+                  new SelectAttributeDefinitionBuilder() 
+                    .withTitle("Section")
+                    .withModelSelector("section.name")
+                    .withItemsFromObservable(sectionObservable)
+                    .withFilterable(true)
+                    .build(),
+                  new StringAttributeDefinitionBuilder()
+                    .withTitle("Log URL")
+                    .withModelSelector("logUrl")
+                    .withDeltaSelector("logUrl")
+                    .withMaxLength(2083)
+                    .build()
+                ])
+                .withFieldDefinitions([
+                  new NumberAttributeDefinitionBuilder()
+                    .withTitle("Value")
+                    .withMinValue(1)
+                    .build(),
+                  new DateAttributeDefinitionBuilder()
+                    .withTitle("Date")
+                    .build()
+                ])
                 .build()
             ]
         );

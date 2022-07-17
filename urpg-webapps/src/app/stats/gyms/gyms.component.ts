@@ -29,7 +29,6 @@ export class GymsComponent implements OnInit {
   }
 
   getFormattedGymOpenDate(gym:Gym) {
-    gym.pokemon.forEach(pkmn => pkmn.test());
     let date = gym.currentOwnerRecord.openDate;
     return `${this.monthNames[date.getUTCMonth()]} ${date.getUTCDate()}${this.getDateOrdinal(date.getUTCDate())}, ${date.getUTCFullYear()}`;
   }

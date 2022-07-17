@@ -1,4 +1,3 @@
 import { UrpgObjectModel } from "../ObjectModel";
 
-export class Obtained extends UrpgObjectModel {
-}
+export class ContestType extends UrpgObjectModel {}

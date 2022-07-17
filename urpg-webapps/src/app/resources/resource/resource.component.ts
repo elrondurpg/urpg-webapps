@@ -1,5 +1,4 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
-import { ObjectDelta } from 'src/app/models/ObjectDelta';
 import { UrpgObjectModel } from 'src/app/models/ObjectModel';
 import { ActivatedRoute } from '@angular/router';
 import { RestService } from 'src/app/services/rest.service';

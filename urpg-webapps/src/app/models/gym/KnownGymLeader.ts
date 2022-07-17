@@ -1,4 +1,4 @@
-export class KnownGymLeader {
-    dbid:number;
-    name:string;
+import { UrpgObjectModel } from "../ObjectModel";
+
+export class KnownGymLeader extends UrpgObjectModel {
 }

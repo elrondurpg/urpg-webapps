@@ -1,6 +1,6 @@
-import { ObjectDelta } from "../ObjectDelta";
+import { UrpgObjectModel } from "../ObjectModel";
 
-export class OwnedExtraMoveDelta extends ObjectDelta {
+export class OwnedExtraMoveDelta extends UrpgObjectModel {
+    ignoreProperties = ["attack"];
     attack:string;
-    delete:boolean;
 }

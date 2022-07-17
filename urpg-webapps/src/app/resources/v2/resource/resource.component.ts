@@ -19,11 +19,13 @@ export class ResourceComponent<ModelClass extends UrpgObjectModel, DeltaClass ex
 
   public items           :any[]           = [];
   public complex         :boolean         = false;
-  public breadcrumbs     :Breadcrumb[]    = [];
+  public breadcrumbs     :Breadcrumb[]    = [new Breadcrumb("test", "Dashboard"), new Breadcrumb("test", "Configuration")];
   public modelDefinition :ModelDefinition = new ModelDefinition([]);
   public api             :string          = "";
   public editType        :string          = "update";
   public title           :string          = "";
+  public itemInContext   :boolean         = false;
+  public active          :boolean         = true;
 
   @ViewChild('header', {static: false})
   protected header!         :HeaderComponent;
@@ -35,7 +37,6 @@ export class ResourceComponent<ModelClass extends UrpgObjectModel, DeltaClass ex
   ) { 
     this.service = AppModule.injector.get(RestService);
     this.delta    = new this.deltaType();
-    this.breadcrumbs.push(new Breadcrumb("test", "Dashboard"), new Breadcrumb("test", "Configuration"));
   }
 
   ngOnInit() {
@@ -51,18 +52,27 @@ export class ResourceComponent<ModelClass extends UrpgObjectModel, DeltaClass ex
     this.service.get(this.api).subscribe(items => this.items = items);
   }
 
-  create() {
+  create(refresh:boolean = false) {
     this.editType = "create";
+    this.itemInContext = true;
+    this.model = new this.modelType();
     this.delta    = new this.deltaType();
+    if (refresh) {
+      this.modelDefinition.attributes.forEach(attributeDefinition => attributeDefinition.refresh());
+    }
   }
 
-  load(param:any) {
+  load(param:any, refresh:boolean = false) {
+    this.itemInContext = true;
     this.editType = "update";
     this.delta    = new this.deltaType();
     this.service.get(this.api, param).subscribe(model => {
       this.model = plainToClass(this.modelType, model);
       console.log(this.model);
     });
+    if (refresh) {
+      this.modelDefinition.attributes.forEach(attributeDefinition => attributeDefinition.refresh());
+    }
   }
 
   save() {
@@ -88,7 +98,7 @@ export class ResourceComponent<ModelClass extends UrpgObjectModel, DeltaClass ex
     this.editType = "update";
     this.delta = new this.deltaType();
     this.model = plainToClass(this.modelType, model);
-    this.modelDefinition.attributes.forEach(attributeDefinition => attributeDefinition.refreshItems());
+    this.modelDefinition.attributes.forEach(attributeDefinition => attributeDefinition.refresh());
   }
 
   showErrorMessage(error:any) {
@@ -106,6 +116,9 @@ export class ResourceComponent<ModelClass extends UrpgObjectModel, DeltaClass ex
 
   detectChanges() {
     return !this.delta.isEmpty();
+  }
+
+  onChange(attribute:string) {
   }
 
 }

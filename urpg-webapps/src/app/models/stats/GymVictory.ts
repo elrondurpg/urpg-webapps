@@ -3,8 +3,9 @@ import { Gym } from "../gym/Gym";
 import { GymLeague } from "../gym/GymLeague";
 import { KnownGymLeader } from "../gym/KnownGymLeader";
 import { Member } from "../member/Member";
+import { UrpgObjectModel } from "../ObjectModel";
 
-export class GymVictory {
+export class GymVictory extends UrpgObjectModel {
     logUrl:string;
 
     @Type(() => KnownGymLeader) 

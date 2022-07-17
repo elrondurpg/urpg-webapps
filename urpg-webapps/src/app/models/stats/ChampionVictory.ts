@@ -1,8 +1,9 @@
 import { Type } from "class-transformer";
 import { KnownChampion } from "../gym/KnownChampion";
 import { Member } from "../member/Member";
+import { UrpgObjectModel } from "../ObjectModel";
 
-export class ChampionVictory {
+export class ChampionVictory extends UrpgObjectModel {
     logUrl:string;
 
     @Type(() => KnownChampion)

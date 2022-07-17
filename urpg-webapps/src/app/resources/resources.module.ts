@@ -64,10 +64,12 @@ import { EliteFourMembershipComponent } from './elite-four-membership/elite-four
 import { GymLeadershipComponent } from './gym-leadership/gym-leadership.component';
 import { ResourceComponent as ResourcesV2ResourceComponent } from './v2/resource/resource.component';
 import { ZydecoTs } from 'zydeco-ts';
+import { OwnedPokemonComponent } from './owned-pokemon/owned-pokemon.component';
+import { ContestTypeComponent } from './contest-type/contest-type.component';
 
 @NgModule({
   declarations: [ResourcesComponent, AbilityComponent, AttackComponent, AttackCategoryComponent, AttackTargetTypeComponent, AdvContestMoveTypeComponent, ContestAttributeComponent, ContestRankComponent, OrasContestMoveTypeComponent, RseContestMoveTypeComponent, ArtRankComponent, ParkRankComponent, ParkLocationComponent, StoryRankComponent, NatureComponent, ObtainedComponent, SectionComponent, BadgeComponent, GymComponent, GymLeagueComponent, ImageComponent, ImageFolderComponent, ItemComponent, MemberComponent, BotComponent, PermissionComponent, RoleComponent, SpeciesComponent, TypeComponent, SearchComponent, EditAttributeComponent, EditLongAttributeComponent, MessageComponent, EditAttributeHeaderComponent, EditAttributeSelectComponent, EditAttributeNumberComponent, EditAttributeBooleanComponent, EditAttributeAccordionComponent, AccordionAttributeNumberComponent, AccordionAttributeSelectComponent, AccordionAttributeBooleanComponent, AccordionAttributeTextComponent, NewItemModalComponent, EditAttributeDateComponent, FlagComponent, KnownGymLeaderComponent, KnownChampionComponent, KnownEliteFourMemberComponent, HeaderComponent, EditPaneComponent, ChampionComponent, ChampionOwnershipComponent,
-    ResourcesV2EditAttributeSelectComponent, ResourcesV2EditAttributeNumberComponent, ResourcesV2EditAttributeDateComponent, ResourcesV2EditAttributeBooleanComponent, EliteFourSlotsComponent, EliteFourMembershipComponent, GymLeadershipComponent, ResourcesV2ResourceComponent ],
+    ResourcesV2EditAttributeSelectComponent, ResourcesV2EditAttributeNumberComponent, ResourcesV2EditAttributeDateComponent, ResourcesV2EditAttributeBooleanComponent, EliteFourSlotsComponent, EliteFourMembershipComponent, GymLeadershipComponent, ResourcesV2ResourceComponent, OwnedPokemonComponent, ContestTypeComponent ],
   imports: [
     CommonModule,
     FormsModule,

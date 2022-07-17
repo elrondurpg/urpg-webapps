@@ -10,10 +10,9 @@ import { ContestAttribute } from '../contest/ContestAttribute';
 import { SpeciesAttack } from '../species/SpeciesAttack';
 import { Type as Clazz } from 'class-transformer';
 import { ContestCombo } from '../contest/ContestCombo';
+import { UrpgObjectModel } from '../ObjectModel';
 
-export class Attack {
-    dbid:number;
-    name:string;
+export class Attack extends UrpgObjectModel {
     description:string;
     power:number;
     accuracy:number;

@@ -7,9 +7,9 @@ import { Species } from '../species/Species';
 import { Type } from '../species/Type';
 import { EarnedRibbon } from './EarnedRibbon';
 import { Type as Clazz } from 'class-transformer';
+import { UrpgObjectModel } from '../ObjectModel';
 
-export class OwnedPokemon {
-    dbid:number;
+export class OwnedPokemon extends UrpgObjectModel {
     job:boolean;
     box:boolean;
     uft:boolean;
@@ -36,15 +36,11 @@ export class OwnedPokemon {
     hiddenPowerType:Type;
 
     @Clazz(() => Ability)
-    ownedHiddenAbilities:Ability[];
+    ownedHiddenAbilities:Ability[] = [];
 
     @Clazz(() => Attack)
-    ownedExtraMoves:Attack[];
+    ownedExtraMoves:Attack[] = [];
 
     @Clazz(() => EarnedRibbon)
-    earnedRibbons:EarnedRibbon[];
-
-    test() {
-        console.log("This is an owned pokemon test.");
-    }
+    earnedRibbons:EarnedRibbon[] = [];
 }

@@ -1,6 +1,8 @@
 import { Type } from "class-transformer";
+import { UrpgObjectModel } from "../ObjectModel";
 
-export class GymVictoryDelta {
+export class GymVictoryDelta extends UrpgObjectModel {
+    ignoreProperties = ["defender", "gym", "league"];
     defender:string;
     logUrl:string;
     gym:string;

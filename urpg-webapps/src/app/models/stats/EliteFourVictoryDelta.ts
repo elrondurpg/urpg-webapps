@@ -1,6 +1,8 @@
 import { Type } from "class-transformer";
+import { UrpgObjectModel } from "../ObjectModel";
 
-export class EliteFourVictoryDelta {
+export class EliteFourVictoryDelta extends UrpgObjectModel {
+    ignoreProperties = ["defender"];
     defender:string;
     logUrl:string;
 

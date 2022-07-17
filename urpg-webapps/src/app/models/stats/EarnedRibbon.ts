@@ -1,19 +1,19 @@
 import { ContestAttribute } from '../contest/ContestAttribute';
 import { ContestRank } from '../contest/ContestRank';
-import { OwnedPokemon } from './OwnedPokemon';
 import { Type } from 'class-transformer';
+import { UrpgObjectModel } from '../ObjectModel';
+import { ContestType } from '../contest/ContestType';
 
-export class EarnedRibbon {
-    dbid:number;
+export class EarnedRibbon extends UrpgObjectModel {
     url:string;
     spent:boolean;
-
-    @Type(() => OwnedPokemon)
-    pokemon:OwnedPokemon;
 
     @Type(() => ContestRank)
     rank:ContestRank;
 
     @Type(() => ContestAttribute)
     attribute:ContestAttribute;
+
+    @Type(() => ContestType) 
+    contestType:ContestType;
 }

@@ -1,4 +1,4 @@
-export class Nature {
-    dbid:number;
-    name:string;
+import { UrpgObjectModel } from "../ObjectModel";
+
+export class Nature extends UrpgObjectModel {
 }
