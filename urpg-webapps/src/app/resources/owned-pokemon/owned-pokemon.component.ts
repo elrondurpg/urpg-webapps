@@ -6,8 +6,7 @@ import { ApiConstants }                       from 'src/app/constants/ApiConstan
 import { GeneralConstants }                   from 'src/app/constants/GeneralConstants';
 import { OwnedPokemon }                       from 'src/app/models/stats/OwnedPokemon';
 import { OwnedPokemonDelta }                  from 'src/app/models/stats/OwnedPokemonDelta';
-import { ModelDefinition, StringAttributeDefinitionBuilder }                    from 'zydeco-ts';
-import { StringAttributeComponent } from 'zydeco-ts/lib/component/partial/string-attribute/string-attribute.component';
+import { ModelDefinition }                    from 'zydeco-ts';
 import { ResourceComponent }                  from '../v2/resource/resource.component';
 import { OwnedPokemonModelDefinitionBuilder } from './OwnedPokemonModelDefinitionBuilder';
 

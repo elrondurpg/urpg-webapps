@@ -98,16 +98,19 @@ export class OwnedPokemonModelDefinitionBuilder {
                 .withDeltaSelector("rental")
                 .build(),
             new NestedAttributeDefinitionBuilder(EarnedRibbon, EarnedRibbonDelta)
-                .withTitle("Earned Ribbons")
-                .withAllowDuplicates(true)
+                .withTitle("Ribbons")
+                .withModelSelector("earnedRibbons")
+                .withDeltaSelector("earnedRibbons")
                 .withKeyDefinitions([
                     new StringAttributeDefinitionBuilder()
-                        .withTitle("dbid")
-                        .withHidden(true)
+                        .withTitle("Log URL")
+                        .withModelSelector("logUrl")
+                        .withDeltaSelector("logUrl")
+                        .withMaxLength(2083)
                         .build(),
                     new SelectAttributeDefinitionBuilder() 
-                        .withTitle("Contest Type")
-                        .withModelSelector("contestType.name")
+                        .withTitle("Generation")
+                        .withModelSelector("generation.name")
                         .withItemsFromObservable(contestTypeObservable)
                         .withFilterable(true)
                         .build(),
@@ -125,15 +128,17 @@ export class OwnedPokemonModelDefinitionBuilder {
                         .build(),
                 ])
                 .withFieldDefinitions([
-                    new BooleanAttributeDefinitionBuilder()
-                        .withTitle("spent")
+                    new NumberAttributeDefinitionBuilder()
+                        .withTitle("Quantity")
+                        .withMinValue(1)
+                        .withMaxValue(999999)
+                        .withRequired(true)
                         .build(),
-                    new StringAttributeDefinitionBuilder()
-                        .withTitle("URL")
-                        .withModelSelector("url")
-                        .withDeltaSelector("url")
-                        .withMaxLength(2083)
-                        .build()
+                    new NumberAttributeDefinitionBuilder()
+                        .withTitle("Spent")
+                        .withMinValue(0)
+                        .withMaxValue(999999)
+                        .build(),
                 ])
                 .build()
         ];

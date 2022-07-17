@@ -1,10 +1,11 @@
 import { UrpgObjectModel } from "../ObjectModel";
 
 export class EarnedRibbonDelta extends UrpgObjectModel {
-    ignoreProperties = ["dbid", "rank", "attribute", "contestType" ];
+    ignoreProperties = ["logUrl", "rank", "attribute", "generation" ];
     rank:string;
     attribute:string;
-    contestType:string;
-    url:string;
-    spent:boolean;
+    generation:string;
+    logUrl:string;
+    spent:number;
+    quantity:number;
 }
