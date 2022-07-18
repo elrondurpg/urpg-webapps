@@ -1,10 +1,12 @@
 import { Observable } from "rxjs";
+import { GeneralConstants } from "src/app/constants/GeneralConstants";
 import { Ability } from "src/app/models/ability/Ability";
 import { Attack } from "src/app/models/attack/Attack";
 import { EarnedRibbon } from "src/app/models/stats/EarnedRibbon";
 import { EarnedRibbonDelta } from "src/app/models/stats/EarnedRibbonDelta";
 import { OwnedExtraMoveDelta } from "src/app/models/stats/OwnedExtraMoveDelta";
 import { OwnedHiddenAbilityDelta } from "src/app/models/stats/OwnedHiddenAbilityDelta";
+import { environment } from "src/environments/environment";
 import { BooleanAttributeDefinitionBuilder, ModelDefinition, NestedAttributeDefinitionBuilder, NumberAttributeDefinitionBuilder, SelectAttributeDefinitionBuilder, StringAttributeDefinitionBuilder } from "zydeco-ts";
 
 export class OwnedPokemonModelDefinitionBuilder {
@@ -25,6 +27,7 @@ export class OwnedPokemonModelDefinitionBuilder {
                 .withModelSelector("trainer.name")
                 .withDeltaSelector("trainer")
                 .withRequired(true)
+                .withUrlBase("/urpg-webapps/resources/members/")
                 .build(),
             new StringAttributeDefinitionBuilder() 
                 .withTitle("Nickname")
@@ -39,7 +42,7 @@ export class OwnedPokemonModelDefinitionBuilder {
                 .withImmutable(true)
                 .build(),
             new SelectAttributeDefinitionBuilder() 
-                .withTitle("Gender")
+                .withTitle(GeneralConstants.GENDER_ATTRIBUTE_TITLE)
                 .withItems(["M", "F", "G"])
                 .withRequired(true)
                 .build(),
@@ -150,7 +153,7 @@ export class OwnedPokemonModelDefinitionBuilder {
     ) {
         return [
             new NestedAttributeDefinitionBuilder(Attack, OwnedExtraMoveDelta)
-                .withTitle("Extra Moves")
+                .withTitle(GeneralConstants.OWNED_EXTRA_MOVES_TITLE)
                 .withModelSelector("ownedExtraMoves")
                 .withDeltaSelector("ownedExtraMoves")
                 .withKeyDefinitions([
@@ -163,7 +166,7 @@ export class OwnedPokemonModelDefinitionBuilder {
                 ])
                 .build(),
             new NestedAttributeDefinitionBuilder(Ability, OwnedHiddenAbilityDelta)
-                .withTitle("Hidden Abilities")
+                .withTitle(GeneralConstants.OWNED_HIDDEN_ABILITIES_TITLE)
                 .withModelSelector("ownedHiddenAbilities")
                 .withDeltaSelector("ownedHiddenAbilities")
                 .withKeyDefinitions([

@@ -1,22 +1,23 @@
-import { ChangeDetectorRef, Component, OnInit }                  from '@angular/core';
-import { ActivatedRoute }                     from '@angular/router';
-import { plainToClass }                       from 'class-transformer';
-import { map }                                from 'rxjs';
-import { ApiConstants }                       from 'src/app/constants/ApiConstants';
-import { GeneralConstants }                   from 'src/app/constants/GeneralConstants';
-import { OwnedPokemon }                       from 'src/app/models/stats/OwnedPokemon';
-import { OwnedPokemonDelta }                  from 'src/app/models/stats/OwnedPokemonDelta';
-import { ModelDefinition }                    from 'zydeco-ts';
-import { ResourceComponent }                  from '../v2/resource/resource.component';
-import { OwnedPokemonModelDefinitionBuilder } from './OwnedPokemonModelDefinitionBuilder';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, NavigationEnd }                       from '@angular/router';
+import { plainToClass }                         from 'class-transformer';
+import { combineLatest, map, Observable, Subscription }                                  from 'rxjs';
+import { ApiConstants }                         from 'src/app/constants/ApiConstants';
+import { GeneralConstants }                     from 'src/app/constants/GeneralConstants';
+import { Species } from 'src/app/models/species/Species';
+import { OwnedPokemon }                         from 'src/app/models/stats/OwnedPokemon';
+import { OwnedPokemonDelta }                    from 'src/app/models/stats/OwnedPokemonDelta';
+import { ModelDefinition, SelectAttributeDefinition }                      from 'zydeco-ts';
+import { ResourceComponent }                    from '../v2/resource/resource.component';
+import { OwnedPokemonModelDefinitionBuilder }   from './OwnedPokemonModelDefinitionBuilder';
 
 @Component({
   selector: 'urpg-owned-pokemon',
   templateUrl: '../v2/resource/resource.component.html'
 })
-export class OwnedPokemonComponent extends ResourceComponent<OwnedPokemon, OwnedPokemonDelta> implements OnInit {
+export class OwnedPokemonComponent extends ResourceComponent<OwnedPokemon, OwnedPokemonDelta> implements OnDestroy, OnInit {
 
-  private speciesLoaded = false;
+  speciesSubscription:Subscription;
 
   constructor(
     protected route:ActivatedRoute,
@@ -28,11 +29,29 @@ export class OwnedPokemonComponent extends ResourceComponent<OwnedPokemon, Owned
   }
 
   override ngOnInit() {
+    // If the "owner" query param is provided, load the owner's pokemon
+    // else use the dbid, if provided
+    var obsComb = combineLatest([this.route.params, this.route.queryParams], (params, qparams) => ({ params, qparams }));
+    
+    obsComb.subscribe( ap => {
+      console.log(ap.params['type']);
+      console.log(ap.qparams['page']);
+    });
+    this.route.queryParams.subscribe(params => {
+      
+    });
+
     this.route.params.subscribe(params => {
       if (params['dbid']) {
         this.load(params['dbid']);
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    if (!this.speciesSubscription == null) {
+      this.speciesSubscription.unsubscribe();
+    }
   }
 
   override load(param:any, refresh:boolean = false) {
@@ -62,15 +81,23 @@ export class OwnedPokemonComponent extends ResourceComponent<OwnedPokemon, Owned
       this.service.get(ApiConstants.OBTAINED_API),
       this.service.get(ApiConstants.SPECIES_API, null, [ {key: "ownable", value: "true"} ]),
       this.service.get(ApiConstants.TYPE_API)));
-    this.speciesLoaded = false;
   }
 
   override loadItems() {
 
   }
 
+  override onChange(attribute:string) {
+    if (attribute == "Species" && this.delta.species != null) {
+      this.modelDefinition.removeAttribute(GeneralConstants.OWNED_EXTRA_MOVES_TITLE);
+      this.modelDefinition.removeAttribute(GeneralConstants.OWNED_HIDDEN_ABILITIES_TITLE);
+      this.delta.ownedExtraMoves.length = 0;
+      this.delta.ownedHiddenAbilities.length = 0;
+      this.loadSpecies(this.delta.species);
+    }
+  }
+
   loadSpecies(name:string) {
-    this.speciesLoaded = true;
     let speciesObservable = this.service.get(ApiConstants.SPECIES_API, name);
     this.modelDefinition.attributes.push(...OwnedPokemonModelDefinitionBuilder.buildSecondPart(
       speciesObservable
@@ -96,11 +123,28 @@ export class OwnedPokemonComponent extends ResourceComponent<OwnedPokemon, Owned
           )
         )
     ));
+    this.resetAvailableGenders(speciesObservable);
   }
 
-  override onChange(attribute:string) {
-    if (attribute == "Species" && !this.speciesLoaded && this.delta.species != null) {
-      this.loadSpecies(this.delta.species);
-    }
+  resetAvailableGenders(speciesObservable:Observable<any>) {
+    this.speciesSubscription = speciesObservable.subscribe(raw => {
+      let species = plainToClass(Species, raw);
+      if (species.maleAllowed && !species.femaleAllowed) {
+        this.delta.gender = "M";
+        (this.modelDefinition.getAttribute(GeneralConstants.GENDER_ATTRIBUTE_TITLE) as SelectAttributeDefinition).disallowedItems = [ "F", "G" ];
+      }
+      else if (species.femaleAllowed && !species.maleAllowed) {
+        this.delta.gender = "F";
+        (this.modelDefinition.getAttribute(GeneralConstants.GENDER_ATTRIBUTE_TITLE) as SelectAttributeDefinition).disallowedItems = [ "M", "G" ];
+      }
+      else if (!species.femaleAllowed && !species.maleAllowed) {
+        this.delta.gender = "G";
+        (this.modelDefinition.getAttribute(GeneralConstants.GENDER_ATTRIBUTE_TITLE) as SelectAttributeDefinition).disallowedItems = [ "F", "M" ];
+      }
+      else {
+        if (this.delta.gender == "G") this.delta.gender = null;
+        (this.modelDefinition.getAttribute(GeneralConstants.GENDER_ATTRIBUTE_TITLE) as SelectAttributeDefinition).disallowedItems = [ "G" ];
+      }
+    });
   }
 }
