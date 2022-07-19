@@ -1,0 +1,32 @@
+<zydeco-header #header *ngIf="active"
+    [breadcrumbs]="breadcrumbs"
+    [complex]="complex"
+    [changes]="detectChanges()"
+    [items]="items"
+    [title]="title"
+    (create)="create(itemInContext)"
+    (save)="save()"
+    (load)="load($event, itemInContext)"></zydeco-header>
+    <div class="container">
+        <div class="container py-3 border-left border-right">
+            <div class="row">
+                <div class="col" *ngIf="members.length > 0">
+                    <select class="form-control" [(ngModel)]="ownerFilter">
+                        <option selected value="undefined" hidden>Select a member to view or edit their Pokemon</option>
+                        <option *ngFor="let item of members.sort()" [value]="item">{{ item }}</option>
+                    </select>
+                </div>
+                <div class="col" *ngIf="members.length >= 0">
+                    <button type="submit" class="btn btn-primary btn-block" (click)="loadItems()">Load Pokemon For Member</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<zydeco-attributes *ngIf="active"
+    [editType]="editType"
+    [modelDefinition]="modelDefinition"
+    [model]="model"
+    [delta]="delta"
+    (valueChanged)="onChange($event)"
+></zydeco-attributes>

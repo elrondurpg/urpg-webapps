@@ -17,15 +17,16 @@ export class ResourceComponent<ModelClass extends UrpgObjectModel, DeltaClass ex
   public model!          :ModelClass;
   public delta!          :DeltaClass;
 
-  public items           :any[]           = [];
-  public complex         :boolean         = false;
-  public breadcrumbs     :Breadcrumb[]    = [new Breadcrumb("test", "Dashboard"), new Breadcrumb("test", "Configuration")];
-  public modelDefinition :ModelDefinition = new ModelDefinition([]);
-  public api             :string          = "";
-  public editType        :string          = "update";
-  public title           :string          = "";
-  public itemInContext   :boolean         = false;
-  public active          :boolean         = true;
+  public items           :any[]               = [];
+  public complex         :boolean             = false;
+  public breadcrumbs     :Breadcrumb[]        = [new Breadcrumb("test", "Dashboard"), new Breadcrumb("test", "Configuration")];
+  public modelDefinition :ModelDefinition     = new ModelDefinition([]);
+  public api             :string              = "";
+  public editType        :string              = "update";
+  public title           :string              = "";
+  public itemInContext   :boolean             = false;
+  public active          :boolean             = true;
+  public searchFilter    :string | undefined  = undefined;
 
   @ViewChild('header', {static: false})
   protected header!         :HeaderComponent;

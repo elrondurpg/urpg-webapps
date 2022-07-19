@@ -43,4 +43,13 @@ export class OwnedPokemon extends UrpgObjectModel {
 
     @Clazz(() => EarnedRibbon)
     earnedRibbons:EarnedRibbon[] = [];
+
+    override getDisplayName(): string {
+        let displayName = '';
+        if (this.nickname != null && this.nickname.trim() != '') {
+            displayName += this.nickname + " the ";
+        }
+        displayName += this.species.name + " (" + this.gender + ")";
+        return displayName;
+    }
 }
