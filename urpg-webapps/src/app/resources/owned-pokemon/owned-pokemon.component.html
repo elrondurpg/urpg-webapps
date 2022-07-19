@@ -10,14 +10,14 @@
     <div class="container">
         <div class="container py-3 border-left border-right">
             <div class="row">
-                <div class="col" *ngIf="members.length > 0">
-                    <select class="form-control" [(ngModel)]="ownerFilter">
+                <div class="col">
+                    <select class="form-control" [(ngModel)]="ownerFilter" [disabled]="members.length == 0">
                         <option selected value="undefined" hidden>Select a member to view or edit their Pokemon</option>
                         <option *ngFor="let item of members.sort()" [value]="item">{{ item }}</option>
                     </select>
                 </div>
-                <div class="col" *ngIf="members.length >= 0">
-                    <button type="submit" class="btn btn-primary btn-block" (click)="loadItems()">Load Pokemon For Member</button>
+                <div class="col">
+                    <button type="submit" class="btn btn-primary btn-block" (click)="loadItems()" [disabled]="members.length == 0">Load Pokemon For Member</button>
                 </div>
             </div>
         </div>
