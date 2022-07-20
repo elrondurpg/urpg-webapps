@@ -156,6 +156,7 @@ export class OwnedPokemonModelDefinitionBuilder {
                 .withTitle(GeneralConstants.OWNED_EXTRA_MOVES_TITLE)
                 .withModelSelector("ownedExtraMoves")
                 .withDeltaSelector("ownedExtraMoves")
+                .withImportable(true)
                 .withKeyDefinitions([
                     new SelectAttributeDefinitionBuilder() 
                         .withTitle("Name")
@@ -169,6 +170,7 @@ export class OwnedPokemonModelDefinitionBuilder {
                 .withTitle(GeneralConstants.OWNED_HIDDEN_ABILITIES_TITLE)
                 .withModelSelector("ownedHiddenAbilities")
                 .withDeltaSelector("ownedHiddenAbilities")
+                .withImportable(true)
                 .withKeyDefinitions([
                     new SelectAttributeDefinitionBuilder() 
                         .withTitle("Name")

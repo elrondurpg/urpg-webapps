@@ -1,10 +1,7 @@
-import { AdvContestMoveType } from '../contest/AdvContestMoveType';
-import { AttackCategory } from './AttackCategory';
 import { AttackTargetType } from './AttackTargetType';
 import { Item } from '../item/Item';
 import { Type } from '../species/Type';
 import { RseContestMoveType } from '../contest/RSEContestMoveType';
-import { DPPContestMoveType } from '../contest/DPPContestMoveType';
 import { OrasContestMoveType } from '../contest/ORASContestMoveType';
 import { ContestAttribute } from '../contest/ContestAttribute';
 import { SpeciesAttack } from '../species/SpeciesAttack';
@@ -29,8 +26,8 @@ export class Attack extends UrpgObjectModel {
     @Clazz(() => Type)
     type:Type;
 
-    @Clazz(() => AttackCategory)
-    category:AttackCategory;
+    @Clazz(() => UrpgObjectModel)
+    category:UrpgObjectModel;
 
     @Clazz(() => AttackTargetType)
     target:AttackTargetType;
@@ -41,23 +38,11 @@ export class Attack extends UrpgObjectModel {
     @Clazz(() => ContestAttribute)
     rseContestAttribute:ContestAttribute;
 
-    @Clazz(() => DPPContestMoveType)
-    dppContestMoveType:DPPContestMoveType;
-
-    @Clazz(() => ContestAttribute)
-    dppContestAttribute:ContestAttribute;
-
     @Clazz(() => OrasContestMoveType)
     orasContestMoveType:OrasContestMoveType;
 
     @Clazz(() => ContestAttribute)
     orasContestAttribute:ContestAttribute;
-
-    @Clazz(() => AdvContestMoveType)
-    advContestMoveType:AdvContestMoveType;
-
-    @Clazz(() => ContestAttribute)
-    advContestAttribute:ContestAttribute;
 
     @Clazz(() => SpeciesAttack)
     pokemon:SpeciesAttack[];

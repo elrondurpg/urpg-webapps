@@ -8,13 +8,12 @@ import { SpeciesAttack } from './SpeciesAttack';
 import { CosmeticForm } from './CosmeticForm';
 import { Type as Clazz } from 'class-transformer';
 import { DisplayableForm } from 'src/app/pokedex/models/DisplayableForm';
+import { UrpgObjectModel } from '../ObjectModel';
 
-export class Species implements DisplayableForm {
+export class Species extends UrpgObjectModel implements DisplayableForm {
     static dashExceptions = ["nidoran-f", "nidoran-m", "ho-oh", "meowstic-m", "basculin-red-striped", "unown-a", "porygon-z" ];
     
-    dbid:number;
     dexno:number;
-    name:string;
     classification:string;
     hp:number;
     attack:number;

@@ -1,9 +1,9 @@
-import { ObjectDelta } from "../ObjectDelta";
+import { UrpgObjectModel } from "../ObjectModel";
 import { CosmeticFormDelta } from "./CosmeticFormDelta";
 import { SpeciesAbilityDelta } from "./SpeciesAbilityDelta";
 import { SpeciesAttackDelta } from "./SpeciesAttackDelta";
 
-export class SpeciesDelta extends ObjectDelta {
+export class SpeciesDelta extends UrpgObjectModel {
     dexno:number;
     name:string;
     displayName:string;

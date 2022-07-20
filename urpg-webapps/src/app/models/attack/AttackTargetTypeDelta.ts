@@ -1,6 +1,5 @@
-import { ObjectDelta } from "../ObjectDelta";
+import { UrpgObjectModel } from "../ObjectModel";
 
-export class AttackTargetTypeDelta extends ObjectDelta {
-    name:string;
+export class AttackTargetTypeDelta extends UrpgObjectModel {
     description:string;
 }

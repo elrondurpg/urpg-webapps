@@ -1,8 +1,9 @@
 import { Attack } from '../attack/Attack';
 import { Species } from './Species';
 import { Type } from 'class-transformer';
+import { UrpgObjectModel } from '../ObjectModel';
 
-export class SpeciesAttack {
+export class SpeciesAttack extends UrpgObjectModel {
 
     @Type(() => Species)
     species:Species;

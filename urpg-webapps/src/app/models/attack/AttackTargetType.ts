@@ -1,5 +1,5 @@
-export class AttackTargetType {
-    dbid:number;
-    name:string;
+import { UrpgObjectModel } from "../ObjectModel";
+
+export class AttackTargetType extends UrpgObjectModel {
     description:string;
 }

@@ -24,13 +24,12 @@ import { MoveHintsComponent } from './moves/move-hints/move-hints.component';
 import { LearnsetCategoryComponent } from './moves/learnset/category/category.component';
 import { BattleComponent } from './moves/move-hints/battle/battle.component';
 import { ContestRseComponent } from './moves/move-hints/contest-rse/contest-rse.component';
-import { ContestDppComponent } from './moves/move-hints/contest-dpp/contest-dpp.component';
 import { ContestOrasComponent } from './moves/move-hints/contest-oras/contest-oras.component';
 
 
 
 @NgModule({
-  declarations: [PokedexComponent, EvolutionComponent, HeaderComponent, MainComponent, MiscComponent, CaptureComponent, MovesComponent, FormsComponent, NametagComponent, AbilitiesComponent, StatsComponent, NametagSpriteComponent, NametagInfoComponent, NametagFormsComponent, StatsBarComponent, TypeMatchupsComponent, MiscInfoComponent, LearnsetComponent, MoveHintsComponent, LearnsetCategoryComponent, BattleComponent, ContestRseComponent, ContestDppComponent, ContestOrasComponent],
+  declarations: [PokedexComponent, EvolutionComponent, HeaderComponent, MainComponent, MiscComponent, CaptureComponent, MovesComponent, FormsComponent, NametagComponent, AbilitiesComponent, StatsComponent, NametagSpriteComponent, NametagInfoComponent, NametagFormsComponent, StatsBarComponent, TypeMatchupsComponent, MiscInfoComponent, LearnsetComponent, MoveHintsComponent, LearnsetCategoryComponent, BattleComponent, ContestRseComponent, ContestOrasComponent],
   imports: [
     CommonModule,
     PokedexRoutingModule,

@@ -1,8 +1,8 @@
 import { DisplayableForm } from 'src/app/pokedex/models/DisplayableForm';
+import { UrpgObjectModel } from '../ObjectModel';
 import { Species } from './Species';
 
-export class CosmeticForm implements DisplayableForm {
-    name:string;
+export class CosmeticForm extends UrpgObjectModel implements DisplayableForm {
     formName:string;
     species:Species;
     attacksThatDifferByForm:Map<string,string>;

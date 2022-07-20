@@ -1,9 +1,8 @@
 import { ContestComboDelta } from "../contest/ContestComboDelta";
-import { ObjectDelta } from "../ObjectDelta";
+import { UrpgObjectModel } from "../ObjectModel";
 import { Attack } from "./Attack";
 
-export class AttackDelta extends ObjectDelta {
-    name:string;
+export class AttackDelta extends UrpgObjectModel {
     type:string;
     description:string;
     power:number;
@@ -24,13 +23,4 @@ export class AttackDelta extends ObjectDelta {
     orasContestMoveType:string;
     tm:string;
     contestCombos:ContestComboDelta[] = [];
-
-    constructor(attack:Attack = undefined) {
-        super();
-        if (attack !== undefined) {
-            attack.contestCombos.forEach(combo => {
-                this.contestCombos.push(new ContestComboDelta(combo));
-            });
-        }
-    }
 }

@@ -1,8 +1,6 @@
-import { ObjectDelta } from "../ObjectDelta";
+import { UrpgObjectModel } from "../ObjectModel";
 
-export class SpeciesAbilityDelta extends ObjectDelta {
+export class SpeciesAbilityDelta extends UrpgObjectModel {
     ignoreProperties = [ "name" ];
-    name:string;
     hidden:boolean;
-    delete:boolean;
 }

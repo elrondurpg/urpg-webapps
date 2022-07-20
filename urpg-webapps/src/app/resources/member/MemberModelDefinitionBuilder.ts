@@ -7,7 +7,7 @@ import { LegendaryProgress } from "src/app/models/stats/LegendaryProgress";
 import { LegendaryProgressDelta } from "src/app/models/stats/LegendaryProgressDelta";
 import { OwnedItem } from "src/app/models/stats/OwnedItem";
 import { OwnedItemDelta } from "src/app/models/stats/OwnedItemDelta";
-import { AttributeType, BooleanAttributeDefinitionBuilder, DateAttributeDefinitionBuilder, ModelDefinition, NestedAttributeDefinitionBuilder, NumberAttributeDefinitionBuilder, SelectAttributeDefinitionBuilder, StringAttributeDefinitionBuilder } from "zydeco-ts";
+import { BooleanAttributeDefinitionBuilder, DateAttributeDefinitionBuilder, ModelDefinition, NestedAttributeDefinitionBuilder, NumberAttributeDefinitionBuilder, SelectAttributeDefinitionBuilder, StringAttributeDefinitionBuilder } from "zydeco-ts";
 
 export class MemberModelDefinitionBuilder {
     static build(
@@ -91,7 +91,7 @@ export class MemberModelDefinitionBuilder {
                 ])
                 .build(),
               new NestedAttributeDefinitionBuilder(OwnedItem, OwnedItemDelta)
-                .withTitle("Owned Items")
+                .withTitle("Items")
                 .withModelSelector("items")
                 .withDeltaSelector("items")
                 .withKeyDefinitions([

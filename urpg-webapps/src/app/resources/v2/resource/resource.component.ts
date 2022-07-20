@@ -95,7 +95,7 @@ export class ResourceComponent<ModelClass extends UrpgObjectModel, DeltaClass ex
   showSuccessMessage(model:any) {
     this.loadItems();
     this.header.clearMessage();
-    this.header.showSuccessMessage(`${this.modelType.name} ${this.editType}d successfully!`);
+    this.header.showSuccessMessage(`${this.title} ${this.editType}d successfully!`);
     this.editType = "update";
     this.delta = new this.deltaType();
     this.model = plainToClass(this.modelType, model);
@@ -109,10 +109,10 @@ export class ResourceComponent<ModelClass extends UrpgObjectModel, DeltaClass ex
       let messages = error.error.errors.map((message:any) => {
         return `Field "${message.field}": ${message.defaultMessage}.`;
       });
-      this.header.showErrorMessageArray(`${this.modelType.name} could not be ${this.editType}d.`, messages);
+      this.header.showErrorMessageArray(`${this.title} could not be ${this.editType}d.`, messages);
     }
     else {
-      this.header.showErrorMessage(`${this.modelType.name} could not be ${this.editType}d. Error: ${error.error.message}`);
+      this.header.showErrorMessage(`${this.title} could not be ${this.editType}d. Error: ${error.error.message}`);
     }
   }
 

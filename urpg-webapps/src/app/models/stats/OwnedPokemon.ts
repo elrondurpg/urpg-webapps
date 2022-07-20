@@ -1,6 +1,5 @@
 import { Ability } from '../ability/Ability';
 import { Attack } from '../attack/Attack';
-import { Nature } from '../general/Nature';
 import { Obtained } from '../general/Obtained';
 import { Member } from '../member/Member';
 import { Species } from '../species/Species';
@@ -26,8 +25,8 @@ export class OwnedPokemon extends UrpgObjectModel {
     @Clazz(() => Species)
     species:Species;
 
-    @Clazz(() => Nature)
-    nature:Nature;
+    @Clazz(() => UrpgObjectModel)
+    nature:UrpgObjectModel;
 
     @Clazz(() => Obtained)
     obtained:Obtained;

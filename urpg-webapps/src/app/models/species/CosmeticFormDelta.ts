@@ -1,8 +1,6 @@
-import { ObjectDelta } from "../ObjectDelta";
+import { UrpgObjectModel } from "../ObjectModel";
 
-export class CosmeticFormDelta extends ObjectDelta {
+export class CosmeticFormDelta extends UrpgObjectModel {
     ignoreProperties = [ "name" ];
-    name:string;
     formName:string;
-    delete:boolean;
 }
