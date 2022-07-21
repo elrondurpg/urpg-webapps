@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PokedexEntry } from 'src/app/models/pokedex/PokedexEntry';
-import { Species } from 'src/app/models/species/Species';
+import { PokedexEntry } from 'src/app/models/v1/pokedex/PokedexEntry';
+import { Species } from 'src/app/models/v1/species/Species';
 
 @Component({
   selector: 'pokedex-abilities',

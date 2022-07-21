@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SessionService } from 'src/app/services/security/session.service';
+import { SessionService } from 'src/app/services/v1/security/session.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({

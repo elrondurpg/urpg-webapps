@@ -1,0 +1,41 @@
+import { UrpgObjectModel } from "../UrpgObjectModel";
+import { CosmeticFormDelta } from "./CosmeticFormDelta";
+import { SpeciesAbilityDelta } from "./SpeciesAbilityDelta";
+import { SpeciesAttackDelta } from "./SpeciesAttackDelta";
+
+export class SpeciesDelta extends UrpgObjectModel {
+    dexno:number;
+    name:string;
+    displayName:string;
+    formName:string;
+    type1:string;
+    type2:string;
+    classification:string;
+    hp:number;
+    attack:number;
+    defense:number;
+    specialAttack:number;
+    specialDefense:number;
+    speed:number;
+    height:number;
+    weight:number;
+    maleAllowed:boolean;
+    femaleAllowed:boolean;
+    pokemart:number;
+    contestCredits:number;
+    storyRank:string;
+    artRank:string;
+    parkRank:string;
+    parkLocation:string;
+    attacks:SpeciesAttackDelta[] = [];
+    abilities:SpeciesAbilityDelta[] = [];
+    cosmeticForms:CosmeticFormDelta[] = [];
+    alteredFormMethod:string;
+    preEvolution:string;
+    evolutionMethod:string;
+    evolutionExpRequirement:number;
+    preMega:string;
+    megaStone:string;
+    megaSuffix:string;
+    legendaryTier:number;
+}

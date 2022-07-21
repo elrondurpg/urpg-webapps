@@ -1,44 +1,44 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AttackCategoryComponent } from './attack/attack-category/attack-category.component';
-import { AttackTargetTypeComponent } from './attack/attack-target-type/attack-target-type.component';
-import { AttackComponent } from './attack/attack/attack.component';
-import { BotComponent } from './bot/bot.component';
-import { ContestAttributeComponent } from './contest/contest-attribute/contest-attribute.component';
-import { ContestRankComponent } from './contest/contest-rank/contest-rank.component';
-import { ContestTypeComponent } from './contest/contest-type/contest-type.component';
-import { OrasContestMoveTypeComponent } from './contest/oras-contest-move-type/oras-contest-move-type.component';
-import { RseContestMoveTypeComponent } from './contest/rse-contest-move-type/rse-contest-move-type.component';
-import { ArtRankComponent } from './creative/art-rank/art-rank.component';
-import { ParkLocationComponent } from './creative/park-location/park-location.component';
-import { ParkRankComponent } from './creative/park-rank/park-rank.component';
-import { StoryRankComponent } from './creative/story-rank/story-rank.component';
-import { FlagComponent } from './flag/flag.component';
-import { GymLeagueComponent } from './gym-league/gym-league.component';
-import { BadgeComponent } from './gym/badge/badge.component';
-import { ChampionRecordComponent } from './gym/champion-record/champion-record.component';
-import { ChampionComponent } from './gym/champion/champion.component';
-import { EliteFourMemberRecordComponent } from './gym/elite-four-member-record/elite-four-member-record.component';
-import { EliteFourSlotComponent } from './gym/elite-four-slot/elite-four-slot.component';
-import { GymLeaderRecordComponent } from './gym/gym-leader-record/gym-leader-record.component';
-import { GymComponent } from './gym/gym/gym.component';
-import { ImageFolderComponent } from './image-folder/image-folder.component';
-import { ImageComponent } from './image/image.component';
-import { ItemComponent } from './item/item.component';
-import { KnownChampionComponent } from './known-champion/known-champion.component';
-import { KnownEliteFourMemberComponent } from './known-elite-four-member/known-elite-four-member.component';
-import { KnownGymLeaderComponent } from './known-gym-leader/known-gym-leader.component';
-import { MemberComponent } from './member/member.component';
-import { ObtainedComponent } from './obtained/obtained.component';
-import { OwnedPokemonComponent } from './owned-pokemon/owned-pokemon.component';
-import { PermissionComponent } from './permission/permission.component';
-import { AbilityComponent } from './pokemon/ability/ability.component';
-import { NatureComponent } from './pokemon/nature/nature.component';
-import { SpeciesComponent } from './pokemon/species/species.component';
-import { TypeComponent } from './pokemon/type/type.component';
+import { AttackCategoryComponent } from './v1/attack/attack-category/attack-category.component';
+import { AttackTargetTypeComponent } from './v1/attack/attack-target-type/attack-target-type.component';
+import { AttackComponent } from './v1/attack/attack/attack.component';
+import { ContestAttributeComponent } from './v1/contest/contest-attribute/contest-attribute.component';
+import { ContestRankComponent } from './v1/contest/contest-rank/contest-rank.component';
+import { ContestTypeComponent } from './v1/contest/contest-type/contest-type.component';
+import { OrasContestMoveTypeComponent } from './v1/contest/oras-contest-move-type/oras-contest-move-type.component';
+import { RseContestMoveTypeComponent } from './v1/contest/rse-contest-move-type/rse-contest-move-type.component';
+import { ArtRankComponent } from './v1/creative/art-rank/art-rank.component';
+import { ParkLocationComponent } from './v1/creative/park-location/park-location.component';
+import { ParkRankComponent } from './v1/creative/park-rank/park-rank.component';
+import { StoryRankComponent } from './v1/creative/story-rank/story-rank.component';
+import { CaptureMethodComponent } from './v1/general/capture-method/capture-method.component';
+import { FlagComponent } from './v1/general/flag/flag.component';
+import { ImageFolderComponent } from './v1/general/image-folder/image-folder.component';
+import { ImageComponent } from './v1/general/image/image.component';
+import { SectionComponent } from './v1/general/section/section.component';
+import { BadgeComponent } from './v1/gym/badge/badge.component';
+import { ChampionRecordComponent } from './v1/gym/champion-record/champion-record.component';
+import { ChampionComponent } from './v1/gym/champion/champion.component';
+import { EliteFourMemberRecordComponent } from './v1/gym/elite-four-member-record/elite-four-member-record.component';
+import { EliteFourSlotComponent } from './v1/gym/elite-four-slot/elite-four-slot.component';
+import { GymLeaderRecordComponent } from './v1/gym/gym-leader-record/gym-leader-record.component';
+import { GymLeagueComponent } from './v1/gym/gym-league/gym-league.component';
+import { GymComponent } from './v1/gym/gym/gym.component';
+import { KnownChampionComponent } from './v1/gym/known-champion/known-champion.component';
+import { KnownEliteFourMemberComponent } from './v1/gym/known-elite-four-member/known-elite-four-member.component';
+import { KnownGymLeaderComponent } from './v1/gym/known-gym-leader/known-gym-leader.component';
+import { ItemComponent } from './v1/item/item/item.component';
+import { BotComponent } from './v1/member/bot/bot.component';
+import { MemberComponent } from './v1/member/member/member.component';
+import { OwnedPokemonComponent } from './v1/member/owned-pokemon/owned-pokemon.component';
+import { PermissionComponent } from './v1/member/permission/permission.component';
+import { RoleComponent } from './v1/member/role/role.component';
+import { AbilityComponent } from './v1/pokemon/ability/ability.component';
+import { NatureComponent } from './v1/pokemon/nature/nature.component';
+import { SpeciesComponent } from './v1/pokemon/species/species.component';
+import { TypeComponent } from './v1/pokemon/type/type.component';
 import { ResourcesComponent } from './resources.component';
-import { RoleComponent } from './role/role.component';
-import { SectionComponent } from './section/section.component';
 
 
 const routes: Routes = [
@@ -57,7 +57,7 @@ const routes: Routes = [
   {path: 'bots', redirectTo: 'bots/', pathMatch: 'full'},
   {path: 'bots/:name', component: BotComponent},
   {path: 'capture-methods', redirectTo: 'capture-methods/', pathMatch: 'full'},
-  {path: 'capture-methods/:name', component: ObtainedComponent},
+  {path: 'capture-methods/:name', component: CaptureMethodComponent},
   {path: 'champion-slots', redirectTo: 'champion-slots/', pathMatch: 'full'},
   {path: 'champion-slots/:name', component: ChampionComponent},
   {path: 'champion-records', component: ChampionRecordComponent },

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Gym } from 'src/app/models/gym/Gym';
-import { GymVictory } from 'src/app/models/stats/GymVictory';
+import { Gym } from 'src/app/models/v1/gym/Gym';
+import { GymVictory } from 'src/app/models/v1/stats/GymVictory';
 import { environment } from 'src/environments/environment';
 
 @Component({

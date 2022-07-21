@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PokedexEntry } from 'src/app/models/pokedex/PokedexEntry';
-import { SpeciesAttack } from 'src/app/models/species/SpeciesAttack';
+import { PokedexEntry } from 'src/app/models/v1/pokedex/PokedexEntry';
+import { SpeciesAttack } from 'src/app/models/v1/species/SpeciesAttack';
 
 @Component({
   selector: 'pokedex-move-hints',

@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Gym } from 'src/app/models/gym/Gym';
-import { PokemonBrief } from 'src/app/models/PokemonBrief';
-import { OwnedPokemon } from 'src/app/models/stats/OwnedPokemon';
+import { Gym } from 'src/app/models/v1/gym/Gym';
+import { OwnedPokemon } from 'src/app/models/v1/stats/OwnedPokemon';
 import { environment } from 'src/environments/environment';
 
 @Component({

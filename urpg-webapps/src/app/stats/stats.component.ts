@@ -1,10 +1,9 @@
 import { AfterViewChecked, Component, HostListener, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
-import { Member } from '../models/member/Member';
-import { MemberService } from '../services/member.service';
-import { TrainerService } from '../services/trainer.service';
+import { Member } from '../models/v1/member/Member';
 import { plainToClass } from 'class-transformer';
-import { SectionService } from '../services/section.service';
-import { Section } from '../models/general/Section';
+import { Section } from '../models/v1/general/Section';
+import { RestService } from '../services/v1/rest.service';
+import { ApiConstants } from '../constants/ApiConstants';
 
 @Component({
   selector: 'urpg-stats',
@@ -28,19 +27,17 @@ export class StatsComponent implements AfterViewChecked, OnInit {
   @ViewChild('menuBar', {static:false})
   menuBar: ElementRef;
 
-  constructor(private trainerService : TrainerService,
-    private memberService:MemberService,
-    private sectionService:SectionService,
+  constructor(private service : RestService,
     private renderer: Renderer2) { }
 
   ngOnInit() {
     this.tab = "achievements";
-    this.memberService.findByName("Elrond").subscribe(member => {
+    this.service.get(ApiConstants.MEMBER_API, "Elrond", null).subscribe(member => {
       this.member = plainToClass(Member, member);
       console.log("Printed from stats/stats.component.ts:");
       console.log(this.member);
     });
-    this.sectionService.findAll().subscribe(sections => {
+    this.service.get(ApiConstants.SECTION_API).subscribe((sections : Section[]) => {
       this.sections = plainToClass(Section, sections);
     });
   }

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SpeciesAttack } from 'src/app/models/species/SpeciesAttack';
+import { SpeciesAttack } from 'src/app/models/v1/species/SpeciesAttack';
 
 @Component({
   selector: 'pokedex-move-hints-contest-oras',

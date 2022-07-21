@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { PokedexEntry } from 'src/app/models/pokedex/PokedexEntry';
-import { Species } from 'src/app/models/species/Species';
-import { DisplayableForm } from '../../models/DisplayableForm';
+import { DisplayableForm } from 'src/app/models/v1/pokedex/DisplayableForm';
+import { PokedexEntry } from 'src/app/models/v1/pokedex/PokedexEntry';
 
 @Component({
   selector: 'pokedex-nametag',

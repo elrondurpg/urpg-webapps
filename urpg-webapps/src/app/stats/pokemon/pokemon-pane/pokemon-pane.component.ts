@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { OwnedPokemon } from 'src/app/models/stats/OwnedPokemon';
-import { RestService } from 'src/app/services/rest.service';
+import { OwnedPokemon } from 'src/app/models/v1/stats/OwnedPokemon';
+import { RestService } from 'src/app/services/v1/rest.service';
 import { ApiConstants } from 'src/app/constants/ApiConstants';
 
 @Component({

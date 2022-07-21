@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Member } from 'src/app/models/member/Member';
+import { Member } from 'src/app/models/v1/member/Member';
 
 @Component({
   selector: 'stats-inventory',

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PokedexEntry } from 'src/app/models/pokedex/PokedexEntry';
+import { PokedexEntry } from 'src/app/models/v1/pokedex/PokedexEntry';
 
 @Component({
   selector: 'pokedex-type-matchups',

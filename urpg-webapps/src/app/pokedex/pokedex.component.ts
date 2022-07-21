@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { PokedexEntry } from '../models/pokedex/PokedexEntry';
+import { PokedexEntry } from '../models/v1/pokedex/PokedexEntry';
 import { plainToClass } from 'class-transformer';
-import { PokedexService } from '../services/pokedex/pokedex.service';
 import { ActivatedRoute } from '@angular/router';
-import { DisplayableForm } from './models/DisplayableForm';
+import { RestService } from '../services/v1/rest.service';
+import { ApiConstants } from '../constants/ApiConstants';
 
 @Component({
   selector: 'urpg-pokedex',
@@ -14,11 +14,11 @@ export class PokedexComponent implements OnInit {
   page:PokedexEntry;
 
   constructor(private route:ActivatedRoute,
-    private pokedexService:PokedexService) { }
+    private service:RestService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.pokedexService.findByName(params['name']).subscribe(page => {
+      this.service.get(ApiConstants.POKEDEX_API, params['name'], null).subscribe(page => {
         this.page = plainToClass(PokedexEntry, page);
         this.page.collectAllForms();
         console.log("Printed from pokedex.component.ts: ");

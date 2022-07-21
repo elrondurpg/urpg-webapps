@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { throwError } from 'rxjs';
 import { timeout } from 'rxjs/operators';
-import { SessionService } from 'src/app/services/security/session.service';
+import { SessionService } from 'src/app/services/v1/security/session.service';
 
 @Component({
   selector: 'urpg-site-header',

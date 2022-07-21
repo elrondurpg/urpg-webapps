@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, Pipe, PipeTransform, Output, EventEmitter } from '@angular/core';
-import { PokedexEntry } from 'src/app/models/pokedex/PokedexEntry';
-import { Species } from 'src/app/models/species/Species';
-import { DisplayableForm } from 'src/app/pokedex/models/DisplayableForm';
+import { PokedexEntry } from 'src/app/models/v1/pokedex/PokedexEntry';
+import { Species } from 'src/app/models/v1/species/Species';
+import { DisplayableForm } from 'src/app/models/v1/pokedex/DisplayableForm';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 
