@@ -3,20 +3,25 @@ import { RouterModule, Routes } from '@angular/router';
 import { AttackCategoryComponent } from './attack/attack-category/attack-category.component';
 import { AttackTargetTypeComponent } from './attack/attack-target-type/attack-target-type.component';
 import { AttackComponent } from './attack/attack/attack.component';
-import { BadgeComponent } from './badge/badge.component';
 import { BotComponent } from './bot/bot.component';
-import { ChampionOwnershipComponent } from './champion-ownership/champion-ownership.component';
-import { ChampionComponent } from './champion/champion.component';
-import { ContestAttributeComponent } from './contest-attribute/contest-attribute.component';
-import { ContestRankComponent } from './contest-rank/contest-rank.component';
-import { ContestTypeComponent } from './contest-type/contest-type.component';
+import { ContestAttributeComponent } from './contest/contest-attribute/contest-attribute.component';
+import { ContestRankComponent } from './contest/contest-rank/contest-rank.component';
+import { ContestTypeComponent } from './contest/contest-type/contest-type.component';
+import { OrasContestMoveTypeComponent } from './contest/oras-contest-move-type/oras-contest-move-type.component';
+import { RseContestMoveTypeComponent } from './contest/rse-contest-move-type/rse-contest-move-type.component';
 import { ArtRankComponent } from './creative/art-rank/art-rank.component';
-import { EliteFourMembershipComponent } from './elite-four-membership/elite-four-membership.component';
-import { EliteFourSlotsComponent } from './elite-four-slots/elite-four-slots.component';
+import { ParkLocationComponent } from './creative/park-location/park-location.component';
+import { ParkRankComponent } from './creative/park-rank/park-rank.component';
+import { StoryRankComponent } from './creative/story-rank/story-rank.component';
 import { FlagComponent } from './flag/flag.component';
-import { GymLeadershipComponent } from './gym-leadership/gym-leadership.component';
 import { GymLeagueComponent } from './gym-league/gym-league.component';
-import { GymComponent } from './gym/gym.component';
+import { BadgeComponent } from './gym/badge/badge.component';
+import { ChampionRecordComponent } from './gym/champion-record/champion-record.component';
+import { ChampionComponent } from './gym/champion/champion.component';
+import { EliteFourMemberRecordComponent } from './gym/elite-four-member-record/elite-four-member-record.component';
+import { EliteFourSlotComponent } from './gym/elite-four-slot/elite-four-slot.component';
+import { GymLeaderRecordComponent } from './gym/gym-leader-record/gym-leader-record.component';
+import { GymComponent } from './gym/gym/gym.component';
 import { ImageFolderComponent } from './image-folder/image-folder.component';
 import { ImageComponent } from './image/image.component';
 import { ItemComponent } from './item/item.component';
@@ -24,21 +29,16 @@ import { KnownChampionComponent } from './known-champion/known-champion.componen
 import { KnownEliteFourMemberComponent } from './known-elite-four-member/known-elite-four-member.component';
 import { KnownGymLeaderComponent } from './known-gym-leader/known-gym-leader.component';
 import { MemberComponent } from './member/member.component';
-import { NatureComponent } from './pokemon/nature/nature.component';
 import { ObtainedComponent } from './obtained/obtained.component';
-import { OrasContestMoveTypeComponent } from './oras-contest-move-type/oras-contest-move-type.component';
 import { OwnedPokemonComponent } from './owned-pokemon/owned-pokemon.component';
-import { ParkLocationComponent } from './park-location/park-location.component';
-import { ParkRankComponent } from './park-rank/park-rank.component';
 import { PermissionComponent } from './permission/permission.component';
 import { AbilityComponent } from './pokemon/ability/ability.component';
+import { NatureComponent } from './pokemon/nature/nature.component';
+import { SpeciesComponent } from './pokemon/species/species.component';
+import { TypeComponent } from './pokemon/type/type.component';
 import { ResourcesComponent } from './resources.component';
 import { RoleComponent } from './role/role.component';
-import { RseContestMoveTypeComponent } from './rse-contest-move-type/rse-contest-move-type.component';
 import { SectionComponent } from './section/section.component';
-import { SpeciesComponent } from './pokemon/species/species.component';
-import { StoryRankComponent } from './story-rank/story-rank.component';
-import { TypeComponent } from './type/type.component';
 
 
 const routes: Routes = [
@@ -60,7 +60,7 @@ const routes: Routes = [
   {path: 'capture-methods/:name', component: ObtainedComponent},
   {path: 'champion-slots', redirectTo: 'champion-slots/', pathMatch: 'full'},
   {path: 'champion-slots/:name', component: ChampionComponent},
-  {path: 'champions', component: ChampionOwnershipComponent },
+  {path: 'champion-records', component: ChampionRecordComponent },
   {path: 'contest-attributes', redirectTo: 'contest-attributes/', pathMatch: 'full'},
   {path: 'contest-attributes/:name', component: ContestAttributeComponent},
   {path: 'contest-ranks', redirectTo: 'contest-ranks/', pathMatch: 'full'},
@@ -68,14 +68,13 @@ const routes: Routes = [
   {path: 'contest-types', redirectTo: 'contest-types/', pathMatch: 'full'},
   {path: 'contest-types/:name', component: ContestTypeComponent},
   {path: 'elite-four-slots', redirectTo: 'elite-four-slots/', pathMatch: 'full'},
-  {path: 'elite-four-slots/:name', component: EliteFourSlotsComponent},
-  {path: 'elite-four-members', component: EliteFourMembershipComponent },
+  {path: 'elite-four-slots/:name', component: EliteFourSlotComponent},
+  {path: 'elite-four-member-records', component: EliteFourMemberRecordComponent },
   {path: 'flags', redirectTo: 'flags/', pathMatch: 'full'},
   {path: 'flags/:name', component: FlagComponent},
   {path: 'gyms', redirectTo: 'gyms/', pathMatch: 'full'},
   {path: 'gyms/:name', component: GymComponent},
-  {path: 'gym-leaders', redirectTo: 'gym-leaders/', pathMatch: 'full'},
-  {path: 'gym-leaders/:name', component: GymLeadershipComponent},
+  {path: 'gym-leader-records', component: GymLeaderRecordComponent},
   {path: 'gym-leagues', redirectTo: 'gym-leagues/', pathMatch: 'full'},
   {path: 'gym-leagues/:name', component: GymLeagueComponent},
   {path: 'images', redirectTo: 'images/', pathMatch: 'full'},

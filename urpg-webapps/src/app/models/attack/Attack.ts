@@ -1,13 +1,11 @@
 import { AttackTargetType } from './AttackTargetType';
 import { Item } from '../item/Item';
 import { Type } from '../species/Type';
-import { RseContestMoveType } from '../contest/RSEContestMoveType';
-import { OrasContestMoveType } from '../contest/ORASContestMoveType';
-import { ContestAttribute } from '../contest/ContestAttribute';
 import { SpeciesAttack } from '../species/SpeciesAttack';
 import { Type as Clazz } from 'class-transformer';
 import { ContestCombo } from '../contest/ContestCombo';
 import { UrpgObjectModel } from '../ObjectModel';
+import { ContestMoveType } from '../contest/ContestMoveType';
 
 export class Attack extends UrpgObjectModel {
     description:string;
@@ -32,17 +30,17 @@ export class Attack extends UrpgObjectModel {
     @Clazz(() => AttackTargetType)
     target:AttackTargetType;
 
-    @Clazz(() => RseContestMoveType)
-    rseContestMoveType:RseContestMoveType;
+    @Clazz(() => ContestMoveType)
+    rseContestMoveType:ContestMoveType;
 
-    @Clazz(() => ContestAttribute)
-    rseContestAttribute:ContestAttribute;
+    @Clazz(() => UrpgObjectModel)
+    rseContestAttribute:UrpgObjectModel;
 
-    @Clazz(() => OrasContestMoveType)
-    orasContestMoveType:OrasContestMoveType;
+    @Clazz(() => ContestMoveType)
+    orasContestMoveType:ContestMoveType;
 
-    @Clazz(() => ContestAttribute)
-    orasContestAttribute:ContestAttribute;
+    @Clazz(() => UrpgObjectModel)
+    orasContestAttribute:UrpgObjectModel;
 
     @Clazz(() => SpeciesAttack)
     pokemon:SpeciesAttack[];

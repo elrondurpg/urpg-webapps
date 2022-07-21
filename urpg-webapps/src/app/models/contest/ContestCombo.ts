@@ -1,7 +1,6 @@
 import { Attack } from "../attack/Attack";
 import { Type as Clazz } from 'class-transformer';
 import { UrpgObjectModel } from "../ObjectModel";
-import { ContestType } from "./ContestType";
 
 export class ContestCombo extends UrpgObjectModel {
     overpowered:boolean;
@@ -12,6 +11,6 @@ export class ContestCombo extends UrpgObjectModel {
     @Clazz(() => Attack)
     secondAttack:Attack;
 
-    @Clazz(() => ContestType)
-    generation:ContestType;
+    @Clazz(() => UrpgObjectModel)
+    generation:UrpgObjectModel;
 }

@@ -3,12 +3,12 @@ import { OwnedItem } from '../stats/OwnedItem';
 import { OwnedPokemon } from '../stats/OwnedPokemon';
 import { Role } from './Role';
 import { Type } from 'class-transformer';
-import { GymOwnershipTerm } from '../gym/GymOwnershipTerm';
+import { GymLeaderRecord } from '../gym/GymLeaderRecord';
 import { EliteFourVictory } from '../stats/EliteFourVictory';
 import { ChampionVictory } from '../stats/ChampionVictory';
 import { GymVictory } from '../stats/GymVictory';
-import { EliteFourOwnershipTerm } from '../gym/EliteFourOwnershipTerm';
-import { ChampionOwnershipTerm } from '../gym/ChampionOwnershipTerm';
+import { EliteFourMemberRecord } from '../gym/EliteFourMemberRecord';
+import { ChampionRecord } from '../gym/ChampionRecord';
 import { UrpgObjectModel } from '../ObjectModel';
 
 export class Member extends UrpgObjectModel {
@@ -40,14 +40,14 @@ export class Member extends UrpgObjectModel {
     @Type(() => Role)
     roles:Role[];
 
-    @Type(() => GymOwnershipTerm) 
-    gyms:GymOwnershipTerm[];
+    @Type(() => GymLeaderRecord) 
+    gyms:GymLeaderRecord[];
 
-    @Type(() => EliteFourOwnershipTerm)
-    eliteFourTerms:EliteFourOwnershipTerm[];
+    @Type(() => EliteFourMemberRecord)
+    eliteFourTerms:EliteFourMemberRecord[];
 
-    @Type(() => ChampionOwnershipTerm)
-    championTerms:ChampionOwnershipTerm[];
+    @Type(() => ChampionRecord)
+    championTerms:ChampionRecord[];
 
     @Type(() => GymVictory)
     gymVictories:GymVictory[];

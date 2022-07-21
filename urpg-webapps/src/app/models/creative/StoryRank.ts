@@ -1,5 +1,5 @@
-export class StoryRank {
-    dbid:number;
-    name:string;
+import { UrpgObjectModel } from "../ObjectModel";
+
+export class StoryRank extends UrpgObjectModel {
     requirement:string;
 }

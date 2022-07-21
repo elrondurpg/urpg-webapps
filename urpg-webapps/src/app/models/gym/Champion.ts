@@ -1,12 +1,12 @@
 import { Type } from "class-transformer";
 import { UrpgObjectModel } from "../ObjectModel";
 import { OwnedPokemon } from "../stats/OwnedPokemon";
-import { ChampionOwnershipTerm } from "./ChampionOwnershipTerm";
+import { ChampionRecord } from "./ChampionRecord";
 
 export class Champion extends UrpgObjectModel {
     @Type(() => OwnedPokemon)
     pokemon:OwnedPokemon[];
 
-    @Type(() => ChampionOwnershipTerm)
-    currentOwnerRecord:ChampionOwnershipTerm;
+    @Type(() => ChampionRecord)
+    currentOwnerRecord:ChampionRecord;
 }

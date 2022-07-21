@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PokemonBrief } from 'src/app/models/PokemonBrief';
 import { environment } from 'src/environments/environment';
-import { TypeService } from 'src/app/services/type.service';
 import { OwnedPokemon } from 'src/app/models/stats/OwnedPokemon';
+import { RestService } from 'src/app/services/rest.service';
+import { ApiConstants } from 'src/app/constants/ApiConstants';
 
 @Component({
   selector: 'urpg-pokemon-pane',
@@ -24,10 +24,10 @@ export class PokemonPaneComponent implements OnInit {
   showJobPokemon:boolean = true;
   onlyShowUftPokemon:boolean = false;
 
-  constructor(private typeService:TypeService) { }
+  constructor(private service:RestService) { }
 
   ngOnInit() { 
-    this.typeService.getTypes().subscribe(types => this.types = types);
+    this.service.get(ApiConstants.TYPE_API).subscribe(types => this.types = types);
   }
 
   getSpritePath(pokemon : OwnedPokemon) {

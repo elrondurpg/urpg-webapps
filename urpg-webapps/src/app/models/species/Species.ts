@@ -1,5 +1,4 @@
 import { ArtRank } from '../creative/ArtRank';
-import { ParkLocation } from '../creative/ParkLocation';
 import { ParkRank } from '../creative/ParkRank';
 import { SpeciesAbility } from './SpeciesAbility';
 import { StoryRank } from '../creative/StoryRank';
@@ -51,8 +50,8 @@ export class Species extends UrpgObjectModel implements DisplayableForm {
     @Clazz(() => ParkRank)
     parkRank:ParkRank;
 
-    @Clazz(() => ParkLocation)
-    parkLocation:ParkLocation;
+    @Clazz(() => UrpgObjectModel)
+    parkLocation:UrpgObjectModel;
 
     @Clazz(() => SpeciesAttack)
     attacks:SpeciesAttack[];

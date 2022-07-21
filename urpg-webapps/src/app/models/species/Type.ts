@@ -1,4 +1,4 @@
-export class Type {
-    dbid:number;
-    name:string;
+import { UrpgObjectModel } from "../ObjectModel";
+
+export class Type extends UrpgObjectModel {
 }

@@ -1,5 +1,5 @@
-export class ParkRank {
-    dbid:number;
-    name:string;
+import { UrpgObjectModel } from "../ObjectModel";
+
+export class ParkRank extends UrpgObjectModel {
     requirement:string;
 }

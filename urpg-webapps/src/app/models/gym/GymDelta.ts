@@ -1,4 +1,3 @@
-import { ObjectDelta } from "../ObjectDelta";
 import { UrpgObjectModel } from "../ObjectModel";
 import { GymPokemonDelta } from "./GymPokemonDelta";
 
