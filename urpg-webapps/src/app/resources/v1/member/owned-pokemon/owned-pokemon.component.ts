@@ -1,4 +1,5 @@
-import { Component, OnDestroy, OnInit }                 from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild }                 from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute }                               from '@angular/router';
 import { plainToClass }                                 from 'class-transformer';
 import { combineLatest, map, Observable, Subscription } from 'rxjs';
@@ -83,6 +84,11 @@ export class OwnedPokemonComponent extends ResourceComponent<OwnedPokemon, Owned
       console.log(this.model);
       this.createModelDefinition();
       this.loadSpecies(this.model.species.name);
+
+      if (this.ownerName == null) {
+        this.ownerName = this.model.trainer.name;
+        this.loadItems();
+      }
     });
   }
 
@@ -119,6 +125,7 @@ export class OwnedPokemonComponent extends ResourceComponent<OwnedPokemon, Owned
     this.delta.ownedHiddenAbilities.length = 0;
     let speciesObservable = this.service.get(ApiConstants.SPECIES_API, name);
     this.modelDefinition.attributes.push(...OwnedPokemonModelDefinitionBuilder.buildSecondPart(
+      name,
       speciesObservable
         .pipe
         (
@@ -130,17 +137,20 @@ export class OwnedPokemonComponent extends ResourceComponent<OwnedPokemon, Owned
                 .map(ability => ability.ability.name)
           )
         ),
-      speciesObservable
-        .pipe
-        (
-          map
+      name != "Smeargle" ?
+        speciesObservable
+          .pipe
           (
-            species => 
-              species.attacks
-                .filter(attack => attack.method != GeneralConstants.LEVEL_UP_ATTACK_METHOD)
-                .map(attack => attack.attack.name)
+            map
+            (
+              species => 
+                species.attacks
+                  .filter(attack => attack.method != GeneralConstants.LEVEL_UP_ATTACK_METHOD)
+                  .map(attack => attack.attack.name)
+            )
           )
-        )
+        :
+        this.service.get(ApiConstants.ATTACK_API)
     ));
     this.resetAvailableGenders(speciesObservable);
   }

@@ -1,10 +1,11 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { plainToClass } from 'class-transformer';
 import { AppModule } from 'src/app/app.module';
 import { UrpgObjectModel } from 'src/app/models/v1/UrpgObjectModel';
 import { RestService } from 'src/app/services/v1/rest.service';
-import { Breadcrumb, HeaderComponent, ModelDefinition } from 'zydeco-ts';
+import { AttributesComponent, Breadcrumb, HeaderComponent, ModelDefinition } from 'zydeco-ts';
 
 @Component({
   selector: 'urpg-resource',
@@ -18,7 +19,7 @@ export class ResourceComponent<ModelClass extends UrpgObjectModel, DeltaClass ex
 
   public items           :any[]               = [];
   public complex         :boolean             = false;
-  public breadcrumbs     :Breadcrumb[]        = [new Breadcrumb("test", "Dashboard"), new Breadcrumb("test", "Configuration")];
+  public breadcrumbs     :Breadcrumb[]        = [new Breadcrumb("test", "Dashboard"), new Breadcrumb("urpg-webapps/resources/", "Configuration")];
   public modelDefinition :ModelDefinition     = new ModelDefinition([]);
   public api             :string              = "";
   public editType        :string              = "update";
@@ -29,6 +30,9 @@ export class ResourceComponent<ModelClass extends UrpgObjectModel, DeltaClass ex
 
   @ViewChild('header', {static: false})
   protected header!         :HeaderComponent;
+
+  @ViewChild('attributes', { static: false })
+  protected attributes!     :AttributesComponent;
 
   constructor(
     @Inject(null) protected modelType : new () => ModelClass,
@@ -104,7 +108,15 @@ export class ResourceComponent<ModelClass extends UrpgObjectModel, DeltaClass ex
 
   showErrorMessage(error:any) {
     this.header.clearMessage();
-    if (error.error.errors !== undefined) {
+    if (error.error == null) {
+      if (error.status == 401) {
+        this.header.showErrorMessage(`${this.title} could not be ${this.editType}d. Error: The current user is not logged in or does not have permission to perform the requested action.`);
+      }
+      else {
+        this.header.showErrorMessage(`${this.title} could not be ${this.editType}d. Error: ${error.status} ${error.statusText}`);
+      }
+    }
+    else if (error.error.errors !== undefined) {
       let messages = error.error.errors.map((message:any) => {
         return `Field "${message.field}": ${message.defaultMessage}.`;
       });

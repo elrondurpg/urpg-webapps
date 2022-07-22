@@ -1,4 +1,5 @@
 import { Observable } from "rxjs";
+import { GeneralConstants } from "src/app/constants/GeneralConstants";
 import { MemberRoleDelta } from "src/app/models/v1/member/MemberRoleDelta";
 import { Role } from "src/app/models/v1/member/Role";
 import { GymVictory } from "src/app/models/v1/stats/GymVictory";
@@ -138,6 +139,8 @@ export class MemberModelDefinitionBuilder {
                     .withModelSelector("logUrl")
                     .withDeltaSelector("logUrl")
                     .withMaxLength(2083)
+                    .withPattern(GeneralConstants.URL_PATTERN_REGEX)
+                    .withInstructions(GeneralConstants.URL_INSTRUCTIONS)
                     .build()
                 ])
                 .build(),
@@ -161,6 +164,8 @@ export class MemberModelDefinitionBuilder {
                     .withModelSelector("logUrl")
                     .withDeltaSelector("logUrl")
                     .withMaxLength(2083)
+                    .withPattern(GeneralConstants.URL_PATTERN_REGEX)
+                    .withInstructions(GeneralConstants.URL_INSTRUCTIONS)
                     .build()
                 ])
                 .build(),
@@ -184,6 +189,8 @@ export class MemberModelDefinitionBuilder {
                     .withModelSelector("logUrl")
                     .withDeltaSelector("logUrl")
                     .withMaxLength(2083)
+                    .withPattern(GeneralConstants.URL_PATTERN_REGEX)
+                    .withInstructions(GeneralConstants.URL_INSTRUCTIONS)
                     .build()
                 ])
                 .build(),
@@ -201,6 +208,8 @@ export class MemberModelDefinitionBuilder {
                     .withModelSelector("logUrl")
                     .withDeltaSelector("logUrl")
                     .withMaxLength(2083)
+                    .withPattern(GeneralConstants.URL_PATTERN_REGEX)
+                    .withInstructions(GeneralConstants.URL_INSTRUCTIONS)
                     .build()
                 ])
                 .withFieldDefinitions([

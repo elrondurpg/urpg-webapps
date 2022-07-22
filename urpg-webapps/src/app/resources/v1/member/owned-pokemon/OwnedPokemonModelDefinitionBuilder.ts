@@ -148,6 +148,7 @@ export class OwnedPokemonModelDefinitionBuilder {
     }
 
     static buildSecondPart(
+        speciesName:string,
         abilityObservable:Observable<any>,
         attackObservable:Observable<any>
     ) {
@@ -162,6 +163,7 @@ export class OwnedPokemonModelDefinitionBuilder {
                         .withTitle("Name")
                         .withDeltaSelector("attack")
                         .withItemsFromObservable(attackObservable)
+                        .withDisallowedItems(speciesName == "Smeargle" ? GeneralConstants.UNSKETCHABLE_MOVES : [])
                         .withFilterable(true)
                         .build()
                 ])

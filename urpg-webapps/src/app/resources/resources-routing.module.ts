@@ -58,8 +58,8 @@ const routes: Routes = [
   {path: 'bots/:name', component: BotComponent},
   {path: 'capture-methods', redirectTo: 'capture-methods/', pathMatch: 'full'},
   {path: 'capture-methods/:name', component: CaptureMethodComponent},
-  {path: 'champion-slots', redirectTo: 'champion-slots/', pathMatch: 'full'},
-  {path: 'champion-slots/:name', component: ChampionComponent},
+  {path: 'champion-seats', redirectTo: 'champion-slots/', pathMatch: 'full'},
+  {path: 'champion-seats/:name', component: ChampionComponent},
   {path: 'champion-records', component: ChampionRecordComponent },
   {path: 'contest-attributes', redirectTo: 'contest-attributes/', pathMatch: 'full'},
   {path: 'contest-attributes/:name', component: ContestAttributeComponent},
@@ -67,9 +67,9 @@ const routes: Routes = [
   {path: 'contest-ranks/:name', component: ContestRankComponent},
   {path: 'contest-types', redirectTo: 'contest-types/', pathMatch: 'full'},
   {path: 'contest-types/:name', component: ContestTypeComponent},
-  {path: 'elite-four-slots', redirectTo: 'elite-four-slots/', pathMatch: 'full'},
-  {path: 'elite-four-slots/:name', component: EliteFourSlotComponent},
-  {path: 'elite-four-member-records', component: EliteFourMemberRecordComponent },
+  {path: 'elite-four-seats', redirectTo: 'elite-four-seats/', pathMatch: 'full'},
+  {path: 'elite-four-seats/:name', component: EliteFourSlotComponent},
+  {path: 'elite-four-records', component: EliteFourMemberRecordComponent },
   {path: 'flags', redirectTo: 'flags/', pathMatch: 'full'},
   {path: 'flags/:name', component: FlagComponent},
   {path: 'gyms', redirectTo: 'gyms/', pathMatch: 'full'},
@@ -127,4 +127,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ResourcesRoutingModule { }
+export class ResourcesRoutingModule { 
+}

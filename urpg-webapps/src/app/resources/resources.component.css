@@ -1,0 +1,28 @@
+.breadcrumb {
+    background-color: #3377ff;
+}
+
+.breadcrumb a:link {
+    color: white;
+    text-decoration: none;
+  }
+  
+.breadcrumb a:visited {
+    color: white;
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.breadcrumb a:active {
+    color: white;
+    text-decoration: none;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    content: ">";
+    color:white;
+}

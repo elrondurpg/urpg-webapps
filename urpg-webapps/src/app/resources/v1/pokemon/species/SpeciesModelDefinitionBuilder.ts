@@ -203,7 +203,6 @@ export class SpeciesModelDefinitionBuilder {
                 .withTitle("Mega Stone")
                 .withMinLength(3)
                 .withMaxLength(7)
-                .withInstructions(GeneralConstants.SPECIES_ALTERED_FORM_INSTRUCTIONS)
                 .build(),
             new StringAttributeDefinitionBuilder()
                 .withTitle("Mega Suffix")

@@ -4,6 +4,7 @@ import { ResourceComponent } from '../../lib/resource/resource.component';
 import { ApiConstants } from 'src/app/constants/ApiConstants';
 import { ModelDefinition, SelectAttributeDefinitionBuilder, StringAttributeDefinitionBuilder } from 'zydeco-ts';
 import { ImageDelta } from 'src/app/models/v1/image/ImageDelta';
+import { GeneralConstants } from 'src/app/constants/GeneralConstants';
 
 @Component({
   selector: 'resources-image',
@@ -26,6 +27,8 @@ export class ImageComponent extends ResourceComponent<ImageDelta, ImageDelta> im
         .withMaxLength(50)
         .withRequired(true)
         .withDeltaOnly()
+        .withPattern(GeneralConstants.IMAGE_NAME_REGEX)
+        .withInstructions(GeneralConstants.IMAGE_NAME_INSTRUCTIONS)
         .build(),
       new StringAttributeDefinitionBuilder()
         .withTitle("URL")

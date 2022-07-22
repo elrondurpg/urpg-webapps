@@ -8,6 +8,13 @@ export class GeneralConstants {
     static readonly MOVE_METHODS                        :string[]   = [ "LEVEL-UP", "TM", "HM", "BREEDING", "MOVE TUTOR", "SPECIAL" ];
     static readonly CURRENT_GENERATION                  :number     = 9;
 
+    static readonly UNSKETCHABLE_MOVES              :string[] = [ "Self-Destruct", "Explosion", "Transform", "Struggle", "Metronome", "Mimic", "Mirror Move", "Sleep Talk" ];
+
+    static readonly URL_PATTERN_REGEX               :string = "^((https://)?forum\\.pokemonurpg\\.com/showthread\\.php\\?tid=\\d+(&page=\\d+)?|^(https://)?forum\\.pokemonurpg\\.com/showthread\\.php\\?tid=\\d+&pid=\\d+#pid\\d+|(https://)?pokemonurpg\\.com/archive/([a-z0-9\\-]+\\.\\d+/)*[a-z0-9\\-]+\\.\\d+(-page-\\d+)?\\.html|(https://)?pokemonurpg\\.com/archive/pxr/(\\d+-[A-Za-z0-9\\-()!]+/)+(page\\d+\\.html)?)$";
+    static readonly URL_INSTRUCTIONS                :string = "URL must come from forum.pokemonurpg.com or one of its archives.";
+    static readonly IMAGE_NAME_REGEX                :string = "^[A-Za-z0-9\\-_\\.]*$";
+    static readonly IMAGE_NAME_INSTRUCTIONS         :string = "Image name must contain only letters, numbers, dashes, underscores, and periods.";
+
     static readonly CHAMPION_NAME_INSTRUCTIONS      :string = "This field represents the name of the champion SLOT. It is not the name of the current reigning champion. Therefore, a name like 'URPG Champion' is appropriate.";
     static readonly ELITE_FOUR_NAME_INSTRUCTIONS    :string = "This field represents the name of the Elite Four SLOT. It is not the name of the current elite four member. Therefore, a name like 'Elite Four Seat 1' is appropriate.";
     static readonly SPECIES_NAME_INSTRUCTIONS       :string = "This field represents the Pokemon's technical name as it would appear in the URPG Reffing Calculator. Ex: Charizard, Charizard-Mega-X, Grimer-Alola";

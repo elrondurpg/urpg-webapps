@@ -7,7 +7,7 @@ import { Item } from 'src/app/models/v1/item/Item';
 import { ItemDelta } from 'src/app/models/v1/item/ItemDelta';
 
 @Component({
-  selector: 'resources-badge',
+  selector: 'resources-item',
   templateUrl: '../../lib/resource/resource.component.html'
 })
 export class ItemComponent extends ResourceComponent<Item, ItemDelta> implements OnInit {

@@ -7,7 +7,7 @@
     (create)="create(itemInContext)"
     (save)="save()"
     (load)="load($event, itemInContext)"></zydeco-header>
-<zydeco-attributes *ngIf="active"
+<zydeco-attributes #attributes *ngIf="active"
     [editType]="editType"
     [modelDefinition]="modelDefinition"
     [model]="model"
