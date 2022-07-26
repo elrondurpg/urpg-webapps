@@ -39,6 +39,7 @@ import { NatureComponent } from './v1/pokemon/nature/nature.component';
 import { SpeciesComponent } from './v1/pokemon/species/species.component';
 import { TypeComponent } from './v1/pokemon/type/type.component';
 import { ResourcesComponent } from './resources.component';
+import { ItemBundleComponent } from './v1/item/item-bundle/item-bundle.component';
 
 
 const routes: Routes = [
@@ -83,6 +84,8 @@ const routes: Routes = [
   {path: 'image-folders/:name', component: ImageFolderComponent},
   {path: 'items', redirectTo: 'items/', pathMatch: 'full'},
   {path: 'items/:name', component: ItemComponent},
+  {path: 'itemBundles', redirectTo: 'itemBundles/', pathMatch: 'full'},
+  {path: 'itemBundles/:name', component: ItemBundleComponent},
   {path: 'known-champions', redirectTo: 'known-champions/', pathMatch: 'full'},
   {path: 'known-champions/:name', component: KnownChampionComponent },
   {path: 'known-elite-four-members', redirectTo: 'known-elite-four-members/', pathMatch: 'full'},

@@ -43,6 +43,7 @@ import { SpeciesComponent } from './v1/pokemon/species/species.component';
 import { TypeComponent } from './v1/pokemon/type/type.component';
 import { ResourcesRoutingModule } from './resources-routing.module';
 import { ResourcesComponent } from './resources.component';
+import { ItemBundleComponent } from './v1/item/item-bundle/item-bundle.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,7 @@ import { ResourcesComponent } from './resources.component';
     ChampionComponent, ResourceComponent,
     EliteFourSlotComponent, EliteFourMemberRecordComponent, GymLeaderRecordComponent, 
     OwnedPokemonComponent, ContestTypeComponent, ChampionRecordComponent, EliteFourSlotComponent, EliteFourMemberRecordComponent, 
-    GymLeaderRecordComponent, CaptureMethodComponent ],
+    GymLeaderRecordComponent, CaptureMethodComponent, ItemBundleComponent ],
   imports: [
     CommonModule,
     FormsModule,

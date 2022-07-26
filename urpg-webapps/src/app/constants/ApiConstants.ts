@@ -20,6 +20,7 @@ export class ApiConstants {
     static readonly IMAGE_API                   = "/image";
     static readonly IMAGE_FOLDER_API            = "/imageFolder";
     static readonly ITEM_API                    = "/item";
+    static readonly ITEM_BUNDLE_API             = "/itemBundle";
     static readonly KNOWN_CHAMPION_API          = "/knownChampion";
     static readonly KNOWN_E4_MEMBER_API         = "/knownEliteFourMember";
     static readonly KNOWN_GYM_LEADER_API        = "/knownGymLeader";
