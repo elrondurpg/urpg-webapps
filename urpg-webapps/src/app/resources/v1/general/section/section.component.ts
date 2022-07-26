@@ -19,7 +19,10 @@ export class SectionComponent extends ResourceComponent<Section, SectionDelta> i
     super(Section, SectionDelta, route);
     this.title = "Section";
     this.api = ApiConstants.SECTION_API;
-
+  }
+  
+  userLoaded() {
+    super.userLoaded();
     this.modelDefinition = new ModelDefinition([
       new StringAttributeDefinitionBuilder()
         .withTitle("Name")

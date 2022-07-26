@@ -18,6 +18,9 @@ export class ParkLocationComponent extends ResourceComponent<UrpgObjectModel, Ur
     this.title = "Park Location";
     this.api = ApiConstants.PARK_LOCATION_API;
 
+  }
+  userLoaded() {
+    super.userLoaded();
     this.modelDefinition = new ModelDefinition([
       new StringAttributeDefinitionBuilder()
         .withTitle("Name")

@@ -18,6 +18,9 @@ export class RseContestMoveTypeComponent extends ResourceComponent<ContestMoveTy
     this.title = "RSE Contest Move Type";
     this.api = ApiConstants.RSE_CONTEST_MOVE_TYPE_API;
 
+  }
+  userLoaded() {
+    super.userLoaded();
     this.modelDefinition = new ModelDefinition([
       new StringAttributeDefinitionBuilder()
         .withTitle("Name")

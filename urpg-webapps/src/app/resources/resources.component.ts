@@ -33,7 +33,7 @@ export class ResourcesComponent implements OnInit {
     { category: "General", title: "Images", url: "images" },
     { category: "General", title: "Image Folders", url: "image-folders" },
     { category: "Item", title: "Items", url: "items" },
-    { category: "Item", title: "Item Bundles", url: "itemBundles" },
+    { category: "Item", title: "Item Bundles", url: "item-bundles" },
     { category: "Gym", title: "Known Champions", url: "known-champions" },
     { category: "Gym", title: "Known Elite Four Members", url: "known-elite-four-members" },
     { category: "Gym", title: "Known Gym Leaders", url: "known-gym-leaders" },

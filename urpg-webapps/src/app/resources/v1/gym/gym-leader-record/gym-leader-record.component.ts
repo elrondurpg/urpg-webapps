@@ -20,7 +20,10 @@ export class GymLeaderRecordComponent extends ResourceComponent<GymLeaderRecord,
     this.title = "Gym Leader Record";
     this.api = ApiConstants.GYM_LEADER_TERM_API;
     this.complex = true;
-
+  }
+  
+  userLoaded() {
+    super.userLoaded();
     this.modelDefinition = new ModelDefinition([
       new SelectAttributeDefinitionBuilder()
         .withTitle("Member Name")

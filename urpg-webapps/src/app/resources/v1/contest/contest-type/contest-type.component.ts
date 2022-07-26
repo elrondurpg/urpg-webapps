@@ -16,6 +16,9 @@ export class ContestTypeComponent extends ResourceComponent<UrpgObjectModel, Urp
     this.title = "Contest Type";
     this.api = ApiConstants.CONTEST_TYPE_API;
 
+  }
+  userLoaded() {
+    super.userLoaded();
     this.modelDefinition = new ModelDefinition([
       new StringAttributeDefinitionBuilder()
         .withTitle("Name")

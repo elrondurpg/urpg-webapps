@@ -30,7 +30,7 @@ export class StatsComponent implements AfterViewChecked, OnInit {
   constructor(private service : RestService,
     private renderer: Renderer2) { }
 
-  ngOnInit() {
+  userLoaded() {
     this.tab = "achievements";
     this.service.get(ApiConstants.MEMBER_API, "Elrond", null).subscribe(member => {
       this.member = plainToClass(Member, member);
@@ -40,6 +40,9 @@ export class StatsComponent implements AfterViewChecked, OnInit {
     this.service.get(ApiConstants.SECTION_API).subscribe((sections : Section[]) => {
       this.sections = plainToClass(Section, sections);
     });
+  }
+
+  ngOnInit() {
   }
 
   ngAfterViewChecked(): void {

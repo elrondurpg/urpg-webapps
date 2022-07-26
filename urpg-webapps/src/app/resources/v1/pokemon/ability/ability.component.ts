@@ -18,7 +18,10 @@ export class AbilityComponent extends ResourceComponent<Ability, AbilityDelta> i
     super(Ability, AbilityDelta, route);
     this.title = "Ability";
     this.api = ApiConstants.ABILITY_API;
-
+  }
+  
+  userLoaded() {
+    super.userLoaded();
     this.modelDefinition = new ModelDefinition([
       new StringAttributeDefinitionBuilder()
         .withTitle("Name")

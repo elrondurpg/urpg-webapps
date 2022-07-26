@@ -17,7 +17,10 @@ export class KnownChampionComponent extends ResourceComponent<UrpgObjectModel, U
     super(UrpgObjectModel, UrpgObjectModel, route);
     this.title = "Known Champion";
     this.api = ApiConstants.KNOWN_CHAMPION_API;
-
+  }
+  
+  userLoaded() {
+    super.userLoaded();
     this.modelDefinition = new ModelDefinition([
       new StringAttributeDefinitionBuilder()
         .withTitle("Name")

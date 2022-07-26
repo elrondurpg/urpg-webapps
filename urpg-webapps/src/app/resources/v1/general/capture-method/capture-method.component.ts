@@ -18,6 +18,10 @@ export class CaptureMethodComponent extends ResourceComponent<UrpgObjectModel, U
     this.title = "Capture Method";
     this.api = ApiConstants.CAPTURE_METHOD_API;
 
+  }
+  
+  userLoaded() {
+    super.userLoaded();
     this.modelDefinition = new ModelDefinition([
       new StringAttributeDefinitionBuilder()
         .withTitle("Name")

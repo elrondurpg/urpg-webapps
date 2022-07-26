@@ -17,7 +17,10 @@ export class KnownEliteFourMemberComponent extends ResourceComponent<UrpgObjectM
     super(UrpgObjectModel, UrpgObjectModel, route);
     this.title = "Known Elite Four Member";
     this.api = ApiConstants.KNOWN_E4_MEMBER_API;
-
+  }
+  
+  userLoaded() {
+    super.userLoaded();
     this.modelDefinition = new ModelDefinition([
       new StringAttributeDefinitionBuilder()
         .withTitle("Name")

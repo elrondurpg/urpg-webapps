@@ -19,7 +19,10 @@ export class ImageComponent extends ResourceComponent<ImageDelta, ImageDelta> im
     this.title = "Image";
     this.api = ApiConstants.IMAGE_API;
     this.editType = 'create';
-
+  }
+  
+  userLoaded() {
+    super.userLoaded();
     this.modelDefinition = new ModelDefinition([
       new StringAttributeDefinitionBuilder()
         .withTitle("Name")

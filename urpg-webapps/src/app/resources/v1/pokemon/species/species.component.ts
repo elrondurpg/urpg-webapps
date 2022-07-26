@@ -18,7 +18,10 @@ export class SpeciesComponent extends ResourceComponent<Species, SpeciesDelta> i
     super(Species, SpeciesDelta, route);
     this.title = "Species";
     this.api = ApiConstants.SPECIES_API;
-
+  }
+  
+  userLoaded() {
+    super.userLoaded();
     this.modelDefinition = SpeciesModelDefinitionBuilder.build(
       this.service.get(ApiConstants.ABILITY_API),
       this.service.get(ApiConstants.ART_RANK_API),

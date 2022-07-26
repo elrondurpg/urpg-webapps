@@ -20,7 +20,10 @@ export class FlagComponent extends ResourceComponent<Flag, FlagDelta> implements
     super(Flag, FlagDelta, route);
     this.title = "Flag";
     this.api = ApiConstants.FLAG_API;
-
+  }
+  
+  userLoaded() {
+    super.userLoaded();
     this.modelDefinition = new ModelDefinition([
       new StringAttributeDefinitionBuilder()
         .withTitle("Name")

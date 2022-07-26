@@ -17,7 +17,10 @@ export class BadgeComponent extends ResourceComponent<UrpgObjectModel, UrpgObjec
     super(UrpgObjectModel, UrpgObjectModel, route);
     this.title = "Badge";
     this.api = ApiConstants.BADGE_API;
-
+  }
+  
+  userLoaded() {
+    super.userLoaded();
     this.modelDefinition = new ModelDefinition([
       new StringAttributeDefinitionBuilder()
         .withTitle("Name")

@@ -1,7 +1,7 @@
 <?php
     include_once 'startSecureSession.php';
 
-    sec_session_start(true);
+    sec_session_start(null, true);
     $input = file_get_contents('php://input');
 
     if ($_SESSION && isset($_SESSION[$input]))

@@ -17,15 +17,7 @@
     "lib": [
       "es2018",
       "dom"
-    ],
-    "paths": {
-      "@angular/*": [
-        "./node_modules/@angular/*"
-      ],
-      "zydeco-ts": [
-        "/home/ec2-user/zydeco-ts/projects/zydeco-ts/src/public-api"
-      ]
-    }
+    ]
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

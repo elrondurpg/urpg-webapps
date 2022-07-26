@@ -25,8 +25,8 @@ export class ResourceComponent<ModelClass extends UrpgObjectModel, DeltaClass ex
   public editType        :string              = "update";
   public title           :string              = "";
   public itemInContext   :boolean             = false;
-  public active          :boolean             = true;
   public searchFilter    :string | undefined  = undefined;
+  public loaded          :boolean             = false;
 
   @ViewChild('header', {static: false})
   protected header!         :HeaderComponent;
@@ -44,6 +44,11 @@ export class ResourceComponent<ModelClass extends UrpgObjectModel, DeltaClass ex
   }
 
   ngOnInit() {
+
+  }
+
+  userLoaded() {
+    this.loaded = true;
     this.loadItems();
     this.route.params.subscribe(params => {
       if (params['name']) {

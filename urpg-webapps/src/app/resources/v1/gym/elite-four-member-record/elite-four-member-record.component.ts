@@ -20,7 +20,10 @@ export class EliteFourMemberRecordComponent extends ResourceComponent<EliteFourM
     this.title = "Elite Four Member Record";
     this.api = ApiConstants.ELITE_FOUR_TERM_API;
     this.complex = true;
-
+  }
+  
+  userLoaded() {
+    super.userLoaded();
     this.modelDefinition = new ModelDefinition([
       new SelectAttributeDefinitionBuilder()
           .withTitle("Member Name")

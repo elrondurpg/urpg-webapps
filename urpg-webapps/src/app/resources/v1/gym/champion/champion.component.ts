@@ -19,7 +19,10 @@ export class ChampionComponent extends ResourceComponent<Champion, ChampionDelta
     super(Champion, ChampionDelta, route);
     this.title = "Champion Slots";
     this.api = ApiConstants.CHAMPION_SLOT_API;
-
+  }
+  
+  userLoaded() {
+    super.userLoaded();
     this.modelDefinition = new ModelDefinition([
       new StringAttributeDefinitionBuilder()
         .withTitle("Name")

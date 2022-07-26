@@ -6,7 +6,7 @@
     header('Access-Control-Allow-Headers: Origin, Content-Type, X-Auth-Token, Authorization');
     include_once 'startSecureSession.php';
 
-    sec_session_start();
+    sec_session_start(null);
 	
 	$id = null;
 	$accessToken = null;

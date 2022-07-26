@@ -20,7 +20,10 @@ export class RoleComponent extends ResourceComponent<Role, RoleDelta> implements
     super(Role, RoleDelta, route);
     this.title = "Role";
     this.api = ApiConstants.ROLE_API;
+  }
 
+  userLoaded() {
+    super.userLoaded();
     this.modelDefinition = new ModelDefinition([
       new StringAttributeDefinitionBuilder()
         .withTitle("Name")

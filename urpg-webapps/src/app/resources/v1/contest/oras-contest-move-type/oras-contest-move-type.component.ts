@@ -18,6 +18,9 @@ export class OrasContestMoveTypeComponent extends ResourceComponent<ContestMoveT
     this.title = "ORAS Contest Move Type";
     this.api = ApiConstants.ORAS_CONTEST_MOVE_TYPE_API;
 
+  }
+  userLoaded() {
+    super.userLoaded();
     this.modelDefinition = new ModelDefinition([
       new StringAttributeDefinitionBuilder()
         .withTitle("Name")

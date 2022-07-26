@@ -17,7 +17,10 @@ export class KnownGymLeaderComponent extends ResourceComponent<UrpgObjectModel, 
     super(UrpgObjectModel, UrpgObjectModel, route);
     this.title = "Known Gym Leader";
     this.api = ApiConstants.KNOWN_GYM_LEADER_API;
-
+  }
+  
+  userLoaded() {
+    super.userLoaded();
     this.modelDefinition = new ModelDefinition([
       new StringAttributeDefinitionBuilder()
         .withTitle("Name")

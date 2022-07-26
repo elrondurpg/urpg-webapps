@@ -32,7 +32,8 @@ export class OwnedPokemonComponent extends ResourceComponent<OwnedPokemon, Owned
     this.complex = true;
   }
 
-  override ngOnInit() {
+  override userLoaded() {
+    this.loaded = true;
     var obsComb = combineLatest([this.route.params, this.route.queryParams], (pathParameters, queryParameters) => ({ pathParameters, queryParameters }));
     
     obsComb.subscribe( routeParams => {

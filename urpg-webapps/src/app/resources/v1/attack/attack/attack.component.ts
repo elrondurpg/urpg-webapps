@@ -20,7 +20,10 @@ export class AttackComponent extends ResourceComponent<Attack, AttackDelta> impl
     super(Attack, AttackDelta, route);
     this.title = "Attack";
     this.api = ApiConstants.ATTACK_API;
-
+  }
+  
+  userLoaded(): void {
+    super.userLoaded();
     this.modelDefinition = new ModelDefinition([
       new StringAttributeDefinitionBuilder()
         .withTitle("Name")

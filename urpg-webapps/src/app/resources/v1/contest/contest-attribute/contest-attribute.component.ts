@@ -18,6 +18,9 @@ export class ContestAttributeComponent extends ResourceComponent<UrpgObjectModel
     this.title = "Contest Attribute";
     this.api = ApiConstants.CONTEST_ATTR_API;
 
+  }
+  userLoaded() {
+    super.userLoaded();
     this.modelDefinition = new ModelDefinition([
       new StringAttributeDefinitionBuilder()
         .withTitle("Name")

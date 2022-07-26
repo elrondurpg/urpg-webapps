@@ -18,7 +18,10 @@ export class TypeComponent extends ResourceComponent<Type, TypeDelta> implements
     super(Type, TypeDelta, route);
     this.title = "Type";
     this.api = ApiConstants.TYPE_API;
-
+  }
+  
+  userLoaded() {
+    super.userLoaded();
     this.modelDefinition = new ModelDefinition([
       new StringAttributeDefinitionBuilder()
         .withTitle("Name")

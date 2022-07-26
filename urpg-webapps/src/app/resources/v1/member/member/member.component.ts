@@ -18,7 +18,10 @@ export class MemberComponent extends ResourceComponent<Member, MemberDelta> {
     super(Member, MemberDelta, route);
     this.title = "Member";
     this.api = ApiConstants.MEMBER_API;
-
+  }
+  
+  userLoaded() {
+    super.userLoaded();
     this.modelDefinition = MemberModelDefinitionBuilder.build(
       this.service.get(ApiConstants.GYM_API),
       this.service.get(ApiConstants.GYM_LEAGUE_API),

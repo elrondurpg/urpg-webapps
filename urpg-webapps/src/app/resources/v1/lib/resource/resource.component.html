@@ -1,4 +1,5 @@
-<zydeco-header #header *ngIf="active"
+<urpg-site-header (userLoaded)="userLoaded()"></urpg-site-header>
+<zydeco-header #header *ngIf="loaded"
     [breadcrumbs]="breadcrumbs"
     [complex]="complex"
     [changes]="detectChanges()"
@@ -7,7 +8,7 @@
     (create)="create(itemInContext)"
     (save)="save()"
     (load)="load($event, itemInContext)"></zydeco-header>
-<zydeco-attributes #attributes *ngIf="active"
+<zydeco-attributes #attributes *ngIf="loaded"
     [editType]="editType"
     [modelDefinition]="modelDefinition"
     [model]="model"

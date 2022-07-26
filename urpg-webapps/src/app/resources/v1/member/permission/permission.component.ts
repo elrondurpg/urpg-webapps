@@ -18,7 +18,10 @@ export class PermissionComponent extends ResourceComponent<Permission, Permissio
     super(Permission, PermissionDelta, route);
     this.title = "Permission";
     this.api = ApiConstants.PERMISSION_API;
+  }
 
+  userLoaded() {
+    super.userLoaded();
     this.modelDefinition = new ModelDefinition([
       new StringAttributeDefinitionBuilder()
         .withTitle("Name")

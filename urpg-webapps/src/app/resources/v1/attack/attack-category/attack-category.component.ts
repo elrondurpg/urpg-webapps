@@ -17,7 +17,9 @@ export class AttackCategoryComponent extends ResourceComponent<UrpgObjectModel, 
     super(UrpgObjectModel, UrpgObjectModel, route);
     this.title = "Attack Category";
     this.api = ApiConstants.ATTACK_CATEGORY_API;
-
+  }
+  userLoaded() {
+    super.userLoaded();
     this.modelDefinition = new ModelDefinition([
       new StringAttributeDefinitionBuilder()
         .withTitle("Name")

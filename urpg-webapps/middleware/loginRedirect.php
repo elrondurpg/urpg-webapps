@@ -17,9 +17,10 @@
         <site-header></site-header>
         <div class="viewport">
             <?php
-                error_log("Begin processing login redirect.");
                 outputHeader();
-                sec_session_start();
+                $rand = rand(100000000, 999999999);
+                error_log($rand);
+                sec_session_start($rand);
                 if ($_GET && array_key_exists('state', $_GET) && array_key_exists('code', $_GET)) {
                     if (isset($_SESSION) && array_key_exists('state', $_SESSION) && array_key_exists('returnUrl', $_SESSION)) {
                         if ($_GET['state'] == $_SESSION['state']) {
@@ -28,9 +29,7 @@
                             $response = json_decode($response, true);
                         
                             if (isset($response)) {
-                                error_log("Received a response from the session login API.");
-                                error_log(print_r($response, true));
-                                setSessionParams($response);
+                                setSessionParams($response, $rand);
 								$schema = $_SERVER['WEB_SECURE'] == 0 ? "http" : "https";
                                 $schema .= "://";
                                 header('Location: ' . $schema . $_SERVER['WEB_HOST'] . ':' . $_SERVER['FRONTEND_PORT'] . '/' . $_SESSION['returnUrl']);

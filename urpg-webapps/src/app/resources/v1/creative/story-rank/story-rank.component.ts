@@ -19,6 +19,9 @@ export class StoryRankComponent extends ResourceComponent<StoryRank, StoryRankDe
     this.title = "Story Rank";
     this.api = ApiConstants.STORY_RANK_API;
 
+  }
+  userLoaded() {
+    super.userLoaded();
     this.modelDefinition = new ModelDefinition([
       new StringAttributeDefinitionBuilder()
         .withTitle("Name")

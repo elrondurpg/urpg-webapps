@@ -19,6 +19,9 @@ export class ArtRankComponent extends ResourceComponent<ArtRank, ArtRankDelta> i
     this.title = "Art Rank";
     this.api = ApiConstants.ART_RANK_API;
 
+  }
+  userLoaded() {
+    super.userLoaded();
     this.modelDefinition = new ModelDefinition([
       new StringAttributeDefinitionBuilder()
         .withTitle("Name")

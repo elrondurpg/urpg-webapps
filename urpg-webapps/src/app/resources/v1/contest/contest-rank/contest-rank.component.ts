@@ -18,6 +18,9 @@ export class ContestRankComponent extends ResourceComponent<UrpgObjectModel, Urp
     this.title = "Contest Rank";
     this.api = ApiConstants.CONTEST_RANK_API;
 
+  }
+  userLoaded() {
+    super.userLoaded();
     this.modelDefinition = new ModelDefinition([
       new StringAttributeDefinitionBuilder()
         .withTitle("Name")

@@ -19,6 +19,9 @@ export class AttackTargetTypeComponent extends ResourceComponent<AttackTargetTyp
     this.title = "Attack Target Type";
     this.api = ApiConstants.ATTACK_TARGET_TYPE_API;
 
+  }
+  userLoaded() {
+    super.userLoaded();
     this.modelDefinition = new ModelDefinition([
       new StringAttributeDefinitionBuilder()
         .withTitle("Name")

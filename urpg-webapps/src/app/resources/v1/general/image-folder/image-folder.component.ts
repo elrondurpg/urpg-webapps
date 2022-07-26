@@ -19,7 +19,10 @@ export class ImageFolderComponent extends ResourceComponent<ImageFolder, ImageFo
     super(ImageFolder, ImageFolderDelta, route);
     this.title = "Image Folder";
     this.api = ApiConstants.IMAGE_FOLDER_API;
-
+  }
+  
+  userLoaded() {
+    super.userLoaded();
     this.modelDefinition = new ModelDefinition([
       new StringAttributeDefinitionBuilder()
         .withTitle("Name")

@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { throwError } from 'rxjs';
-import { timeout } from 'rxjs/operators';
 import { SessionService } from 'src/app/services/v1/security/session.service';
 
 @Component({
@@ -11,6 +9,8 @@ import { SessionService } from 'src/app/services/v1/security/session.service';
 })
 export class SiteHeaderComponent implements OnInit {
 
+  @Output() userLoaded = new EventEmitter();
+  loaded = false;
   username:string = null;
   searchText:string = "";
   searchType:string = "pokemon";
@@ -22,9 +22,13 @@ export class SiteHeaderComponent implements OnInit {
     this.sessionService.refresh().subscribe(
       response => {
         this.username = response['username'];
+        this.userLoaded.emit(null);
+        this.loaded = true;
       },
       error => {
         console.log(error);
+        this.userLoaded.emit(null);
+        this.loaded = true;
       }
     )
   }

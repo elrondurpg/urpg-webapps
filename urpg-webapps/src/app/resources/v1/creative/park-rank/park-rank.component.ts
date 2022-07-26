@@ -18,7 +18,10 @@ export class ParkRankComponent extends ResourceComponent<ParkRank, ParkRankDelta
     super(ParkRank, ParkRankDelta, route);
     this.title = "Park Rank";
     this.api = ApiConstants.PARK_RANK_API;
-
+  }
+  
+  userLoaded() {
+    super.userLoaded();
     this.modelDefinition = new ModelDefinition([
       new StringAttributeDefinitionBuilder()
         .withTitle("Name")

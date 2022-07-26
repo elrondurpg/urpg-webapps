@@ -9,16 +9,15 @@
     include_once 'sendRequest.php';
 
     $input = json_decode(file_get_contents('php://input'), true);
-
-    sec_session_start();
 	
 	$id = null;
 	$accessToken = null;
 	if ($input != null) {
+		$rand = rand(100000000, 999999999);
+		error_log($rand);
+		sec_session_start($rand);
 		if (isset($_SESSION)) {
-			error_log("Found session");
 			if (array_key_exists('accessToken', $_SESSION)) {
-				error_log("Found access token");
 				$accessToken = $_SESSION['accessToken'];
 			}
 	

@@ -18,7 +18,10 @@ export class GymComponent extends ResourceComponent<Gym, GymDelta> implements On
     super(Gym, GymDelta, route);
     this.title = "Gym";
     this.api = ApiConstants.GYM_API;
-
+  }
+  
+  userLoaded() {
+    super.userLoaded();
     this.modelDefinition = new ModelDefinition([
       new StringAttributeDefinitionBuilder()
         .withTitle("Name")

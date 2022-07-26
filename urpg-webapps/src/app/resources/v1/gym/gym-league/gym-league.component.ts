@@ -18,7 +18,10 @@ export class GymLeagueComponent extends ResourceComponent<GymLeague, UrpgObjectM
     super(GymLeague, UrpgObjectModel, route);
     this.title = "Gym League";
     this.api = ApiConstants.GYM_LEAGUE_API;
-
+  }
+  
+  userLoaded() {
+    super.userLoaded();
     this.modelDefinition = new ModelDefinition([
       new StringAttributeDefinitionBuilder()
         .withTitle("Name")

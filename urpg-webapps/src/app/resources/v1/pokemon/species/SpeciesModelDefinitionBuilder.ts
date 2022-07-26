@@ -61,6 +61,7 @@ export class SpeciesModelDefinitionBuilder {
                 .withTitle("Classification")
                 .withMinLength(3)
                 .withMaxLength(20)
+                .withRequired(true)
                 .withInstructions(GeneralConstants.SPECIES_CLASSIFICATION_INSTRUCTIONS)
                 .build(),
             new NumberAttributeDefinitionBuilder()

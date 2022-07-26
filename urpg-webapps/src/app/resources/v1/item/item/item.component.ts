@@ -18,7 +18,10 @@ export class ItemComponent extends ResourceComponent<Item, ItemDelta> implements
     super(Item, ItemDelta, route);
     this.title = "Item";
     this.api = ApiConstants.ITEM_API;
-
+  }
+  
+  userLoaded() {
+    super.userLoaded();
     this.modelDefinition = new ModelDefinition([
       new StringAttributeDefinitionBuilder()
         .withTitle("Name")

@@ -25,6 +25,7 @@ import { AchievementsComponent } from './achievements/achievements.component';
 import { StatsBadgesComponent } from './achievements/badges/badges.component';
 import { StatsLegendariesComponent } from './achievements/legendaries/legendaries.component';
 import {CurrencyPipe} from '@angular/common'
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import {CurrencyPipe} from '@angular/common'
   imports: [
     CommonModule,
     FormsModule,
+    SharedModule,
     StatsRoutingModule
   ],
   providers: [CurrencyPipe]

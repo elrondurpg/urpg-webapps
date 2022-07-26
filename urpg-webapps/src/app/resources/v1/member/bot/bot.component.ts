@@ -20,7 +20,10 @@ export class BotComponent extends ResourceComponent<Member, MemberDelta> {
     super(Member, MemberDelta, route);
     this.title = "Bot";
     this.api = ApiConstants.MEMBER_API;
-
+  }
+  
+  userLoaded() {
+    super.userLoaded();
     this.modelDefinition = new ModelDefinition([
       new StringAttributeDefinitionBuilder()
         .withTitle("Name")

@@ -17,7 +17,10 @@ export class NatureComponent extends ResourceComponent<UrpgObjectModel, UrpgObje
     super(UrpgObjectModel, UrpgObjectModel, route);
     this.title = "Nature";
     this.api = ApiConstants.NATURE_API;
-
+  }
+  
+  userLoaded() {
+    super.userLoaded();
     this.modelDefinition = new ModelDefinition([
       new StringAttributeDefinitionBuilder()
         .withTitle("Name")

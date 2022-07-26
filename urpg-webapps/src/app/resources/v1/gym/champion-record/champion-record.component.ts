@@ -20,7 +20,10 @@ export class ChampionRecordComponent extends ResourceComponent<ChampionRecord, C
     this.title = "Champion Record";
     this.api = ApiConstants.CHAMPION_TERM_API;
     this.complex = true;
-
+  }
+  
+  userLoaded() {
+    super.userLoaded();
     this.modelDefinition = new ModelDefinition([
       new SelectAttributeDefinitionBuilder()
           .withTitle("Member Name")

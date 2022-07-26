@@ -19,7 +19,10 @@ export class EliteFourSlotComponent extends ResourceComponent<EliteFour, EliteFo
     super(EliteFour, EliteFourDelta, route);
     this.title = "Elite Four Slots";
     this.api = ApiConstants.ELITE_FOUR_SLOT_API;
-
+  }
+  
+  userLoaded() {
+    super.userLoaded();
     this.modelDefinition = new ModelDefinition([
       new StringAttributeDefinitionBuilder()
         .withTitle("Name")

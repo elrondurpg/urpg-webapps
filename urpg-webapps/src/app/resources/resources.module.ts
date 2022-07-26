@@ -12,7 +12,6 @@ import { OrasContestMoveTypeComponent } from './v1/contest/oras-contest-move-typ
 import { RseContestMoveTypeComponent } from './v1/contest/rse-contest-move-type/rse-contest-move-type.component';
 import { ArtRankComponent } from './v1/creative/art-rank/art-rank.component';
 import { ParkLocationComponent } from './v1/creative/park-location/park-location.component';
-import { ParkRankComponent } from './v1/creative/park-rank/park-rank.component';
 import { StoryRankComponent } from './v1/creative/story-rank/story-rank.component';
 import { CaptureMethodComponent } from './v1/general/capture-method/capture-method.component';
 import { FlagComponent } from './v1/general/flag/flag.component';
@@ -44,13 +43,15 @@ import { TypeComponent } from './v1/pokemon/type/type.component';
 import { ResourcesRoutingModule } from './resources-routing.module';
 import { ResourcesComponent } from './resources.component';
 import { ItemBundleComponent } from './v1/item/item-bundle/item-bundle.component';
+import { SharedModule } from '../shared/shared.module';
+import { ParkRankComponent } from './v1/creative/park-rank/park-rank.component';
 
 @NgModule({
   declarations: [
     ResourcesComponent, 
     AbilityComponent, 
     AttackComponent, AttackCategoryComponent, AttackTargetTypeComponent, ContestAttributeComponent, ContestRankComponent, 
-    OrasContestMoveTypeComponent, RseContestMoveTypeComponent, ArtRankComponent, ParkRankComponent, ParkLocationComponent, 
+    OrasContestMoveTypeComponent, RseContestMoveTypeComponent, ArtRankComponent, ParkLocationComponent, 
     StoryRankComponent, NatureComponent, SectionComponent, BadgeComponent, GymComponent, GymLeagueComponent, 
     ImageComponent, ImageFolderComponent, ItemComponent, MemberComponent, BotComponent, PermissionComponent, RoleComponent, 
     SpeciesComponent, TypeComponent, 
@@ -58,12 +59,13 @@ import { ItemBundleComponent } from './v1/item/item-bundle/item-bundle.component
     ChampionComponent, ResourceComponent,
     EliteFourSlotComponent, EliteFourMemberRecordComponent, GymLeaderRecordComponent, 
     OwnedPokemonComponent, ContestTypeComponent, ChampionRecordComponent, EliteFourSlotComponent, EliteFourMemberRecordComponent, 
-    GymLeaderRecordComponent, CaptureMethodComponent, ItemBundleComponent ],
+    GymLeaderRecordComponent, CaptureMethodComponent, ItemBundleComponent, ParkRankComponent ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     ResourcesRoutingModule,
+    SharedModule,
     ZydecoTs
   ]
 })

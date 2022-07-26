@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiConstants } from 'src/app/constants/ApiConstants';
 import { ItemBundle } from 'src/app/models/v1/item/ItemBundle';
@@ -13,13 +13,16 @@ import { ResourceComponent } from '../../lib/resource/resource.component';
   selector: 'resources-item-bundle',
   templateUrl: '../../lib/resource/resource.component.html'
 })
-export class ItemBundleComponent extends ResourceComponent<ItemBundle, ItemBundleDelta> implements OnInit {
+export class ItemBundleComponent extends ResourceComponent<ItemBundle, ItemBundleDelta> {
 
   constructor(protected route:ActivatedRoute) { 
     super(ItemBundle, ItemBundleDelta, route);
     this.title = "Item Bundle";
     this.api = ApiConstants.ITEM_BUNDLE_API;
-
+  }
+  
+  userLoaded() {
+    super.userLoaded();
     this.modelDefinition = new ModelDefinition([
       new StringAttributeDefinitionBuilder()
         .withTitle("Name")
@@ -48,9 +51,6 @@ export class ItemBundleComponent extends ResourceComponent<ItemBundle, ItemBundl
         ])
         .build()
     ]);
-  }
-
-  ngOnInit(): void {
   }
 
 }
