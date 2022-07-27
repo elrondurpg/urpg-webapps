@@ -11,7 +11,7 @@ export const environment = {
   imageBase:"https://pokemonurpg.com/img",
   spriteBase: "https://pokemonurpg.com/img/sprites/",
   iconBase: "https://pokemonurpg.com/img/icons/",
-  modelBase: "https://pokemonurpg.com/img/models/v1/",
+  modelBase: "https://pokemonurpg.com/img/models/",
   oauth2ClientID: "992917009945866332",
   oauth2Url: "https://discordapp.com/api/oauth2/authorize",
   oauth2ResponseType: "code",

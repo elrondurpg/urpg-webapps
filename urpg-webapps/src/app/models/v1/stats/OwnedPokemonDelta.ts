@@ -2,6 +2,8 @@ import { UrpgObjectModel } from "../UrpgObjectModel";
 import { EarnedRibbonDelta } from "./EarnedRibbonDelta";
 import { OwnedExtraMoveDelta } from "./OwnedExtraMoveDelta";
 import { OwnedHiddenAbilityDelta } from "./OwnedHiddenAbilityDelta";
+import { WishlistAbilityDelta } from "./WishlistAbilityDelta";
+import { WishlistMoveDelta } from "./WishlistMoveDelta";
 
 export class OwnedPokemonDelta extends UrpgObjectModel {
     trainer:string;
@@ -21,4 +23,6 @@ export class OwnedPokemonDelta extends UrpgObjectModel {
     box:boolean;
     uft:boolean;
     rental:boolean;
+    wishlistAbilities:WishlistAbilityDelta[] = [];
+    wishlistMoves:WishlistMoveDelta[] = [];
 }

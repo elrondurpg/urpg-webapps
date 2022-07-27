@@ -6,6 +6,8 @@ import { Type } from '../species/Type';
 import { EarnedRibbon } from './EarnedRibbon';
 import { Type as Clazz } from 'class-transformer';
 import { UrpgObjectModel } from '../UrpgObjectModel';
+import { WishlistAbility } from './WishlistAbility';
+import { WishlistMove } from './WishlistMove';
 
 export class OwnedPokemon extends UrpgObjectModel {
     job:boolean;
@@ -17,7 +19,6 @@ export class OwnedPokemon extends UrpgObjectModel {
     nickname:string;
     hiddenPowerLink:string;
     rental:boolean = false;
-    fullyEvolved:boolean;
 
     @Clazz(() => Member)
     trainer:Member;
@@ -42,6 +43,12 @@ export class OwnedPokemon extends UrpgObjectModel {
 
     @Clazz(() => EarnedRibbon)
     earnedRibbons:EarnedRibbon[] = [];
+
+    @Clazz(() => WishlistAbility)
+    wishlistAbilities:WishlistAbility[] = [];
+
+    @Clazz(() => WishlistMove)
+    wishlistMoves:WishlistMove[] = [];
 
     override getDisplayName(): string {
         let displayName = '';

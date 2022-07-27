@@ -6,6 +6,10 @@ import { EarnedRibbon } from "src/app/models/v1/stats/EarnedRibbon";
 import { EarnedRibbonDelta } from "src/app/models/v1/stats/EarnedRibbonDelta";
 import { OwnedExtraMoveDelta } from "src/app/models/v1/stats/OwnedExtraMoveDelta";
 import { OwnedHiddenAbilityDelta } from "src/app/models/v1/stats/OwnedHiddenAbilityDelta";
+import { WishlistAbility } from "src/app/models/v1/stats/WishlistAbility";
+import { WishlistAbilityDelta } from "src/app/models/v1/stats/WishlistAbilityDelta";
+import { WishlistMove } from "src/app/models/v1/stats/WishlistMove";
+import { WishlistMoveDelta } from "src/app/models/v1/stats/WishlistMoveDelta";
 import { environment } from "src/environments/environment";
 import { BooleanAttributeDefinitionBuilder, ModelDefinition, NestedAttributeDefinitionBuilder, NumberAttributeDefinitionBuilder, SelectAttributeDefinitionBuilder, StringAttributeDefinitionBuilder } from "zydeco-ts";
 
@@ -178,6 +182,37 @@ export class OwnedPokemonModelDefinitionBuilder {
                         .withTitle("Name")
                         .withDeltaSelector("ability")
                         .withItemsFromObservable(abilityObservable)
+                        .withFilterable(true)
+                        .build()
+                ])
+                .build(),
+            new NestedAttributeDefinitionBuilder(WishlistAbility, WishlistAbilityDelta) 
+                .withTitle("Wishlist - Abilities")
+                .withModelSelector("wishlistAbilities")
+                .withDeltaSelector("wishlistAbilities")
+                .withImportable(true)
+                .withKeyDefinitions([
+                    new SelectAttributeDefinitionBuilder() 
+                        .withTitle("Ability")
+                        .withModelSelector("ability.name")
+                        .withDeltaSelector("ability")
+                        .withItemsFromObservable(abilityObservable)
+                        .withFilterable(true)
+                        .build()
+                ])
+                .build(),
+            new NestedAttributeDefinitionBuilder(WishlistMove, WishlistMoveDelta)
+                .withTitle("Wishlist - Moves")
+                .withModelSelector("wishlistMoves")
+                .withDeltaSelector("wishlistMoves")
+                .withImportable(true)
+                .withKeyDefinitions([
+                    new SelectAttributeDefinitionBuilder() 
+                        .withTitle("Move")
+                        .withModelSelector("move.name")
+                        .withDeltaSelector("move")
+                        .withItemsFromObservable(attackObservable)
+                        .withDisallowedItems(speciesName == "Smeargle" ? GeneralConstants.UNSKETCHABLE_MOVES : [])
                         .withFilterable(true)
                         .build()
                 ])

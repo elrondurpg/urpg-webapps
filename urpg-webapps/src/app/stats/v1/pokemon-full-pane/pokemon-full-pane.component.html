@@ -1,7 +1,204 @@
 <div class="row">
-    <div class="col">
-        <button 
-            class="btn btn-primary"
-            (click)="doExit()">Back</button>
+    <div class="col-2">
+        <div class="container border">
+            <div class="row pt-2">
+                <div class="col">
+                    <button 
+                        class="btn btn-primary btn-block"
+                        (click)="doExit()">Back
+                    </button>
+                </div>
+            </div>
+
+            <div class="row pt-2">
+                <div class="col">
+                    <h4 *ngIf="pokemon" class="text-center">{{ pokemon.nickname ? pokemon.nickname : pokemon.species.name }}</h4>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col d-flex align-items-center justify-content-center">
+                    <img 
+                        *ngIf="pokemon" 
+                        src="{{ getModelPath() }}" 
+                        alt="Image of {{ pokemon.getDisplayName() }}">
+                </div>
+            </div>
+
+            <div class="row pt-2" *ngIf="pokemon && pokemon.nickname">
+                <div class="col">
+                    <strong>Species</strong>
+                </div>
+                <div class="col">
+                    {{ pokemon.species.name }}
+                </div>
+            </div>
+
+            <div class="row pt-2" *ngIf="pokemon">
+                <div class="col">
+                    <strong>Gender</strong>
+                </div>
+                <div class="col">
+                    {{ pokemon.gender }}
+                </div>
+            </div>
+
+            <div class="row pt-2" *ngIf="pokemon">
+                <div class="col">
+                    <strong>EXP</strong>
+                </div>
+                <div class="col">
+                    {{ pokemon.exp }}
+                </div>
+            </div>
+
+            <div class="row pt-2" *ngIf="pokemon">
+                <div class="col">
+                    <strong>Obtained</strong>
+                </div>
+                <div class="col">
+                    <a 
+                        *ngIf="pokemon.obtainedLink; else staticObtained"
+                        [href]="pokemon.obtainedLink">
+                        {{ pokemon.obtained.name }}
+                    </a>
+                    <ng-template #staticObtained>{{ pokemon.obtained.name }}</ng-template>
+                </div>
+            </div>
+
+            <div class="row pt-2" *ngIf="pokemon">
+                <div class="col">
+                    <strong>Nature</strong>
+                </div>
+                <div class="col">
+                    {{ pokemon.nature ? pokemon.nature.name : '-' }}
+                </div>
+            </div>
+
+            <div class="row pt-2" *ngIf="pokemon && pokemon.hiddenPowerType">
+                <div class="col">
+                    <strong>Hidden Power Type</strong>
+                </div>
+            </div>
+
+            <div class="row pt-2" *ngIf="pokemon && pokemon.hiddenPowerType">
+                <div class="col">
+                </div>
+                <div class="col">
+                    <a 
+                        *ngIf="pokemon.hiddenPowerLink; else staticHpType"
+                        [href]="pokemon.hiddenPowerLink">
+                        {{ pokemon.hiddenPowerType.name }}
+                    </a>
+                    <ng-template #staticHpType>{{ pokemon.hiddenPowerType.name }}</ng-template>
+                </div>
+            </div>
+
+            <div class="row pt-2" *ngIf="pokemon">
+                <div class="col">
+                    {{ pokemon.job ? "On a job" : "Available for a job" }}
+                </div>
+            </div>
+
+            <div class="row pt-2" *ngIf="pokemon">
+                <div class="col">
+                    {{ pokemon.box ? "In my battle box" : "Not in my battle box" }}
+                </div>
+            </div>
+
+            <div class="row pt-2" *ngIf="pokemon">
+                <div class="col">
+                    {{ pokemon.uft ? "Up for trade" : "Not up for trade" }}
+                </div>
+            </div>
+
+            <div class="row pt-2" *ngIf="pokemon && pokemon.rental">
+                <div class="col">
+                    * Rented
+                </div>
+            </div>
+        
+            <div class="row py-2">
+                <div class="col">
+                    <button 
+                        class="btn btn-primary btn-block"
+                        (click)="doEdit()">Edit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="container-fluid border">
+            <div class="row pt-2" *ngIf="pokemon">
+                <div class="col">
+                    <strong>Abilities</strong>
+                </div>
+            </div>
+            <div class="row pt-2" *ngIf="pokemon">
+                <div class="col">
+                    {{ getAbilities() }} 
+                </div>
+            </div>
+
+            <div class="row pt-2" *ngIf="pokemon">
+                <div class="col">
+                    <strong>Moves ({{ getDistinctMoves().length }})</strong>
+                </div>
+            </div>
+            <div 
+                *ngIf="pokemon"
+                class="row pt-2" 
+                [ngClass]="pokemon.earnedRibbons.length == 0 && pokemon.wishlistAbilities.length == 0 && pokemon.wishlistMoves.length == 0 ? 'pb-2' : ''">
+                <div class="col">
+                    {{ getMoves() }} 
+                </div>
+            </div>
+
+            <div class="row pt-2" *ngIf="pokemon && pokemon.earnedRibbons.length > 0">
+                <div class="col">
+                    <strong>Ribbons</strong>
+                </div>
+            </div>
+
+            <ng-container *ngIf="pokemon"> 
+                <ng-container *ngFor="let ribbonType of getDistinctRibbonTypes(); let last = last">
+                    <div class="row pt-2 justify-content-start" [ngClass]="last && pokemon.wishlistAbilities.length == 0 && pokemon.wishlistMoves.length == 0 ? 'pb-2': ''">
+                        <div class="col-3">
+                            {{ ribbonType }} 
+                        </div>
+                        <div class="col-3">
+                            {{ getRibbonTypeQuantity(ribbonType) }}
+                        </div>
+                    </div>
+                </ng-container>
+            </ng-container>
+
+            <div class="row pt-2" *ngIf="pokemon && pokemon.wishlistAbilities.length > 0">
+                <div class="col">
+                    <strong>Wishlist - Abilities ({{ pokemon.wishlistAbilities.length }})</strong>
+                </div>
+            </div>
+            <div 
+                *ngIf="pokemon"
+                class="row pt-2" 
+                [ngClass]="pokemon.wishlistMoves.length == 0 ? 'pb-2' : ''">
+                <div class="col">
+                    {{ getWishlistAbilities() }} 
+                </div>
+            </div>
+
+            <div class="row pt-2" *ngIf="pokemon && pokemon.wishlistMoves.length > 0">
+                <div class="col">
+                    <strong>Wishlist - Moves ({{ pokemon.wishlistMoves.length }})</strong>
+                </div>
+            </div>
+            <div 
+                *ngIf="pokemon"
+                class="row py-2">
+                <div class="col">
+                    {{ getWishlistMoves() }} 
+                </div>
+            </div>
+        </div>
     </div>
 </div>
