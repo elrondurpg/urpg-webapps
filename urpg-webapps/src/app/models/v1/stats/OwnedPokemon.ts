@@ -17,6 +17,7 @@ export class OwnedPokemon extends UrpgObjectModel {
     nickname:string;
     hiddenPowerLink:string;
     rental:boolean = false;
+    fullyEvolved:boolean;
 
     @Clazz(() => Member)
     trainer:Member;

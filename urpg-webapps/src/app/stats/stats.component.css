@@ -6,20 +6,6 @@ urpg-stats-header, urpg-stats-menu-bar {
     height: 100%;
 }
 
-.header
-{
-    position: fixed;
-    top: 56px;
-    width: 100%; 
-    z-index:3;
-}
-
-.content, .menubar {
-    height:100%;
-    margin-top:100px;
-    padding-right:0;
-}
-
 .background {
     background-color:#eee;
 }

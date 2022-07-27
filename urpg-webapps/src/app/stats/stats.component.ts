@@ -1,22 +1,26 @@
-import { AfterViewChecked, Component, HostListener, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
+import { Component, HostListener, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { Member } from '../models/v1/member/Member';
 import { plainToClass } from 'class-transformer';
 import { Section } from '../models/v1/general/Section';
 import { RestService } from '../services/v1/rest.service';
 import { ApiConstants } from '../constants/ApiConstants';
+import { StatsPage } from '../constants/StatsPage';
+import { OwnedPokemon } from '../models/v1/stats/OwnedPokemon';
 
 @Component({
   selector: 'urpg-stats',
   templateUrl: './stats.component.html',
   styleUrls: ['./stats.component.css']
 })
-export class StatsComponent implements AfterViewChecked, OnInit {
+export class StatsComponent implements OnInit {
 
   public tab:string;
   public member:Member;
   public sections:Section[];
 
   public resizeTimeout;
+
+  public pokemonDbid:number;
 
   @ViewChild('header', {static: false})
   header: ElementRef;
@@ -26,6 +30,8 @@ export class StatsComponent implements AfterViewChecked, OnInit {
 
   @ViewChild('menuBar', {static:false})
   menuBar: ElementRef;
+
+  StatsPage = StatsPage;
 
   constructor(private service : RestService,
     private renderer: Renderer2) { }
@@ -45,14 +51,24 @@ export class StatsComponent implements AfterViewChecked, OnInit {
   ngOnInit() {
   }
 
-  ngAfterViewChecked(): void {
+  /*ngAfterViewChecked(): void {
     this.updateContentPadding();
-  }
+  }*/
 
   showTab(tab: string) {
     this.tab = tab;
   }
 
+  doViewFullPokemon(pokemon:OwnedPokemon) {
+    this.pokemonDbid = pokemon.dbid;
+    this.tab = "PokemonFull";
+  }
+
+  doExitFullPokemon() {
+    this.pokemonDbid = undefined;
+    this.tab = StatsPage.POKEMON;
+  }
+/*
   @HostListener('window:resize')
   onWindowResize() {
       if (this.resizeTimeout) {
@@ -71,5 +87,5 @@ export class StatsComponent implements AfterViewChecked, OnInit {
       this.renderer.setStyle(this.menuBar.nativeElement, 'margin-top', `${height+56}px`);
     }
   }
-
+*/
 }

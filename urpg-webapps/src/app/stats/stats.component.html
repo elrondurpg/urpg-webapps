@@ -3,21 +3,31 @@
     <div class="row header" #header>
         <urpg-stats-header [trainer]="member"></urpg-stats-header>
     </div>
-    <div class="row content" #content>
-        <div class="col-md-4 col-xl-2 d-none d-md-flex fixed-top menubar" #menuBar>
-            <urpg-stats-menu-bar (tabChange)="showTab($event)"></urpg-stats-menu-bar>
+    <div class="row pt-2" #content>
+        <div class="col-md-4 col-xl-2 d-none d-md-flex" #menuBar>
+            <stats-sidebar 
+                [member]="member"
+                (change)="showTab($event)">
+            </stats-sidebar>
         </div>
-        <div class="col-md-4 col-xl-2 d-none d-md-flex" invisible>        </div>
-        <div class="col col-md-8 col-xl-10 background">
-            <urpg-pokemon-pane [hidden]="tab != 'pokemon'" [pokemon]="member.pokemon"></urpg-pokemon-pane>
-            <stats-inventory [member]="member" [hidden]="tab != 'inventory'"></stats-inventory>
+        <!--div class="col-md-4 col-xl-2 d-none d-md-flex" invisible>        </div-->
+        <div class="col col-md-8 col-xl-10">
+            <stats-pokemon-pane 
+                *ngIf="tab == StatsPage.POKEMON" [member]="member"
+                (viewFullPokemon)="doViewFullPokemon($event)"></stats-pokemon-pane>
+            <stats-pokemon-full-pane 
+                *ngIf="tab == 'PokemonFull'"
+                [dbid]="pokemonDbid"
+                (exit)="doExitFullPokemon()"></stats-pokemon-full-pane>
+
+            <!--stats-inventory [member]="member" [hidden]="tab != 'inventory'"></stats-inventory>
             <urpg-match-history-pane [member]="member" [hidden]="tab != 'match'"></urpg-match-history-pane>
-            <stats-gyms [gyms]="member.gyms" [hidden]="tab != 'gyms'"></stats-gyms>
+            <stats-gyms [gyms]="member.gyms" [hidden]="tab != 'gyms'"></stats-gyms-->
             <!--urpg-creations-pane [hidden]="tab != 'creations'"></urpg-creations-pane-->
             <!--urpg-characters-pane [hidden]="tab != 'characters'"></urpg-characters-pane-->
-            <stats-achievements [member]="member" [sections]="sections" [hidden]="tab != 'achievements'"></stats-achievements>
+            <!--stats-achievements [member]="member" [sections]="sections" [hidden]="tab != 'achievements'"></stats-achievements>
             <urpg-wishlist-pane [hidden]="tab != 'wishlist'"></urpg-wishlist-pane>
-            <urpg-change-log-pane [hidden]="tab != 'changelog'"></urpg-change-log-pane>
+            <urpg-change-log-pane [hidden]="tab != 'changelog'"></urpg-change-log-pane-->
         </div>
     </div>
 </div>

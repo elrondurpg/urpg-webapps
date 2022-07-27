@@ -1,5 +1,5 @@
 <div class="container-fluid">
-    <div class="row pt-2 filters" *ngIf="pokemon.length > 0">
+    <div class="row filters" *ngIf="member.pokemon.length > 0">
         <div class="col-12 col-lg-6 col-xl-4 p-2">
             <input class="form-control" type="text" placeholder="Filter by name or nickname" [(ngModel)]="nameFilter">
         </div>
@@ -16,22 +16,6 @@
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                     <div class="px-4 py-3">
-                        <div class="form-group">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="feCheck" [(ngModel)]="onlyShowFePokemon">
-                                <label class="form-check-label" for="feCheck">
-                                    Only show fully evolved Pokemon
-                                </label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="nfeCheck" [(ngModel)]="onlyShowNfePokemon">
-                                <label class="form-check-label" for="nfeCheck">
-                                    Only show NFE Pokemon
-                                </label>
-                            </div>
-                        </div>
                         <div class="form-group">
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="boxCheck" [(ngModel)]="onlyShowBoxPokemon">
@@ -66,8 +50,11 @@
             </div>
         </div>
     </div>
-    <div class="row" *ngIf="pokemon.length > 0">
-        <div class="my-2 d-flex col-12 col-lg-6 col-xl-4 py-2 px-xl-2 tag" *ngFor="let ownedPokemon of (pokemon | pokemonFilter: this); let i = index">
+    <div class="row" *ngIf="member.pokemon.length > 0">
+        <div 
+            class="my-2 d-flex col-12 col-lg-6 col-xl-4 py-2 px-xl-2 tag clickable" 
+            *ngFor="let ownedPokemon of (member.pokemon | pokemonFilter: this); let i = index"
+            (click)="doViewFullPokemon(ownedPokemon)">
             <div class="row mx-1 p-2 d-flex align-items-center border">
                 <div class="col d-flex align-items-center justify-content-center sprite">
                     <img height="96px" src="{{ getSpritePath(ownedPokemon) }}" alt="">
