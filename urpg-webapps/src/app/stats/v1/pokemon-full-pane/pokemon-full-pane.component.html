@@ -148,13 +148,13 @@
             <div 
                 *ngIf="pokemon"
                 class="row pt-2" 
-                [ngClass]="pokemon.earnedRibbons.length == 0 && pokemon.wishlistAbilities.length == 0 && pokemon.wishlistMoves.length == 0 ? 'pb-2' : ''">
+                [ngClass]="getDistinctRibbonTypes().size == 0 && pokemon.wishlistAbilities.length == 0 && pokemon.wishlistMoves.length == 0 ? 'pb-2' : ''">
                 <div class="col">
                     {{ getMoves() }} 
                 </div>
             </div>
 
-            <div class="row pt-2" *ngIf="pokemon && pokemon.earnedRibbons.length > 0">
+            <div class="row pt-2" *ngIf="pokemon && getDistinctRibbonTypes().size > 0">
                 <div class="col">
                     <strong>Ribbons</strong>
                 </div>
@@ -179,7 +179,7 @@
                 </div>
             </div>
             <div 
-                *ngIf="pokemon"
+                *ngIf="pokemon && pokemon.wishlistAbilities.length > 0"
                 class="row pt-2" 
                 [ngClass]="pokemon.wishlistMoves.length == 0 ? 'pb-2' : ''">
                 <div class="col">
@@ -193,7 +193,7 @@
                 </div>
             </div>
             <div 
-                *ngIf="pokemon"
+                *ngIf="pokemon && pokemon.wishlistMoves.length > 0"
                 class="row py-2">
                 <div class="col">
                     {{ getWishlistMoves() }} 

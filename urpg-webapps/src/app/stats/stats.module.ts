@@ -28,15 +28,18 @@ import { StatsComponent } from './stats.component';
 import { SidebarComponent } from './v1/sidebar/sidebar.component';
 import { WishlistPaneComponent } from './wishlist/wishlist-pane/wishlist-pane.component';
 import { PokemonFullPaneComponent } from './v1/pokemon-full-pane/pokemon-full-pane.component';
+import { PokemonEditPaneComponent } from './v1/pokemon-edit-pane/pokemon-edit-pane.component';
+import { ZydecoTs } from 'zydeco-ts';
 
 
 @NgModule({
-  declarations: [SidebarComponent, StatsComponent, StatsMenuBarComponent, StatsMenuTabComponent, ProfileInfoWidgetComponent, ProfileInfoPaneComponent, PokemonPaneComponent, InventoryComponent, MatchHistoryPaneComponent, CreationsPaneComponent, CharactersPaneComponent, WishlistPaneComponent, ChangeLogPaneComponent, StatsHeaderComponent, PokemonSearchBarComponent, PokemonFilterPipe, InventoryFilterComponent, InventoryComponent, GymsComponent, GymsFilterComponent, AchievementsComponent, StatsBadgesComponent, StatsLegendariesComponent, PokemonFullPaneComponent],
+  declarations: [SidebarComponent, StatsComponent, StatsMenuBarComponent, StatsMenuTabComponent, ProfileInfoWidgetComponent, ProfileInfoPaneComponent, PokemonPaneComponent, InventoryComponent, MatchHistoryPaneComponent, CreationsPaneComponent, CharactersPaneComponent, WishlistPaneComponent, ChangeLogPaneComponent, StatsHeaderComponent, PokemonSearchBarComponent, PokemonFilterPipe, InventoryFilterComponent, InventoryComponent, GymsComponent, GymsFilterComponent, AchievementsComponent, StatsBadgesComponent, StatsLegendariesComponent, PokemonFullPaneComponent, PokemonEditPaneComponent],
   imports: [
     CommonModule,
     FormsModule,
     SharedModule,
-    StatsRoutingModule
+    StatsRoutingModule,
+    ZydecoTs
   ],
   providers: [CurrencyPipe]
 })

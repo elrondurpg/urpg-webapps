@@ -14,6 +14,7 @@ export class PokemonPaneComponent implements OnInit {
 
   @Input() member!:Member;
   @Output() viewFullPokemon = new EventEmitter();
+  @Output() createPokemon   = new EventEmitter();
 
   spriteBase:string = environment.spriteBase;
   nameFilter:string = undefined;
@@ -45,6 +46,43 @@ export class PokemonPaneComponent implements OnInit {
 
   doViewFullPokemon(pokemon:OwnedPokemon) {
     this.viewFullPokemon.emit(pokemon);
+  }
+
+  doCreatePokemon() {
+    this.createPokemon.emit();
+  }
+
+  sortBySpecies(pokemon: OwnedPokemon[]) {
+    return pokemon.sort((a, b) => {
+      if (a.species.name < b.species.name) {
+        return -1;
+      }
+      else if (a.species.name == b.species.name) {
+        if (a.nickname && b.nickname) {
+          if (a.nickname < b.nickname) {
+            return -1;
+          }
+          else if (a.nickname == b.nickname) {
+            return a.gender < b.gender ? -1 : a.gender == b.gender ? 0 : 1;
+          }
+          else {
+            return 1;
+          }
+        }
+        else if (b.nickname) {
+          return -1;
+        }
+        else if (a.nickname) {
+          return 1;
+        }
+        else {
+          return a.gender < b.gender ? -1 : a.gender == b.gender ? 0 : 1;
+        }
+      }
+      else {
+        return 1;
+      }
+    });
   }
 
 }

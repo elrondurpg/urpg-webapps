@@ -12,26 +12,17 @@ import { WishlistMove } from "src/app/models/v1/stats/WishlistMove";
 import { WishlistMoveDelta } from "src/app/models/v1/stats/WishlistMoveDelta";
 import { BooleanAttributeDefinitionBuilder, ModelDefinition, NestedAttributeDefinitionBuilder, NumberAttributeDefinitionBuilder, SelectAttributeDefinitionBuilder, StringAttributeDefinitionBuilder } from "zydeco-ts";
 
-export class OwnedPokemonModelDefinitionBuilder {
+export class PokemonEditPaneModelDefinitionBuilder {
     static buildFirstPart(
         contestAttributeObservable:Observable<any>,
         contestRankObservable:Observable<any>,
         contestTypeObservable:Observable<any>,
-        memberObservable:Observable<any>,
         natureObservable:Observable<any>,
         obtainedObservable:Observable<any>,
         speciesObservable:Observable<any>,
         typeObservable:Observable<any>
     ) {
         return [
-            new SelectAttributeDefinitionBuilder()
-                .withTitle("Owner")
-                .withItemsFromObservable(memberObservable)
-                .withModelSelector("trainer.name")
-                .withDeltaSelector("trainer")
-                .withRequired(true)
-                .withUrlBase("/urpg-webapps/resources/members/")
-                .build(),
             new StringAttributeDefinitionBuilder() 
                 .withTitle("Nickname")
                 .withMaxLength(34)
@@ -47,6 +38,7 @@ export class OwnedPokemonModelDefinitionBuilder {
             new SelectAttributeDefinitionBuilder() 
                 .withTitle(GeneralConstants.GENDER_ATTRIBUTE_TITLE)
                 .withItems(["M", "F", "G"])
+                .withImmutable(true)
                 .withRequired(true)
                 .build(),
             new SelectAttributeDefinitionBuilder()
@@ -54,6 +46,7 @@ export class OwnedPokemonModelDefinitionBuilder {
                 .withItemsFromObservable(obtainedObservable)
                 .withModelSelector("obtained.name")
                 .withDeltaSelector("obtained")
+                .withImmutable(true)
                 .withRequired(true)
                 .build(),
             new StringAttributeDefinitionBuilder()
@@ -97,11 +90,6 @@ export class OwnedPokemonModelDefinitionBuilder {
                 .withTitle("Up for trade?")
                 .withModelSelector("uft")
                 .withDeltaSelector("uft")
-                .build(),
-            new BooleanAttributeDefinitionBuilder() 
-                .withTitle("Is a rental?")
-                .withModelSelector("rental")
-                .withDeltaSelector("rental")
                 .build(),
             new NestedAttributeDefinitionBuilder(EarnedRibbon, EarnedRibbonDelta)
                 .withTitle("Ribbons")

@@ -9,9 +9,9 @@
     function setSessionParams($session, $message) {
         if (isset($session)) {
             if (array_key_exists('accessToken', $session)) {
-                //error_log($message . ": " . session_id() . ": " . microtime(true) . ": about to set access token param for session; access token = " . $session['accessToken']);
+                error_log($message . ": " . session_id() . ": " . microtime(true) . ": about to set access token param for session; access token = " . $session['accessToken']);
                 $_SESSION['accessToken'] = $session['accessToken'];
-                //error_log($message . ": " . session_id() . ": " . microtime(true) . ": finished setting access token param for session; access token = " . $_SESSION['accessToken']);
+                error_log($message . ": " . session_id() . ": " . microtime(true) . ": finished setting access token param for session; access token = " . $_SESSION['accessToken']);
             }
 
             if (array_key_exists('id', $session)) {
@@ -28,17 +28,17 @@
         session_name(SESSION_NAME);
         exit_if_cookies_disabled();
         set_cookie_params($message);
-        //error_log($message . ": " . session_id() . ": " . microtime(true) . ": about to session_start");
+        error_log($message . ": " . session_id() . ": " . microtime(true) . ": about to session_start");
         session_start();
         if (isset($shouldRefreshAPISession) && $shouldRefreshAPISession == true) {
-            //error_log($message . ": " . session_id() . ": " . microtime(true) . ": about to session_regenerate_id");
+            error_log($message . ": " . session_id() . ": " . microtime(true) . ": about to session_regenerate_id");
             session_regenerate_id();
             refreshAPISession($message);
-            /* if (array_key_exists("accessToken", $_SESSION)) {
+            /* */ if (array_key_exists("accessToken", $_SESSION)) {
                 error_log($message . ": " . session_id() . ": " . microtime(true) . ": refreshed a session with access token " . $_SESSION['accessToken']);
             } //*/
         }
-        /*else if (array_key_exists("accessToken", $_SESSION)) {
+        /* */else if (array_key_exists("accessToken", $_SESSION)) {
             error_log($message . ": " . session_id() . ": " . microtime(true) . ": started a session with access token " . $_SESSION['accessToken']);
         }
         else {
@@ -55,9 +55,9 @@
 		if (isset($_SESSION)) {
 			if (array_key_exists('accessToken', $_SESSION)) {
 				$accessToken = $_SESSION['accessToken'];
-                //error_log($message . ": " . session_id() . ": " . microtime(true) . ": about to refresh a session with access token " . $_SESSION['accessToken']);
+                error_log($message . ": " . session_id() . ": " . microtime(true) . ": about to refresh a session with access token " . $_SESSION['accessToken']);
 			}
-            /*else {
+            /* */else {
                 error_log($message . ": " . session_id() . ": " . microtime(true) . ": about to refresh a session with blank access token");
             }// */
 
@@ -65,7 +65,7 @@
 				$id = $_SESSION['id'];
 			}
 		}
-        /*else {
+        /* */else {
             error_log($message . ": " . session_id() . ": " . microtime(true) . ": about to refresh a session with blank session");
         } // */
 
@@ -73,11 +73,11 @@
         $response = json_decode($response, true);
 
         if (isset($response) && (!isset($response['status']) || $response['status'] == 200)) {
-            //error_log($message . ": " . session_id() . ": " . microtime(true) . ": about to set params for session");
+            error_log($message . ": " . session_id() . ": " . microtime(true) . ": about to set params for session");
             setSessionParams($response, $message);
         }
         else {
-            //error_log($message . ": " . session_id() . ": " . microtime(true) . ": about to unset a session");
+            error_log($message . ": " . session_id() . ": " . microtime(true) . ": about to unset a session");
             if (isset($_SESSION)) {
                 unset($_SESSION['username']);
                 unset($_SESSION['id']);
@@ -99,7 +99,7 @@
         $path = $cookieParams["path"];
         $secure = $_SERVER['WEB_SECURE'];
         $httponly = false;
-        //error_log($message . ": " . session_id() . ": " . microtime(true) . ": about to set cookie params: " . $lifetime . ", " . $path . ", " . HOST . ", " . $secure . ", " . $httponly);
+        error_log($message . ": " . session_id() . ": " . microtime(true) . ": about to set cookie params: " . $lifetime . ", " . $path . ", " . HOST . ", " . $secure . ", " . $httponly);
         session_set_cookie_params($lifetime, $path, HOST, $secure, $httponly);
     }
 ?>

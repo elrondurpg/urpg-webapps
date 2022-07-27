@@ -9,7 +9,7 @@
 
     $rand = rand(100000000, 999999999);
     error_log($rand);
-    sec_session_start($rand, true);
+    sec_session_start($rand . ", refresh", true);
     if (isset($_SESSION)) {
         if (array_key_exists('accessToken', $_SESSION) &&
             array_key_exists('id', $_SESSION) &&

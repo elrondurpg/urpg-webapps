@@ -12,29 +12,31 @@ import { environment } from 'src/environments/environment';
 })
 export class PokemonFullPaneComponent implements OnInit {
 
-  @Input() dbid!:number;
+  @Input() dbid!    :number;
+  @Input() pokemon  :OwnedPokemon = null;
   @Output() exit = new EventEmitter();
+  @Output() edit = new EventEmitter();
 
   modelBase:string = environment.modelBase;
-
-  pokemon:OwnedPokemon;
 
   constructor(private service:RestService) { }
 
   ngOnInit(): void {
-    console.log("Loading pokemon with DBID " + this.dbid);
-    this.service.get(ApiConstants.OWNED_POKEMON_API, this.dbid).subscribe(pokemon => {
-      this.pokemon = plainToClass(OwnedPokemon, pokemon);
-      console.log(this.pokemon);
-    });
+    if (this.pokemon == null) {
+      console.log("Loading pokemon with DBID " + this.dbid);
+      this.service.get(ApiConstants.OWNED_POKEMON_API, this.dbid).subscribe(pokemon => {
+        this.pokemon = plainToClass(OwnedPokemon, pokemon);
+        console.log(this.pokemon);
+      });
+    }
   }
 
   doExit() {
-    this.exit.emit();
+    this.exit.emit(this.pokemon);
   }
 
   doEdit() {
-
+    this.edit.emit(this.pokemon);
   }
 
   getModelPath() {
@@ -81,7 +83,10 @@ export class PokemonFullPaneComponent implements OnInit {
   }
 
   getDistinctRibbonTypes() {
-    return new Set(this.pokemon.earnedRibbons.map(record => record.generation.name + " " + record.rank.name + " " + record.attribute.name).sort());
+    return new Set(this.pokemon.earnedRibbons
+        .filter(record => record.quantity > 0)
+        .map(record => record.generation.name + " " + record.rank.name + " " + record.attribute.name)
+        .sort());
   }
 
   getRibbonTypeQuantity(ribbonType) {

@@ -14,11 +14,19 @@
         <div class="col col-md-8 col-xl-10">
             <stats-pokemon-pane 
                 *ngIf="tab == StatsPage.POKEMON" [member]="member"
-                (viewFullPokemon)="doViewFullPokemon($event)"></stats-pokemon-pane>
+                (viewFullPokemon)="doViewFullPokemon($event)"
+                (createPokemon)="doCreatePokemon()"></stats-pokemon-pane>
             <stats-pokemon-full-pane 
                 *ngIf="tab == 'PokemonFull'"
                 [dbid]="pokemonDbid"
-                (exit)="doExitFullPokemon()"></stats-pokemon-full-pane>
+                [pokemon]="pokemon"
+                (exit)="doExitFullPokemon($event)"
+                (edit)="doEditPokemon($event)"></stats-pokemon-full-pane>
+            <stats-pokemon-edit-pane
+                *ngIf="tab == 'PokemonEdit'"
+                [pokemon]="pokemon"
+                [trainer]="member.name"
+                (exit)="doExitEditPokemon($event)"></stats-pokemon-edit-pane>
 
             <!--stats-inventory [member]="member" [hidden]="tab != 'inventory'"></stats-inventory>
             <urpg-match-history-pane [member]="member" [hidden]="tab != 'match'"></urpg-match-history-pane>

@@ -25,4 +25,13 @@ export class OwnedPokemonDelta extends UrpgObjectModel {
     rental:boolean;
     wishlistAbilities:WishlistAbilityDelta[] = [];
     wishlistMoves:WishlistMoveDelta[] = [];
+
+    override getDisplayName(): string {
+        let displayName = '';
+        if (this.nickname != null && this.nickname.trim() != '') {
+            displayName += this.nickname + " the ";
+        }
+        displayName += this.species + " (" + this.gender + ")";
+        return displayName;
+    }
 }

@@ -1,9 +1,14 @@
 <div class="container-fluid">
     <div class="row filters" *ngIf="member.pokemon.length > 0">
-        <div class="col-12 col-lg-6 col-xl-4 p-2">
+        <div class="col-12 col-xl-2 p-2">
+            <div class="btn btn-primary form-control" (click)="doCreatePokemon()">
+                New +
+            </div>
+        </div>
+        <div class="col-12 col-lg-6 col-xl-3 p-2">
             <input class="form-control" type="text" placeholder="Filter by name or nickname" [(ngModel)]="nameFilter">
         </div>
-        <div class="col-12 col-lg-6 col-xl-4 p-2">
+        <div class="col-12 col-lg-6 col-xl-3 p-2">
             <select class="form-control" [(ngModel)]="typeFilter">
                 <option selected value="undefined"> -- Filter by type -- </option>
                 <option *ngFor="let type of types" [value]="type">{{ type }}</option>
@@ -53,7 +58,7 @@
     <div class="row" *ngIf="member.pokemon.length > 0">
         <div 
             class="my-2 d-flex col-12 col-lg-6 col-xl-4 py-2 px-xl-2 tag clickable" 
-            *ngFor="let ownedPokemon of (member.pokemon | pokemonFilter: this); let i = index"
+            *ngFor="let ownedPokemon of sortBySpecies(member.pokemon | pokemonFilter: this); let i = index"
             (click)="doViewFullPokemon(ownedPokemon)">
             <div class="row mx-1 p-2 d-flex align-items-center border">
                 <div class="col d-flex align-items-center justify-content-center sprite">
@@ -62,7 +67,7 @@
                 <div class="col py-2">
                     <div class="row">
                         <div class="col d-flex align-items-center">
-                            {{ i + 1 }}. {{ ownedPokemon.nickname != "" ? ownedPokemon.nickname + " the " : "" }}{{ ownedPokemon.species.displayName }}&nbsp;
+                            {{ i + 1 }}. {{ ownedPokemon.nickname && ownedPokemon.nickname.trim() != "" ? ownedPokemon.nickname + " the " : "" }}{{ ownedPokemon.species.displayName }}&nbsp;
                         </div>
                     </div>
                     <div class="row">
