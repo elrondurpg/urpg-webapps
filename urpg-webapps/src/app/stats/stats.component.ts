@@ -52,10 +52,6 @@ export class StatsComponent implements OnInit {
   ngOnInit() {
   }
 
-  /*ngAfterViewChecked(): void {
-    this.updateContentPadding();
-  }*/
-
   showTab(tab: string) {
     this.pokemonDbid = undefined;
     this.pokemon = undefined;
@@ -107,24 +103,4 @@ export class StatsComponent implements OnInit {
       this.tab = StatsPage.POKEMON;
     }
   }
-/*
-  @HostListener('window:resize')
-  onWindowResize() {
-      if (this.resizeTimeout) {
-        clearTimeout(this.resizeTimeout);
-      }
-      this.resizeTimeout = setTimeout((() => {
-        this.updateContentPadding();
-        
-      }).bind(this), 500);
-  }
-
-  updateContentPadding() {
-    if (this.header !== undefined) {
-      let height = this.header.nativeElement.offsetHeight;
-      this.renderer.setStyle(this.content.nativeElement, 'margin-top', `${height}px`);
-      this.renderer.setStyle(this.menuBar.nativeElement, 'margin-top', `${height+56}px`);
-    }
-  }
-*/
 }

@@ -13,6 +13,6 @@ import { CollapsibleMessageComponent } from './collapsible-message/collapsible-m
     CommonModule,
     FormsModule
   ],
-  exports: [ SiteHeaderComponent ]
+  exports: [ CollapsibleMessageComponent, SiteHeaderComponent ]
 })
 export class SharedModule { }

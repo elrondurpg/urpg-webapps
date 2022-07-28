@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { plainToClass } from 'class-transformer';
 import { map, Observable, Subscription, tap } from 'rxjs';
@@ -8,6 +8,7 @@ import { Species } from 'src/app/models/v1/species/Species';
 import { OwnedPokemon } from 'src/app/models/v1/stats/OwnedPokemon';
 import { OwnedPokemonDelta } from 'src/app/models/v1/stats/OwnedPokemonDelta';
 import { ResourceComponent } from 'src/app/resources/v1/lib/resource/resource.component';
+import { CollapsibleMessageComponent } from 'src/app/shared/collapsible-message/collapsible-message.component';
 import { environment } from 'src/environments/environment';
 import { ModelDefinition, SelectAttributeDefinition } from 'zydeco-ts';
 import { PokemonEditPaneModelDefinitionBuilder } from './PokemonEditPaneModelDefinitionBuilder';
@@ -29,6 +30,10 @@ export class PokemonEditPaneComponent extends ResourceComponent<OwnedPokemon, Ow
           ownerFilter         :string         = undefined;
           modelBase           :string         = environment.modelBase;
           species             :Species        = null;
+
+
+  @ViewChild('message', {static: false})
+  message!: CollapsibleMessageComponent;
 
   constructor(
     protected route:ActivatedRoute
@@ -180,6 +185,27 @@ export class PokemonEditPaneComponent extends ResourceComponent<OwnedPokemon, Ow
     }
     else {
       return `${this.modelBase}${this.species.dexno}${this.species.getSuffix()}.gif`;
+    }
+  }
+
+  override showErrorMessage(error:any) {
+    this.message.clear();
+    if (error.error == null) {
+      if (error.status == 401) {
+        this.message.showError(`Pokemon could not be ${this.editType}d. Error: The current user is not logged in or does not have permission to perform the requested action.`);
+      }
+      else {
+        this.message.showError(`Pokemon could not be ${this.editType}d. Error: ${error.status} ${error.statusText}`);
+      }
+    }
+    else if (error.error.errors !== undefined) {
+      let messages = error.error.errors.map((message:any) => {
+        return `Field "${message.field}": ${message.defaultMessage}.`;
+      });
+      this.message.showErrorArray(`Pokemon could not be ${this.editType}d.`, messages);
+    }
+    else {
+      this.message.showError(`Pokemon could not be ${this.editType}d. Error: ${error.error.message}`);
     }
   }
 }
