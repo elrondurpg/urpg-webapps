@@ -19,7 +19,7 @@ export class ResourceComponent<ModelClass extends UrpgObjectModel, DeltaClass ex
 
   public items           :any[]               = [];
   public complex         :boolean             = false;
-  public breadcrumbs     :Breadcrumb[]        = [new Breadcrumb("test", "Dashboard"), new Breadcrumb("urpg-webapps/resources/", "Configuration")];
+  public breadcrumbs     :Breadcrumb[]        = [new Breadcrumb("test", "Dashboard"), new Breadcrumb("/urpg-webapps/resources/", "Configuration")];
   public modelDefinition :ModelDefinition     = new ModelDefinition([]);
   public api             :string              = "";
   public editType        :string              = "update";

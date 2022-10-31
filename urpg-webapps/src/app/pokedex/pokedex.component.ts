@@ -4,6 +4,7 @@ import { plainToClass } from 'class-transformer';
 import { ActivatedRoute } from '@angular/router';
 import { RestService } from '../services/v1/rest.service';
 import { ApiConstants } from '../constants/ApiConstants';
+import { Member } from '../models/v1/member/Member';
 
 @Component({
   selector: 'urpg-pokedex',

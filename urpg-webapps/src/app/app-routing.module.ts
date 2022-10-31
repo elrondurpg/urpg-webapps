@@ -14,11 +14,7 @@ const routes: Routes = [
   {
     path: 'resources',
     loadChildren: () => import('./resources/resources.module').then(m => m.ResourcesModule)
-  }/*,
-  {
-    path: '**',
-    loadChildren: () => import('./resources/resources.module').then(m => m.ResourcesModule)
-  }*/
+  }
 ];
 
 @NgModule({

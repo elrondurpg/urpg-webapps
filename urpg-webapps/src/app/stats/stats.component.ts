@@ -6,6 +6,7 @@ import { RestService } from '../services/v1/rest.service';
 import { ApiConstants } from '../constants/ApiConstants';
 import { StatsPage } from '../constants/StatsPage';
 import { OwnedPokemon } from '../models/v1/stats/OwnedPokemon';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'urpg-stats',
@@ -31,18 +32,21 @@ export class StatsComponent implements OnInit {
 
   StatsPage = StatsPage;
 
-  constructor(private service : RestService,
+  constructor(private route:ActivatedRoute,
+    private service : RestService,
     private renderer: Renderer2) { }
 
   userLoaded() {
-    this.service.get(ApiConstants.MEMBER_API, "Elrond", null).subscribe(member => {
-      this.member = plainToClass(Member, member);
-      console.log("Printed from stats/stats.component.ts:");
-      console.log(this.member);
-
-      
-    this.tab = "PokemonFull";
-    this.pokemonDbid = 218;
+    this.route.params.subscribe(params => {
+      this.service.get(ApiConstants.MEMBER_API, params['name'], null).subscribe(member => {
+        this.member = plainToClass(Member, member);
+        console.log("Printed from stats/stats.component.ts:");
+        console.log(this.member);
+  
+      this.tab = StatsPage.POKEMON;  
+      //this.tab = "PokemonFull";
+      //this.pokemonDbid = 218;
+      });
     });
     this.service.get(ApiConstants.SECTION_API).subscribe((sections : Section[]) => {
       this.sections = plainToClass(Section, sections);

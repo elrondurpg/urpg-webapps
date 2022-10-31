@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 import { PokedexComponent } from './pokedex.component';
 import { PokedexRoutingModule } from './pokedex-routing.module';
 import { EvolutionComponent } from './evolution/evolution.component';
@@ -33,7 +34,8 @@ import { ContestOrasComponent } from './moves/move-hints/contest-oras/contest-or
   imports: [
     CommonModule,
     PokedexRoutingModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ]
 })
 export class PokedexModule { }

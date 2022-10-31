@@ -8,7 +8,7 @@ import { Breadcrumb } from 'zydeco-ts';
 })
 export class ResourcesComponent implements OnInit {
 
-  public breadcrumbs:Breadcrumb[] = [new Breadcrumb("test", "Dashboard"), new Breadcrumb("urpg-webapps/resources/", "Configuration")];
+  public breadcrumbs:Breadcrumb[] = [new Breadcrumb("test", "Dashboard"), new Breadcrumb("/urpg-webapps/resources/", "Configuration")];
 
   routes = [
     { category: "Pokemon", title: "Abilities", url: "abilities" },

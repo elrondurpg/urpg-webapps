@@ -19,7 +19,7 @@
         </div>
         <div class="row px-3" *ngFor="let route of getRoutesByCategory(category)">
             <div class="col py-2 border-right border-left border-bottom">
-                <a [href]="'urpg-webapps/resources/' + route.url">{{ route.title }}</a>
+                <a [href]="'/urpg-webapps/resources/' + route.url">{{ route.title }}</a>
             </div>
         </div>
         <br />
