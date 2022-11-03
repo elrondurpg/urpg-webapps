@@ -32,7 +32,7 @@ export class AbilityComponent extends ResourceComponent<Ability, AbilityDelta> i
       new StringAttributeDefinitionBuilder()
         .withTitle("Description")
         .withMinLength(3)
-        .withMaxLength(25)
+        .withMaxLength(160)
         .build()
     ]);
   }
