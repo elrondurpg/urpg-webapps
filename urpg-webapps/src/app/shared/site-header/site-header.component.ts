@@ -1,7 +1,9 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { SessionService } from 'src/app/services/v1/security/session.service';
+import { Standalone } from 'src/app/standalone/Standalone';
 
+@Standalone('urpg-site-header')
 @Component({
   selector: 'urpg-site-header',
   templateUrl: './site-header.component.html',
@@ -48,5 +50,4 @@ export class SiteHeaderComponent implements OnInit {
       }
     )
   }
-
 }

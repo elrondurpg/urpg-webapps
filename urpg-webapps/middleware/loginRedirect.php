@@ -7,7 +7,7 @@
     <head>
         <meta charset="utf-8">
         <title ng-bind="$root.title">Pokemon URPG Infohub</title>
-        <link rel="stylesheet" href="/pokemonurpg-dot-com/app.style.css" />
+        <link rel="stylesheet" href="https://pokemonurpg.com/pokemonurpg-dot-com/app.style.css" />
         <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800' rel='stylesheet' type='text/css'>
         <link rel="icon" type="image/png" href="https://pokemonurpg.com/img/wooper.png" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">

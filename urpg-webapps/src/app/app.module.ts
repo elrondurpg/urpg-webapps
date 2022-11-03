@@ -8,10 +8,12 @@ import { APP_BASE_HREF } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
 import { ZydecoTs } from 'zydeco-ts';
+import { StandaloneDirective } from './standalone/standalone.directive';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    StandaloneDirective
   ],
   imports: [
     BrowserModule,

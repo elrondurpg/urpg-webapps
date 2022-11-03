@@ -5,17 +5,9 @@
 export const environment = {
   production: false,
   name: "DEV",
-  host: "http://dev.pokemonurpg.com",
-  api:"http://dev.pokemonurpg.com:8080",
-  sessionApi: "http://dev.pokemonurpg.com/urpg-middleware",
-  imageBase:"https://pokemonurpg.com/img",
+  sessionApi: "http://dev.pokemonurpg.com/api",
+  imageBase:"https://dev.pokemonurpg.com/img",
   spriteBase: "https://pokemonurpg.com/img/sprites/",
   iconBase: "https://pokemonurpg.com/img/icons/",
-  modelBase: "https://pokemonurpg.com/img/models/",
-  oauth2ClientID: "992917009945866332",
-  oauth2Url: "https://discordapp.com/api/oauth2/authorize",
-  oauth2ResponseType: "code",
-  oauth2Scope: "identify",
-  oauth2RedirectUrl: "http://dev.pokemonurpg.com/urpg-middleware/loginRedirect.php",
-  prefix: "staging-"
+  modelBase: "https://pokemonurpg.com/img/models/"
 };

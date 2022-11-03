@@ -29,12 +29,12 @@ export class SessionService {
     this.http.post(SessionService.AUTH_STATE_API, new LoginRequest(state, returnUrl), SessionService.WITH_CREDENTIALS_OPTIONS).subscribe(
       response => {
         window.location.href = 
-          environment.oauth2Url + 
-          "?response_type=" + environment.oauth2ResponseType + 
-          "&client_id=" + environment.oauth2ClientID + 
-          "&scope=" + environment.oauth2Scope + 
+          response['oauth2Url'] + 
+          "?response_type=" + response['oauth2ResponseType'] + 
+          "&client_id=" + response['oauth2ClientId'] + 
+          "&scope=" + response['oauth2Scope'] + 
           "&state=" + state + 
-          "&redirect_uri=" + environment.oauth2RedirectUrl
+          "&redirect_uri=" + response['oauth2RedirectUri']
       },
       error => {
         // do some error handling

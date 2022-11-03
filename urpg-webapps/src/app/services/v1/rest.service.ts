@@ -14,15 +14,15 @@ export class RestService {
   ) { }
 
   get(resource:string, pathParams?: string[] | number | string, queryParams?:{ key:string, value:any }[]):Observable<any> {
-    return this.sessionService.sendAuthenticatedRequest("GET", environment.api + resource + this.buildPathParams(pathParams) + this.buildQueryString(queryParams));
+    return this.sessionService.sendAuthenticatedRequest("GET", resource + this.buildPathParams(pathParams) + this.buildQueryString(queryParams));
   }
 
   post(resource:string, pathParams?: string[] | number | string, payload?:UrpgObjectModel):Observable<any> {
-    return this.sessionService.sendAuthenticatedRequest("POST", environment.api + resource + this.buildPathParams(pathParams), payload);
+    return this.sessionService.sendAuthenticatedRequest("POST", resource + this.buildPathParams(pathParams), payload);
   }
 
   put(resource:string, pathParams?: string[] | number | string, payload?:UrpgObjectModel):Observable<any> {
-    return this.sessionService.sendAuthenticatedRequest("PUT", environment.api + resource + this.buildPathParams(pathParams), payload);
+    return this.sessionService.sendAuthenticatedRequest("PUT", resource + this.buildPathParams(pathParams), payload);
   }
 
   buildPathParams(pathParams?: string[] | number | string) {
