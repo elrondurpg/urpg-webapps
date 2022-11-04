@@ -28,7 +28,9 @@ export class AppModule {
   static injector: Injector;
   static useRouting = false;
   private bootstrapped = false;
-  constructor() {}
+  constructor(injector: Injector) {
+    AppModule.injector = injector;
+  }
 
   ngDoBootstrap(appRef: ApplicationRef) {
     this.tryBootstrap(appRef, AppComponent, 'urpg-root');
