@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SessionService } from 'src/app/services/v1/security/session.service';
 import { ActivatedRoute } from '@angular/router';
+import { AppModule } from 'src/app/app.module';
 
 @Component({
   selector: 'urpg-login-modal',
@@ -17,7 +18,8 @@ export class LoginModalComponent implements OnInit {
   }
 
   login() {
-    this.sessionService.login("urpg-webapps" + this.route['_routerState'].snapshot.url);
+    let prefix = AppModule.useRouting ? "urpg-webapps" : "";
+    this.sessionService.login(prefix + this.route['_routerState'].snapshot.url);
   }
 
 }
