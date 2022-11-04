@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   name: "DEV",
-  sessionApi: "http://dev.pokemonurpg.com/api",
+  sessionApi: "https://dev.pokemonurpg.com/urpg-middleware",
   imageBase:"https://dev.pokemonurpg.com/img",
   spriteBase: "https://pokemonurpg.com/img/sprites/",
   iconBase: "https://pokemonurpg.com/img/icons/",
