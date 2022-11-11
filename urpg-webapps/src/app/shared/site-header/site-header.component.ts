@@ -36,6 +36,9 @@ export class SiteHeaderComponent implements OnInit {
 
   search() {
     let url = `/${this.searchType}/${this.searchText}`;
+    
+    // We check this condition because the Site Header is a component that can be bootstrapped
+    // without the router enabled. In those cases, we want to navigate with window.location.
     if (AppModule.useRouting) {
       this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => this.router.navigate([url]));
     }

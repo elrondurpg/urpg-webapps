@@ -30,10 +30,12 @@ import { WishlistPaneComponent } from './wishlist/wishlist-pane/wishlist-pane.co
 import { PokemonFullPaneComponent } from './v1/pokemon-full-pane/pokemon-full-pane.component';
 import { PokemonEditPaneComponent } from './v1/pokemon-edit-pane/pokemon-edit-pane.component';
 import { ZydecoTs } from 'zydeco-ts';
+import { HomeComponent } from './v1/home/home.component';
 
 
 @NgModule({
-  declarations: [SidebarComponent, StatsComponent, StatsMenuBarComponent, StatsMenuTabComponent, ProfileInfoWidgetComponent, ProfileInfoPaneComponent, PokemonPaneComponent, InventoryComponent, MatchHistoryPaneComponent, CreationsPaneComponent, CharactersPaneComponent, WishlistPaneComponent, ChangeLogPaneComponent, StatsHeaderComponent, PokemonSearchBarComponent, PokemonFilterPipe, InventoryFilterComponent, InventoryComponent, GymsComponent, GymsFilterComponent, AchievementsComponent, StatsBadgesComponent, StatsLegendariesComponent, PokemonFullPaneComponent, PokemonEditPaneComponent],
+  declarations: [
+    SidebarComponent, StatsComponent, StatsMenuBarComponent, StatsMenuTabComponent, ProfileInfoWidgetComponent, ProfileInfoPaneComponent, PokemonPaneComponent, InventoryComponent, MatchHistoryPaneComponent, CreationsPaneComponent, CharactersPaneComponent, WishlistPaneComponent, ChangeLogPaneComponent, StatsHeaderComponent, PokemonSearchBarComponent, PokemonFilterPipe, InventoryFilterComponent, InventoryComponent, GymsComponent, GymsFilterComponent, AchievementsComponent, StatsBadgesComponent, StatsLegendariesComponent, PokemonFullPaneComponent, PokemonEditPaneComponent, HomeComponent],
   imports: [
     CommonModule,
     FormsModule,

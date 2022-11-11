@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Member } from '../models/v1/member/Member';
 import { plainToClass } from 'class-transformer';
 import { Section } from '../models/v1/general/Section';
@@ -7,6 +7,7 @@ import { ApiConstants } from '../constants/ApiConstants';
 import { StatsPage } from '../constants/StatsPage';
 import { OwnedPokemon } from '../models/v1/stats/OwnedPokemon';
 import { ActivatedRoute } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'urpg-stats',
@@ -34,12 +35,15 @@ export class StatsComponent implements OnInit {
 
   constructor(private route:ActivatedRoute,
     private service : RestService,
-    private renderer: Renderer2) { }
+    private titleService:Title) {
+
+    }
 
   userLoaded() {
     this.route.params.subscribe(params => {
       this.service.get(ApiConstants.MEMBER_API, params['name'], null).subscribe(member => {
         this.member = plainToClass(Member, member);
+        this.titleService.setTitle(member.name + "'s Stats : URPG");
         console.log("Printed from stats/stats.component.ts:");
         console.log(this.member);
   

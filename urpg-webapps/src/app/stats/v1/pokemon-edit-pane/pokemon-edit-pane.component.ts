@@ -7,7 +7,7 @@ import { GeneralConstants } from 'src/app/constants/GeneralConstants';
 import { Species } from 'src/app/models/v1/species/Species';
 import { OwnedPokemon } from 'src/app/models/v1/stats/OwnedPokemon';
 import { OwnedPokemonDelta } from 'src/app/models/v1/stats/OwnedPokemonDelta';
-import { ResourceComponent } from 'src/app/resources/v1/lib/resource/resource.component';
+import { ConfigurationComponent } from 'src/app/configuration/v1/lib/configuration/configuration.component';
 import { CollapsibleMessageComponent } from 'src/app/shared/collapsible-message/collapsible-message.component';
 import { environment } from 'src/environments/environment';
 import { ModelDefinition, SelectAttributeDefinition } from 'zydeco-ts';
@@ -18,7 +18,7 @@ import { PokemonEditPaneModelDefinitionBuilder } from './PokemonEditPaneModelDef
   templateUrl: './pokemon-edit-pane.component.html',
   styleUrls: ['./pokemon-edit-pane.component.css']
 })
-export class PokemonEditPaneComponent extends ResourceComponent<OwnedPokemon, OwnedPokemonDelta> implements OnDestroy, OnInit {
+export class PokemonEditPaneComponent extends ConfigurationComponent<OwnedPokemon, OwnedPokemonDelta> implements OnDestroy, OnInit {
 
   @Input() trainer! :string;
   @Input() pokemon! :OwnedPokemon;

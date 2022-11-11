@@ -5,16 +5,16 @@ import { AppComponent } from './app.component';
 
 const routes: Routes = [
   {
-    path: 'stats/:name',
+    path: 'stats',
     loadChildren: () => import('./stats/stats.module').then(m => m.StatsModule)
   },
   {
-    path: 'pokemon/:name',
+    path: 'pokemon',
     loadChildren: () => import('./pokedex/pokedex.module').then(m => m.PokedexModule)
   },
   {
-    path: 'resources',
-    loadChildren: () => import('./resources/resources.module').then(m => m.ResourcesModule)
+    path: 'configuration',
+    loadChildren: () => import('./configuration/configuration.module').then(m => m.ConfigurationModule)
   },
   { path: '**', pathMatch: 'full', component: AppComponent }
 ];
