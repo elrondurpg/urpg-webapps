@@ -8,21 +8,21 @@
     (create)="create(itemInContext)"
     (save)="save()"
     (load)="load($event, itemInContext)"></zydeco-header>
-    <div class="container">
-        <div class="container py-3 border-left border-right">
-            <div class="row">
-                <div class="col">
-                    <select class="form-control" [(ngModel)]="ownerFilter" [disabled]="members.length == 0">
-                        <option selected value="undefined" hidden>Select a member to view or edit their Pokemon</option>
-                        <option *ngFor="let item of members.sort()" [value]="item">{{ item }}</option>
-                    </select>
-                </div>
-                <div class="col">
-                    <button type="submit" class="btn btn-primary btn-block" (click)="loadItems()" [disabled]="members.length == 0">Load Pokemon For Member</button>
-                </div>
+<div class="container">
+    <div class="container py-3 border-left border-right">
+        <div class="row">
+            <div class="col">
+                <select class="form-control" [(ngModel)]="ownerFilter" [disabled]="members.length == 0">
+                    <option selected value="undefined" hidden>Select a member to view or edit their Pokemon</option>
+                    <option *ngFor="let item of members.sort()" [value]="item">{{ item }}</option>
+                </select>
+            </div>
+            <div class="col">
+                <button type="submit" class="btn btn-primary btn-block" (click)="loadItems()" [disabled]="members.length == 0">Load Pokemon For Member</button>
             </div>
         </div>
     </div>
+</div>
     
 <zydeco-attributes *ngIf="loaded"
     [editType]="editType"

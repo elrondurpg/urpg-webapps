@@ -65,6 +65,7 @@ export class OwnedPokemonComponent extends ConfigurationComponent<OwnedPokemon, 
     if (this.ownerName != null) {
       this.service.get(this.api, null, [{ key: "owner", value: this.ownerName }]).subscribe((items : OwnedPokemon[]) => {
         this.items = plainToClass(OwnedPokemon, items);
+        console.log(this.items);
       });
     }
   }
@@ -103,14 +104,14 @@ export class OwnedPokemonComponent extends ConfigurationComponent<OwnedPokemon, 
 
   createModelDefinition() {
     this.modelDefinition = new ModelDefinition(OwnedPokemonModelDefinitionBuilder.buildFirstPart(
-      this.service.get(ApiConstants.CONTEST_ATTR_API),
-      this.service.get(ApiConstants.CONTEST_RANK_API),
-      this.service.get(ApiConstants.CONTEST_TYPE_API),
+      this.configureNameObservableForApi(ApiConstants.CONTEST_ATTR_API),
+      this.configureNameObservableForApi(ApiConstants.CONTEST_RANK_API),
+      this.configureNameObservableForApi(ApiConstants.CONTEST_TYPE_API),
       this.service.get(ApiConstants.MEMBER_API, null, [ {key: "bot", value: "false"} ]),
-      this.service.get(ApiConstants.NATURE_API),
-      this.service.get(ApiConstants.CAPTURE_METHOD_API),
-      this.service.get(ApiConstants.SPECIES_API, null, [ {key: "ownable", value: "true"} ]),
-      this.service.get(ApiConstants.TYPE_API)));
+      this.configureNameObservableForApi(ApiConstants.NATURE_API),
+      this.configureNameObservableForApi(ApiConstants.CAPTURE_METHOD_API),
+      this.configureNameObservableForApi(ApiConstants.SPECIES_API, null, [ {key: "ownable", value: "true"} ]),
+      this.configureNameObservableForApi(ApiConstants.TYPE_API)));
   }
 
   override onChange(attribute:string) {
@@ -151,7 +152,7 @@ export class OwnedPokemonComponent extends ConfigurationComponent<OwnedPokemon, 
             )
           )
         :
-        this.service.get(ApiConstants.ATTACK_API)
+        this.configureNameObservableForApi(ApiConstants.ATTACK_API)
     ));
     this.resetAvailableGenders(speciesObservable);
   }

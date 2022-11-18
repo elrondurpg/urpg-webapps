@@ -1,11 +1,13 @@
 import { Component, Inject, OnInit, ViewChild } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { plainToClass } from 'class-transformer';
+import { plainToClass, plainToClassFromExist } from 'class-transformer';
+import { map, Observable } from 'rxjs';
 import { AppModule } from 'src/app/app.module';
 import { UrpgObjectModel } from 'src/app/models/v1/UrpgObjectModel';
 import { RestService } from 'src/app/services/v1/rest.service';
 import { AttributesComponent, Breadcrumb, HeaderComponent, ModelDefinition } from 'zydeco-ts';
+import { Page } from '../model/Page';
 
 @Component({
   selector: 'urpg-configuration',
@@ -154,6 +156,17 @@ export class ConfigurationComponent<ModelClass extends UrpgObjectModel, DeltaCla
   }
 
   onChange(attribute:string) {
+  }
+
+  configureNameObservableForApi(api:string, pathParams?: string[] | number | string, queryParams?:{ key:string, value:any }[]) : Observable<any> {
+    return this.service.get(api, pathParams, queryParams).pipe(
+      map(
+        items => {
+          let page = plainToClassFromExist(new Page<UrpgObjectModel>(UrpgObjectModel), items);
+          return items.content.map(item => item.name);
+        }
+      )
+    )
   }
 
 }
