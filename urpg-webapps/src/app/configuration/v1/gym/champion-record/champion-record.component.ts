@@ -5,7 +5,9 @@ import { ApiConstants } from 'src/app/constants/ApiConstants';
 import { BooleanAttributeDefinitionBuilder, DateAttributeDefinitionBuilder, ModelDefinition, NumberAttributeDefinitionBuilder, SelectAttributeDefinitionBuilder } from 'zydeco-ts';
 import { ChampionRecordDelta } from 'src/app/models/v1/gym/ChampionRecordDelta';
 import { ChampionRecord } from 'src/app/models/v1/gym/ChampionRecord';
-import { plainToClass } from 'class-transformer';
+import { plainToClass, plainToClassFromExist } from 'class-transformer';
+import { UrpgObjectModel } from 'src/app/models/v1/UrpgObjectModel';
+import { Page } from '../../lib/model/Page';
 
 @Component({
   selector: 'configuration-champion-record',
@@ -64,8 +66,9 @@ export class ChampionRecordComponent extends ConfigurationComponent<ChampionReco
   }
 
   loadItems() {
-    this.service.get(this.api).subscribe((items : ChampionRecord[]) => {
-      this.items = plainToClass(ChampionRecord, items);
+    this.service.get(this.api).subscribe(items => {
+      let page = plainToClassFromExist(new Page<UrpgObjectModel>(UrpgObjectModel), items);
+      this.items = page.content.map(item => item.getDisplayName());
       console.log(this.items);
     });
   }

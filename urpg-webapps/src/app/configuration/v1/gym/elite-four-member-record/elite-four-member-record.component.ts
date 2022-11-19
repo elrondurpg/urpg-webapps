@@ -3,9 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import { ConfigurationComponent } from '../../lib/configuration/configuration.component';
 import { ApiConstants } from 'src/app/constants/ApiConstants';
 import { BooleanAttributeDefinitionBuilder, DateAttributeDefinitionBuilder, ModelDefinition, NumberAttributeDefinitionBuilder, SelectAttributeDefinitionBuilder } from 'zydeco-ts';
-import { plainToClass } from 'class-transformer';
+import { plainToClass, plainToClassFromExist } from 'class-transformer';
 import { EliteFourMemberRecord } from 'src/app/models/v1/gym/EliteFourMemberRecord';
 import { EliteFourMemberRecordDelta } from 'src/app/models/v1/gym/EliteFourMemberRecordDelta';
+import { UrpgObjectModel } from 'src/app/models/v1/UrpgObjectModel';
+import { Page } from '../../lib/model/Page';
 
 @Component({
   selector: 'configuration-champion-record',
@@ -64,8 +66,9 @@ export class EliteFourMemberRecordComponent extends ConfigurationComponent<Elite
   }
 
   loadItems() {
-    this.service.get(this.api).subscribe((items : EliteFourMemberRecord[]) => {
-      this.items = plainToClass(EliteFourMemberRecord, items);
+    this.service.get(this.api).subscribe(items => {
+      let page = plainToClassFromExist(new Page<UrpgObjectModel>(UrpgObjectModel), items);
+      this.items = page.content.map(item => item.getDisplayName());
       console.log(this.items);
     });
   }

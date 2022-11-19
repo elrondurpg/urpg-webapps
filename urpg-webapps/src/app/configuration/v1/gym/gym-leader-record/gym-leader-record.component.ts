@@ -5,7 +5,9 @@ import { ApiConstants } from 'src/app/constants/ApiConstants';
 import { BooleanAttributeDefinitionBuilder, DateAttributeDefinitionBuilder, ModelDefinition, NumberAttributeDefinitionBuilder, SelectAttributeDefinitionBuilder, StringAttributeDefinitionBuilder } from 'zydeco-ts';
 import { GymLeaderRecord } from 'src/app/models/v1/gym/GymLeaderRecord';
 import { GymLeaderRecordDelta } from 'src/app/models/v1/gym/GymLeaderRecordDelta';
-import { plainToClass } from 'class-transformer';
+import { plainToClass, plainToClassFromExist } from 'class-transformer';
+import { Page } from '../../lib/model/Page';
+import { UrpgObjectModel } from 'src/app/models/v1/UrpgObjectModel';
 
 @Component({
   selector: 'configuration-gym-leader-record',
@@ -75,8 +77,9 @@ export class GymLeaderRecordComponent extends ConfigurationComponent<GymLeaderRe
   }
 
   loadItems() {
-    this.service.get(this.api).subscribe((items : GymLeaderRecord[]) => {
-      this.items = plainToClass(GymLeaderRecord, items);
+    this.service.get(this.api).subscribe(items => {
+      let page = plainToClassFromExist(new Page<UrpgObjectModel>(UrpgObjectModel), items);
+      this.items = page.content.map(item => item.getDisplayName());
       console.log(this.items);
     });
   }

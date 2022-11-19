@@ -25,9 +25,9 @@ export class MemberComponent extends ConfigurationComponent<Member, MemberDelta>
     this.modelDefinition = MemberModelDefinitionBuilder.build(
       this.service.get(ApiConstants.GYM_API),
       this.service.get(ApiConstants.GYM_LEAGUE_API),
-      this.service.get(ApiConstants.KNOWN_CHAMPION_API),
-      this.service.get(ApiConstants.KNOWN_E4_MEMBER_API),
-      this.service.get(ApiConstants.KNOWN_GYM_LEADER_API),
+      this.configureNameObservableForApi(ApiConstants.KNOWN_CHAMPION_API),
+      this.configureNameObservableForApi(ApiConstants.KNOWN_E4_MEMBER_API),
+      this.configureNameObservableForApi(ApiConstants.KNOWN_GYM_LEADER_API),
       this.service.get(ApiConstants.ITEM_API),
       this.service.get(ApiConstants.ROLE_API), 
       this.service.get(ApiConstants.SECTION_API));

@@ -163,7 +163,7 @@ export class ConfigurationComponent<ModelClass extends UrpgObjectModel, DeltaCla
       map(
         items => {
           let page = plainToClassFromExist(new Page<UrpgObjectModel>(UrpgObjectModel), items);
-          return items.content.map(item => item.name);
+          return page.content.map(item => item.name);
         }
       )
     )

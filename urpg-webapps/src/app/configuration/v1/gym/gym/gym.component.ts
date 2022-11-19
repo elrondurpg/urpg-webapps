@@ -32,7 +32,7 @@ export class GymComponent extends ConfigurationComponent<Gym, GymDelta> implemen
       new SelectAttributeDefinitionBuilder()
         .withTitle("Badge")
         .withModelSelector("badge.name")
-        .withItemsFromObservable(this.service.get(ApiConstants.BADGE_API))
+        .withItemsFromObservable(this.configureNameObservableForApi(ApiConstants.BADGE_API))
         .withRequired(true)
         .build(),
       new SelectAttributeDefinitionBuilder()

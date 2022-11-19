@@ -24,12 +24,12 @@ export class SpeciesComponent extends ConfigurationComponent<Species, SpeciesDel
     super.userLoaded();
     this.modelDefinition = SpeciesModelDefinitionBuilder.build(
       this.configureNameObservableForApi(ApiConstants.ABILITY_API),
-      this.service.get(ApiConstants.ART_RANK_API),
+      this.configureNameObservableForApi(ApiConstants.ART_RANK_API),
       this.configureNameObservableForApi(ApiConstants.ATTACK_API),
-      this.service.get(ApiConstants.PARK_LOCATION_API),
-      this.service.get(ApiConstants.PARK_RANK_API),
+      this.configureNameObservableForApi(ApiConstants.PARK_LOCATION_API),
+      this.configureNameObservableForApi(ApiConstants.PARK_RANK_API),
       this.configureNameObservableForApi(ApiConstants.SPECIES_API),
-      this.service.get(ApiConstants.STORY_RANK_API),
+      this.configureNameObservableForApi(ApiConstants.STORY_RANK_API),
       this.configureNameObservableForApi(ApiConstants.TYPE_API)
     );
   }
