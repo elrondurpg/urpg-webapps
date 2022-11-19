@@ -66,14 +66,14 @@ export class AttackComponent extends ConfigurationComponent<Attack, AttackDelta>
         .withTitle("Damage Type")
         .withModelSelector("category.name")
         .withDeltaSelector("category")
-        .withItemsFromObservable(this.service.get(ApiConstants.ATTACK_CATEGORY_API))
+        .withItemsFromObservable(this.configureNameObservableForApi(ApiConstants.ATTACK_CATEGORY_API))
         .withRequired(true)
         .build(),
       new SelectAttributeDefinitionBuilder()
         .withTitle("Targeting Strategy")
         .withModelSelector("target.name")
         .withDeltaSelector("target")
-        .withItemsFromObservable(this.service.get(ApiConstants.ATTACK_TARGET_TYPE_API))
+        .withItemsFromObservable(this.configureNameObservableForApi(ApiConstants.ATTACK_TARGET_TYPE_API))
         .withRequired(true)
         .build(),
       new BooleanAttributeDefinitionBuilder()

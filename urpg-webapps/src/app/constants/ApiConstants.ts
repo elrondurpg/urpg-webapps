@@ -1,9 +1,9 @@
 export class ApiConstants {
     static readonly ABILITY_API                 = "/configuration/v1/pokemon/ability";
     static readonly ART_RANK_API                = "/artRank";
-    static readonly ATTACK_API                  = "/configuration/v1//attack/attack";
-    static readonly ATTACK_CATEGORY_API         = "/attackcategory";
-    static readonly ATTACK_TARGET_TYPE_API      = "/attacktargettype";
+    static readonly ATTACK_API                  = "/configuration/v1/attack/attack";
+    static readonly ATTACK_CATEGORY_API         = "/configuration/v1/attack/category";
+    static readonly ATTACK_TARGET_TYPE_API      = "/configuration/v1/attack/target";
     static readonly BADGE_API                   = "/badge";
     static readonly CAPTURE_METHOD_API          = "/configuration/v1/pokemon/capture-method";
     static readonly CHAMPION_SLOT_API           = "/champion";
